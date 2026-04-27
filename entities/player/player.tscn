@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dykrdcthqd03o"]
+
+[ext_resource type="Script" uid="uid://ytabb8umc6va" path="res://entities/player/player.gd" id="1_symyc"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_abrql"]
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_symyc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(3, 5)
+scale = Vector2(6, 10)
+texture = SubResource("CanvasTexture_abrql")

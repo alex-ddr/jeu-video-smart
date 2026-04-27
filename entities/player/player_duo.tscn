@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://buk0b6k7thffd"]
+
+[ext_resource type="Script" uid="uid://d1dlt7x7v5t1e" path="res://entities/player/player_duo.gd" id="1_v6fml"]
+[ext_resource type="PackedScene" uid="uid://dykrdcthqd03o" path="res://entities/player/player.tscn" id="2_lq2ei"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3li8b"]
+size = Vector2(6, 10)
+
+[node name="PlayerDuo" type="CharacterBody2D"]
+script = ExtResource("1_v6fml")
+
+[node name="p1_collision" type="CollisionShape2D" parent="."]
+position = Vector2(3, 5)
+shape = SubResource("RectangleShape2D_3li8b")
+debug_color = Color(0, 0.63, 0.441, 0.788235)
+
+[node name="p2_collision" type="CollisionShape2D" parent="."]
+position = Vector2(49, 5)
+shape = SubResource("RectangleShape2D_3li8b")
+
+[node name="Player1" parent="." instance=ExtResource("2_lq2ei")]
+
+[node name="Player2" parent="." instance=ExtResource("2_lq2ei")]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(46, 0)
+action_left = "p2_left"
+action_right = "p2_right"
+action_up = "p2_up"
+action_down = "p2_down"
+
+[node name="Line2D" type="Line2D" parent="."]
+width = 5.0
+default_color = Color(1.29953e-06, 0.640103, 0.362678, 1)
