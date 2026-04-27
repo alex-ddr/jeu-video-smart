@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://w2liqivc6ui6"]
+
+[ext_resource type="Script" uid="uid://k6qtb0erkgrj" path="res://ui/Levels/levels.gd" id="1_8mavb"]
+
+[node name="Levels" type="Control" unique_id=1867424599]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8mavb")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=294826528]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=2109466064]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=560376642]
+layout_mode = 2
+text = "Sélection du niveau"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=1172350659]
+layout_mode = 2
+
+[node name="niv1" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=539774036]
+layout_mode = 2
+text = "Niveau 1"
+
+[node name="niv2" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=2101577680]
+layout_mode = 2
+text = "Niveau 2"
+
+[node name="Retour" type="Button" parent="CenterContainer/VBoxContainer" unique_id=180910235]
+layout_mode = 2
+text = "Retour"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/niv1" to="." method="_on_niveau_pressed" binds= [0]]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/niv2" to="." method="_on_niveau_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Retour" to="." method="_on_retour_pressed"]

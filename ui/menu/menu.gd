@@ -1,7 +1,7 @@
 extends Control
 
-const LEVEL_SELECT_SCENE = preload("res://ui/menus/level_select/LevelSelect.tscn")
-const CREDITS_SCENE = preload("res://ui/menus/credits/Credits.tscn")
+const LEVEL_SELECT_SCENE = preload("res://ui/Levels/levels.tscn")
+const CREDITS_SCENE = preload("res://ui/credits/crédits.tscn")
 const FIRST_LEVEL = preload("res://levels/Level_01.tscn")
 
 func _on_jouer_pressed() -> void:

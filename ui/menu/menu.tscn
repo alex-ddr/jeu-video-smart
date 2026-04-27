@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://c51die6cbbg07"]
+
+[ext_resource type="Script" uid="uid://db77iuepeaitv" path="res://ui/menu/menu.gd" id="1_v6ljw"]
+
+[node name="Menu" type="Control" unique_id=33860001]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v6ljw")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1708899116]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1198376868]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=217555742]
+layout_mode = 2
+text = "Trampoball"
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer" unique_id=1062685597]
+layout_mode = 2
+
+[node name="Jouer" type="Button" parent="CenterContainer/VBoxContainer" unique_id=399458218]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Jouer"
+
+[node name="Niveaux" type="Button" parent="CenterContainer/VBoxContainer" unique_id=709612043]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Niveau"
+
+[node name="Crédits" type="Button" parent="CenterContainer/VBoxContainer" unique_id=517791188]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Crédits"
+
+[node name="Quitter" type="Button" parent="CenterContainer/VBoxContainer" unique_id=977168162]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Quitter"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Jouer" to="." method="_on_jouer_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Niveaux" to="." method="_on_niveaux_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Crédits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Quitter" to="." method="_on_quitter_pressed"]
