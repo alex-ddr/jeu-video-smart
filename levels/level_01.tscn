@@ -33,8 +33,24 @@ texture = ExtResource("1_mckh2")
 4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_78awf"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_cpr0p")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mckh2"]
+
+[sub_resource type="Gradient" id="Gradient_81a5f"]
+offsets = PackedFloat32Array(0, 0.20433436, 0.25386998, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 0.43529412, 0.43529412, 0.43529412, 0, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gg43x"]
+gradient = SubResource("Gradient_81a5f")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_mllcm"]
+diffuse_texture = SubResource("GradientTexture2D_gg43x")
 
 [node name="Game" type="Node2D" unique_id=1589479972]
 
@@ -50,3 +66,16 @@ position_smoothing_enabled = true
 
 [node name="Player" parent="." unique_id=407785087 instance=ExtResource("2_81a5f")]
 position = Vector2(-69, 2)
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=871088006]
+position = Vector2(-44, -24)
+collision_layer = 2
+collision_mask = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=825809592]
+shape = SubResource("CircleShape2D_mckh2")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" unique_id=1293383535]
+scale = Vector2(1.0312499, 1.0312498)
+texture = SubResource("CanvasTexture_mllcm")
