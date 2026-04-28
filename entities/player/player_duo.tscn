@@ -22,5 +22,3 @@ action_jump = "p2_jump"
 width = 5.0
 default_color = Color(1.29953e-06, 0.640103, 0.362678, 1)
 script = ExtResource("3_imtb5")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Line2D" unique_id=1188249875]
