@@ -50,5 +50,3 @@ position_smoothing_enabled = true
 
 [node name="Player" parent="." unique_id=407785087 instance=ExtResource("2_81a5f")]
 position = Vector2(-69, 2)
-
-[node name="test-git" type="Node" parent="." unique_id=2028365883]
