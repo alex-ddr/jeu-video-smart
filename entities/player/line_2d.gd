@@ -1,6 +1,7 @@
 extends Line2D
 const ROPE_RESOLUTION: int = 13        # Nombre de segments dans la corde
-var body : AnimatableBody2D = AnimatableBody2D.new()
+var body : AnimatableBody2D
+
 func _init_segments() -> void :
 	assert(ROPE_RESOLUTION % 2 != 0, "Rope resolution must be an odd number.")
 	clear_points()
@@ -9,14 +10,16 @@ func _init_segments() -> void :
 		
 		
 func _init_collisions() -> void : 
+	body = AnimatableBody2D.new()
+
 	body.set_collision_layer_value(2, true) 
 	body.set_collision_mask_value(2, true) 
 
 	add_child(body)
 	for i in points.size() - 1:
-		var new_shape = CollisionShape2D.new()
+		var new_shape : CollisionShape2D = CollisionShape2D.new()
 		body.add_child(new_shape)
-		var segment = SegmentShape2D.new()
+		var segment : SegmentShape2D = SegmentShape2D.new()
 		segment.a = points[i]
 		segment.b = points[i + 1]
 		new_shape.shape = segment
@@ -25,7 +28,7 @@ func _init_collisions() -> void :
 		
 func _update_collisions() -> void :
 	for i in body.get_children().size():
-		var current_seg = body.get_child(i).segment
+		var current_seg = body.get_child(i).shape
 		current_seg.a = points[i]
 		current_seg.b = points[i + 1]
 
@@ -34,5 +37,5 @@ func _process(_delta : float) -> void :
 
 func init() -> void : 
 	_init_segments()
-	_update_collisions()
+	_init_collisions()
 	
