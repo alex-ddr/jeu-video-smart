@@ -75,6 +75,13 @@ p2_jump={
 ]
 }
 
+[layer_names]
+
+2d_render/layer_1="players"
+2d_render/layer_2="world"
+2d_render/layer_3="rope"
+2d_render/layer_4="ball"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
