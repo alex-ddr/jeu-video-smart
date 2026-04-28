@@ -6,6 +6,8 @@
 size = Vector2(1, 1)
 
 [node name="Player" type="CharacterBody2D" unique_id=788349418]
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_symyc")
 
 [node name="Body" type="Polygon2D" parent="." unique_id=64913045]

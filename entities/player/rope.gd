@@ -12,7 +12,7 @@ const DAMPENING: float = 0.98
 const ITERATIONS: int = 5
 
 const SEGMENT_LAYER = 4 # bit 3 = layer 3
-const COLLIDER_RADIUS: float = 2.0
+const COLLIDER_RADIUS: float = 1.0
 
 # --------------------------- Variables ---------------------------
 var pos: Array = []
@@ -81,18 +81,29 @@ func _setup_colliders(num_segments: int) -> void:
 		c.queue_free()
 	_colliders.clear()
 
-	for i in num_segments:
-		var area = Area2D.new()
-		area.collision_layer = SEGMENT_LAYER
-		area.collision_mask = 0
+	var total = num_segments + (num_segments - 1)
+	for i in total:
+		var body = AnimatableBody2D.new()
+		body.collision_layer = 4 # rope
+		body.collision_mask = 1 | 8 # world && ball
+		body.sync_to_physics = false
 		var shape = CollisionShape2D.new()
 		shape.shape = CircleShape2D.new()
 		shape.shape.radius = COLLIDER_RADIUS
-		area.add_child(shape)
-		add_child(area)
-		_colliders.append(area)
+		body.add_child(shape)
+		add_child(body)
+		_colliders.append(body)
 
 func _update_collider_positions(points: Array) -> void:
-	for i in _colliders.size():
-		if i < points.size():
-			_colliders[i].global_position = points[i]
+	var collider_idx = 0
+	for i in points.size():
+		var delta = points[i] - _colliders[collider_idx].global_position
+		_colliders[collider_idx].move_and_collide(delta)
+		pos[i] = _colliders[collider_idx].global_position
+		collider_idx += 1
+
+		if i < points.size() - 1:
+			var mid = (points[i] + points[i + 1]) * 0.5
+			var delta_mid = mid - _colliders[collider_idx].global_position
+			_colliders[collider_idx].move_and_collide(delta_mid)
+			collider_idx += 1

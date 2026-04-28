@@ -16,6 +16,7 @@ action_left = "p2_left"
 action_right = "p2_right"
 action_up = "p2_up"
 action_down = "p2_down"
+action_launch = "p2_launch"
 action_jump = "p2_jump"
 
 [node name="Rope" parent="." unique_id=1903907641 instance=ExtResource("3_imtb5")]

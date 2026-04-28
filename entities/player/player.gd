@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var action_right: String = "p1_right"
 @export var action_up: String = "p1_up"
 @export var action_down: String = "p1_down"
+@export var action_launch: String = "p1_launch"
 @export var action_jump: String = "p1_jump"
 
 # --------------------------- Onready ---------------------------
@@ -13,25 +14,28 @@ extends CharacterBody2D
 @onready var collision: CollisionShape2D = $CollisionShape2D
 
 # --------------------------- Signals ---------------------------
-signal jump_released(force: float)
+signal launch_released(force: float)
 
 
 # --------------------------- Constants ---------------------------
+# Size
 const MIN_HEIGHT: float = 3.0
 const MAX_HEIGHT: float = 30.0
-const MAX_JUMP_FORCE: float = 400.0
+const MAX_LAUNCH_FORCE: float = 400.0
 
 # Stretch size (up/down) : linear move_toward 
 const SIZE_SPEED: float = 30.0
 
-# Jump charge : hard spring
-const JUMP_CHARGE_STIFFNESS: float = 15.0
-const JUMP_CHARGE_DAMPING: float = 10.0
+# Launch charge : hard spring
+const LAUNCH_CHARGE_STIFFNESS: float = 15.0
+const LAUNCH_CHARGE_DAMPING: float = 10.0
 
-# Jump release : fast spring
-const JUMP_RELEASE_STIFFNESS: float = 700.0
-const JUMP_RELEASE_DAMPING: float = 20.0
+# Launch release : fast spring
+const LAUNCH_RELEASE_STIFFNESS: float = 700.0
+const LAUNCH_RELEASE_DAMPING: float = 20.0
 
+# Jump
+const JUMP_VELOCITY: float = -200.0
 
 # --------------------------- Variables ---------------------------
 var desired_direction: float = 0.0
@@ -40,9 +44,9 @@ var width: float = 6.0
 var height: float = 10.0
 var height_velocity: float = 0.0
 
-var jump_charge_start_height: float = 0.0
-var pending_jump_force: float = 0.0
-var is_releasing_jump: bool = false
+var launch_charge_start_height: float = 0.0
+var pending_launch_force: float = 0.0
+var is_releasing_launch: bool = false
 var release_target_height: float = 0.0
 
 func _ready() -> void:
@@ -53,7 +57,7 @@ func _physics_process(delta: float) -> void:
 	_apply_gravity(delta)
 	_read_input()
 	_update_stretch(delta)
-	_compute_jump()
+	_compute_launch()
 	_sync_collision()
 	_sync_visuals()
 	move_and_slide()
@@ -68,7 +72,8 @@ func _apply_gravity(delta: float) -> void:
 # --------------------------- Inputs ---------------------------
 func _read_input() -> void:
 	desired_direction = Input.get_axis(action_left, action_right)
-
+	if Input.is_action_just_pressed(action_jump) and is_on_floor():
+		velocity.y = JUMP_VELOCITY
 
 # --------------------------- Stretch ---------------------------
 func _get_size_target() -> float:
@@ -78,34 +83,34 @@ func _get_size_target() -> float:
 		return MIN_HEIGHT
 	return height
 
-func _get_jump_charge_target() -> float:
-	if Input.is_action_just_pressed(action_jump):
-		jump_charge_start_height = height
+func _get_launch_charge_target() -> float:
+	if Input.is_action_just_pressed(action_launch):
+		launch_charge_start_height = height
 	return MIN_HEIGHT
 
 # ça évite de pouvoir faire les deux stretch en même temps
 func _get_stretch_target() -> float:
-	if is_releasing_jump:
+	if is_releasing_launch:
 		return release_target_height
-	if Input.is_action_pressed(action_jump) and is_on_floor():
-		return _get_jump_charge_target()
+	if Input.is_action_pressed(action_launch) and is_on_floor():
+		return _get_launch_charge_target()
 	return _get_size_target()
 
 
 func _update_stretch(delta: float) -> void:
 	var target = _get_stretch_target()
 
-	if is_releasing_jump:
-		var spring_force = (target - height) * JUMP_RELEASE_STIFFNESS
-		height_velocity += (spring_force - height_velocity * JUMP_RELEASE_DAMPING) * delta
+	if is_releasing_launch:
+		var spring_force = (target - height) * LAUNCH_RELEASE_STIFFNESS
+		height_velocity += (spring_force - height_velocity * LAUNCH_RELEASE_DAMPING) * delta
 		height += height_velocity * delta
 		# Pas de clamp ici — on laisse dépasser pour le rebond
 		# On clamp seulement en dessous (le piston ne peut pas disparaître)
 		height = max(height, MIN_HEIGHT)
 
-	elif Input.is_action_pressed(action_jump) and is_on_floor():
-		var spring_force = (target - height) * JUMP_CHARGE_STIFFNESS
-		height_velocity += (spring_force - height_velocity * JUMP_CHARGE_DAMPING) * delta
+	elif Input.is_action_pressed(action_launch) and is_on_floor():
+		var spring_force = (target - height) * LAUNCH_CHARGE_STIFFNESS
+		height_velocity += (spring_force - height_velocity * LAUNCH_CHARGE_DAMPING) * delta
 		height += height_velocity * delta
 		height = clamp(height, MIN_HEIGHT, MAX_HEIGHT)
 
@@ -117,25 +122,25 @@ func _update_stretch(delta: float) -> void:
 		height = clamp(height, MIN_HEIGHT, MAX_HEIGHT)
 
 
-# --------------------------- Jump ---------------------------
-func _compute_jump() -> void:
-	if Input.is_action_just_released(action_jump) and is_on_floor():
+# --------------------------- Launch ---------------------------
+func _compute_launch() -> void:
+	if Input.is_action_just_released(action_launch) and is_on_floor():
 		var retraction_ratio = clamp(
-			inverse_lerp(jump_charge_start_height, MIN_HEIGHT, height + 0.1),
+			inverse_lerp(launch_charge_start_height, MIN_HEIGHT, height + 0.1),
 			0.0, 1.0
 		)
-		pending_jump_force = retraction_ratio * MAX_JUMP_FORCE
+		pending_launch_force = retraction_ratio * MAX_LAUNCH_FORCE
 
-		is_releasing_jump = true
-		release_target_height = jump_charge_start_height
-		emit_signal("jump_released", pending_jump_force)
+		is_releasing_launch = true
+		release_target_height = launch_charge_start_height
+		emit_signal("launch_released", pending_launch_force)
 	else:
-		pending_jump_force = 0.0
+		pending_launch_force = 0.0
 
-	if is_releasing_jump and abs(height_velocity) < 0.5 and abs(height - release_target_height) < 1.0:
+	if is_releasing_launch and abs(height_velocity) < 0.5 and abs(height - release_target_height) < 1.0:
 		height = release_target_height
 		height_velocity = 0.0
-		is_releasing_jump = false
+		is_releasing_launch = false
 
 
 # --------------------------- Sync ---------------------------
