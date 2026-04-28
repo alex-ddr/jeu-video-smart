@@ -10,7 +10,7 @@ const WEIGHT_CURVE: float = 2.0
 const MAX_ROPE_DISTANCE: float = 120.0  # Distance max avant tension
 const ROPE_REST_LENGTH: float = 60.0    # Distance à laquelle elle commence à pendre
 const ROPE_SAG_AMPLITUDE: float = 40.0 # Profondeur max de la courbe
-const ROPE_RESOLUTION: int = 4        # Nombre de segments dans la corde
+const ROPE_RESOLUTION: int = 13        # Nombre de segments dans la corde
 
 const ROPE_IDEAL_LENGTH: float = 80.0  # Distance à partir de laquelle la corde tire
 const SPRING_STIFFNESS: float = 1200.0 # Force du rappel (plus c'est haut, plus c'est rigide)

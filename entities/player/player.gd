@@ -136,6 +136,10 @@ func _compute_jump() -> void:
 		height = release_target_height
 		height_velocity = 0.0
 		is_releasing_jump = false
+		
+	if pending_jump_force > 0.0:
+		velocity.y = -pending_jump_force
+		pending_jump_force = 0.0
 
 
 # --------------------------- Sync ---------------------------
