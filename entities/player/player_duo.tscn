@@ -1,14 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://buk0b6k7thffd"]
+[gd_scene format=3 uid="uid://buk0b6k7thffd"]
 
 [ext_resource type="Script" uid="uid://d1dlt7x7v5t1e" path="res://entities/player/player_duo.gd" id="1_v6fml"]
 [ext_resource type="PackedScene" uid="uid://dykrdcthqd03o" path="res://entities/player/player.tscn" id="2_lq2ei"]
+[ext_resource type="Script" uid="uid://gpxywwi2vgbn" path="res://entities/player/line_2d.gd" id="3_imtb5"]
 
-[node name="PlayerDuo" type="Node2D"]
+[node name="PlayerDuo" type="Node2D" unique_id=31474618]
 script = ExtResource("1_v6fml")
 
-[node name="Player1" parent="." instance=ExtResource("2_lq2ei")]
+[node name="Player1" parent="." unique_id=1421869322 instance=ExtResource("2_lq2ei")]
 
-[node name="Player2" parent="." instance=ExtResource("2_lq2ei")]
+[node name="Player2" parent="." unique_id=814473820 instance=ExtResource("2_lq2ei")]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(46, 0)
 action_left = "p2_left"
@@ -17,6 +18,9 @@ action_up = "p2_up"
 action_down = "p2_down"
 action_jump = "p2_jump"
 
-[node name="Line2D" type="Line2D" parent="."]
+[node name="Line2D" type="Line2D" parent="." unique_id=106646281]
 width = 5.0
 default_color = Color(1.29953e-06, 0.640103, 0.362678, 1)
+script = ExtResource("3_imtb5")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Line2D" unique_id=1188249875]
