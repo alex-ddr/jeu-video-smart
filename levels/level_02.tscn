@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://qdnr3k3vr7k3"]
+
+[ext_resource type="PackedScene" uid="uid://dy0umk4ua73ox" path="res://levels/map_01.tscn" id="1_nnn84"]
+[ext_resource type="PackedScene" uid="uid://buk0b6k7thffd" path="res://entities/player/player_duo.tscn" id="2_8yqd8"]
+[ext_resource type="PackedScene" uid="uid://bykqjm2j5oxkr" path="res://entities/ball/ball.tscn" id="3_h518d"]
+
+[node name="game" type="Node2D" unique_id=1870065197]
+
+[node name="PlayerDuo" parent="." unique_id=1186042514 instance=ExtResource("2_8yqd8")]
+position = Vector2(87, -302)
+
+[node name="Ball" parent="." unique_id=1522748028 instance=ExtResource("3_h518d")]
+position = Vector2(105, -1078)
+
+[node name="test-git" type="Node" parent="." unique_id=1833890070]
+
+[node name="TileMap" type="TileMap" parent="." unique_id=172695980]
+format = 2
+
+[node name="TileMapLayer" parent="TileMap" unique_id=28175068 instance=ExtResource("1_nnn84")]
