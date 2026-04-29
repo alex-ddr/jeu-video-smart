@@ -18,6 +18,10 @@ config/name="Jeu Video Spikeball"
 run/main_scene="uid://dnr7phsi0melx"
 config/features=PackedStringArray("4.6", "Forward Plus")
 
+[autoload]
+
+Global="*uid://cbya6jpp0qpkk"
+
 [dotnet]
 
 project/assembly_name="Jeu Video Spikeball"

@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://dpimmjxmkpn0m"]
 
-[ext_resource type="TileSet" path="res://assets/RessourcesGraphisme/fond.tres" id="1_l4clo"]
+[ext_resource type="TileSet" uid="uid://d2hj4o4x1p60i" path="res://assets/TitleSet/background_double.tres" id="1_l4clo"]
 
 [node name="background" type="Node2D" unique_id=1567205257]
 
