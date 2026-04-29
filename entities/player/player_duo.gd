@@ -48,13 +48,15 @@ func _get_players_direction() -> Vector2 :
 func _get_rope_tension() -> float :
 	return _get_players_distance() / rope.ROPE_MAX_LENGTH
 
+# --------------------------- Launch Force ---------------------------
+
+# rope tension & pillar force have an influence on the launch vector
 func _get_launch_vector() -> Vector2 :
-	var launch_percent = ROPE_TENSION_INFLUENCE_ON_LAUNCH * _get_rope_tension() + PILLARS_INFLUENCE_ON_LAUNCH * (p1.get_normalized_force() + p2.get_normalized_force())/2
+	var tension_part = ROPE_TENSION_INFLUENCE_ON_LAUNCH * _get_rope_tension() 
+	var pillars_part = PILLARS_INFLUENCE_ON_LAUNCH * (p1.get_normalized_force() + p2.get_normalized_force())/2
+	var launch_percent = tension_part + pillars_part
 	var launch_force = launch_percent * MAX_LAUNCH_FORCE
 	return launch_force * rope.get_normal_vector()
-	
-	
-# --------------------------- Launch Force ---------------------------
 
 # --------------------------- Horizontal movement ---------------------------
 
