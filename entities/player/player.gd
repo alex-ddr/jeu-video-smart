@@ -22,7 +22,7 @@ const MAX_HEIGHT: float = 30.0
 const MAX_JUMP_FORCE: float = 400.0
 
 # Stretch size (up/down) : linear move_toward 
-const SIZE_SPEED: float = 30.0
+const SIZE_SPEED: float = 300.0
 
 # Jump charge : hard spring
 const JUMP_CHARGE_STIFFNESS: float = 15.0

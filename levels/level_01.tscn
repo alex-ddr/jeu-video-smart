@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://t4i5ibl1xkep" path="res://levels/map_01.tscn" id="3_81a5f"]
 [ext_resource type="PackedScene" uid="uid://dpimmjxmkpn0m" path="res://assets/BackGround/backgroundCiel.tscn" id="3_gg43x"]
 [ext_resource type="PackedScene" uid="uid://bbl44w74iuc6f" path="res://entities/pickups/star.tscn" id="4_gg43x"]
+[ext_resource type="PackedScene" uid="uid://dg43pb7us31ti" path="res://bee.tscn" id="6_cg8v6"]
+[ext_resource type="PackedScene" uid="uid://d0rkeu0nf6ns6" path="res://ui.tscn" id="6_q7ibo"]
 
 [node name="Game" type="Node2D" unique_id=1589479972]
 
@@ -12,16 +14,9 @@
 [node name="TileMapLayer" parent="TileMap" unique_id=28175068 instance=ExtResource("3_81a5f")]
 
 [node name="Player" parent="." unique_id=407785087 instance=ExtResource("2_81a5f")]
+visible = false
 z_index = 6
 position = Vector2(-61, -37)
-
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1034333771]
-position = Vector2(61, 37)
-zoom = Vector2(0.4, 0.4)
-position_smoothing_enabled = true
-
-[node name="Node2D" parent="." unique_id=1567205257 instance=ExtResource("3_gg43x")]
-position = Vector2(-1754, -174)
 
 [node name="stars" type="Node" parent="." unique_id=986624371]
 
@@ -33,3 +28,22 @@ position = Vector2(-1216, 320)
 
 [node name="star3" parent="stars" unique_id=1834191255 instance=ExtResource("4_gg43x")]
 position = Vector2(2224, -752)
+
+[node name="bee" parent="." unique_id=402097593 instance=ExtResource("6_cg8v6")]
+position = Vector2(-368, -96)
+
+[node name="Camera2D" type="Camera2D" parent="bee" unique_id=1034333771]
+position = Vector2(49.55716, -109.70804)
+rotation = -0.0019709491
+scale = Vector2(14.85584, -2.8598526)
+zoom = Vector2(0.5, 0.5)
+position_smoothing_enabled = true
+
+[node name="background" parent="." unique_id=1567205257 instance=ExtResource("3_gg43x")]
+position = Vector2(-1776, -432)
+
+[node name="UI" parent="." unique_id=1452071461 instance=ExtResource("6_q7ibo")]
+offset_left = -320.0
+offset_top = -1392.0
+offset_right = -320.0
+offset_bottom = -1392.0

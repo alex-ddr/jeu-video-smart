@@ -1,14 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://dykrdcthqd03o"]
+[gd_scene format=3 uid="uid://dykrdcthqd03o"]
 
 [ext_resource type="Script" uid="uid://ytabb8umc6va" path="res://entities/player/player.gd" id="1_symyc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_symyc"]
 size = Vector2(1, 1)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" unique_id=1377531074]
 script = ExtResource("1_symyc")
 
-[node name="Body" type="Polygon2D" parent="."]
+[node name="Body" type="Polygon2D" parent="." unique_id=1060919620]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1656662040]
 shape = SubResource("RectangleShape2D_symyc")
