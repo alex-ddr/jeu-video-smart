@@ -1,0 +1,13 @@
+[gd_scene format=4 uid="uid://dpimmjxmkpn0m"]
+
+[ext_resource type="TileSet" uid="uid://dl8kfc5e5sl2d" path="res://assets/RessourcesGraphisme/fond.tres" id="1_l4clo"]
+
+[node name="Node2D" type="Node2D" unique_id=1567205257]
+
+[node name="background" type="Parallax2D" parent="." unique_id=2008332492]
+scroll_scale = Vector2(0.2, 0.2)
+repeat_size = Vector2(2048, 0)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="background" unique_id=1298715681]
+tile_map_data = PackedByteArray("AAAAAP//AAABAAEAAAABAP//AAACAAEAAAAAAAAAAAABAAMAAAABAAAAAAABAAMAAAADAAAAAAABAAMAAAAAAAEAAAABAAMAAAABAAEAAAABAAMAAAACAAEAAAABAAMAAAADAAEAAAABAAMAAAAAAP7/AAABAAIAAAABAP7/AAABAAIAAAACAP7/AAABAAIAAAADAP7/AAABAAIAAAADAP//AAAAAAIAAAACAP//AAADAAEAAAACAAAAAAABAAMAAAA=")
+tile_set = ExtResource("1_l4clo")
