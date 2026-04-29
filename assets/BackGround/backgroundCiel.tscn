@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://dpimmjxmkpn0m"]
 
-[ext_resource type="TileSet" uid="uid://dl8kfc5e5sl2d" path="res://assets/RessourcesGraphisme/fond.tres" id="1_l4clo"]
-[ext_resource type="TileSet" uid="uid://nkdpjyfem1p5" path="res://assets/RessourcesGraphisme/sol.tres" id="2_pfoma"]
+[ext_resource type="TileSet" path="res://assets/RessourcesGraphisme/fond.tres" id="1_l4clo"]
 
 [node name="background" type="Node2D" unique_id=1567205257]
 
@@ -31,10 +30,3 @@ repeat_times = 25
 [node name="TileMapLayer2" type="TileMapLayer" parent="nuage" unique_id=905033877]
 tile_map_data = PackedByteArray("AAAAAP//AAABAAEAAAABAP//AAACAAEAAAACAP//AAADAAEAAAADAP//AAAAAAIAAAA=")
 tile_set = ExtResource("1_l4clo")
-
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1747873310]
-tile_map_data = PackedByteArray("AAAAAAAAAAAEAAkAAAD//wAAAAAEAAkAAAABAAAAAAAEAAkAAAACAAAAAAAEAAkAAAADAAAAAAAEAAkAAAA=")
-tile_set = ExtResource("2_pfoma")
-
-[node name="Camera2D" type="Camera2D" parent="TileMapLayer" unique_id=865251450]
-zoom = Vector2(0.3, 0.3)

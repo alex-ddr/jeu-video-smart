@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dg43pb7us31ti"]
+
+[ext_resource type="Script" uid="uid://dgmvi4nnxh4x6" path="res://bee.gd" id="1_v5qog"]
+[ext_resource type="Texture2D" uid="uid://dtyhx5ch148vl" path="res://assets/Vector/Enemies/bee_b.svg" id="1_xww1r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v5qog"]
+radius = 32.0
+
+[node name="bee" type="CharacterBody2D" unique_id=402097593]
+scale = Vector2(2.905735, 3.3543563)
+script = ExtResource("1_v5qog")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=976888834]
+texture = ExtResource("1_xww1r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1546573759]
+shape = SubResource("CircleShape2D_v5qog")
