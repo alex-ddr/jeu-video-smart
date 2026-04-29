@@ -1,13 +1,14 @@
 extends Node2D
 
 # --------------------------- Constants ---------------------------
-const MAX_SPEED: float = 50.0
-const MIN_SPEED: float = 10.0
-const ACCELERATION: float = 200.0
-const FRICTION: float = 200.0
+const TILE_SIZE: float = Global.TILE_SIZE
+const MAX_SPEED: float = TILE_SIZE * 3.125
+const MIN_SPEED: float = TILE_SIZE * 0.625
+const ACCELERATION: float = TILE_SIZE * 12.5
+const FRICTION: float = TILE_SIZE * 12.5
 const WEIGHT_CURVE: float = 2.0
 const VELOCITY_THRESHOLD: float = 0.001
-const ROPE_PULL_STRENGTH: float = 600.0
+const ROPE_PULL_STRENGTH: float = TILE_SIZE * 37.5
 
 # --------------------------- Onready ---------------------------
 @onready var p1 = $Player1
@@ -49,14 +50,15 @@ func _apply_horizontal(delta: float) -> void:
 
 # --------------------------- Rope constraint ---------------------------
 func _apply_rope_constraint() -> void:
-	var top_p1 = p1.global_position + Vector2(0, -p1.height)
-	var top_p2 = p2.global_position + Vector2(0, -p2.height)
-	var distance = top_p1.distance_to(top_p2)
+	# On applique le pourcentage uniquement sur la hauteur (l'offset Y local)
+	var hook_p1 = p1.global_position + Vector2(0, -p1.height * p1.ROPE_HOOK_POINT_PERC)
+	var hook_p2 = p2.global_position + Vector2(0, -p2.height * p2.ROPE_HOOK_POINT_PERC)
+	var distance = hook_p1.distance_to(hook_p2)
 
 	if distance <= rope.ROPE_MAX_LENGTH:
 		return
 
-	var dir = (top_p2 - top_p1).normalized()
+	var dir = (hook_p2 - hook_p1).normalized()
 	var correction = distance - rope.ROPE_MAX_LENGTH
 
 	var ratio_p1 = inverse_lerp(p1.MIN_HEIGHT, p1.MAX_HEIGHT, p1.height)
@@ -76,6 +78,7 @@ func _apply_rope_constraint() -> void:
 # --------------------------- Rope visual ---------------------------
 
 func _update_rope() -> void:
-	var top_p1 = p1.global_position + Vector2(0, -p1.height)
-	var top_p2 = p2.global_position + Vector2(0, -p2.height)
-	rope.anchor_endpoints(top_p1, top_p2)
+	# Même calcul ici pour l'affichage visuel de la corde
+	var hook_p1 = p1.global_position + Vector2(0, -p1.height * p1.ROPE_HOOK_POINT_PERC)
+	var hook_p2 = p2.global_position + Vector2(0, -p2.height * p2.ROPE_HOOK_POINT_PERC)
+	rope.anchor_endpoints(hook_p1, hook_p2)

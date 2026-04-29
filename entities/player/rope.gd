@@ -8,7 +8,7 @@ const TILE_SIZE: float = Global.TILE_SIZE
 const ROPE_LENGTH: float = TILE_SIZE * 2.1875
 const ROPE_MAX_LENGTH: float = TILE_SIZE * 3.75
 const CONSTRAIN: float = TILE_SIZE * 0.1875
-const GRAVITY: Vector2 = Vector2(0, TILE_SIZE * 25.0)
+const GRAVITY: Vector2 = Vector2(0, 400.0)
 const DAMPENING: float = 0.98
 const ITERATIONS: int = 5
 
@@ -52,7 +52,7 @@ func _update_points(delta: float) -> void:
 			continue
 		var velocity = (pos[i] - pos_prev[i]) * DAMPENING
 		pos_prev[i] = pos[i]
-		pos[i] += velocity + GRAVITY * delta * delta
+		pos[i] += velocity + GRAVITY * delta
 
 
 func _update_constrain() -> void:

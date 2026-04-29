@@ -9,76 +9,111 @@ extends CharacterBody2D
 @export var action_launch: String = "p1_launch"
 @export var action_jump: String = "p1_jump"
 
-# --------------------------- Onready ---------------------------
-@onready var body: Sprite2D = $Body
-@onready var collision: CollisionShape2D = $CollisionShape2D
-
 # --------------------------- Signals ---------------------------
 signal launch_released(force: float)
 
-
 # --------------------------- Constants ---------------------------
-# Size
 const TILE_SIZE = Global.TILE_SIZE
+const GRAVITY = Global.GRAVITY
+const ROPE_HOOK_POINT_PERC: float = 0.2 # Pourcentage du haut pour le hook point
 
-@onready var MIN_HEIGHT: float = 128
-@onready var MAX_HEIGHT: float = 512
-@onready var MAX_LAUNCH_FORCE: float = TILE_SIZE * 13.33
-
-# Stretch size (up/down) : linear move_toward 
-@onready var SIZE_SPEED: float = TILE_SIZE * 1.0
-
-# Launch charge : hard spring
+# Spring: Launch charge (Hard)
 const LAUNCH_CHARGE_STIFFNESS: float = 15.0
 const LAUNCH_CHARGE_DAMPING: float = 10.0
 
-# Launch release : fast spring
+# Spring: Launch release (Fast)
 const LAUNCH_RELEASE_STIFFNESS: float = 700.0
 const LAUNCH_RELEASE_DAMPING: float = 20.0
 
-# Jump
-@onready var JUMP_VELOCITY: float = -TILE_SIZE * 6.66
-
+# --------------------------- Parameters (Onready Config) -------
+@onready var MIN_HEIGHT: float = 128.0
+@onready var MAX_HEIGHT: float = 512.0
+@onready var SIZE_SPEED: float = TILE_SIZE * 2.0
+@onready var MAX_LAUNCH_FORCE: float = TILE_SIZE * 13.33
+@onready var JUMP_VELOCITY: float = -TILE_SIZE * 10.0
 @onready var STOP_TOLERANCE: float = TILE_SIZE * 0.015
 
-# --------------------------- Variables ---------------------------
+const FALL_GRAVITY_MULTIPLIER: float = 1.8 # Le perso tombe presque 2x plus vite qu'il ne monte
+const JUMP_CUT_MULTIPLIER: float = 0.5     # Divise la vitesse par 2 si on lâche le bouton tôt
+const COYOTE_TIME: float = 0.1             # Temps de grâce en quittant un rebord (100ms)
+const JUMP_BUFFER_TIME: float = 0.1        # Mémorise l'appui sur saut avant de toucher le sol
+
+# --------------------------- State Variables ---------------------
+# Movement
 var desired_direction: float = 0.0
+var coyote_timer: float = 0.0
+var jump_buffer_timer: float = 0.0
 
-@onready var width: float = 256.0
+# Height / Stretch
 @onready var height: float = 256.0
-
+@onready var last_height: float = 256.0
 var height_velocity: float = 0.0
 
+# Launch
 var launch_charge_start_height: float = 0.0
 var pending_launch_force: float = 0.0
 var is_releasing_launch: bool = false
 var release_target_height: float = 0.0
 
-func _ready() -> void:
-	collision.shape = collision.shape.duplicate()
+# --------------------------- Nodes -------------------------------
+@onready var body: Sprite2D = $Body
+@onready var collision: CollisionShape2D = $CollisionShape2D
 
+func _ready() -> void:
+	pass
 
 func _physics_process(delta: float) -> void:
 	_apply_gravity(delta)
-	_read_input()
+	_read_input(delta) # <-- Ajout de delta ici pour les timers
 	_update_stretch(delta)
 	_compute_launch()
-	_sync_collision()
-	_sync_visuals()
+	
+	# Compense l'étirement depuis le centre pour que les pieds restent au même endroit
+	var height_diff = height - last_height
+	position.y -= height_diff / 2.0
+	last_height = height
+	
+	scale.y = height / 256.0
+	
 	move_and_slide()
 
 
 # --------------------------- Physics ---------------------------
 func _apply_gravity(delta: float) -> void:
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		var current_gravity = GRAVITY
+		
+		# Si on est en train de retomber, on applique le multiplicateur pour une chute plus lourde
+		if velocity.y > 0:
+			current_gravity *= FALL_GRAVITY_MULTIPLIER
+			
+		velocity += current_gravity * delta
 
 
 # --------------------------- Inputs ---------------------------
-func _read_input() -> void:
+func _read_input(delta: float) -> void:
 	desired_direction = Input.get_axis(action_left, action_right)
-	if Input.is_action_just_pressed(action_jump) and is_on_floor():
+	
+	# 1. Gestion des Timers (Coyote & Buffer)
+	if is_on_floor():
+		coyote_timer = COYOTE_TIME
+	else:
+		coyote_timer -= delta
+		
+	if Input.is_action_just_pressed(action_jump):
+		jump_buffer_timer = JUMP_BUFFER_TIME
+	else:
+		jump_buffer_timer -= delta
+
+	# 2. Exécution du Saut
+	if jump_buffer_timer > 0.0 and coyote_timer > 0.0:
 		velocity.y = JUMP_VELOCITY
+		jump_buffer_timer = 0.0 # Reset pour éviter le double-saut
+		coyote_timer = 0.0      # Reset pour éviter un autre saut en l'air
+
+	# 3. Hauteur de saut variable (Si le joueur lâche le bouton pendant l'ascension)
+	if Input.is_action_just_released(action_jump) and velocity.y < 0:
+		velocity.y *= JUMP_CUT_MULTIPLIER
 
 # --------------------------- Stretch ---------------------------
 func _get_size_target() -> float:
@@ -148,20 +183,3 @@ func _compute_launch() -> void:
 		height = release_target_height
 		height_velocity = 0.0
 		is_releasing_launch = false
-
-
-# --------------------------- Sync ---------------------------
-func _sync_collision() -> void:
-	pass
-	#var shape = collision.shape as RectangleShape2D
-	#if body.texture:
-		#var tex_size = body.texture.get_size()
-		#shape.size = Vector2(tex_size.x, height)
-	#collision.position.y = -height / 2.0
-#
-#
-func _sync_visuals() -> void:
-	if body.texture:
-		var tex_size = body.texture.get_size()
-		body.scale.y = height / tex_size.y
-	body.position.y = -height / 2.0
