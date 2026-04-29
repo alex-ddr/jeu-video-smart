@@ -1,14 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://buk0b6k7thffd"]
+[gd_scene format=3 uid="uid://buk0b6k7thffd"]
 
 [ext_resource type="Script" uid="uid://d1dlt7x7v5t1e" path="res://entities/player/player_duo.gd" id="1_v6fml"]
 [ext_resource type="PackedScene" uid="uid://dykrdcthqd03o" path="res://entities/player/player.tscn" id="2_lq2ei"]
 
-[node name="PlayerDuo" type="Node2D"]
+[node name="PlayerDuo" type="Node2D" unique_id=232113942]
 script = ExtResource("1_v6fml")
 
-[node name="Player1" parent="." instance=ExtResource("2_lq2ei")]
+[node name="Player1" parent="." unique_id=1046728845 instance=ExtResource("2_lq2ei")]
 
-[node name="Player2" parent="." instance=ExtResource("2_lq2ei")]
+[node name="Player2" parent="." unique_id=1448355160 instance=ExtResource("2_lq2ei")]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(46, 0)
 action_left = "p2_left"
@@ -17,6 +17,6 @@ action_up = "p2_up"
 action_down = "p2_down"
 action_jump = "p2_jump"
 
-[node name="Line2D" type="Line2D" parent="."]
+[node name="Line2D" type="Line2D" parent="." unique_id=1466283904]
 width = 5.0
 default_color = Color(1.29953e-06, 0.640103, 0.362678, 1)
