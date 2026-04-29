@@ -29,7 +29,6 @@ func _ready() -> void:
 	
 	_setup_colliders(point_count)
 
-
 func anchor_endpoints(start: Vector2, end: Vector2) -> void:
 	pos[0] = start
 	pos_prev[0] = start
@@ -107,3 +106,6 @@ func _update_collider_positions(points: Array) -> void:
 			var delta_mid = mid - _colliders[collider_idx].global_position
 			_colliders[collider_idx].move_and_collide(delta_mid)
 			collider_idx += 1
+
+func apply_color(color : Color) -> void :
+	line.default_color = color

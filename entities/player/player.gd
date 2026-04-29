@@ -49,9 +49,11 @@ var pending_launch_force: float = 0.0
 var is_releasing_launch: bool = false
 var release_target_height: float = 0.0
 
+var normalized_force : float = 0
+
 func _ready() -> void:
 	collision.shape = collision.shape.duplicate()
-
+	launch_released.connect(on_launch_release)
 
 func _physics_process(delta: float) -> void:
 	_apply_gravity(delta)
@@ -142,12 +144,18 @@ func _compute_launch() -> void:
 		height_velocity = 0.0
 		is_releasing_launch = false
 
+# tweening de la force de launch pour une dégradation au fil du temps 
+func on_launch_release(force : float ) -> void :
+	normalized_force = force / MAX_LAUNCH_FORCE
+	var tween = create_tween()
+	tween.tween_property(self, "normalized_force", 0.0, 0.5).set_ease(Tween.EASE_OUT)
 
 # --------------------------- Sync ---------------------------
 func _sync_collision() -> void:
 	var shape = collision.shape as RectangleShape2D
 	shape.size = Vector2(width, height)
 	collision.position.y = -height / 2.0
+
 
 
 func _sync_visuals() -> void:
@@ -158,3 +166,14 @@ func _sync_visuals() -> void:
 		Vector2( hw, -height),
 		Vector2(-hw, -height),
 	])
+	apply_color(_compute_force_color())
+
+func _compute_force_color() -> Color :
+	var color_min = Color.BLUE
+	var color_max = Color.FIREBRICK
+	return color_min.lerp(color_max, normalized_force)
+
+func apply_color(color : Color) -> void :
+	print(normalized_force)
+	body.color = color
+	

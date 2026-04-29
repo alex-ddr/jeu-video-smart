@@ -10,7 +10,6 @@ script = ExtResource("1_v6fml")
 [node name="Player1" parent="." unique_id=1637807349 instance=ExtResource("2_lq2ei")]
 
 [node name="Player2" parent="." unique_id=1965308668 instance=ExtResource("2_lq2ei")]
-modulate = Color(0, 0, 0, 1)
 position = Vector2(46, 0)
 action_left = "p2_left"
 action_right = "p2_right"
