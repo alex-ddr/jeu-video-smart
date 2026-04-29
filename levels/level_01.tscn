@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://buk0b6k7thffd" path="res://entities/player/player_duo.tscn" id="2_81a5f"]
 [ext_resource type="PackedScene" uid="uid://t4i5ibl1xkep" path="res://levels/map_01.tscn" id="3_81a5f"]
+[ext_resource type="PackedScene" uid="uid://dpimmjxmkpn0m" path="res://assets/BackGround/backgroundCiel.tscn" id="3_gg43x"]
+[ext_resource type="PackedScene" uid="uid://bbl44w74iuc6f" path="res://entities/pickups/star.tscn" id="4_gg43x"]
 
 [node name="Game" type="Node2D" unique_id=1589479972]
 
@@ -9,8 +11,24 @@
 
 [node name="TileMapLayer" parent="TileMap" unique_id=28175068 instance=ExtResource("3_81a5f")]
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1034333771]
+[node name="Player" parent="." unique_id=407785087 instance=ExtResource("2_81a5f")]
+z_index = 6
+position = Vector2(-61, -37)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1034333771]
+position = Vector2(61, 37)
 position_smoothing_enabled = true
 
-[node name="Player" parent="." unique_id=407785087 instance=ExtResource("2_81a5f")]
-position = Vector2(-61, -37)
+[node name="Node2D" parent="." unique_id=1567205257 instance=ExtResource("3_gg43x")]
+position = Vector2(-1754, -174)
+
+[node name="stars" type="Node" parent="." unique_id=986624371]
+
+[node name="star" parent="stars" unique_id=196880715 instance=ExtResource("4_gg43x")]
+position = Vector2(-576, -704)
+
+[node name="star2" parent="stars" unique_id=1785345004 instance=ExtResource("4_gg43x")]
+position = Vector2(-1216, 320)
+
+[node name="star3" parent="stars" unique_id=1834191255 instance=ExtResource("4_gg43x")]
+position = Vector2(2224, -752)
