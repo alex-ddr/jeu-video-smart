@@ -10,7 +10,7 @@ extends CharacterBody2D
 @export var action_jump: String = "p1_jump"
 
 # --------------------------- Onready ---------------------------
-@onready var body: Polygon2D = $Body
+@onready var body: Sprite2D = $Body
 @onready var collision: CollisionShape2D = $CollisionShape2D
 
 # --------------------------- Signals ---------------------------
@@ -19,12 +19,14 @@ signal launch_released(force: float)
 
 # --------------------------- Constants ---------------------------
 # Size
-const MIN_HEIGHT: float = 3.0
-const MAX_HEIGHT: float = 30.0
-const MAX_LAUNCH_FORCE: float = 400.0
+const TILE_SIZE = Global.TILE_SIZE
+
+@onready var MIN_HEIGHT: float = 128
+@onready var MAX_HEIGHT: float = 512
+@onready var MAX_LAUNCH_FORCE: float = TILE_SIZE * 13.33
 
 # Stretch size (up/down) : linear move_toward 
-const SIZE_SPEED: float = 30.0
+@onready var SIZE_SPEED: float = TILE_SIZE * 1.0
 
 # Launch charge : hard spring
 const LAUNCH_CHARGE_STIFFNESS: float = 15.0
@@ -35,13 +37,16 @@ const LAUNCH_RELEASE_STIFFNESS: float = 700.0
 const LAUNCH_RELEASE_DAMPING: float = 20.0
 
 # Jump
-const JUMP_VELOCITY: float = -200.0
+@onready var JUMP_VELOCITY: float = -TILE_SIZE * 6.66
+
+@onready var STOP_TOLERANCE: float = TILE_SIZE * 0.015
 
 # --------------------------- Variables ---------------------------
 var desired_direction: float = 0.0
 
-var width: float = 6.0
-var height: float = 10.0
+@onready var width: float = 256.0
+@onready var height: float = 256.0
+
 var height_velocity: float = 0.0
 
 var launch_charge_start_height: float = 0.0
@@ -117,7 +122,7 @@ func _update_stretch(delta: float) -> void:
 	else:
 		height_velocity = 0.0
 		height = move_toward(height, target, SIZE_SPEED * delta)
-		if abs(height - target) < 0.5:
+		if abs(height - target) < STOP_TOLERANCE:
 			height = target
 		height = clamp(height, MIN_HEIGHT, MAX_HEIGHT)
 
@@ -125,8 +130,9 @@ func _update_stretch(delta: float) -> void:
 # --------------------------- Launch ---------------------------
 func _compute_launch() -> void:
 	if Input.is_action_just_released(action_launch) and is_on_floor():
+		var margin = TILE_SIZE * 0.003
 		var retraction_ratio = clamp(
-			inverse_lerp(launch_charge_start_height, MIN_HEIGHT, height + 0.1),
+			inverse_lerp(launch_charge_start_height, MIN_HEIGHT, height + margin),
 			0.0, 1.0
 		)
 		pending_launch_force = retraction_ratio * MAX_LAUNCH_FORCE
@@ -137,7 +143,8 @@ func _compute_launch() -> void:
 	else:
 		pending_launch_force = 0.0
 
-	if is_releasing_launch and abs(height_velocity) < 0.5 and abs(height - release_target_height) < 1.0:
+	var height_diff_tolerance = TILE_SIZE * 0.03
+	if is_releasing_launch and abs(height_velocity) < STOP_TOLERANCE and abs(height - release_target_height) < height_diff_tolerance:
 		height = release_target_height
 		height_velocity = 0.0
 		is_releasing_launch = false
@@ -145,16 +152,16 @@ func _compute_launch() -> void:
 
 # --------------------------- Sync ---------------------------
 func _sync_collision() -> void:
-	var shape = collision.shape as RectangleShape2D
-	shape.size = Vector2(width, height)
-	collision.position.y = -height / 2.0
-
-
+	pass
+	#var shape = collision.shape as RectangleShape2D
+	#if body.texture:
+		#var tex_size = body.texture.get_size()
+		#shape.size = Vector2(tex_size.x, height)
+	#collision.position.y = -height / 2.0
+#
+#
 func _sync_visuals() -> void:
-	var hw = width / 2.0
-	body.polygon = PackedVector2Array([
-		Vector2(-hw, 0.0),
-		Vector2( hw, 0.0),
-		Vector2( hw, -height),
-		Vector2(-hw, -height),
-	])
+	if body.texture:
+		var tex_size = body.texture.get_size()
+		body.scale.y = height / tex_size.y
+	body.position.y = -height / 2.0

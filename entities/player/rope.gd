@@ -2,17 +2,18 @@ extends Node2D
 
 # --------------------------- Onready ---------------------------
 @onready var line: Line2D = $Line2D
-
 # --------------------------- Constants ---------------------------
-const ROPE_LENGTH: float = 35.0
-const ROPE_MAX_LENGTH: float = 60.0
-const CONSTRAIN: float = 3.0
-const GRAVITY: Vector2 = Vector2(0, 400.0)
+const TILE_SIZE: float = Global.TILE_SIZE
+
+const ROPE_LENGTH: float = TILE_SIZE * 2.1875
+const ROPE_MAX_LENGTH: float = TILE_SIZE * 3.75
+const CONSTRAIN: float = TILE_SIZE * 0.1875
+const GRAVITY: Vector2 = Vector2(0, TILE_SIZE * 25.0)
 const DAMPENING: float = 0.98
 const ITERATIONS: int = 5
 
 const SEGMENT_LAYER = 4 # bit 3 = layer 3
-const COLLIDER_RADIUS: float = 1.0
+const COLLIDER_RADIUS: float = TILE_SIZE * 0.0625
 
 # --------------------------- Variables ---------------------------
 var pos: Array = []

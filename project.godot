@@ -18,6 +18,15 @@ config/name="Jeu Video Spikeball"
 run/main_scene="uid://dnr7phsi0melx"
 config/features=PackedStringArray("4.6", "Forward Plus")
 
+[autoload]
+
+Global="*uid://dbahd52g1x7dn"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
 [dotnet]
 
 project/assembly_name="Jeu Video Spikeball"

@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bykqjm2j5oxkr"]
+
+[sub_resource type="Gradient" id="Gradient_cs1va"]
+offsets = PackedFloat32Array(0.34146342, 0.34634146)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_61umk"]
+gradient = SubResource("Gradient_cs1va")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_jyt08"]
+diffuse_texture = SubResource("GradientTexture2D_61umk")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w5wpn"]
+radius = 6.0827627
+
+[node name="Ball" type="RigidBody2D" unique_id=1885945790]
+collision_layer = 8
+collision_mask = 7
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=803535598]
+scale = Vector2(0.40624997, 0.4062499)
+texture = SubResource("CanvasTexture_jyt08")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=762546199]
+shape = SubResource("CircleShape2D_w5wpn")

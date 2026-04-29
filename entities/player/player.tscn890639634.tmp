@@ -12,9 +12,9 @@ collision_mask = 3
 script = ExtResource("1_symyc")
 
 [node name="Body" type="Sprite2D" parent="." unique_id=884325185]
-position = Vector2(0, -30)
+position = Vector2(323, 258)
 texture = ExtResource("2_abrql")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=54016776]
-position = Vector2(0.5, 0.5)
+position = Vector2(323.5, 288.5)
 shape = SubResource("RectangleShape2D_symyc")
