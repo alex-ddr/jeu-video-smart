@@ -7,6 +7,7 @@ extends CharacterBody2D
 @export var action_up: String = "p1_up"
 @export var action_down: String = "p1_down"
 @export var action_jump: String = "p1_jump"
+@export var action_big_jump: String = "p1_big_jump"
 
 # --------------------------- Onready ---------------------------
 @onready var body: Polygon2D = $Body
@@ -32,6 +33,8 @@ const JUMP_CHARGE_DAMPING: float = 10.0
 const JUMP_RELEASE_STIFFNESS: float = 700.0
 const JUMP_RELEASE_DAMPING: float = 20.0
 
+const JUMP_FORCE := -300.0
+const GRAVITY := 900.0
 
 # --------------------------- Variables ---------------------------
 var desired_direction: float = 0.0
@@ -45,6 +48,14 @@ var pending_jump_force: float = 0.0
 var is_releasing_jump: bool = false
 var release_target_height: float = 0.0
 
+
+
+
+
+	
+	
+
+
 func _ready() -> void:
 	collision.shape = collision.shape.duplicate()
 
@@ -57,6 +68,8 @@ func _physics_process(delta: float) -> void:
 	_sync_collision()
 	_sync_visuals()
 	move_and_slide()
+	jump()
+	
 
 
 # --------------------------- Physics ---------------------------
@@ -68,8 +81,14 @@ func _apply_gravity(delta: float) -> void:
 # --------------------------- Inputs ---------------------------
 func _read_input() -> void:
 	desired_direction = Input.get_axis(action_left, action_right)
-
-
+	
+# --------------------------- Inputs ---------------------------
+func jump() -> void:
+	if Input.is_action_just_pressed(action_big_jump) and is_on_floor():
+		velocity.y = JUMP_FORCE
+		velocity.x = 0
+	move_and_slide()
+	
 # --------------------------- Stretch ---------------------------
 func _get_size_target() -> float:
 	if Input.is_action_pressed(action_up):

@@ -1,22 +1,40 @@
-[gd_scene load_steps=3 format=3 uid="uid://buk0b6k7thffd"]
+[gd_scene format=3 uid="uid://buk0b6k7thffd"]
 
 [ext_resource type="Script" uid="uid://d1dlt7x7v5t1e" path="res://entities/player/player_duo.gd" id="1_v6fml"]
 [ext_resource type="PackedScene" uid="uid://dykrdcthqd03o" path="res://entities/player/player.tscn" id="2_lq2ei"]
 
-[node name="PlayerDuo" type="Node2D"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lq2ei"]
+friction = 0.0
+bounce = 0.8
+
+[node name="PlayerDuo" type="Node2D" unique_id=1186042514]
 script = ExtResource("1_v6fml")
 
-[node name="Player1" parent="." instance=ExtResource("2_lq2ei")]
+[node name="Player1" parent="." unique_id=1186335396 instance=ExtResource("2_lq2ei")]
+collision_layer = 8
 
-[node name="Player2" parent="." instance=ExtResource("2_lq2ei")]
+[node name="Player2" parent="." unique_id=898758484 instance=ExtResource("2_lq2ei")]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(46, 0)
+collision_layer = 8
 action_left = "p2_left"
 action_right = "p2_right"
 action_up = "p2_up"
 action_down = "p2_down"
 action_jump = "p2_jump"
+action_big_jump = "p2_big_jump"
 
-[node name="Line2D" type="Line2D" parent="."]
+[node name="Line2D" type="Line2D" parent="." unique_id=2033552355]
 width = 5.0
 default_color = Color(1.29953e-06, 0.640103, 0.362678, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=761401657]
+collision_layer = 2
+collision_mask = 8
+physics_material_override = SubResource("PhysicsMaterial_lq2ei")
+
+[node name="Area2D" type="Area2D" parent="StaticBody2D" unique_id=1032098941]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D" unique_id=2147151005]
+
+[node name="Camera2D" type="Camera2D" parent="StaticBody2D" unique_id=639968669]
