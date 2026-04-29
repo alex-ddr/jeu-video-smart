@@ -18,29 +18,25 @@ signal jump_released(force: float)
 
 
 # --------------------------- Constants ---------------------------
-const MIN_HEIGHT: float = 3.0
-const MAX_HEIGHT: float = 30.0
-const MAX_JUMP_FORCE: float = 400.0
+const SCALE_UNIT: float = 4.0
 
-# Stretch size (up/down) : linear move_toward 
-const SIZE_SPEED: float = 30.0
+const MIN_HEIGHT: float = 12.0
+const MAX_HEIGHT: float = 80.0
+const MAX_JUMP_FORCE: float = 800.0
 
-# Jump charge : hard spring
+const SIZE_SPEED: float = 120.0
+
 const JUMP_CHARGE_STIFFNESS: float = 15.0
 const JUMP_CHARGE_DAMPING: float = 10.0
 
-# Jump release : fast spring
 const JUMP_RELEASE_STIFFNESS: float = 700.0
 const JUMP_RELEASE_DAMPING: float = 20.0
-
-const JUMP_FORCE := -300.0
-const GRAVITY := 900.0
 
 # --------------------------- Variables ---------------------------
 var desired_direction: float = 0.0
 
-var width: float = 6.0
-var height: float = 10.0
+var width: float = 18.0
+var height: float = 40.0
 var height_velocity: float = 0.0
 
 var jump_charge_start_height: float = 0.0
@@ -68,7 +64,7 @@ func _physics_process(delta: float) -> void:
 	_sync_collision()
 	_sync_visuals()
 	move_and_slide()
-	jump()
+	#jump()
 	
 
 
@@ -82,12 +78,6 @@ func _apply_gravity(delta: float) -> void:
 func _read_input() -> void:
 	desired_direction = Input.get_axis(action_left, action_right)
 	
-# --------------------------- Inputs ---------------------------
-func jump() -> void:
-	if Input.is_action_just_pressed(action_big_jump) and is_on_floor():
-		velocity.y = JUMP_FORCE
-		velocity.x = 0
-	move_and_slide()
 	
 # --------------------------- Stretch ---------------------------
 func _get_size_target() -> float:

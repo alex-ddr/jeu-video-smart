@@ -33,8 +33,6 @@ collision_layer = 2
 collision_mask = 8
 physics_material_override = SubResource("PhysicsMaterial_lq2ei")
 
-[node name="Area2D" type="Area2D" parent="StaticBody2D" unique_id=1032098941]
+[node name="rope_collision" type="CollisionShape2D" parent="StaticBody2D" unique_id=2147151005]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D" unique_id=2147151005]
-
-[node name="Camera2D" type="Camera2D" parent="StaticBody2D" unique_id=639968669]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=272409762]
