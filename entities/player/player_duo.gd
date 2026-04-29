@@ -9,7 +9,7 @@ const WEIGHT_CURVE: float = 2.0
 const VELOCITY_THRESHOLD: float = 0.001
 const ROPE_PULL_STRENGTH: float = 600.0
 
-const ROPE_TENSION_INFLUENCE_ON_LAUNCH = 0.3
+const ROPE_TENSION_INFLUENCE_ON_LAUNCH = 0.4
 const PILLARS_INFLUENCE_ON_LAUNCH = 1 - ROPE_TENSION_INFLUENCE_ON_LAUNCH
 const MAX_LAUNCH_FORCE = 100.0
 
@@ -29,8 +29,6 @@ func _physics_process(delta: float) -> void:
 	debug_arrow.update_arrow(_get_launch_vector())
 
 # --------------------------- Utils ---------------------------
-  
-
 
 func _get_players_distance() -> float :
 	var top_p1 = p1.global_position + Vector2(0, -p1.height)
