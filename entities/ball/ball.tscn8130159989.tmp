@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bykqjm2j5oxkr"]
 
 [ext_resource type="Texture2D" uid="uid://bfnb0r7hwn7mb" path="res://assets/textures/bomb.png" id="1_61umk"]
-[ext_resource type="Script" uid="uid://csrhdsyte8ut0" path="res://entities/ball/ball.gd" id="1_jyt08"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w5wpn"]
 radius = 21.023796
@@ -9,7 +8,6 @@ radius = 21.023796
 [node name="Ball" type="RigidBody2D" unique_id=1885945790]
 collision_layer = 8
 collision_mask = 7
-script = ExtResource("1_jyt08")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=803535598]
 position = Vector2(-3, -5)

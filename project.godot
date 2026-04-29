@@ -22,11 +22,6 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 
 Global="*uid://dbahd52g1x7dn"
 
-[display]
-
-window/size/viewport_width=1600
-window/size/viewport_height=900
-
 [dotnet]
 
 project/assembly_name="Jeu Video Spikeball"

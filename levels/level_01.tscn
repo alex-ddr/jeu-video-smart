@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b6kxfpc8mjitd" path="res://assets/textures/world/spritesheet-tiles.png" id="1_81a5f"]
 [ext_resource type="PackedScene" uid="uid://buk0b6k7thffd" path="res://entities/player/player_duo.tscn" id="2_81a5f"]
+[ext_resource type="PackedScene" uid="uid://bykqjm2j5oxkr" path="res://entities/ball/ball.tscn" id="3_81a5f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gg43x"]
 texture = ExtResource("1_81a5f")
@@ -33,3 +34,6 @@ position_smoothing_enabled = true
 
 [node name="Player" parent="." unique_id=36385951 instance=ExtResource("2_81a5f")]
 position = Vector2(-69, 2)
+
+[node name="Ball" parent="." unique_id=1885945790 instance=ExtResource("3_81a5f")]
+position = Vector2(134, -304)

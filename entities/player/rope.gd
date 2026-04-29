@@ -2,15 +2,17 @@ extends Node2D
 
 # --------------------------- Onready ---------------------------
 @onready var line: Line2D = $Line2D
+
 # --------------------------- Constants ---------------------------
 const TILE_SIZE: float = Global.TILE_SIZE
 
-const ROPE_LENGTH: float = TILE_SIZE * 2.1875
-const ROPE_MAX_LENGTH: float = TILE_SIZE * 3.75
-const CONSTRAIN: float = TILE_SIZE * 0.1875
-const GRAVITY: Vector2 = Vector2(0, 400.0)
+const ROPE_LENGTH: float = TILE_SIZE * 1.25
+const ROPE_MAX_LENGTH: float = TILE_SIZE * 4.5
+const ROPE_YIELD_STRENGTH: float = 0.8
+const CONSTRAIN: float = TILE_SIZE * 0.025
+const GRAVITY: Vector2 = Global.GRAVITY
 const DAMPENING: float = 0.98
-const ITERATIONS: int = 5
+const ITERATIONS: int = 30
 
 const SEGMENT_LAYER = 4 # bit 3 = layer 3
 const COLLIDER_RADIUS: float = TILE_SIZE * 0.0625
@@ -52,17 +54,30 @@ func _update_points(delta: float) -> void:
 			continue
 		var velocity = (pos[i] - pos_prev[i]) * DAMPENING
 		pos_prev[i] = pos[i]
-		pos[i] += velocity + GRAVITY * delta
+		pos[i] += velocity + GRAVITY * delta * delta
 
 
 func _update_constrain() -> void:
+	# Calcule la limite par segment (la distance max qu'un maillon peut s'étirer)
+	# Si on a 10 points, chaque segment peut s'étirer un peu pour atteindre le max
+	var max_dist_per_segment = ROPE_MAX_LENGTH / float(point_count - 1)
+	
 	for i in range(point_count - 1):
 		var dist = pos[i].distance_to(pos[i + 1])
-		if dist < 0.001:
-			continue
-		var percent = (dist - CONSTRAIN) / dist
+		if dist < 0.001: continue
+		
+		# --- Logique élastique vs Rigide ---
+		# Si on est au-delà du max, on ignore l'élasticité, on snap direct
+		var is_at_limit = dist >= max_dist_per_segment
+		
+		# Pourcentage de correction (plus il est haut, plus c'est rigide)
+		# 0.5 = élastique, 1.0 = rigide
+		var stiffness = 1.0 if is_at_limit else 0.5 
+		
+		var percent = ((dist - CONSTRAIN) / dist) * stiffness
 		var vec = pos[i + 1] - pos[i]
 
+		# Appliquer la correction
 		if i == 0:
 			pos[i + 1] -= vec * percent
 		elif i + 1 == point_count - 1:
@@ -82,8 +97,7 @@ func _setup_colliders(num_segments: int) -> void:
 		c.queue_free()
 	_colliders.clear()
 
-	var total = num_segments + (num_segments - 1)
-	for i in total:
+	for i in num_segments:
 		var body = AnimatableBody2D.new()
 		body.collision_layer = 4 # rope
 		body.collision_mask = 1 | 8 # world && ball
@@ -97,14 +111,19 @@ func _setup_colliders(num_segments: int) -> void:
 
 func _update_collider_positions(points: Array) -> void:
 	var collider_idx = 0
-	for i in points.size():
-		var delta = points[i] - _colliders[collider_idx].global_position
-		_colliders[collider_idx].move_and_collide(delta)
-		pos[i] = _colliders[collider_idx].global_position
-		collider_idx += 1
 
-		if i < points.size() - 1:
-			var mid = (points[i] + points[i + 1]) * 0.5
-			var delta_mid = mid - _colliders[collider_idx].global_position
-			_colliders[collider_idx].move_and_collide(delta_mid)
-			collider_idx += 1
+	for i in points.size():
+		# Collider sur le point
+		var delta = points[i] - _colliders[collider_idx].global_position
+		var collision = _colliders[collider_idx].move_and_collide(delta)
+		pos[i] = _colliders[collider_idx].global_position  # ← pos[] pas points[]
+
+		if collision:
+			var hit = collision.get_collider()
+			if hit is RigidBody2D:
+				# Pousse la corde vers le bas selon la masse
+				pos[i].y += hit.mass * ROPE_YIELD_STRENGTH
+				# Réapplique immédiatement au collider
+				_colliders[collider_idx].global_position = pos[i]
+				hit.apply_central_impulse(collision.get_normal() * -hit.mass * 50.0)
+		collider_idx += 1
