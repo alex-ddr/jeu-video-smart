@@ -10,15 +10,14 @@ const VELOCITY_THRESHOLD: float = 0.001
 const ROPE_PULL_STRENGTH: float = 600.0
 
 const ROPE_TENSION_INFLUENCE_ON_LAUNCH = 0.3
+const PILLARS_INFLUENCE_ON_LAUNCH = 1 - ROPE_TENSION_INFLUENCE_ON_LAUNCH
+const MAX_LAUNCH_FORCE = 100.0
 
 # --------------------------- Onready ---------------------------
 @onready var p1 = $Player1
 @onready var p2 = $Player2
 @onready var rope = $Rope
-
-var normalized_force_p1 = 0
-var normalized_force_p2 = 0
-
+@onready var debug_arrow: Node2D = $debugArrow
 
 func _ready() -> void:
 	pass
@@ -27,6 +26,7 @@ func _physics_process(delta: float) -> void:
 	_apply_horizontal(delta)
 	_apply_rope_constraint()
 	_update_rope()
+	debug_arrow.update_arrow(_get_launch_vector())
 
 # --------------------------- Utils ---------------------------
   
@@ -47,6 +47,12 @@ func _get_players_direction() -> Vector2 :
 # a value between 0 & 1. 1 is the max tension of the rope
 func _get_rope_tension() -> float :
 	return _get_players_distance() / rope.ROPE_MAX_LENGTH
+
+func _get_launch_vector() -> Vector2 :
+	var launch_percent = ROPE_TENSION_INFLUENCE_ON_LAUNCH * _get_rope_tension() + PILLARS_INFLUENCE_ON_LAUNCH * (p1.get_normalized_force() + p2.get_normalized_force())/2
+	var launch_force = launch_percent * MAX_LAUNCH_FORCE
+	return launch_force * rope.get_normal_vector()
+	
 	
 # --------------------------- Launch Force ---------------------------
 

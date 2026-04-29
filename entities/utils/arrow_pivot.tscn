@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bgputmdu8xoth"]
+
+[ext_resource type="Script" uid="uid://b70fhj0lof5qk" path="res://entities/utils/arrow_pivot.gd" id="1_vi5gs"]
+
+[node name="ArrowPivot" type="Node2D" unique_id=960143623]
+script = ExtResource("1_vi5gs")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=2085784401]
+points = PackedVector2Array(0, 0, 50, 0)
+width = 5.0

@@ -16,7 +16,6 @@ extends CharacterBody2D
 # --------------------------- Signals ---------------------------
 signal launch_released(force: float)
 
-
 # --------------------------- Constants ---------------------------
 # Size
 const MIN_HEIGHT: float = 3.0
@@ -49,7 +48,10 @@ var pending_launch_force: float = 0.0
 var is_releasing_launch: bool = false
 var release_target_height: float = 0.0
 
-var normalized_force : float = 0
+var normalized_force : float = 0 
+
+func get_normalized_force() :
+	return normalized_force
 
 func _ready() -> void:
 	collision.shape = collision.shape.duplicate()
@@ -156,8 +158,6 @@ func _sync_collision() -> void:
 	shape.size = Vector2(width, height)
 	collision.position.y = -height / 2.0
 
-
-
 func _sync_visuals() -> void:
 	var hw = width / 2.0
 	body.polygon = PackedVector2Array([
@@ -174,6 +174,5 @@ func _compute_force_color() -> Color :
 	return color_min.lerp(color_max, normalized_force)
 
 func apply_color(color : Color) -> void :
-	print(normalized_force)
 	body.color = color
 	

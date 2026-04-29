@@ -109,3 +109,11 @@ func _update_collider_positions(points: Array) -> void:
 
 func apply_color(color : Color) -> void :
 	line.default_color = color
+
+func get_normal_vector() -> Vector2 :
+	var points = line.points
+	var point_a = points.get(0)
+	var point_b = points.get(len(points) - 1)
+	var direction = (point_b - point_a)
+	return direction.orthogonal().normalized()
+	
