@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://dpimmjxmkpn0m"]
 
-[ext_resource type="TileSet" uid="uid://dl8kfc5e5sl2d" path="res://assets/TitleSet/background_double.tres" id="1_l4clo"]
+[ext_resource type="TileSet" uid="uid://d2hj4o4x1p60i" path="res://assets/TitleSet/background_double.tres" id="1_l4clo"]
 
 [node name="background" type="Node2D" unique_id=1567205257]
 
@@ -22,9 +22,10 @@ tile_map_data = PackedByteArray("AAADAP7/AAABAAIAAAADAP3/AAABAAIAAAADAPz/AAABAAI
 tile_set = ExtResource("1_l4clo")
 
 [node name="nuage" type="Parallax2D" parent="." unique_id=66010330]
+scroll_scale = Vector2(0.2, 0.2)
 repeat_size = Vector2(2048, 0)
 autoscroll = Vector2(10, 0)
-repeat_times = 250
+repeat_times = 25
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="nuage" unique_id=905033877]
 tile_map_data = PackedByteArray("AAAAAP//AAABAAEAAAABAP//AAACAAEAAAACAP//AAADAAEAAAADAP//AAAAAAIAAAA=")
