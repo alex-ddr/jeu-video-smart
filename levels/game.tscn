@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dpimmjxmkpn0m" path="res://assets/BackGround/backgroundCiel.tscn" id="4_kc1m6"]
 [ext_resource type="PackedScene" uid="uid://bbl44w74iuc6f" path="res://entities/pickups/star.tscn" id="5_y7kp8"]
 [ext_resource type="PackedScene" uid="uid://d0rkeu0nf6ns6" path="res://levels/game/ui.tscn" id="6_ughyh"]
+[ext_resource type="PackedScene" uid="uid://bykqjm2j5oxkr" path="res://entities/ball/ball.tscn" id="8_arvxu"]
 
 [node name="Game" type="Node2D" unique_id=1589479972]
 
@@ -49,3 +50,7 @@ offset_left = -320.0
 offset_top = -1392.0
 offset_right = -320.0
 offset_bottom = -1392.0
+
+[node name="Ball" parent="." unique_id=1885945790 instance=ExtResource("8_arvxu")]
+z_index = 1
+position = Vector2(-339, -410)
