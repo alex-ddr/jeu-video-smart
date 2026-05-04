@@ -64,7 +64,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"jump",
-"speed": 10.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -95,6 +95,12 @@ z_index = 5
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_symyc")
+action_left = null
+action_right = null
+action_up = null
+action_down = null
+action_launch = null
+action_jump = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=54016776]
 position = Vector2(0, -64.5)
@@ -119,6 +125,6 @@ offset = Vector2(0, -15)
 
 [node name="AnimatedFeet" type="AnimatedSprite2D" parent="." unique_id=2009812537]
 sprite_frames = SubResource("SpriteFrames_afbqv")
-animation = &"jump"
+animation = &"walk"
 autoplay = "idle"
 offset = Vector2(0, -30)

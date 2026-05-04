@@ -77,11 +77,12 @@ func _physics_process(delta: float) -> void:
 	_read_input(delta)
 	_update_stretch(delta)
 	_compute_launch()
-	_sync_visuals()
 	_sync_collision()
 	_update_animation()
 	move_and_slide()
 
+func _process(delta: float) -> void:
+	_sync_visuals()
 
 # --------------------------- Physics ---------------------------
 func _apply_gravity(delta: float) -> void:
@@ -205,10 +206,13 @@ func _sync_collision() -> void:
 		body.flip_h = flipped
 		head.flip_h = flipped
 		feet.flip_h = flipped
-
+		
 func _update_animation() -> void:
 	if not is_on_floor():
-		feet.play("jump")
+		if feet.animation != "jump":
+			feet.play("jump")
+		elif not feet.is_playing():
+			pass
 	elif abs(desired_direction) > 0.01:
 		feet.play("walk")
 	else:

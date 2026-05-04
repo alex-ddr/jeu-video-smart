@@ -1,12 +1,12 @@
-[gd_scene format=3 uid="uid://dnr7phsi0melx"]
+[gd_scene format=3 uid="uid://fc0phxabhhpd"]
 
 [ext_resource type="PackedScene" uid="uid://buk0b6k7thffd" path="res://entities/player/player_duo.tscn" id="2_81a5f"]
-[ext_resource type="PackedScene" uid="uid://t4i5ibl1xkep" path="res://levels/map_01.tscn" id="3_81a5f"]
+[ext_resource type="PackedScene" uid="uid://c0ex3uyn1veed" path="res://levels/map_01.tscn" id="3_81a5f"]
 [ext_resource type="PackedScene" uid="uid://dpimmjxmkpn0m" path="res://assets/BackGround/backgroundCiel.tscn" id="3_gg43x"]
 [ext_resource type="PackedScene" uid="uid://bbl44w74iuc6f" path="res://entities/pickups/star.tscn" id="4_gg43x"]
 [ext_resource type="PackedScene" uid="uid://dg43pb7us31ti" path="res://entities/player/bee.tscn" id="6_cg8v6"]
 [ext_resource type="PackedScene" uid="uid://d0rkeu0nf6ns6" path="res://levels/game/ui.tscn" id="6_q7ibo"]
-[ext_resource type="PackedScene" uid="uid://67667b2mo1rr" path="res://entities/cactus_mortel.tscn" id="7_cg8v6"]
+[ext_resource type="PackedScene" path="res://entities/cactus_mortel.tscn" id="7_cg8v6"]
 [ext_resource type="PackedScene" uid="uid://d16ikhrssu8rs" path="res://entities/death_zone.tscn" id="8_j0sdw"]
 
 [node name="Game" type="Node2D" unique_id=1589479972]
