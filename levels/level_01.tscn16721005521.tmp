@@ -21,7 +21,7 @@ tile_map_data = PackedByteArray("AAD9/wAAAAALAAkAAAD+/wAAAAALAAkAAAD//wAAAAALAAk
 tile_set = ExtResource("2_j0sdw")
 
 [node name="PlayerBallCameraTrio" parent="." unique_id=420222119 instance=ExtResource("4_5dxk1")]
-position = Vector2(-1646, -295)
+position = Vector2(-1664, -295)
 
 [node name="Stars" type="Node" parent="." unique_id=986624371]
 
