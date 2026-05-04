@@ -1,6 +1,20 @@
 [gd_scene format=3 uid="uid://c51die6cbbg07"]
 
 [ext_resource type="Script" uid="uid://db77iuepeaitv" path="res://ui/menu/menu.gd" id="1_v6ljw"]
+[ext_resource type="PackedScene" uid="uid://dpimmjxmkpn0m" path="res://assets/BackGround/backgroundCiel.tscn" id="2_77h3e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77h3e"]
+bg_color = Color(0.75686276, 0.6862745, 0.9882353, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.20784314, 0.20784314, 0.25490198, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+corner_detail = 12
 
 [node name="Menu" type="Control" unique_id=33860001]
 layout_mode = 3
@@ -11,46 +25,90 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_v6ljw")
 
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1708899116]
+[node name="+CenterContainer" type="CenterContainer" parent="." unique_id=1708899116]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -27.0
+offset_bottom = -27.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1198376868]
+[node name="VBoxContainer" type="VBoxContainer" parent="+CenterContainer" unique_id=1198376868]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=217555742]
+[node name="Label" type="Label" parent="+CenterContainer/VBoxContainer" unique_id=217555742]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+theme_override_colors/font_color = Color(0.98039216, 0.7294118, 0.1764706, 1)
+theme_override_font_sizes/font_size = 60
 text = "Trampoball"
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer" unique_id=1062685597]
+[node name="MarginContainer" type="MarginContainer" parent="+CenterContainer/VBoxContainer" unique_id=1062685597]
 layout_mode = 2
+theme_override_constants/margin_top = 24
 
-[node name="Jouer" type="Button" parent="CenterContainer/VBoxContainer" unique_id=399458218]
+[node name="Jouer" type="Button" parent="+CenterContainer/VBoxContainer" unique_id=399458218]
 layout_mode = 2
-theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.20784314, 0.20784314, 0.25490198, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_77h3e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_77h3e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_77h3e")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_77h3e")
+theme_override_styles/focus = SubResource("StyleBoxFlat_77h3e")
 text = "Jouer"
 
-[node name="Niveaux" type="Button" parent="CenterContainer/VBoxContainer" unique_id=709612043]
+[node name="MarginContainer2" type="MarginContainer" parent="+CenterContainer/VBoxContainer" unique_id=1635573306]
 layout_mode = 2
-theme_override_font_sizes/font_size = 18
+theme_override_constants/margin_top = 16
+
+[node name="Niveaux" type="Button" parent="+CenterContainer/VBoxContainer" unique_id=709612043]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.20784314, 0.20784314, 0.25490198, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_77h3e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_77h3e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_77h3e")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_77h3e")
 text = "Niveau"
 
-[node name="Crédits" type="Button" parent="CenterContainer/VBoxContainer" unique_id=517791188]
+[node name="MarginContainer3" type="MarginContainer" parent="+CenterContainer/VBoxContainer" unique_id=505775966]
 layout_mode = 2
-theme_override_font_sizes/font_size = 18
+theme_override_constants/margin_top = 16
+
+[node name="Crédits" type="Button" parent="+CenterContainer/VBoxContainer" unique_id=517791188]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.20784314, 0.20784314, 0.25490198, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_77h3e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_77h3e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_77h3e")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_77h3e")
+theme_override_styles/focus = SubResource("StyleBoxFlat_77h3e")
 text = "Crédits"
 
-[node name="Quitter" type="Button" parent="CenterContainer/VBoxContainer" unique_id=977168162]
+[node name="MarginContainer4" type="MarginContainer" parent="+CenterContainer/VBoxContainer" unique_id=677696658]
 layout_mode = 2
-theme_override_font_sizes/font_size = 18
+theme_override_constants/margin_top = 16
+
+[node name="Quitter" type="Button" parent="+CenterContainer/VBoxContainer" unique_id=977168162]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.20784314, 0.20784314, 0.25490198, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_77h3e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_77h3e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_77h3e")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_77h3e")
+theme_override_styles/focus = SubResource("StyleBoxFlat_77h3e")
 text = "Quitter"
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Jouer" to="." method="_on_jouer_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Niveaux" to="." method="_on_niveaux_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Crédits" to="." method="_on_credits_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Quitter" to="." method="_on_quitter_pressed"]
+[node name="background" parent="+CenterContainer/VBoxContainer" unique_id=1567205257 instance=ExtResource("2_77h3e")]
+z_index = -1
+position = Vector2(0, 241)
+scale = Vector2(0.3, 0.3)
+
+[connection signal="pressed" from="+CenterContainer/VBoxContainer/Jouer" to="." method="_on_jouer_pressed"]
+[connection signal="pressed" from="+CenterContainer/VBoxContainer/Niveaux" to="." method="_on_niveaux_pressed"]
+[connection signal="pressed" from="+CenterContainer/VBoxContainer/Crédits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="+CenterContainer/VBoxContainer/Quitter" to="." method="_on_quitter_pressed"]
