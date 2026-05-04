@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://xy2hvuma810r"]
+
+[ext_resource type="Script" uid="uid://duh452hc5buui" path="res://entities/player/rope.gd" id="1_2ymuj"]
+
+[node name="Rope" type="Node2D" unique_id=1903907641]
+script = ExtResource("1_2ymuj")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=372535627]
+width = 16.0
+default_color = Color(0.0458681, 0.55033386, 0.99999994, 1)
