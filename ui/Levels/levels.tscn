@@ -24,6 +24,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=560376642]
 layout_mode = 2
+theme_override_font_sizes/font_size = 26
 text = "Sélection du niveau"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=1172350659]

@@ -24,6 +24,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=217555742]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Trampoball"
 
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer" unique_id=1062685597]
