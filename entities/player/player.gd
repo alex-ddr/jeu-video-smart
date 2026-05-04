@@ -61,7 +61,7 @@ var release_target_height: float = 0.0
 # --------------------------- Nodes -------------------------------
 @onready var body: Sprite2D = $Body
 @onready var head: Sprite2D = $Head_p1 if action_jump == "p1_jump" else $Head_p2
-@onready var feet: Sprite2D = $Feet
+@onready var feet: AnimatedSprite2D = $AnimatedFeet
 @onready var collision: CollisionShape2D = $CollisionShape2D
 
 
@@ -71,14 +71,15 @@ func _ready() -> void:
 	head.visible = true
 	pass
 
+	
 func _physics_process(delta: float) -> void:
 	_apply_gravity(delta)
 	_read_input(delta)
 	_update_stretch(delta)
 	_compute_launch()
-	
 	_sync_visuals()
 	_sync_collision()
+	_update_animation()
 	move_and_slide()
 
 
@@ -204,4 +205,11 @@ func _sync_collision() -> void:
 		body.flip_h = flipped
 		head.flip_h = flipped
 		feet.flip_h = flipped
-	
+
+func _update_animation() -> void:
+	if not is_on_floor():
+		feet.play("jump")
+	elif abs(desired_direction) > 0.01:
+		feet.play("walk")
+	else:
+		feet.play("idle")
