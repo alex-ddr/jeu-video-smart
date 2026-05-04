@@ -2,7 +2,7 @@ extends Control
 
 # Ajouter les niveaux ici au fur et à mesure
 const LEVELS = [
-	preload("res://levels/Level_01.tscn"),
+	preload("res://levels/level_1.tscn"),
 ]
 
 func _on_niveau_pressed(index: int) -> void:
