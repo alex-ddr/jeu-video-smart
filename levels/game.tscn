@@ -1,15 +1,19 @@
-[gd_scene format=3 uid="uid://bbrd0ppwnvi7m"]
+[gd_scene format=3 uid="uid://bgragrir3gwcc"]
 
-[ext_resource type="Script" uid="uid://bjj3lw7k04nbp" path="res://levels/camera_2d.gd" id="2_arvxu"]
+[ext_resource type="Script" uid="uid://dha4ie560r6pk" path="res://levels/game.gd" id="1_y7kp8"]
+[ext_resource type="Script" path="res://levels/camera_2d.gd" id="2_arvxu"]
 [ext_resource type="PackedScene" uid="uid://buk0b6k7thffd" path="res://entities/player/player_duo.tscn" id="2_vpik0"]
 [ext_resource type="PackedScene" uid="uid://t4i5ibl1xkep" path="res://levels/map_01.tscn" id="3_arvxu"]
-[ext_resource type="Script" path="res://levels/level_1.gd" id="3_vpik0"]
+[ext_resource type="Script" uid="uid://b4bcxf2r4wmao" path="res://levels/level_1.gd" id="3_vpik0"]
 [ext_resource type="PackedScene" uid="uid://dpimmjxmkpn0m" path="res://assets/BackGround/backgroundCiel.tscn" id="4_kc1m6"]
 [ext_resource type="PackedScene" uid="uid://bbl44w74iuc6f" path="res://entities/pickups/star.tscn" id="5_y7kp8"]
 [ext_resource type="PackedScene" uid="uid://d0rkeu0nf6ns6" path="res://levels/game/ui.tscn" id="6_ughyh"]
 [ext_resource type="PackedScene" uid="uid://bykqjm2j5oxkr" path="res://entities/ball/ball.tscn" id="8_arvxu"]
+[ext_resource type="PackedScene" uid="uid://mpu5pvoq06a4" path="res://entities/checkpoint/check_point.tscn" id="9_kc1m6"]
+[ext_resource type="PackedScene" uid="uid://ccaqsjdfwknlj" path="res://entities/findeniveau/fin_de_nveau.tscn" id="11_ughyh"]
 
 [node name="Game" type="Node2D" unique_id=1589479972]
+script = ExtResource("1_y7kp8")
 
 [node name="Player" parent="." unique_id=1829453057 instance=ExtResource("2_vpik0")]
 z_index = 2
@@ -43,6 +47,7 @@ position = Vector2(2224, -752)
 z_index = 1
 
 [node name="background2" parent="Level_1/TileMaps" unique_id=1567205257 instance=ExtResource("4_kc1m6")]
+z_index = -1
 position = Vector2(-1776, -432)
 
 [node name="UI" parent="." unique_id=1452071461 instance=ExtResource("6_ughyh")]
@@ -54,3 +59,17 @@ offset_bottom = -1392.0
 [node name="Ball" parent="." unique_id=1885945790 instance=ExtResource("8_arvxu")]
 z_index = 1
 position = Vector2(-339, -410)
+
+[node name="CheckPoint" parent="." unique_id=351713259 instance=ExtResource("9_kc1m6")]
+position = Vector2(290, -63)
+scale = Vector2(2, 2)
+checkpoint_id = 2
+
+[node name="CheckPoint2" parent="." unique_id=784851638 instance=ExtResource("9_kc1m6")]
+position = Vector2(-1321, -317)
+scale = Vector2(2, 2)
+
+[node name="FinDeNveau" parent="." unique_id=2098824404 instance=ExtResource("11_ughyh")]
+position = Vector2(2741, 65)
+scale = Vector2(2, 2)
+next_level_path = "uid://c51die6cbbg07"

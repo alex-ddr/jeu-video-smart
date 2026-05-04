@@ -50,7 +50,6 @@ position = Vector2(2224, -752)
 z_index = 1
 
 [node name="background" parent="Level_1/TileMaps" unique_id=1567205257 instance=ExtResource("4_kc1m6")]
-position = Vector2(-1776, -432)
 
 [node name="UI" parent="." unique_id=1452071461 instance=ExtResource("6_ughyh")]
 offset_left = -320.0
