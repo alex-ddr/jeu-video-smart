@@ -104,6 +104,7 @@ locale/line_breaking_strictness=1
 2d_physics/layer_2="players"
 2d_physics/layer_3="rope"
 2d_physics/layer_4="ball"
+2d_physics/layer_5="platform"
 
 [rendering]
 
