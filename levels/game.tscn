@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bgragrir3gwcc"]
 
-[ext_resource type="Script" uid="uid://dha4ie560r6pk" path="res://levels/game.gd" id="1_y7kp8"]
-[ext_resource type="Script" path="res://levels/camera_2d.gd" id="2_arvxu"]
+[ext_resource type="Script" path="res://levels/game.gd" id="1_y7kp8"]
+[ext_resource type="Script" uid="uid://bjj3lw7k04nbp" path="res://levels/camera_2d.gd" id="2_arvxu"]
 [ext_resource type="PackedScene" uid="uid://buk0b6k7thffd" path="res://entities/player/player_duo.tscn" id="2_vpik0"]
 [ext_resource type="PackedScene" uid="uid://t4i5ibl1xkep" path="res://levels/map_01.tscn" id="3_arvxu"]
 [ext_resource type="Script" uid="uid://b4bcxf2r4wmao" path="res://levels/level_1.gd" id="3_vpik0"]
@@ -48,7 +48,7 @@ z_index = 1
 
 [node name="background2" parent="Level_1/TileMaps" unique_id=1567205257 instance=ExtResource("4_kc1m6")]
 z_index = -1
-position = Vector2(-1776, -432)
+position = Vector2(4, 3)
 
 [node name="UI" parent="." unique_id=1452071461 instance=ExtResource("6_ughyh")]
 offset_left = -320.0

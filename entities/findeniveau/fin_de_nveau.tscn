@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ccaqsjdfwknlj"]
 
-[ext_resource type="Texture2D" uid="uid://crls6ck8vpluf" path="res://assets/Vector/Tiles/sign_exit.svg" id="1_cid0d"]
+[ext_resource type="Texture2D" uid="uid://trm3hhsyj7in" path="res://assets/Sprites/Tiles/Double/sign_exit.png" id="1_cid0d"]
 [ext_resource type="Script" uid="uid://xwby58id7h8" path="res://entities/findeniveau/fin_de_nveau.gd" id="1_i118u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i118u"]
