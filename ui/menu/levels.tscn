@@ -112,5 +112,6 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_77h3e")
 theme_override_styles/focus = SubResource("StyleBoxFlat_77h3e")
 text = "Retour"
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/niv2" to="." method="_on_niveau_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Retour" to="." method="_on_retour_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/niv1" to="." method="_on_level_pressed" binds= [0]]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/niv2" to="." method="_on_level_pressed" binds= [1]]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Retour" to="." method="_on_back_pressed"]

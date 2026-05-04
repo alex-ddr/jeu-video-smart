@@ -108,7 +108,7 @@ z_index = -1
 position = Vector2(0, 241)
 scale = Vector2(0.3, 0.3)
 
-[connection signal="pressed" from="+CenterContainer/VBoxContainer/Jouer" to="." method="_on_jouer_pressed"]
-[connection signal="pressed" from="+CenterContainer/VBoxContainer/Niveaux" to="." method="_on_niveaux_pressed"]
+[connection signal="pressed" from="+CenterContainer/VBoxContainer/Jouer" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="+CenterContainer/VBoxContainer/Niveaux" to="." method="_on_levels_pressed"]
 [connection signal="pressed" from="+CenterContainer/VBoxContainer/Crédits" to="." method="_on_credits_pressed"]
-[connection signal="pressed" from="+CenterContainer/VBoxContainer/Quitter" to="." method="_on_quitter_pressed"]
+[connection signal="pressed" from="+CenterContainer/VBoxContainer/Quitter" to="." method="_on_quit_pressed"]
