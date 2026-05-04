@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bbrd0ppwnvi7m"]
 
-[ext_resource type="Script" uid="uid://bjj3lw7k04nbp" path="res://levels/camera_2d.gd" id="2_arvxu"]
+[ext_resource type="Script" path="res://levels/camera_2d.gd" id="2_arvxu"]
 [ext_resource type="PackedScene" uid="uid://buk0b6k7thffd" path="res://entities/player/player_duo.tscn" id="2_vpik0"]
 [ext_resource type="PackedScene" uid="uid://t4i5ibl1xkep" path="res://levels/map_01.tscn" id="3_arvxu"]
 [ext_resource type="Script" uid="uid://b4bcxf2r4wmao" path="res://levels/level_1.gd" id="3_vpik0"]
@@ -16,7 +16,7 @@ z_index = 2
 position = Vector2(-538, -204)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1401374979]
-zoom = Vector2(0.5, 0.5)
+zoom = Vector2(0.6, 0.6)
 position_smoothing_enabled = true
 script = ExtResource("2_arvxu")
 

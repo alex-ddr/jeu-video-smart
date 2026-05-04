@@ -20,7 +20,7 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 
 [autoload]
 
-Global="*uid://cbya6jpp0qpkk"
+Global="*uid://cruhk2ovyqgfd"
 
 [dotnet]
 

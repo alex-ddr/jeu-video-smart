@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://fc0phxabhhpd"]
+[gd_scene format=3 uid="uid://dnr7phsi0melx"]
 
 [ext_resource type="PackedScene" uid="uid://buk0b6k7thffd" path="res://entities/player/player_duo.tscn" id="2_81a5f"]
 [ext_resource type="PackedScene" uid="uid://t4i5ibl1xkep" path="res://levels/map_01.tscn" id="3_81a5f"]
