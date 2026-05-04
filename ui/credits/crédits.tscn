@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://j2qae5tlobcl"]
+
+[ext_resource type="Script" uid="uid://h8ccdhdl4d5w" path="res://ui/credits/crédits.gd" id="1_eguds"]
+
+[node name="Crédits" type="Control" unique_id=686787542]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eguds")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1463503226]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1859713126]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=294073337]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Crédits"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=919007310]
+layout_mode = 2
+
+[node name="Retour" type="Button" parent="CenterContainer/VBoxContainer" unique_id=759970058]
+layout_mode = 2
+text = "Retour"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Retour" to="." method="_on_retour_pressed"]
