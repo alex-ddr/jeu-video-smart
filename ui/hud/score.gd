@@ -9,3 +9,5 @@ func _ready() -> void:
 	
 func actu_score():
 	set_text(str(Global.nb_stars_collected) + "/" +str(Global.nb_stars_tot))
+	if(Global.nb_stars_collected == Global.nb_stars_tot):
+		Global.all_stars_retrieved.emit()

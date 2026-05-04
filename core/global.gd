@@ -1,6 +1,7 @@
 extends Node
 
 signal stars_collected
+signal all_stars_retrieved
 
 var nb_stars_tot: int = 0
 var nb_stars_collected: int = 0

@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://qdnr3k3vr7k3"]
 
 [ext_resource type="PackedScene" uid="uid://c43c1w7mg51ro" path="res://assets/backgrounds/background_plains.tscn" id="1_didps"]
+[ext_resource type="Script" uid="uid://c7l0o0x8gmpyl" path="res://levels/base_level.gd" id="1_xxuo2"]
 [ext_resource type="TileSet" uid="uid://d1y8h0rdrpg8g" path="res://assets/tilesets/map.tres" id="2_didps"]
 [ext_resource type="PackedScene" uid="uid://buk0b6k7thffd" path="res://entities/player/player_duo.tscn" id="3_cwmx8"]
 [ext_resource type="Script" uid="uid://bjj3lw7k04nbp" path="res://levels/camera.gd" id="5_2owmk"]
@@ -11,7 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://bbl44w74iuc6f" path="res://entities/pickups/star.tscn" id="9_05651"]
 [ext_resource type="PackedScene" uid="uid://67667b2mo1rr" path="res://entities/cactus/cactus.tscn" id="10_xxuo2"]
 
-[node name="Game" type="Node2D" unique_id=1589479972]
+[node name="Level_02" type="Node2D" unique_id=1589479972]
+script = ExtResource("1_xxuo2")
 
 [node name="BackgroundPlains" parent="." unique_id=247614796 instance=ExtResource("1_didps")]
 
@@ -59,15 +61,15 @@ checkpoint_id = 1
 [node name="FinDeNveau" parent="CheckPoint" unique_id=2098824404 instance=ExtResource("8_xxuo2")]
 position = Vector2(12569, -833)
 
-[node name="Starts" type="Node" parent="." unique_id=2094192798]
+[node name="Stars" type="Node" parent="." unique_id=2094192798]
 
-[node name="star3" parent="Starts" unique_id=196880715 instance=ExtResource("9_05651")]
+[node name="star3" parent="Stars" unique_id=196880715 instance=ExtResource("9_05651")]
 position = Vector2(7482, -535)
 
-[node name="star" parent="Starts" unique_id=686611491 instance=ExtResource("9_05651")]
+[node name="star" parent="Stars" unique_id=686611491 instance=ExtResource("9_05651")]
 position = Vector2(830, -407)
 
-[node name="star2" parent="Starts" unique_id=963298491 instance=ExtResource("9_05651")]
+[node name="star2" parent="Stars" unique_id=963298491 instance=ExtResource("9_05651")]
 position = Vector2(3731, -984)
 
 [node name="Cactus" type="Node" parent="." unique_id=923789192]
