@@ -1,40 +1,38 @@
-[gd_scene format=3 uid="uid://fc0phxabhhpd"]
+[gd_scene format=4 uid="uid://fc0phxabhhpd"]
 
+[ext_resource type="PackedScene" uid="uid://dpimmjxmkpn0m" path="res://assets/backgrounds/background_sky.tscn" id="1_j0sdw"]
 [ext_resource type="PackedScene" uid="uid://buk0b6k7thffd" path="res://entities/player/player_duo.tscn" id="2_81a5f"]
-[ext_resource type="PackedScene" uid="uid://c0ex3uyn1veed" path="res://levels/map_01.tscn" id="3_81a5f"]
-[ext_resource type="PackedScene" uid="uid://dpimmjxmkpn0m" path="res://assets/BackGround/backgroundCiel.tscn" id="3_gg43x"]
+[ext_resource type="TileSet" uid="uid://d1y8h0rdrpg8g" path="res://assets/tilesets/map.tres" id="2_j0sdw"]
 [ext_resource type="PackedScene" uid="uid://bbl44w74iuc6f" path="res://entities/pickups/star.tscn" id="4_gg43x"]
-[ext_resource type="PackedScene" uid="uid://dg43pb7us31ti" path="res://entities/player/bee.tscn" id="6_cg8v6"]
-[ext_resource type="PackedScene" uid="uid://d0rkeu0nf6ns6" path="res://levels/game/ui.tscn" id="6_q7ibo"]
-[ext_resource type="PackedScene" path="res://entities/cactus_mortel.tscn" id="7_cg8v6"]
-[ext_resource type="PackedScene" uid="uid://d16ikhrssu8rs" path="res://entities/death_zone.tscn" id="8_j0sdw"]
+[ext_resource type="PackedScene" uid="uid://bykqjm2j5oxkr" path="res://entities/ball/ball.tscn" id="4_j0sdw"]
+[ext_resource type="PackedScene" uid="uid://d0rkeu0nf6ns6" path="res://ui/ui.tscn" id="6_q7ibo"]
+[ext_resource type="PackedScene" uid="uid://67667b2mo1rr" path="res://entities/cactus/cactus.tscn" id="7_cg8v6"]
+[ext_resource type="PackedScene" uid="uid://d16ikhrssu8rs" path="res://entities/death_zone/death_zone.tscn" id="8_j0sdw"]
 
 [node name="Game" type="Node2D" unique_id=1589479972]
 
+[node name="BackgroundSky" parent="." unique_id=1567205257 instance=ExtResource("1_j0sdw")]
+
+[node name="Map" type="TileMapLayer" parent="." unique_id=28175068]
+tile_map_data = PackedByteArray("AAD9/wAAAAALAAkAAAD+/wAAAAALAAkAAAD//wAAAAALAAkAAAAAAAAAAAALAAkAAAABAAAAAAALAAkAAAACAAAAAAALAAkAAAADAAAAAAALAAkAAAD8/wAAAAALAAkAAAD7/wAAAAALAAkAAAD6/wAAAAALAAkAAAAEAAAAAAALAAkAAAAFAAAAAAALAAkAAAAGAAAAAAALAAkAAAAHAAAAAAALAAkAAAD6/wEAAAAIAAkAAAD7/wEAAAAIAAkAAAD8/wEAAAAIAAkAAAD9/wEAAAAIAAkAAAD+/wEAAAAIAAkAAAD//wEAAAAIAAkAAAAAAAEAAAAIAAkAAAABAAEAAAAIAAkAAAACAAEAAAAIAAkAAAADAAEAAAAIAAkAAAAEAAEAAAAIAAkAAAAFAAEAAAAIAAkAAAAGAAEAAAAIAAkAAAAHAAEAAAAIAAkAAAD6/wIAAAAIAAkAAAD7/wIAAAAIAAkAAAD8/wIAAAAIAAkAAAD9/wIAAAAIAAkAAAD+/wIAAAAIAAkAAAD//wIAAAAIAAkAAAAAAAIAAAAIAAkAAAABAAIAAAAIAAkAAAACAAIAAAAIAAkAAAADAAIAAAAIAAkAAAAEAAIAAAAIAAkAAAAFAAIAAAAIAAkAAAAGAAIAAAAIAAkAAAAHAAIAAAAIAAkAAAAIAAIAAAAIAAkAAAD6/wMAAAAFAAkAAAD7/wMAAAAFAAkAAAD8/wMAAAAFAAkAAAD9/wMAAAAFAAkAAAD+/wMAAAAFAAkAAAD//wMAAAAFAAkAAAAAAAMAAAAFAAkAAAABAAMAAAAFAAkAAAACAAMAAAAFAAkAAAADAAMAAAAFAAkAAAAEAAMAAAAFAAkAAAAFAAMAAAAFAAkAAAAGAAMAAAAFAAkAAAAHAAMAAAAFAAkAAAAIAAMAAAAFAAkAAAD5////AAAHAAoAAAD4////AAAGAAoAAAD3//7/AAAHAAoAAAD2//7/AAAGAAoAAAD2////AAAJAAkAAAD4/wAAAAAIAAkAAAD3/wEAAAAJAAkAAAD4/wEAAAAIAAkAAAD3/wAAAAAIAAkAAAD5/wEAAAAIAAkAAAD5/wAAAAAIAAoAAAD3////AAAIAAoAAAD3/wIAAAAJAAkAAAD4/wIAAAAIAAkAAAD5/wIAAAAIAAkAAAD2/wMAAAACAAoAAAD3/wMAAAAFAAkAAAD4/wMAAAAFAAkAAAD5/wMAAAAFAAkAAAAHAP7/AAAFAAoAAAAFAP7/AAABAAoAAAAGAP7/AAACAAoAAAALAP3/AAACAAoAAAAMAP3/AAAFAAoAAAAPAPz/AAABAAoAAAAQAPz/AAACAAoAAAARAPz/AAAFAAoAAAAJAAEAAAALAAkAAAAIAAEAAAAIAAkAAAAIAAAAAAALAAkAAAAKAP3/AAABAAoAAAAKAAEAAAALAAkAAAALAAEAAAALAAkAAAAMAAEAAAALAAkAAAANAAEAAAALAAkAAAAOAAEAAAALAAkAAAAPAAEAAAALAAkAAAAQAAEAAAALAAkAAAARAAEAAAALAAkAAAAJAAIAAAAIAAkAAAAKAAIAAAAIAAkAAAALAAIAAAAIAAkAAAAMAAIAAAAIAAkAAAANAAIAAAAIAAkAAAAOAAIAAAAIAAkAAAAPAAIAAAAIAAkAAAAQAAIAAAAIAAkAAAARAAIAAAAIAAkAAAAJAAMAAAAFAAkAAAAKAAMAAAAFAAkAAAALAAMAAAAFAAkAAAAMAAMAAAAFAAkAAAANAAMAAAAFAAkAAAAOAAMAAAAFAAkAAAAPAAMAAAAFAAkAAAAQAAMAAAAFAAkAAAARAAMAAAAFAAkAAADy//7/AAACAAoAAADz//7/AAACAAoAAAD0//7/AAACAAoAAAD1//7/AAACAAoAAADx//7/AAAMAAkAAADx////AAAMAAoAAADx/wAAAAALAAoAAADt//7/AAAFAAoAAADq//7/AAACAAoAAADr//7/AAACAAoAAADs//7/AAACAAoAAADp//7/AAABAAoAAADx/wMAAAABAAoAAADy/wMAAAACAAoAAADz/wMAAAACAAoAAAD0/wMAAAACAAoAAAD1/wMAAAACAAoAAAD2/wAAAAAGAAkAAAD6//r/AAAEAAkAAAD7//v/AAAEAAkAAAD8//r/AAAEAAkAAAASAAEAAAALAAkAAAATAAEAAAALAAkAAAAUAAEAAAALAAkAAAAVAAEAAAALAAkAAAAWAAEAAAALAAkAAAAXAAEAAAALAAkAAAAYAAEAAAALAAkAAAAZAAEAAAALAAkAAAAaAAEAAAALAAkAAAAbAAEAAAALAAkAAAAcAAEAAAALAAkAAAAdAAEAAAALAAkAAAAeAAEAAAALAAkAAAASAAIAAAAIAAkAAAATAAIAAAAIAAkAAAAUAAIAAAAIAAkAAAAVAAIAAAAIAAkAAAAWAAIAAAAIAAkAAAAXAAIAAAAIAAkAAAAYAAIAAAAIAAkAAAAZAAIAAAAIAAkAAAAaAAIAAAAIAAkAAAAbAAIAAAAIAAkAAAAcAAIAAAAIAAkAAAAdAAIAAAAIAAkAAAAeAAIAAAAIAAkAAAASAAMAAAAFAAkAAAATAAMAAAAFAAkAAAAUAAMAAAAFAAkAAAAVAAMAAAAFAAkAAAAWAAMAAAAFAAkAAAAXAAMAAAAFAAkAAAAYAAMAAAAFAAkAAAAZAAMAAAAFAAkAAAAaAAMAAAAFAAkAAAAbAAMAAAAFAAkAAAAcAAMAAAAFAAkAAAAdAAMAAAAFAAkAAAAeAAMAAAAFAAkAAAAZAAAAAAAJAAAAAAAaAAAAAAAJAAAAAAAbAAAAAAAJAAAAAAAaAP//AAAJAAAAAAAbAP//AAAJAAAAAAAcAAAAAAAJAAAAAAAcAP7/AAAJAAAAAAAdAAAAAAAJAAAAAADp//3/AAAOAAYAAAA=")
+tile_set = ExtResource("2_j0sdw")
+
 [node name="Players" type="Node" parent="." unique_id=189884488]
 
-[node name="bee" parent="Players" unique_id=402097593 groups=["player"] instance=ExtResource("6_cg8v6")]
-position = Vector2(-386, -97.99999)
+[node name="PlayerDuo" parent="Players" unique_id=407785087 instance=ExtResource("2_81a5f")]
+z_index = 6
+position = Vector2(-544, -18)
 
-[node name="Camera2D" type="Camera2D" parent="Players/bee" unique_id=1034333771]
-position = Vector2(49.55716, -109.70804)
-rotation = -0.0019709491
-scale = Vector2(14.85584, -2.8598526)
+[node name="Camera2D" type="Camera2D" parent="Players" unique_id=1034333771]
+position = Vector2(-242.00003, -465.99985)
+rotation = -0.0022752464
+scale = Vector2(43.16716, -9.592959)
+skew = 0.00056779385
 zoom = Vector2(0.5, 0.5)
 position_smoothing_enabled = true
 
-[node name="Player" parent="Players" unique_id=407785087 instance=ExtResource("2_81a5f")]
-visible = false
-z_index = 6
-position = Vector2(-61, -37)
-
-[node name="TileMaps" type="Node" parent="." unique_id=624767667]
-
-[node name="Map_01" parent="TileMaps" unique_id=28175068 instance=ExtResource("3_81a5f")]
-z_index = 1
-
-[node name="background" parent="TileMaps" unique_id=1567205257 instance=ExtResource("3_gg43x")]
-position = Vector2(-1776, -432)
+[node name="Ball" parent="Players" unique_id=1885945790 instance=ExtResource("4_j0sdw")]
+position = Vector2(-357, -300)
 
 [node name="Pickups" type="Node" parent="." unique_id=986624371]
 
@@ -57,7 +55,9 @@ offset_bottom = -1392.0
 position = Vector2(168, -60)
 collision_layer = 1
 collision_mask = 1
+script = null
 
 [node name="DeathZone" parent="." unique_id=150261952 instance=ExtResource("8_j0sdw")]
 z_index = 1
 position = Vector2(36, 657)
+script = null

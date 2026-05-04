@@ -1,0 +1,32 @@
+[gd_scene format=4 uid="uid://dpimmjxmkpn0m"]
+
+[ext_resource type="TileSet" uid="uid://d2hj4o4x1p60i" path="res://assets/tilesets/backgrounds.tres" id="1_qjbks"]
+
+[node name="BackgroundSky" type="Node2D" unique_id=1567205257]
+z_index = -2
+
+[node name="sol" type="Parallax2D" parent="." unique_id=2008332492]
+repeat_size = Vector2(512, 0)
+repeat_times = 1000
+limit_begin = Vector2(100, 10)
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="sol" unique_id=1068164517]
+tile_map_data = PackedByteArray("AAAAAAAAAAABAAMAAAAAAAEAAAABAAMAAAAAAAIAAAABAAMAAAAAAAMAAAABAAMAAAAAAAQAAAABAAMAAAAAAAUAAAABAAMAAAAAAAYAAAABAAMAAAAAAAcAAAABAAMAAAA=")
+tile_set = ExtResource("1_qjbks")
+
+[node name="ciel" type="Parallax2D" parent="." unique_id=1166780106]
+repeat_size = Vector2(512, 0)
+repeat_times = 1000
+
+[node name="TileMapLayer" type="TileMapLayer" parent="ciel" unique_id=1394628462]
+tile_map_data = PackedByteArray("AAADAP7/AAABAAIAAAADAP3/AAABAAIAAAADAPz/AAABAAIAAAADAPv/AAABAAIAAAADAPr/AAABAAIAAAADAPn/AAABAAIAAAADAPj/AAABAAIAAAA=")
+tile_set = ExtResource("1_qjbks")
+
+[node name="nuage" type="Parallax2D" parent="." unique_id=66010330]
+repeat_size = Vector2(2048, 0)
+autoscroll = Vector2(10, 0)
+repeat_times = 25
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="nuage" unique_id=905033877]
+tile_map_data = PackedByteArray("AAAAAP//AAABAAEAAAABAP//AAACAAEAAAACAP//AAADAAEAAAADAP//AAAAAAIAAAA=")
+tile_set = ExtResource("1_qjbks")

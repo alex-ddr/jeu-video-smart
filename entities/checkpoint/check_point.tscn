@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://mpu5pvoq06a4"]
+
+[ext_resource type="Script" uid="uid://cg6etp1v76pj2" path="res://entities/checkpoint/check_point.gd" id="1_nvskt"]
+[ext_resource type="Texture2D" uid="uid://dd7jortmej75r" path="res://assets/Vector/Tiles/flag_blue_a.svg" id="1_ub0nm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nvskt"]
+size = Vector2(67, 65)
+
+[node name="CheckPoint" type="Area2D" unique_id=351713259]
+collision_mask = 255
+script = ExtResource("1_nvskt")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=488428051]
+texture = ExtResource("1_ub0nm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1272636705]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_nvskt")

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ccaqsjdfwknlj"]
+
+[ext_resource type="Script" uid="uid://xwby58id7h8" path="res://entities/end_level_sign/end_level_sign.gd" id="1_i118u"]
+[ext_resource type="Texture2D" uid="uid://trm3hhsyj7in" path="res://assets/textures/sprites/Tiles/sign_exit.png" id="2_i118u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i118u"]
+size = Vector2(126, 93)
+
+[node name="FinDeNveau" type="Area2D" unique_id=2098824404]
+collision_mask = 15
+script = ExtResource("1_i118u")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=671614837]
+texture = ExtResource("2_i118u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1188009695]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_i118u")

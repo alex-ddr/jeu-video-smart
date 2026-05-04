@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bbl44w74iuc6f"]
 
-[ext_resource type="Texture2D" uid="uid://bre5lt8a1i4nv" path="res://assets/Sprites/Tiles/Double/star.png" id="1_dlwui"]
+[ext_resource type="Texture2D" uid="uid://bre5lt8a1i4nv" path="res://assets/textures/sprites/Tiles/star.png" id="1_dlwui"]
 [ext_resource type="Script" uid="uid://chn5fn6yvlpux" path="res://entities/pickups/star.gd" id="1_hc71p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dlwui"]

@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://dmbtn6eptwnet"]
+
+[node name="messagefinniveau" type="CanvasGroup" unique_id=978193625]
+position = Vector2(1, 8)
+
+[node name="Window" type="Window" parent="." unique_id=2098624702]
+oversampling_override = 1.0
+position = Vector2i(0, 36)
+size = Vector2i(800, 800)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Window" unique_id=320645665]
+offset_right = 805.0
+offset_bottom = 803.0
+
+[node name="Label" type="Label" parent="Window/VBoxContainer" unique_id=1110358998]
+layout_mode = 2
+text = "Felicitation tu as terminé le niveau"
+
+[node name="MarginContainer" type="MarginContainer" parent="Window/VBoxContainer" unique_id=1469116387]
+layout_mode = 2
+theme_override_constants/margin_top = 24
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Window/VBoxContainer" unique_id=1818521504]
+layout_mode = 2
+
+[node name="Menu" type="Button" parent="Window/VBoxContainer/HBoxContainer" unique_id=1851228234]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="Window/VBoxContainer/HBoxContainer" unique_id=698339539]
+layout_mode = 2
+theme_override_constants/margin_top = 16
+
+[node name="Niveau Suivant" type="Button" parent="Window/VBoxContainer/HBoxContainer" unique_id=188012055]
+layout_mode = 2

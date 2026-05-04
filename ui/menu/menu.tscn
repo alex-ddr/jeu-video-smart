@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c51die6cbbg07"]
 
 [ext_resource type="Script" uid="uid://db77iuepeaitv" path="res://ui/menu/menu.gd" id="1_v6ljw"]
-[ext_resource type="PackedScene" uid="uid://dpimmjxmkpn0m" path="res://assets/BackGround/backgroundCiel.tscn" id="2_77h3e"]
+[ext_resource type="PackedScene" uid="uid://dpimmjxmkpn0m" path="res://assets/backgrounds/background_sky.tscn" id="2_77h3e"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77h3e"]
 bg_color = Color(0.75686276, 0.6862745, 0.9882353, 1)

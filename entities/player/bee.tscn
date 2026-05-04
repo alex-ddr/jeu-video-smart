@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dg43pb7us31ti"]
 
-[ext_resource type="Texture2D" uid="uid://decbm22fv0ktv" path="res://assets/Sprites/Enemies/Double/bee_a.png" id="1_wxwve"]
+[ext_resource type="Texture2D" uid="uid://decbm22fv0ktv" path="res://assets/textures/sprites/Enemies/bee_a.png" id="1_wxwve"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v5qog"]
 radius = 32.0

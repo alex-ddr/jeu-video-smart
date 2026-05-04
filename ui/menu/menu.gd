@@ -1,17 +1,13 @@
 extends Control
 
-const LEVEL_SELECT_SCENE = preload("res://ui/Levels/levels.tscn")
-const CREDITS_SCENE = preload("res://ui/credits/crédits.tscn")
-const FIRST_LEVEL = preload("res://levels/level_1.tscn")
+func _on_play_pressed() -> void:
+	GameManager.start_game(0)
 
-func _on_jouer_pressed() -> void:
-	get_tree().change_scene_to_packed(FIRST_LEVEL)
-
-func _on_niveaux_pressed() -> void:
-	get_tree().change_scene_to_packed(LEVEL_SELECT_SCENE)
+func _on_levels_pressed() -> void:
+	get_tree().change_scene_to_file("res://ui/levels/levels.tscn")
 
 func _on_credits_pressed() -> void:
-	get_tree().change_scene_to_packed(CREDITS_SCENE)
+	get_tree().change_scene_to_file("res://ui/credits/credits.tscn")
 
-func _on_quitter_pressed() -> void:
+func _on_quit_pressed() -> void:
 	get_tree().quit()
