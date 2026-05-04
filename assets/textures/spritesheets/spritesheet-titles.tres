@@ -1,9 +1,6 @@
 [gd_resource type="TileSet" format=3 uid="uid://bjm8tyxgo77oc"]
 
-[ext_resource type="Texture2D" uid="uid://pgb5nqh8mexl" path="res://assets/Spritesheets/spritesheet-tiles-default.png" id="1_5hrxf"]
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8y0ob"]
-texture = ExtResource("1_5hrxf")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
