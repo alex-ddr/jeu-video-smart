@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://bbrd0ppwnvi7m"]
+
+[ext_resource type="Script" uid="uid://bjj3lw7k04nbp" path="res://levels/camera_2d.gd" id="2_arvxu"]
+[ext_resource type="PackedScene" uid="uid://buk0b6k7thffd" path="res://entities/player/player_duo.tscn" id="2_vpik0"]
+[ext_resource type="PackedScene" uid="uid://t4i5ibl1xkep" path="res://levels/map_01.tscn" id="3_arvxu"]
+[ext_resource type="Script" path="res://levels/level_1.gd" id="3_vpik0"]
+[ext_resource type="PackedScene" uid="uid://dpimmjxmkpn0m" path="res://assets/BackGround/backgroundCiel.tscn" id="4_kc1m6"]
+[ext_resource type="PackedScene" uid="uid://bbl44w74iuc6f" path="res://entities/pickups/star.tscn" id="5_y7kp8"]
+[ext_resource type="PackedScene" uid="uid://d0rkeu0nf6ns6" path="res://levels/game/ui.tscn" id="6_ughyh"]
+[ext_resource type="PackedScene" uid="uid://bykqjm2j5oxkr" path="res://entities/ball/ball.tscn" id="8_arvxu"]
+
+[node name="Game" type="Node2D" unique_id=1589479972]
+
+[node name="Player" parent="." unique_id=1829453057 instance=ExtResource("2_vpik0")]
+z_index = 2
+position = Vector2(-538, -204)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1401374979]
+zoom = Vector2(0.5, 0.5)
+position_smoothing_enabled = true
+script = ExtResource("2_arvxu")
+
+[node name="Level_1" type="Node" parent="." unique_id=605855850]
+script = ExtResource("3_vpik0")
+
+[node name="Pickups" type="Node" parent="Level_1" unique_id=986624371]
+
+[node name="star" parent="Level_1/Pickups" unique_id=196880715 instance=ExtResource("5_y7kp8")]
+z_index = 1
+position = Vector2(-576, -704)
+
+[node name="star2" parent="Level_1/Pickups" unique_id=1785345004 instance=ExtResource("5_y7kp8")]
+z_index = 1
+position = Vector2(-1216, 320)
+
+[node name="star3" parent="Level_1/Pickups" unique_id=1834191255 instance=ExtResource("5_y7kp8")]
+z_index = 1
+position = Vector2(2224, -752)
+
+[node name="TileMaps" type="Node" parent="Level_1" unique_id=624767667]
+
+[node name="Map_01" parent="Level_1/TileMaps" unique_id=28175068 instance=ExtResource("3_arvxu")]
+z_index = 1
+
+[node name="background2" parent="Level_1/TileMaps" unique_id=1567205257 instance=ExtResource("4_kc1m6")]
+position = Vector2(-1776, -432)
+
+[node name="UI" parent="." unique_id=1452071461 instance=ExtResource("6_ughyh")]
+offset_left = -320.0
+offset_top = -1392.0
+offset_right = -320.0
+offset_bottom = -1392.0
+
+[node name="Ball" parent="." unique_id=1885945790 instance=ExtResource("8_arvxu")]
+z_index = 1
+position = Vector2(-339, -410)

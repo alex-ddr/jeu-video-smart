@@ -1,39 +1,52 @@
-[gd_scene format=4 uid="uid://dnr7phsi0melx"]
+[gd_scene format=3 uid="uid://fc0phxabhhpd"]
 
-[ext_resource type="Texture2D" uid="uid://b6kxfpc8mjitd" path="res://assets/textures/world/spritesheet-tiles.png" id="1_81a5f"]
 [ext_resource type="PackedScene" uid="uid://buk0b6k7thffd" path="res://entities/player/player_duo.tscn" id="2_81a5f"]
-[ext_resource type="PackedScene" uid="uid://bykqjm2j5oxkr" path="res://entities/ball/ball.tscn" id="3_81a5f"]
+[ext_resource type="PackedScene" uid="uid://t4i5ibl1xkep" path="res://levels/map_01.tscn" id="3_81a5f"]
+[ext_resource type="PackedScene" uid="uid://dpimmjxmkpn0m" path="res://assets/BackGround/backgroundCiel.tscn" id="3_gg43x"]
+[ext_resource type="PackedScene" uid="uid://bbl44w74iuc6f" path="res://entities/pickups/star.tscn" id="4_gg43x"]
+[ext_resource type="PackedScene" uid="uid://dg43pb7us31ti" path="res://entities/player/bee.tscn" id="6_cg8v6"]
+[ext_resource type="PackedScene" uid="uid://d0rkeu0nf6ns6" path="res://levels/game/ui.tscn" id="6_q7ibo"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gg43x"]
-texture = ExtResource("1_81a5f")
-separation = Vector2i(1, 1)
-texture_region_size = Vector2i(128, 128)
-1:10/0 = 0
-1:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
-2:10/0 = 0
-2:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
-5:10/0 = 0
-5:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+[node name="Game" type="Node2D" unique_id=1589479972]
 
-[sub_resource type="TileSet" id="TileSet_mllcm"]
-tile_size = Vector2i(128, 128)
-physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_gg43x")
+[node name="Players" type="Node" parent="." unique_id=189884488]
 
-[node name="Game" type="Node2D" unique_id=899789698]
+[node name="bee" parent="Players" unique_id=402097593 instance=ExtResource("6_cg8v6")]
+position = Vector2(-386, -97.99999)
 
-[node name="TileMap" type="Node" parent="." unique_id=1422160543]
-
-[node name="TileMapLayer" type="TileMapLayer" parent="TileMap" unique_id=899993651]
-tile_map_data = PackedByteArray("AAD6/wEAAAABAAoAAAD7/wEAAAACAAoAAAD8/wEAAAACAAoAAAD9/wEAAAACAAoAAAD+/wEAAAACAAoAAAD//wEAAAACAAoAAAAAAAEAAAACAAoAAAABAAEAAAACAAoAAAACAAEAAAACAAoAAAADAAEAAAACAAoAAAAEAAEAAAACAAoAAAAFAAEAAAAFAAoAAAA=")
-tile_set = SubResource("TileSet_mllcm")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1347911025]
-zoom = Vector2(0.75, 0.75)
+[node name="Camera2D" type="Camera2D" parent="Players/bee" unique_id=1034333771]
+position = Vector2(49.55716, -109.70804)
+rotation = -0.0019709491
+scale = Vector2(14.85584, -2.8598526)
+zoom = Vector2(0.5, 0.5)
 position_smoothing_enabled = true
 
-[node name="Player" parent="." unique_id=36385951 instance=ExtResource("2_81a5f")]
-position = Vector2(-69, 2)
+[node name="Player" parent="Players" unique_id=407785087 instance=ExtResource("2_81a5f")]
+visible = false
+z_index = 6
+position = Vector2(-61, -37)
 
-[node name="Ball" parent="." unique_id=1885945790 instance=ExtResource("3_81a5f")]
-position = Vector2(134, -304)
+[node name="TileMaps" type="Node" parent="." unique_id=624767667]
+
+[node name="Map_01" parent="TileMaps" unique_id=28175068 instance=ExtResource("3_81a5f")]
+z_index = 1
+
+[node name="background" parent="TileMaps" unique_id=1567205257 instance=ExtResource("3_gg43x")]
+position = Vector2(-1776, -432)
+
+[node name="Pickups" type="Node" parent="." unique_id=986624371]
+
+[node name="star" parent="Pickups" unique_id=196880715 instance=ExtResource("4_gg43x")]
+position = Vector2(-576, -704)
+
+[node name="star2" parent="Pickups" unique_id=1785345004 instance=ExtResource("4_gg43x")]
+position = Vector2(-1216, 320)
+
+[node name="star3" parent="Pickups" unique_id=1834191255 instance=ExtResource("4_gg43x")]
+position = Vector2(2224, -752)
+
+[node name="UI" parent="." unique_id=1452071461 instance=ExtResource("6_q7ibo")]
+offset_left = -320.0
+offset_top = -1392.0
+offset_right = -320.0
+offset_bottom = -1392.0
