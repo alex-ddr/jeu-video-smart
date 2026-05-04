@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Jeu Video Spikeball"
-run/main_scene="uid://dnr7phsi0melx"
+run/main_scene="uid://bbrd0ppwnvi7m"
 config/features=PackedStringArray("4.6", "Forward Plus")
 
 [autoload]

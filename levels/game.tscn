@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://dnr7phsi0melx"]
+[gd_scene format=3 uid="uid://bbrd0ppwnvi7m"]
 
-[ext_resource type="PackedScene" uid="uid://dg43pb7us31ti" path="res://entities/player/bee.tscn" id="1_cnc74"]
+[ext_resource type="Script" uid="uid://bjj3lw7k04nbp" path="res://levels/camera_2d.gd" id="2_arvxu"]
 [ext_resource type="PackedScene" uid="uid://buk0b6k7thffd" path="res://entities/player/player_duo.tscn" id="2_vpik0"]
 [ext_resource type="PackedScene" uid="uid://t4i5ibl1xkep" path="res://levels/map_01.tscn" id="3_arvxu"]
 [ext_resource type="Script" uid="uid://b4bcxf2r4wmao" path="res://levels/level_1.gd" id="3_vpik0"]
@@ -10,22 +10,14 @@
 
 [node name="Game" type="Node2D" unique_id=1589479972]
 
-[node name="Players" type="Node" parent="." unique_id=189884488]
+[node name="Player" parent="." unique_id=1829453057 instance=ExtResource("2_vpik0")]
+z_index = 2
+position = Vector2(-538, -204)
 
-[node name="bee" parent="Players" unique_id=402097593 instance=ExtResource("1_cnc74")]
-position = Vector2(-386, -97.99999)
-
-[node name="Camera2D" type="Camera2D" parent="Players/bee" unique_id=1034333771]
-position = Vector2(49.55716, -109.70804)
-rotation = -0.0019709491
-scale = Vector2(14.85584, -2.8598526)
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1401374979]
 zoom = Vector2(0.5, 0.5)
 position_smoothing_enabled = true
-
-[node name="Player" parent="Players" unique_id=407785087 instance=ExtResource("2_vpik0")]
-visible = false
-z_index = 6
-position = Vector2(-61, -37)
+script = ExtResource("2_arvxu")
 
 [node name="Level_1" type="Node" parent="." unique_id=605855850]
 script = ExtResource("3_vpik0")
@@ -33,12 +25,15 @@ script = ExtResource("3_vpik0")
 [node name="Pickups" type="Node" parent="Level_1" unique_id=986624371]
 
 [node name="star" parent="Level_1/Pickups" unique_id=196880715 instance=ExtResource("5_y7kp8")]
+z_index = 1
 position = Vector2(-576, -704)
 
 [node name="star2" parent="Level_1/Pickups" unique_id=1785345004 instance=ExtResource("5_y7kp8")]
+z_index = 1
 position = Vector2(-1216, 320)
 
 [node name="star3" parent="Level_1/Pickups" unique_id=1834191255 instance=ExtResource("5_y7kp8")]
+z_index = 1
 position = Vector2(2224, -752)
 
 [node name="TileMaps" type="Node" parent="Level_1" unique_id=624767667]
