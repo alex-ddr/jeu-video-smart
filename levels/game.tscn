@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bjj3lw7k04nbp" path="res://levels/camera_2d.gd" id="2_arvxu"]
 [ext_resource type="PackedScene" uid="uid://buk0b6k7thffd" path="res://entities/player/player_duo.tscn" id="2_vpik0"]
 [ext_resource type="PackedScene" uid="uid://t4i5ibl1xkep" path="res://levels/map_01.tscn" id="3_arvxu"]
-[ext_resource type="Script" path="res://levels/level_1.gd" id="3_vpik0"]
+[ext_resource type="Script" uid="uid://b4bcxf2r4wmao" path="res://levels/level_1.gd" id="3_vpik0"]
 [ext_resource type="PackedScene" uid="uid://dpimmjxmkpn0m" path="res://assets/BackGround/backgroundCiel.tscn" id="4_kc1m6"]
 [ext_resource type="PackedScene" uid="uid://bbl44w74iuc6f" path="res://entities/pickups/star.tscn" id="5_y7kp8"]
 [ext_resource type="PackedScene" uid="uid://d0rkeu0nf6ns6" path="res://levels/game/ui.tscn" id="6_ughyh"]

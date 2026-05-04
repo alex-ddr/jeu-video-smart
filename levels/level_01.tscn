@@ -6,12 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://bbl44w74iuc6f" path="res://entities/pickups/star.tscn" id="4_gg43x"]
 [ext_resource type="PackedScene" uid="uid://dg43pb7us31ti" path="res://entities/player/bee.tscn" id="6_cg8v6"]
 [ext_resource type="PackedScene" uid="uid://d0rkeu0nf6ns6" path="res://levels/game/ui.tscn" id="6_q7ibo"]
+[ext_resource type="PackedScene" uid="uid://67667b2mo1rr" path="res://entities/cactus_mortel.tscn" id="7_cg8v6"]
+[ext_resource type="PackedScene" uid="uid://d16ikhrssu8rs" path="res://entities/death_zone.tscn" id="8_j0sdw"]
 
 [node name="Game" type="Node2D" unique_id=1589479972]
 
 [node name="Players" type="Node" parent="." unique_id=189884488]
 
-[node name="bee" parent="Players" unique_id=402097593 instance=ExtResource("6_cg8v6")]
+[node name="bee" parent="Players" unique_id=402097593 groups=["player"] instance=ExtResource("6_cg8v6")]
 position = Vector2(-386, -97.99999)
 
 [node name="Camera2D" type="Camera2D" parent="Players/bee" unique_id=1034333771]
@@ -50,3 +52,12 @@ offset_left = -320.0
 offset_top = -1392.0
 offset_right = -320.0
 offset_bottom = -1392.0
+
+[node name="CactusMortel" parent="." unique_id=208284507 instance=ExtResource("7_cg8v6")]
+position = Vector2(168, -60)
+collision_layer = 1
+collision_mask = 1
+
+[node name="DeathZone" parent="." unique_id=150261952 instance=ExtResource("8_j0sdw")]
+z_index = 1
+position = Vector2(36, 657)

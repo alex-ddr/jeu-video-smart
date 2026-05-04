@@ -3,6 +3,7 @@
 [ext_resource type="TileSet" uid="uid://d2hj4o4x1p60i" path="res://assets/TitleSet/background_double.tres" id="1_xihke"]
 
 [node name="background" type="Node2D" unique_id=1567205257]
+z_index = -2
 
 [node name="ciel" type="Parallax2D" parent="." unique_id=1166780106]
 modulate = Color(0.039215688, 0.039215688, 0.16470589, 1)

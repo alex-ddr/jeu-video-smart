@@ -31,6 +31,10 @@ project/assembly_name="Jeu Video Spikeball"
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
 
+[global_group]
+
+player=""
+
 [input]
 
 p1_left={
