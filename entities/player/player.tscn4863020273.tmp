@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dykrdcthqd03o"]
+
+[ext_resource type="Script" uid="uid://ytabb8umc6va" path="res://entities/player/player.gd" id="1_symyc"]
+[ext_resource type="Texture2D" uid="uid://bmo83gteu2wym" path="res://assets/textures/players/player_top_1.png" id="3_fkugw"]
+[ext_resource type="Texture2D" uid="uid://dg1nblnyea17e" path="res://assets/textures/players/player_middle.png" id="4_8fjmc"]
+[ext_resource type="Texture2D" uid="uid://dsumvwlybw5mi" path="res://assets/textures/players/player_bottom.png" id="5_qiwj3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_symyc"]
+size = Vector2(64, 132.5)
+
+[node name="Player" type="CharacterBody2D" unique_id=788349418]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_symyc")
+action_left = null
+action_right = null
+action_up = null
+action_down = null
+action_launch = null
+action_jump = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=54016776]
+position = Vector2(0, -66.75)
+shape = SubResource("RectangleShape2D_symyc")
+
+[node name="Head" type="Sprite2D" parent="." unique_id=1590564467]
+position = Vector2(0, -69)
+texture = ExtResource("3_fkugw")
+
+[node name="Body" type="Sprite2D" parent="." unique_id=1050376457]
+position = Vector2(0, -67)
+texture = ExtResource("4_8fjmc")
+
+[node name="Feet" type="Sprite2D" parent="." unique_id=629445165]
+position = Vector2(0, -64)
+texture = ExtResource("5_qiwj3")

@@ -1,19 +1,124 @@
 [gd_scene format=3 uid="uid://dykrdcthqd03o"]
 
 [ext_resource type="Script" uid="uid://ytabb8umc6va" path="res://entities/player/player.gd" id="1_symyc"]
-[ext_resource type="Texture2D" uid="uid://crpjasufshm4n" path="res://assets/textures/character_beige_idle.png" id="2_abrql"]
+[ext_resource type="Texture2D" uid="uid://djivl625mq7j" path="res://assets/textures/players/player_top_2.png" id="2_fkugw"]
+[ext_resource type="Texture2D" uid="uid://bmo83gteu2wym" path="res://assets/textures/players/player_top_1.png" id="3_fkugw"]
+[ext_resource type="Texture2D" uid="uid://dg1nblnyea17e" path="res://assets/textures/players/player_middle.png" id="4_8fjmc"]
+[ext_resource type="Texture2D" uid="uid://ccqe6w425w6xy" path="res://assets/textures/players/player_walkcycle.png" id="6_8fjmc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_symyc"]
-size = Vector2(111, 193)
+size = Vector2(64, 129)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkugw"]
+atlas = ExtResource("6_8fjmc")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fjmc"]
+atlas = ExtResource("6_8fjmc")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qiwj3"]
+atlas = ExtResource("6_8fjmc")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26q78"]
+atlas = ExtResource("6_8fjmc")
+region = Rect2(0, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bectd"]
+atlas = ExtResource("6_8fjmc")
+region = Rect2(128, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvtmh"]
+atlas = ExtResource("6_8fjmc")
+region = Rect2(256, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7thud"]
+atlas = ExtResource("6_8fjmc")
+region = Rect2(384, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1qjk"]
+atlas = ExtResource("6_8fjmc")
+region = Rect2(512, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3ovn"]
+atlas = ExtResource("6_8fjmc")
+region = Rect2(640, 256, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_afbqv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fkugw")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8fjmc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qiwj3")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26q78")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bectd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wvtmh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7thud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1qjk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3ovn")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 20.0
+}]
 
 [node name="Player" type="CharacterBody2D" unique_id=788349418]
+z_index = 5
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_symyc")
 
-[node name="Body" type="Sprite2D" parent="." unique_id=884325185]
-texture = ExtResource("2_abrql")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=54016776]
-position = Vector2(0, 30)
+position = Vector2(0, -64.5)
 shape = SubResource("RectangleShape2D_symyc")
+
+[node name="Head_p2" type="Sprite2D" parent="." unique_id=365074673]
+visible = false
+position = Vector2(0, -130)
+texture = ExtResource("2_fkugw")
+offset = Vector2(0, -24)
+
+[node name="Head_p1" type="Sprite2D" parent="." unique_id=1590564467]
+visible = false
+position = Vector2(0, -65)
+texture = ExtResource("3_fkugw")
+offset = Vector2(0, -24)
+
+[node name="Body" type="Sprite2D" parent="." unique_id=1050376457]
+position = Vector2(0, -50)
+texture = ExtResource("4_8fjmc")
+offset = Vector2(0, -15)
+
+[node name="AnimatedFeet" type="AnimatedSprite2D" parent="." unique_id=2009812537]
+sprite_frames = SubResource("SpriteFrames_afbqv")
+animation = &"idle"
+autoplay = "idle"
+offset = Vector2(0, -30)

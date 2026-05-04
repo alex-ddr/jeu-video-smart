@@ -2,8 +2,8 @@ extends Node2D
 
 # --------------------------- Constants ---------------------------
 const TILE_SIZE: float = Global.TILE_SIZE
-const MAX_SPEED: float = TILE_SIZE * 3.125
-const MIN_SPEED: float = TILE_SIZE * 0.625
+const MAX_SPEED: float = TILE_SIZE * 2.4
+const MIN_SPEED: float = TILE_SIZE * 1
 const ACCELERATION: float = TILE_SIZE * 12.5
 const FRICTION: float = TILE_SIZE * 12.5
 const WEIGHT_CURVE: float = 2.0
@@ -51,8 +51,8 @@ func _apply_horizontal(delta: float) -> void:
 # --------------------------- Rope constraint ---------------------------
 func _apply_rope_constraint() -> void:
 	# On applique le pourcentage uniquement sur la hauteur (l'offset Y local)
-	var hook_p1 = p1.global_position + Vector2(0, -p1.height * p1.ROPE_HOOK_POINT_PERC)
-	var hook_p2 = p2.global_position + Vector2(0, -p2.height * p2.ROPE_HOOK_POINT_PERC)
+	var hook_p1 = p1.global_position + Vector2(0, -p1.height - p1.ROPE_HOOK_OFFSET)
+	var hook_p2 = p2.global_position + Vector2(0, -p2.height - p2.ROPE_HOOK_OFFSET)
 	var distance = hook_p1.distance_to(hook_p2)
 
 	if distance <= rope.ROPE_MAX_LENGTH:
@@ -79,6 +79,6 @@ func _apply_rope_constraint() -> void:
 
 func _update_rope() -> void:
 	# Même calcul ici pour l'affichage visuel de la corde
-	var hook_p1 = p1.global_position + Vector2(0, -p1.height * p1.ROPE_HOOK_POINT_PERC)
-	var hook_p2 = p2.global_position + Vector2(0, -p2.height * p2.ROPE_HOOK_POINT_PERC)
+	var hook_p1 = p1.global_position + Vector2(0, -p1.height - p1.ROPE_HOOK_OFFSET)
+	var hook_p2 = p2.global_position + Vector2(0, -p2.height - p2.ROPE_HOOK_OFFSET)
 	rope.anchor_endpoints(hook_p1, hook_p2)
