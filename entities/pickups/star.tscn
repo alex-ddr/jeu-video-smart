@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bbl44w74iuc6f"]
+
+[ext_resource type="Texture2D" uid="uid://bre5lt8a1i4nv" path="res://assets/Sprites/Tiles/Double/star.png" id="1_dlwui"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dlwui"]
+
+[node name="star" type="Area2D" unique_id=196880715]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=774064159]
+texture = ExtResource("1_dlwui")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=954581019]
+scale = Vector2(3.1275406, 3.6497602)
+shape = SubResource("CircleShape2D_dlwui")

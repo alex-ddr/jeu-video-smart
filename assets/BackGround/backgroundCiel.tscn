@@ -1,0 +1,40 @@
+[gd_scene format=4 uid="uid://dpimmjxmkpn0m"]
+
+[ext_resource type="TileSet" uid="uid://dl8kfc5e5sl2d" path="res://assets/TitleSet/background_double.tres" id="1_l4clo"]
+[ext_resource type="TileSet" uid="uid://d1y8h0rdrpg8g" path="res://assets/TitleSet/titile_double.tres" id="2_pfoma"]
+
+[node name="background" type="Node2D" unique_id=1567205257]
+
+[node name="sol" type="Parallax2D" parent="." unique_id=2008332492]
+repeat_size = Vector2(512, 0)
+repeat_times = 1000
+limit_begin = Vector2(100, 10)
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="sol" unique_id=1068164517]
+tile_map_data = PackedByteArray("AAAAAAAAAAABAAMAAAAAAAEAAAABAAMAAAAAAAIAAAABAAMAAAAAAAMAAAABAAMAAAAAAAQAAAABAAMAAAAAAAUAAAABAAMAAAAAAAYAAAABAAMAAAAAAAcAAAABAAMAAAA=")
+tile_set = ExtResource("1_l4clo")
+
+[node name="ciel" type="Parallax2D" parent="." unique_id=1166780106]
+repeat_size = Vector2(512, 0)
+repeat_times = 1000
+
+[node name="TileMapLayer" type="TileMapLayer" parent="ciel" unique_id=1394628462]
+tile_map_data = PackedByteArray("AAADAP7/AAABAAIAAAADAP3/AAABAAIAAAADAPz/AAABAAIAAAADAPv/AAABAAIAAAADAPr/AAABAAIAAAADAPn/AAABAAIAAAADAPj/AAABAAIAAAA=")
+tile_set = ExtResource("1_l4clo")
+
+[node name="nuage" type="Parallax2D" parent="." unique_id=66010330]
+scroll_scale = Vector2(0.2, 0.2)
+repeat_size = Vector2(2048, 0)
+autoscroll = Vector2(10, 0)
+repeat_times = 25
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="nuage" unique_id=905033877]
+tile_map_data = PackedByteArray("AAAAAP//AAABAAEAAAABAP//AAACAAEAAAACAP//AAADAAEAAAADAP//AAAAAAIAAAA=")
+tile_set = ExtResource("1_l4clo")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1747873310]
+tile_map_data = PackedByteArray("AAAAAAAAAAAEAAkAAAD//wAAAAAEAAkAAAABAAAAAAAEAAkAAAACAAAAAAAEAAkAAAADAAAAAAAEAAkAAAA=")
+tile_set = ExtResource("2_pfoma")
+
+[node name="Camera2D" type="Camera2D" parent="TileMapLayer" unique_id=865251450]
+zoom = Vector2(0.3, 0.3)

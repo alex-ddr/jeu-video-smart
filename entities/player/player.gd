@@ -20,11 +20,11 @@ signal jump_released(force: float)
 # --------------------------- Constants ---------------------------
 const SCALE_UNIT: float = 4.0
 
-const MIN_HEIGHT: float = 12.0
-const MAX_HEIGHT: float = 80.0
+const MIN_HEIGHT: float = 30.0
+const MAX_HEIGHT: float = 180.0
 const MAX_JUMP_FORCE: float = 800.0
 
-const SIZE_SPEED: float = 120.0
+const SIZE_SPEED: float = 300.0
 
 const JUMP_CHARGE_STIFFNESS: float = 15.0
 const JUMP_CHARGE_DAMPING: float = 10.0
@@ -35,8 +35,8 @@ const JUMP_RELEASE_DAMPING: float = 20.0
 # --------------------------- Variables ---------------------------
 var desired_direction: float = 0.0
 
-var width: float = 18.0
-var height: float = 40.0
+var width: float = 25.0
+var height: float = 100.0
 var height_velocity: float = 0.0
 
 var jump_charge_start_height: float = 0.0

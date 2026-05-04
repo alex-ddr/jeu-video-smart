@@ -1,11 +1,11 @@
 extends RigidBody2D
 
-const BOUNCE_SPEED := 520.0
-const MAX_SPEED := 650.0
+const BOUNCE_SPEED := 1000
+const MAX_SPEED := 1400.0
 
 # 0.0 = vertical pur
 # 1.0 = suit totalement l'inclinaison
-const ANGLE_INFLUENCE := 0.65
+const ANGLE_INFLUENCE := 0.9
 
 func _ready() -> void:
 	continuous_cd = RigidBody2D.CCD_MODE_CAST_SHAPE

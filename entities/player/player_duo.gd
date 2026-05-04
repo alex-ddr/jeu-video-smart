@@ -1,22 +1,22 @@
 extends Node2D
 
 # --------------------------- Constants ---------------------------
-const MAX_SPEED: float = 400.0
-const MIN_SPEED: float = 200.0
-const ACCELERATION: float = 600.0
+const MAX_SPEED: float = 700.0
+const MIN_SPEED: float = 550.0
+const ACCELERATION: float = 700.0
 const FRICTION: float = 600.0
 const WEIGHT_CURVE: float = 2.0
 const VELOCITY_THRESHOLD: float = 0.01
 
-const SOLO_JUMP_FORCE := -260.0
-const DUO_JUMP_FORCE := -600.0
-const JUMP_HORIZONTAL_BOOST := 180.0
+const SOLO_JUMP_FORCE := -400.0
+const DUO_JUMP_FORCE := -900.0
+const JUMP_HORIZONTAL_BOOST := 400.0
 
-const DUO_AIR_JUMP_FORCE := -650.0
-const DUO_AIR_HORIZONTAL_BOOST := 220.0
+const DUO_AIR_JUMP_FORCE := -800.0
+const DUO_AIR_HORIZONTAL_BOOST := 450.0
 const AIR_JUMP_SYNC_WINDOW := 0.4
 
-var rope_length: float = 120.0
+var rope_length: float = 250.0
 var duo_jump_used: bool = false
 var p1_has_jumped: bool = false
 var p2_has_jumped: bool = false
@@ -54,6 +54,7 @@ func _physics_process(delta: float) -> void:
 	_apply_horizontal(delta)
 	_handle_duo_jump(delta)
 	_enforce_rope_distance()
+	_enforce_platform_support()
 	_update_rope()
 	_update_camera()
 
@@ -112,7 +113,7 @@ func _update_rope() -> void:
 	rope_collision.rotation = angle
 
 	var rect := rope_collision.shape as RectangleShape2D
-	rect.size = Vector2(length, 18.0) # épaisseur réelle
+	rect.size = Vector2(length, 20.0) # épaisseur réelle
 
 # --------------------------- Jump ---------------------------
 func _handle_duo_jump(delta: float) -> void:
@@ -176,3 +177,15 @@ func _apply_duo_air_jump() -> void:
 		var boost: float = sign(direction) * DUO_AIR_HORIZONTAL_BOOST
 		p1.velocity.x += boost
 		p2.velocity.x += boost
+
+
+func _enforce_platform_support() -> void:
+	if p1.is_on_floor() and not p2.is_on_floor():
+		if p2.global_position.y > p1.global_position.y:
+			p2.global_position.y = p1.global_position.y
+			p2.velocity.y = min(p2.velocity.y, 0.0)
+
+	elif p2.is_on_floor() and not p1.is_on_floor():
+		if p1.global_position.y > p2.global_position.y:
+			p1.global_position.y = p2.global_position.y
+			p1.velocity.y = min(p1.velocity.y, 0.0)
