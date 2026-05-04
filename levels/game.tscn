@@ -33,12 +33,15 @@ script = ExtResource("3_vpik0")
 [node name="Pickups" type="Node" parent="Level_1" unique_id=986624371]
 
 [node name="star" parent="Level_1/Pickups" unique_id=196880715 instance=ExtResource("5_y7kp8")]
+z_index = 1
 position = Vector2(-576, -704)
 
 [node name="star2" parent="Level_1/Pickups" unique_id=1785345004 instance=ExtResource("5_y7kp8")]
+z_index = 1
 position = Vector2(-1216, 320)
 
 [node name="star3" parent="Level_1/Pickups" unique_id=1834191255 instance=ExtResource("5_y7kp8")]
+z_index = 1
 position = Vector2(2224, -752)
 
 [node name="TileMaps" type="Node" parent="Level_1" unique_id=624767667]
