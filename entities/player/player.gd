@@ -15,7 +15,6 @@ signal launch_released(force: float)
 # --------------------------- Constants ---------------------------
 const TILE_SIZE = Global.TILE_SIZE
 const GRAVITY = Global.GRAVITY
-const ROPE_HOOK_POINT_PERC: float = 0.2 # Pourcentage du haut pour le hook point
 
 # Spring: Launch charge (Hard)
 const LAUNCH_CHARGE_STIFFNESS: float = 15.0
@@ -26,9 +25,9 @@ const LAUNCH_RELEASE_STIFFNESS: float = 700.0
 const LAUNCH_RELEASE_DAMPING: float = 20.0
 
 # --------------------------- Parameters (Onready Config) -------
-@onready var MIN_HEIGHT: float = 128.0
-@onready var MAX_HEIGHT: float = 512.0
-@onready var SIZE_SPEED: float = TILE_SIZE * 2.0
+@onready var MIN_HEIGHT: float = 16.0
+@onready var MAX_HEIGHT: float = 200.0
+@onready var SIZE_SPEED: float = TILE_SIZE * 1.5
 @onready var MAX_LAUNCH_FORCE: float = TILE_SIZE * 13.33
 @onready var JUMP_VELOCITY: float = -TILE_SIZE * 10.0
 @onready var STOP_TOLERANCE: float = TILE_SIZE * 0.015
@@ -38,6 +37,9 @@ const JUMP_CUT_MULTIPLIER: float = 0.5     # Divise la vitesse par 2 si on lâch
 const COYOTE_TIME: float = 0.1             # Temps de grâce en quittant un rebord (100ms)
 const JUMP_BUFFER_TIME: float = 0.1        # Mémorise l'appui sur saut avant de toucher le sol
 
+const BODY_HEIGHT_OFFSET: float = 86.0
+const BODY_HEIGHT_DEFAULT: float = 42.0
+const ROPE_HOOK_OFFSET: float = 60.0
 # --------------------------- State Variables ---------------------
 # Movement
 var desired_direction: float = 0.0
@@ -45,9 +47,10 @@ var coyote_timer: float = 0.0
 var jump_buffer_timer: float = 0.0
 
 # Height / Stretch
-@onready var height: float = 256.0
-@onready var last_height: float = 256.0
+@onready var height: float = 42.0
+@onready var last_height: float = height
 var height_velocity: float = 0.0
+
 
 # Launch
 var launch_charge_start_height: float = 0.0
@@ -57,24 +60,25 @@ var release_target_height: float = 0.0
 
 # --------------------------- Nodes -------------------------------
 @onready var body: Sprite2D = $Body
+@onready var head: Sprite2D = $Head_p1 if action_jump == "p1_jump" else $Head_p2
+@onready var feet: Sprite2D = $Feet
 @onready var collision: CollisionShape2D = $CollisionShape2D
 
+
+
 func _ready() -> void:
+	collision.shape = collision.shape.duplicate()
+	head.visible = true
 	pass
 
 func _physics_process(delta: float) -> void:
 	_apply_gravity(delta)
-	_read_input(delta) # <-- Ajout de delta ici pour les timers
+	_read_input(delta)
 	_update_stretch(delta)
 	_compute_launch()
 	
-	# Compense l'étirement depuis le centre pour que les pieds restent au même endroit
-	var height_diff = height - last_height
-	position.y -= height_diff / 2.0
-	last_height = height
-	
-	scale.y = height / 256.0
-	
+	_sync_visuals()
+	_sync_collision()
 	move_and_slide()
 
 
@@ -107,7 +111,8 @@ func _read_input(delta: float) -> void:
 
 	# 2. Exécution du Saut
 	if jump_buffer_timer > 0.0 and coyote_timer > 0.0:
-		velocity.y = JUMP_VELOCITY
+		var height_ratio = inverse_lerp(MIN_HEIGHT, MAX_HEIGHT, height)
+		velocity.y = lerp(JUMP_VELOCITY, JUMP_VELOCITY * 0.4, height_ratio)
 		jump_buffer_timer = 0.0 # Reset pour éviter le double-saut
 		coyote_timer = 0.0      # Reset pour éviter un autre saut en l'air
 
@@ -183,3 +188,20 @@ func _compute_launch() -> void:
 		height = release_target_height
 		height_velocity = 0.0
 		is_releasing_launch = false
+
+func _sync_visuals() -> void:
+	body.scale.y = height / BODY_HEIGHT_DEFAULT
+	head.position.y = -height
+	last_height = height
+	
+func _sync_collision() -> void:
+	var shape = collision.shape as RectangleShape2D
+	shape.size = Vector2(64.0, height+BODY_HEIGHT_OFFSET)
+	collision.position.y = -(height+BODY_HEIGHT_OFFSET) / 2.0
+	
+	if desired_direction != 0:
+		var flipped = desired_direction < 0
+		body.flip_h = flipped
+		head.flip_h = flipped
+		feet.flip_h = flipped
+	
