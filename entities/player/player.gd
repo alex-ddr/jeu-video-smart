@@ -29,7 +29,7 @@ const LAUNCH_RELEASE_DAMPING: float = 20.0
 @onready var MAX_HEIGHT: float = 200.0
 @onready var SIZE_SPEED: float = TILE_SIZE * 1.5
 @onready var MAX_LAUNCH_FORCE: float = TILE_SIZE * 13.33
-@onready var JUMP_VELOCITY: float = -TILE_SIZE * 10.0
+@onready var JUMP_VELOCITY: float = -TILE_SIZE * 11.0
 @onready var STOP_TOLERANCE: float = TILE_SIZE * 0.015
 
 const FALL_GRAVITY_MULTIPLIER: float = 1.8 # Le perso tombe presque 2x plus vite qu'il ne monte
