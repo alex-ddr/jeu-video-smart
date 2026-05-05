@@ -2,8 +2,8 @@ extends Node2D
 
 # --------------------------- Constants ---------------------------
 const TILE_SIZE: float = Global.TILE_SIZE
-const MAX_SPEED: float = TILE_SIZE * 3.5
-const MIN_SPEED: float = TILE_SIZE * 1.5
+const MAX_SPEED: float = TILE_SIZE * 5
+const MIN_SPEED: float = TILE_SIZE * 2
 const ACCELERATION: float = TILE_SIZE * 12.5
 const FRICTION: float = TILE_SIZE * 12.5
 const WEIGHT_CURVE: float = 2.0
@@ -77,8 +77,8 @@ func _apply_rope_constraint(delta: float) -> void:
 
 	var ratio_p1 = inverse_lerp(p1.MIN_HEIGHT, p1.MAX_HEIGHT, p1.height)
 	var ratio_p2 = inverse_lerp(p2.MIN_HEIGHT, p2.MAX_HEIGHT, p2.height)
-	var weight_p1 = 1.0 - ratio_p1
-	var weight_p2 = 1.0 - ratio_p2
+	var weight_p1 = max(1.0 - ratio_p1, 0.1)
+	var weight_p2 = max(1.0 - ratio_p2, 0.1)
 	var total_weight = weight_p1 + weight_p2
 
 	var share_p1 = weight_p1 / total_weight if total_weight > 0.001 else 0.5

@@ -24,6 +24,7 @@ var pos_prev: Array = []
 var point_count: int = 0
 var rope_length: float = ROPE_LENGTH
 var _colliders: Array = []
+var _initialized := false
 
 func _ready() -> void:
 	point_count = int(ceil(ROPE_LENGTH / CONSTRAIN))
@@ -35,13 +36,22 @@ func _ready() -> void:
 
 
 func anchor_endpoints(start: Vector2, end: Vector2) -> void:
-	pos[0] = start
-	pos_prev[0] = start
-	pos[-1] = end
-	pos_prev[-1] = end
+	if not _initialized:
+		for i in range(point_count):
+			var t = float(i) / float(point_count - 1)
+			pos[i] = start.lerp(end, t)
+			pos_prev[i] = pos[i]
+		_initialized = true
+	else:
+		pos[0] = start
+		pos_prev[0] = start
+		pos[-1] = end
+		pos_prev[-1] = end
 
 
 func _physics_process(delta: float) -> void:
+	if not _initialized:
+		return
 	_update_points(delta)
 	for _i in range(ITERATIONS):
 		_update_constrain()

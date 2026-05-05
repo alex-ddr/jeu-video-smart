@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://b3842ao2s7q1a"]
+
+[ext_resource type="Script" uid="uid://btxf01laxd02u" path="res://entities/button/spawn_ball_button.gd" id="1_yjo0b"]
+[ext_resource type="Texture2D" uid="uid://ef7ndho3blcr" path="res://assets/textures/sprites/Tiles/switch_red.png" id="2_2e7ui"]
+[ext_resource type="Texture2D" uid="uid://cfkl3vsx3nbbi" path="res://assets/textures/sprites/Tiles/switch_red_pressed.png" id="3_q1xkn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ngu2u"]
+radius = 40.0
+
+[node name="SpawnBallButton" type="Area2D" unique_id=1907211927]
+collision_layer = 10
+collision_mask = 10
+script = ExtResource("1_yjo0b")
+
+[node name="SwitchRed" type="Sprite2D" parent="." unique_id=1223901509]
+position = Vector2(0, -64)
+texture = ExtResource("2_2e7ui")
+
+[node name="SwitchRedPressed" type="Sprite2D" parent="." unique_id=1279213237]
+visible = false
+position = Vector2(0, -64)
+texture = ExtResource("3_q1xkn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=409508910]
+visibility_layer = 3
+position = Vector2(0, -40)
+shape = SubResource("CircleShape2D_ngu2u")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

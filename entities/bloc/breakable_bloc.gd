@@ -8,5 +8,4 @@ func destroy():
 
 func _on_body_entered(body: Node) -> void:
 	if body.name == "Ball":
-		print("Touché par la balle !")
 		destroy()

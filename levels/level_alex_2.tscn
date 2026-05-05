@@ -1,0 +1,26 @@
+[gd_scene format=4 uid="uid://dvhm0vti0yj0v"]
+
+[ext_resource type="Script" uid="uid://c7l0o0x8gmpyl" path="res://levels/base_level.gd" id="1_i0h1l"]
+[ext_resource type="PackedScene" uid="uid://tc1awydwhnex" path="res://assets/backgrounds/background_desert.tscn" id="2_lc2et"]
+[ext_resource type="TileSet" uid="uid://d1y8h0rdrpg8g" path="res://assets/tilesets/map.tres" id="3_ibddb"]
+[ext_resource type="PackedScene" uid="uid://cmtcqvk785ec6" path="res://components/player_ball_camera_node/player_ball_camera_trio.tscn" id="4_lc2et"]
+[ext_resource type="PackedScene" uid="uid://67667b2mo1rr" path="res://entities/cactus/cactus.tscn" id="4_lq477"]
+[ext_resource type="PackedScene" uid="uid://mpu5pvoq06a4" path="res://entities/checkpoint/check_point.tscn" id="5_ibddb"]
+
+[node name="LevelAlex2" type="Node2D" unique_id=1343623861]
+script = ExtResource("1_i0h1l")
+
+[node name="BackgroundDesert" parent="." unique_id=247614796 instance=ExtResource("2_lc2et")]
+
+[node name="Map" type="TileMapLayer" parent="." unique_id=972752237]
+tile_map_data = PackedByteArray("AAD4/wAAAAANAAwAAAD5/wAAAAANAAwAAAD6/wAAAAANAAwAAAD7/wAAAAANAAwAAAAIAAIAAAANAAwAAAAJAAIAAAANAAwAAAAKAAIAAAANAAwAAAALAAIAAAANAAwAAAAMAAIAAAANAAwAAAANAAIAAAANAAwAAAAOAAIAAAANAAwAAAAPAAIAAAANAAwAAAD3/wAAAAANAAwAAAAQAAIAAAAIAA0AAAARAAIAAAAJAA0AAAASAAMAAAAIAA0AAAATAAMAAAAJAA0AAAAUAAQAAAAIAA0AAAAWAAUAAAAIAA0AAAAYAAYAAAAIAA0AAAAcAAgAAAAIAA0AAAAeAAkAAAANAAwAAAAfAAkAAAANAAwAAAAgAAkAAAANAAwAAAAhAAkAAAANAAwAAAAiAAkAAAANAAwAAAAjAAkAAAANAAwAAAAkAAkAAAANAAwAAAAlAAkAAAANAAwAAAAmAAkAAAANAAwAAAAnAAkAAAANAAwAAAAoAAkAAAANAAwAAAApAAkAAAANAAwAAAD+//z/AAANAAwAAAD///z/AAANAAwAAAAAAPz/AAANAAwAAAABAPz/AAANAAwAAAACAPz/AAANAAwAAAADAPz/AAANAAwAAAAEAPz/AAANAAwAAAA=")
+tile_set = ExtResource("3_ibddb")
+
+[node name="PlayerBallCameraTrio" parent="." unique_id=1973325727 instance=ExtResource("4_lc2et")]
+position = Vector2(-839, -1)
+
+[node name="CheckPoint" parent="." unique_id=351713259 instance=ExtResource("5_ibddb")]
+position = Vector2(-811, -64)
+
+[node name="Cactus" parent="." unique_id=208284507 instance=ExtResource("4_lq477")]
+position = Vector2(1823, 192)
