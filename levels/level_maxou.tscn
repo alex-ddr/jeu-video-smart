@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://c4rp1dt3s4pc3"]
+
+[ext_resource type="Script" uid="uid://c7l0o0x8gmpyl" path="res://levels/base_level.gd" id="1_4e7cb"]
+[ext_resource type="TileSet" uid="uid://d1y8h0rdrpg8g" path="res://assets/tilesets/map.tres" id="3_cv3ny"]
+[ext_resource type="PackedScene" uid="uid://cmtcqvk785ec6" path="res://components/player_ball_camera_node/player_ball_camera_trio.tscn" id="4_pys6d"]
+[ext_resource type="PackedScene" uid="uid://tc1awydwhnex" path="res://assets/backgrounds/background_desert.tscn" id="5_vonw8"]
+[ext_resource type="PackedScene" uid="uid://ccaqsjdfwknlj" path="res://entities/end_level_sign/end_level_sign.tscn" id="6_jtcbo"]
+[ext_resource type="PackedScene" uid="uid://d0rkeu0nf6ns6" path="res://ui/ui.tscn" id="7_w58vb"]
+
+[node name="LevelAlex" type="Node2D" unique_id=1801286688]
+script = ExtResource("1_4e7cb")
+
+[node name="PlayerBallCameraTrio" parent="." unique_id=1973325727 instance=ExtResource("4_pys6d")]
+position = Vector2(-3246, -79)
+
+[node name="FinDeNveau" parent="." unique_id=2098824404 instance=ExtResource("6_jtcbo")]
+position = Vector2(8561, 435)
+
+[node name="UI" parent="." unique_id=1452071461 instance=ExtResource("7_w58vb")]
+
+[node name="Stars" type="Node" parent="." unique_id=858761261]
+
+[node name="Blocs" type="Node" parent="." unique_id=1355976030]
+
+[node name="BackgroundDesert" parent="." unique_id=247614796 instance=ExtResource("5_vonw8")]
+position = Vector2(500, 278)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="BackgroundDesert" unique_id=1606330044]
+tile_set = ExtResource("3_cv3ny")
