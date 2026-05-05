@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://d0rkeu0nf6ns6" path="res://ui/ui.tscn" id="7_ylkia"]
 [ext_resource type="PackedScene" uid="uid://bbl44w74iuc6f" path="res://entities/pickups/star.tscn" id="8_oa5iq"]
 [ext_resource type="PackedScene" uid="uid://cuqlc0p3y53dg" path="res://entities/bloc/breakable_bloc.tscn" id="9_fku4g"]
+[ext_resource type="PackedScene" uid="uid://d16ikhrssu8rs" path="res://components/death_zone/death_zone.tscn" id="10_rfxrs"]
 
 [node name="LevelAlex" type="Node2D" unique_id=1801286688]
 script = ExtResource("1_yudgs")
@@ -54,3 +55,6 @@ position = Vector2(89, -1025)
 
 [node name="Breakable_bloc3" parent="Blocs" unique_id=1409465118 instance=ExtResource("9_fku4g")]
 position = Vector2(217, -1025)
+
+[node name="DeathZone" parent="." unique_id=150261952 instance=ExtResource("10_rfxrs")]
+position = Vector2(2186, 874)
