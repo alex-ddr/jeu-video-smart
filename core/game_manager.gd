@@ -21,14 +21,16 @@ func go_to_menu() -> void:
 	get_tree().change_scene_to_file(MAIN_MENU)
 
 func start_game(level_index: int = 0) -> void:
-
 	save_data["level_index"] = level_index
 	save_data["checkpoint_id"] = 0
 	get_tree().change_scene_to_file(LEVELS[level_index])
+	await IrisWipe.open_transition()
+
 	
 	
 
 func load_next_level() -> void:
+	await IrisWipe.close_transition()
 	var next = save_data["level_index"] + 1
 	if next >= LEVELS.size():
 		go_to_menu()
