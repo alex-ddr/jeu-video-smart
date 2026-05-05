@@ -112,6 +112,70 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_77h3e")
 theme_override_styles/focus = SubResource("StyleBoxFlat_77h3e")
 text = "Niveau 3"
 
+[node name="MarginContainer3" type="MarginContainer" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=2028440201]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+
+[node name="niv4" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=380272193]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_77h3e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_77h3e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_77h3e")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_77h3e")
+theme_override_styles/focus = SubResource("StyleBoxFlat_77h3e")
+text = "Niveau 4"
+
+[node name="MarginContainer4" type="MarginContainer" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=227786109]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+
+[node name="niv5" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1017557342]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_77h3e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_77h3e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_77h3e")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_77h3e")
+theme_override_styles/focus = SubResource("StyleBoxFlat_77h3e")
+text = "Niveau 5"
+
+[node name="MarginContainer5" type="MarginContainer" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=282209909]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+
+[node name="niv6" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=906795126]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_77h3e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_77h3e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_77h3e")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_77h3e")
+theme_override_styles/focus = SubResource("StyleBoxFlat_77h3e")
+text = "Niveau 6"
+
+[node name="MarginContainer6" type="MarginContainer" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1555553652]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+
+[node name="niv7" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1132089660]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_77h3e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_77h3e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_77h3e")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_77h3e")
+theme_override_styles/focus = SubResource("StyleBoxFlat_77h3e")
+text = "Niveau 7"
+
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer" unique_id=521351512]
 layout_mode = 2
 theme_override_constants/margin_top = 40
@@ -130,5 +194,9 @@ text = "Retour"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/niv1" to="." method="_on_level_pressed" binds= [0]]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/niv2" to="." method="_on_level_pressed" binds= [1]]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/niv3" to="." method="_on_level_pressed" binds= [3]]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/niv3" to="." method="_on_level_pressed" binds= [2]]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/niv4" to="." method="_on_level_pressed" binds= [3]]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/niv5" to="." method="_on_level_pressed" binds= [4]]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/niv6" to="." method="_on_level_pressed" binds= [5]]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/niv7" to="." method="_on_level_pressed" binds= [6]]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Retour" to="." method="_on_back_pressed"]
