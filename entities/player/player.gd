@@ -9,6 +9,8 @@ extends CharacterBody2D
 @export var action_launch: String = "p1_launch"
 @export var action_jump: String = "p1_jump"
 
+var input_enabled: bool = true
+
 # --------------------------- Signals ---------------------------
 signal launch_released(force: float)
 
@@ -45,6 +47,7 @@ const ROPE_HOOK_OFFSET: float = 60.0
 var desired_direction: float = 0.0
 var coyote_timer: float = 0.0
 var jump_buffer_timer: float = 0.0
+
 
 # Height / Stretch
 @onready var height: float = Global.DEFAULT_HEIGHT
@@ -117,6 +120,12 @@ func _apply_gravity(delta: float) -> void:
 
 # --------------------------- Inputs ---------------------------
 func _read_input(delta: float) -> void:
+	if not input_enabled:
+		desired_direction = 0.0 # Arrête d'avancer
+		# Vous pouvez aussi forcer l'arrêt complet de la vélocité horizontale ici si besoin :
+		velocity.x = move_toward(velocity.x, 0, TILE_SIZE * 40 * delta)
+		return # Empêche de lire la suite de la fonction
+	
 	desired_direction = Input.get_axis(action_left, action_right)
 	
 	# 1. Gestion des Timers (Coyote & Buffer)

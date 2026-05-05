@@ -6,5 +6,6 @@
 script = ExtResource("1_2ymuj")
 
 [node name="Line2D" type="Line2D" parent="." unique_id=372535627]
+z_index = 4
 width = 8.0
 default_color = Color(0.20784314, 0.20784314, 0.25490198, 1)

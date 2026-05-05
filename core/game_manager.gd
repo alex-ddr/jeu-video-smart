@@ -3,17 +3,25 @@ extends Node
 const SAVE_PATH := "user://save.json"
 const MAIN_MENU := "res://ui/menu/menu.tscn"
 const LEVELS := [
+	"res://levels/1_level.tscn",
+	"res://levels/2_level.tscn",
+	"res://levels/3_level.tscn",
 	"res://levels/level_01.tscn",
 	"res://levels/level_02.tscn",
-	"res://levels/1_level.tscn",
+	"res://levels/level_03.tscn",
 ]
 
 var save_data := { "level_index": 0, "checkpoint_id": 0 }
+
+func _ready() -> void:
+	save_data["level_index"] = 0
+	save_data["checkpoint_id"] = 0
 
 func go_to_menu() -> void:
 	get_tree().change_scene_to_file(MAIN_MENU)
 
 func start_game(level_index: int = 0) -> void:
+
 	save_data["level_index"] = level_index
 	save_data["checkpoint_id"] = 0
 	get_tree().change_scene_to_file(LEVELS[level_index])
