@@ -44,8 +44,8 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 		state.linear_velocity.x *= GROUND_FRICTION
 
 func _on_ground_detector_body_entered(body: Node) -> void:
-	if is_invincible == false and (body is TileMap or body is TileMapLayer or body is StaticBody2D):
-		pass #lose_life()
+	if is_invincible == false and _on_ground:
+		pass #lose_life() pour l'acide violet par exemple
 
 func lose_life() -> void:
 	Global.current_lives -= 1
