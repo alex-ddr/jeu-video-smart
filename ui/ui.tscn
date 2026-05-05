@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://cklhnwq6dfcv3" path="res://ui/hud/score.gd" id="1_wonny"]
 [ext_resource type="Script" uid="uid://d1fsslsh0w2uv" path="res://ui/hud/lives_container.gd" id="3_wl5ax"]
 [ext_resource type="Texture2D" uid="uid://cuiggptyw1j3q" path="res://assets/textures/sprites/Tiles/bomb.png" id="4_vkava"]
+[ext_resource type="Script" uid="uid://ccmsb5bibkbfy" path="res://ui/pause_menu.gd" id="5_tf0e0"]
+[ext_resource type="Theme" uid="uid://dqyhxma3gbwhm" path="res://assets/UI/button.tres" id="6_obcwv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_nllf8"]
 font_color = Color(0, 0, 0, 1)
@@ -47,3 +49,47 @@ offset_right = 80.0
 offset_bottom = 32.0
 script = ExtResource("3_wl5ax")
 ball_texture = ExtResource("4_vkava")
+
+[node name="PauseMenu" type="ColorRect" parent="CanvasLayer" unique_id=393835365]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5019608)
+script = ExtResource("5_tf0e0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PauseMenu" unique_id=2121639135]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -76.0
+offset_right = 58.0
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="ButtonResume" type="Button" parent="CanvasLayer/PauseMenu/VBoxContainer" unique_id=1007613376]
+layout_mode = 2
+theme = ExtResource("6_obcwv")
+text = "RESUME"
+
+[node name="ButtonRestart" type="Button" parent="CanvasLayer/PauseMenu/VBoxContainer" unique_id=1035677648]
+layout_mode = 2
+theme = ExtResource("6_obcwv")
+text = "RESTART"
+
+[node name="ButtonMenu" type="Button" parent="CanvasLayer/PauseMenu/VBoxContainer" unique_id=432517804]
+layout_mode = 2
+theme = ExtResource("6_obcwv")
+text = "MENU"
+
+[connection signal="pressed" from="CanvasLayer/PauseMenu/VBoxContainer/ButtonResume" to="CanvasLayer/PauseMenu" method="_on_button_resume_pressed"]
+[connection signal="pressed" from="CanvasLayer/PauseMenu/VBoxContainer/ButtonRestart" to="CanvasLayer/PauseMenu" method="_on_button_restart_pressed"]
+[connection signal="pressed" from="CanvasLayer/PauseMenu/VBoxContainer/ButtonMenu" to="CanvasLayer/PauseMenu" method="_on_button_menu_pressed"]

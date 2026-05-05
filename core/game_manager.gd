@@ -3,19 +3,19 @@ extends Node
 const SAVE_PATH := "user://save.json"
 const MAIN_MENU := "res://ui/menu/menu.tscn"
 const LEVELS := [
-	"res://levels/1_level.tscn",
-	"res://levels/2_level.tscn",
-	"res://levels/3_level.tscn",
-	"res://levels/level_01.tscn",
-	"res://levels/level_02.tscn",
-	"res://levels/level_03.tscn",
+	"res://levels/1.1_level.tscn",
+	"res://levels/1.2_level.tscn",
+	"res://levels/1.3_level.tscn",
+	"res://levels/level_alex.tscn",
+	"res://levels/level_alois.tscn",
+	"res://levels/level_maxou.tscn",
+	"res://levels/level_robin.tscn",
 ]
 
-var save_data := { "level_index": 0, "checkpoint_id": 0 }
+var save_data := { "level_index": 0}
 
 func _ready() -> void:
 	save_data["level_index"] = 0
-	save_data["checkpoint_id"] = 0
 
 func go_to_menu() -> void:
 	await IrisWipe.close_transition(0.2)
@@ -27,12 +27,15 @@ func start_game(level_index: int = 0) -> void:
 	await IrisWipe.close_transition()
 	save_data["level_index"] = level_index
 	save_data["checkpoint_id"] = 0
-	await get_tree().change_scene_to_file(LEVELS[level_index])
+	get_tree().change_scene_to_file(LEVELS[level_index])
+	var error :Error = get_tree().change_scene_to_file(LEVELS[level_index])
+	if (error != OK):
+		print("erreur au chargement du niveau d'index " + str(level_index))
 	await IrisWipe.open_transition()
 
 	
 func load_next_level() -> void:
-	await IrisWipe.close_transition()
+	IrisWipe.close_transition()
 	var next = save_data["level_index"] + 1
 	if next >= LEVELS.size():
 		go_to_menu()

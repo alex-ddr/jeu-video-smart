@@ -13,6 +13,8 @@ signal lives_changed()
 var max_lives: int = 3
 var current_lives: int = 3
 
+signal ball_ground(ball_pos: Vector2)
+signal checkpoint(id: int)
 
 const TILE_SIZE: int = 128
 const GRAVITY: Vector2 = Vector2(0, TILE_SIZE * 25.0)
