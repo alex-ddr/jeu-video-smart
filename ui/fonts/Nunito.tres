@@ -1,7 +1,0 @@
-[gd_resource type="FontVariation" format=3 uid="uid://bxpx2s83m2206"]
-
-[ext_resource type="FontFile" uid="uid://dgh21oojhq1q" path="res://ui/fonts/Nunito.ttf" id="1_w3827"]
-
-[resource]
-base_font = ExtResource("1_w3827")
-variation_embolden = 0.8
