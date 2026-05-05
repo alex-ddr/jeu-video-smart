@@ -47,7 +47,7 @@ var coyote_timer: float = 0.0
 var jump_buffer_timer: float = 0.0
 
 # Height / Stretch
-@onready var height: float = 42.0
+@onready var height: float = Global.DEFAULT_HEIGHT
 @onready var last_height: float = height
 var height_velocity: float = 0.0
 

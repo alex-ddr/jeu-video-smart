@@ -16,3 +16,5 @@ var current_lives: int = 3
 
 const TILE_SIZE: int = 128
 const GRAVITY: Vector2 = Vector2(0, TILE_SIZE * 25.0)
+
+const DEFAULT_HEIGHT: float = 42.0

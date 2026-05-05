@@ -30,17 +30,10 @@ func lose_life() -> void:
 		linear_velocity = Vector2.ZERO
 		angular_velocity = 0.0
 		is_invincible = true
-		
-		# 2. On désactive temporairement la physique pour ne pas qu'elle rebondisse de partout
-		set_deferred("freeze", true)
-		
-		# 3. On replace tout le monde
+
 		if level.has_method("_spawn_at_checkpoint"):
 			level._spawn_at_checkpoint(GameManager.save_data["checkpoint_id"])
-			
-		# 4. On crée un petit délai (timer d'1 sec) pour la remettre en jeu de façon "safe"
-		await get_tree().create_timer(1.0).timeout
+		else:
+			print("pas de checkpoint")
 		
-		# 5. On remet la balle en mouvement
-		set_deferred("freeze", false)
 		is_invincible = false
