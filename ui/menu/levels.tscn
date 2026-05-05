@@ -96,6 +96,22 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_77h3e")
 theme_override_styles/focus = SubResource("StyleBoxFlat_77h3e")
 text = "Niveau 2"
 
+[node name="MarginContainer2" type="MarginContainer" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1090674792]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+
+[node name="niv3" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1850042797]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_77h3e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_77h3e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_77h3e")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_77h3e")
+theme_override_styles/focus = SubResource("StyleBoxFlat_77h3e")
+text = "Niveau 3"
+
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer" unique_id=521351512]
 layout_mode = 2
 theme_override_constants/margin_top = 40
@@ -114,4 +130,5 @@ text = "Retour"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/niv1" to="." method="_on_level_pressed" binds= [0]]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/niv2" to="." method="_on_level_pressed" binds= [1]]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/niv3" to="." method="_on_level_pressed" binds= [3]]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Retour" to="." method="_on_back_pressed"]
