@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://mpu5pvoq06a4" path="res://entities/checkpoint/check_point.tscn" id="7_182b8"]
 [ext_resource type="PackedScene" uid="uid://ccaqsjdfwknlj" path="res://entities/end_level_sign/end_level_sign.tscn" id="8_qd84c"]
 [ext_resource type="Script" uid="uid://dj3ndk5f74w6y" path="res://ui/hud/label_indication_h.gd" id="9_te0f4"]
+[ext_resource type="PackedScene" uid="uid://d16ikhrssu8rs" path="res://components/death_zone/death_zone.tscn" id="10_dp023"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jv8fr"]
 font_size = 70
@@ -64,7 +65,15 @@ offset_left = -64.0
 offset_top = -560.0
 offset_right = 680.0
 offset_bottom = -463.0
-text = "To move right and left"
+text = "Take the bomb to the exit"
+label_settings = SubResource("LabelSettings_jv8fr")
+
+[node name="Label5" type="Label" parent="Label" unique_id=1624874815]
+offset_left = 2128.0
+offset_top = -336.0
+offset_right = 3014.0
+offset_bottom = -239.0
+text = "One player must be with the bomb"
 label_settings = SubResource("LabelSettings_jv8fr")
 
 [node name="Label4" type="Label" parent="Label" unique_id=1868248971]
@@ -75,3 +84,8 @@ offset_bottom = -687.0
 text = "Press h if you lost the ball"
 label_settings = SubResource("LabelSettings_jv8fr")
 script = ExtResource("9_te0f4")
+
+[node name="DeathZone" parent="." unique_id=150261952 instance=ExtResource("10_dp023")]
+position = Vector2(3280, 304)
+
+[connection signal="body_exited" from="DeathZone" to="." method="_on_death_zone_body_exited"]
