@@ -45,10 +45,11 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 
 func _on_ground_detector_body_entered(body: Node) -> void:
 	if is_invincible == false and _on_ground:
-		return
+		Global.ball_ground.emit(global_position)
+		if body.name == "Acide":
+			lose_life()
 		
-	if body.name == "Acide":
-		lose_life()
+	
 
 
 func lose_life() -> void:

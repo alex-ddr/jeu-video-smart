@@ -3,9 +3,9 @@ extends Node
 const SAVE_PATH := "user://save.json"
 const MAIN_MENU := "res://ui/menu/menu.tscn"
 const LEVELS := [
-	"res://levels/1_level.tscn",
-	"res://levels/2_level.tscn",
-	"res://levels/3_level.tscn",
+	"res://levels/1.1_level.tscn",
+	"res://levels/1.2_level.tscn",
+	"res://levels/1.3_level.tscn",
 	"res://levels/level_01.tscn",
 	"res://levels/level_02.tscn",
 	"res://levels/level_03.tscn",
@@ -23,7 +23,9 @@ func go_to_menu() -> void:
 func start_game(level_index: int = 0) -> void:
 	save_data["level_index"] = level_index
 	save_data["checkpoint_id"] = 0
-	get_tree().change_scene_to_file(LEVELS[level_index])
+	var error :Error = get_tree().change_scene_to_file(LEVELS[level_index])
+	if (error != OK):
+		print("erreur au chargement du niveau d'index " + str(level_index))
 	await IrisWipe.open_transition()
 
 	
