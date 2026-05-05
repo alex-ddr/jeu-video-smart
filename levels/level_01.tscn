@@ -62,17 +62,6 @@ offset_top = -1392.0
 offset_right = -320.0
 offset_bottom = -1392.0
 
-[node name="CactusMortel" parent="." unique_id=208284507 instance=ExtResource("7_cg8v6")]
-position = Vector2(168, -60)
-collision_layer = 1
-collision_mask = 1
-script = null
-
-[node name="DeathZone" parent="." unique_id=150261952 instance=ExtResource("8_j0sdw")]
-z_index = 1
-position = Vector2(36, 657)
-script = null
-
 [node name="Blocs" type="Node" parent="." unique_id=257039762]
 
 [node name="Breakable_bloc" parent="Blocs" unique_id=1883297004 instance=ExtResource("10_5dxk1")]
@@ -94,3 +83,9 @@ position = Vector2(-448, -576)
 
 [node name="CheckPoint" parent="CheckPoints" unique_id=351713259 instance=ExtResource("13_y72ps")]
 position = Vector2(-304, -64)
+
+[node name="CactusMortel" parent="." unique_id=208284507 instance=ExtResource("7_cg8v6")]
+position = Vector2(168, -60)
+
+[node name="DeathZone" parent="." unique_id=150261952 instance=ExtResource("8_j0sdw")]
+position = Vector2(36, 657)
