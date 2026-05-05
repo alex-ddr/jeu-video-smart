@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dljijvpev1b30"]
+
+[ext_resource type="Script" uid="uid://bjj3lw7k04nbp" path="res://components/camera/camera.gd" id="1_y2wxd"]
+
+[node name="Camera" type="Camera2D" unique_id=395850129]
+rotation = -0.0022752464
+scale = Vector2(43.16716, -9.592959)
+skew = 0.00056779385
+zoom = Vector2(0.5, 0.5)
+position_smoothing_enabled = true
+script = ExtResource("1_y2wxd")

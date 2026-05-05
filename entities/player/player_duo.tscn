@@ -2,16 +2,17 @@
 
 [ext_resource type="Script" uid="uid://d1dlt7x7v5t1e" path="res://entities/player/player_duo.gd" id="1_v6fml"]
 [ext_resource type="PackedScene" uid="uid://dykrdcthqd03o" path="res://entities/player/player.tscn" id="2_lq2ei"]
-[ext_resource type="PackedScene" path="res://entities/player/rope.tscn" id="3_imtb5"]
+[ext_resource type="PackedScene" uid="uid://xy2hvuma810r" path="res://entities/player/rope.tscn" id="3_imtb5"]
 
 [node name="PlayerDuo" type="Node2D" unique_id=1829453057]
 script = ExtResource("1_v6fml")
 
 [node name="Player1" parent="." unique_id=1637807349 instance=ExtResource("2_lq2ei")]
+position = Vector2(-192, 0)
 collision_mask = 19
 
 [node name="Player2" parent="." unique_id=1965308668 instance=ExtResource("2_lq2ei")]
-position = Vector2(395, 0)
+position = Vector2(203, 0)
 collision_mask = 19
 action_left = "p2_left"
 action_right = "p2_right"

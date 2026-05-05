@@ -1,7 +1,7 @@
 extends Node2D
 
-@onready var player_duo = $Players/PlayerDuo
-@onready var ball: RigidBody2D = $Players/Ball
+@onready var player_duo = $PlayerBallCameraTrio/PlayerDuo
+@onready var ball: RigidBody2D = $PlayerBallCameraTrio/Ball
 
 func _ready() -> void:
 	print("Niveau chargé !")
