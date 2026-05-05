@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://d1dlt7x7v5t1e" path="res://entities/player/player_duo.gd" id="1_v6fml"]
 [ext_resource type="PackedScene" uid="uid://dykrdcthqd03o" path="res://entities/player/player.tscn" id="2_lq2ei"]
-[ext_resource type="PackedScene" path="res://entities/player/rope.tscn" id="3_imtb5"]
+[ext_resource type="PackedScene" uid="uid://xy2hvuma810r" path="res://entities/player/rope.tscn" id="3_imtb5"]
 
-[node name="PlayerDuo" type="Node2D" unique_id=1829453057]
+[node name="PlayerDuo" type="Node2D" unique_id=1829453057 groups=["player"]]
 script = ExtResource("1_v6fml")
 
 [node name="Player1" parent="." unique_id=1637807349 instance=ExtResource("2_lq2ei")]
