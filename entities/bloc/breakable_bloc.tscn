@@ -7,7 +7,7 @@
 size = Vector2(128, 128)
 
 [node name="Breakable_bloc" type="RigidBody2D" unique_id=1883297004]
-collision_layer = 9
+collision_layer = 17
 collision_mask = 8
 gravity_scale = 0.0
 freeze = true

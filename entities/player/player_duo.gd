@@ -2,8 +2,8 @@ extends Node2D
 
 # --------------------------- Constants ---------------------------
 const TILE_SIZE: float = Global.TILE_SIZE
-const MAX_SPEED: float = TILE_SIZE * 3
-const MIN_SPEED: float = TILE_SIZE * 1
+const MAX_SPEED: float = TILE_SIZE * 3.5
+const MIN_SPEED: float = TILE_SIZE * 1.5
 const ACCELERATION: float = TILE_SIZE * 12.5
 const FRICTION: float = TILE_SIZE * 12.5
 const WEIGHT_CURVE: float = 2.0

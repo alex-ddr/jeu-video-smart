@@ -7,7 +7,7 @@
 size = Vector2(128, 128)
 
 [node name="Bouncer" type="RigidBody2D" unique_id=1885129447]
-collision_layer = 9
+collision_layer = 17
 collision_mask = 8
 gravity_scale = 0.0
 freeze = true

@@ -16,7 +16,7 @@ tile_set = ExtResource("1_qjbks")
 
 [node name="collines" type="Parallax2D" parent="." unique_id=66010330]
 repeat_size = Vector2(2048, 0)
-autoscroll = Vector2(10, 0)
+autoscroll = Vector2(40, 0)
 repeat_times = 25
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="collines" unique_id=905033877]
@@ -33,7 +33,7 @@ tile_set = ExtResource("1_qjbks")
 
 [node name="nuages" type="Parallax2D" parent="." unique_id=889811870]
 repeat_size = Vector2(512, 0)
-autoscroll = Vector2(15, 0)
+autoscroll = Vector2(20, 0)
 repeat_times = 100
 
 [node name="TileMapLayer" type="TileMapLayer" parent="nuages" unique_id=850613241]

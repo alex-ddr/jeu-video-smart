@@ -115,12 +115,12 @@ locale/line_breaking_strictness=1
 
 [layer_names]
 
-2d_physics/layer_1="world"
+2d_physics/layer_1="no_kill_ground"
 2d_physics/layer_2="players"
 2d_physics/layer_3="rope"
 2d_physics/layer_4="ball"
-2d_physics/layer_5="platform"
-2d_physics/layer_6="no-kill ground"
+2d_physics/layer_5="bloc"
+2d_physics/layer_6="ice_ground"
 
 [rendering]
 

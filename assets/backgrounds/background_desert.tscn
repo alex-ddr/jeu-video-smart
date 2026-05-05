@@ -15,7 +15,7 @@ tile_set = ExtResource("1_oq8bx")
 
 [node name="2_Collines_Proches" type="Parallax2D" parent="." unique_id=1232918756]
 repeat_size = Vector2(512, 0)
-autoscroll = Vector2(20, 0)
+autoscroll = Vector2(40, 0)
 repeat_times = 100
 
 [node name="TileMapLayer" type="TileMapLayer" parent="2_Collines_Proches" unique_id=714355808]
@@ -24,7 +24,7 @@ tile_set = ExtResource("1_oq8bx")
 
 [node name="3_Nuages" type="Parallax2D" parent="." unique_id=1576013801]
 repeat_size = Vector2(512, 0)
-autoscroll = Vector2(15, 0)
+autoscroll = Vector2(20, 0)
 repeat_times = 100
 
 [node name="TileMapLayer" type="TileMapLayer" parent="3_Nuages" unique_id=721509334]

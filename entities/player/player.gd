@@ -66,13 +66,28 @@ var release_target_height: float = 0.0
 
 
 
+var god_mode: bool = false
+var _saved_collision_mask: int = 0
+
 func _ready() -> void:
 	collision.shape = collision.shape.duplicate()
 	head.visible = true
-	pass
+	_saved_collision_mask = collision_mask  # sauvegarder au ready
 
+
+# --------------------------- God Mode ---------------------------
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey and event.keycode == KEY_Y and event.pressed and not event.echo:
+		god_mode = !god_mode
+		if god_mode:
+			_saved_collision_mask = collision_mask
+			collision_mask = 0
+		else:
+			collision_mask = _saved_collision_mask
 	
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("ui_accept") or OS.get_keycode_string(KEY_Y) == "Y":
+		pass  # handled in _input
 	_apply_gravity(delta)
 	_read_input(delta)
 	_update_stretch(delta)
@@ -81,18 +96,22 @@ func _physics_process(delta: float) -> void:
 	_update_animation()
 	move_and_slide()
 
+
 func _process(delta: float) -> void:
 	_sync_visuals()
 
 # --------------------------- Physics ---------------------------
 func _apply_gravity(delta: float) -> void:
+	if god_mode:
+		# Vol libre avec haut/bas
+		velocity.y = Input.get_axis(action_up, action_down) * TILE_SIZE * 8.0
+		velocity.x = desired_direction * TILE_SIZE * 8.0
+		return
+
 	if not is_on_floor():
 		var current_gravity = GRAVITY
-		
-		# Si on est en train de retomber, on applique le multiplicateur pour une chute plus lourde
 		if velocity.y > 0:
 			current_gravity *= FALL_GRAVITY_MULTIPLIER
-			
 		velocity += current_gravity * delta
 
 

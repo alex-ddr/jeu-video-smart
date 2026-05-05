@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://trm3hhsyj7in" path="res://assets/textures/sprites/Tiles/sign_exit.png" id="2_i118u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i118u"]
-size = Vector2(128.33334, 127.66667)
+size = Vector2(45, 29.666662)
 
 [node name="FinDeNveau" type="Area2D" unique_id=2098824404]
 scale = Vector2(3, 3)
@@ -12,6 +12,7 @@ collision_mask = 15
 script = ExtResource("1_i118u")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=671614837]
+scale = Vector2(0.4010417, 0.40104175)
 texture = ExtResource("2_i118u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1188009695]
