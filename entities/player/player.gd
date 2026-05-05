@@ -46,6 +46,8 @@ var desired_direction: float = 0.0
 var coyote_timer: float = 0.0
 var jump_buffer_timer: float = 0.0
 
+var is_invincible: bool = false
+
 # Height / Stretch
 @onready var height: float = Global.DEFAULT_HEIGHT
 @onready var last_height: float = height
@@ -142,6 +144,36 @@ func _get_stretch_target() -> float:
 	if Input.is_action_pressed(action_launch) and is_on_floor():
 		return _get_launch_charge_target()
 	return _get_size_target()
+	
+# --------------------------- Health & Death ---------------------------
+func lose_life() -> void:
+	# Si on vient juste de mourir, on ignore les autres dégâts
+	if is_invincible:
+		return
+		
+	Global.current_lives -= 1
+	Global.lives_changed.emit()
+	
+	if Global.current_lives <= 0:
+		Global.current_lives = Global.max_lives
+		GameManager.go_to_menu()
+	else:
+		# On arrête le mouvement du joueur (CharacterBody2D utilise 'velocity')
+		velocity = Vector2.ZERO
+		height_velocity = 0.0
+		is_invincible = true
+		
+		var level = get_tree().current_scene
+		
+		# On respawn au checkpoint
+		if level.has_method("_spawn_at_checkpoint"):
+			level._spawn_at_checkpoint(GameManager.save_data["checkpoint_id"])
+		else:
+			print("pas de checkpoint")
+			
+		# Petit délai d'invincibilité (1 seconde) pour éviter de mourir en boucle au respawn
+		await get_tree().create_timer(1.0).timeout
+		is_invincible = false
 
 
 func _update_stretch(delta: float) -> void:
