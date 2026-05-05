@@ -1,19 +1,25 @@
 extends Node2D
 
-@onready var player_duo = $PlayerBallCameraTrio/PlayerDuo
-@onready var ball: RigidBody2D = $PlayerBallCameraTrio/Ball
+var player_duo
+var ball: RigidBody2D
 
 var indice_checkpoint : int = 0
 
 func _ready() -> void:
-	print("Niveau chargé !")
+	if has_node("PlayerBallCameraTrio/PlayerDuo"):
+		player_duo = $PlayerBallCameraTrio/PlayerDuo
+		ball = $PlayerBallCameraTrio/Ball if has_node("PlayerBallCameraTrio/Ball") else null
+	else:
+		player_duo = $PlayerDuo
+		ball = $Ball if has_node("Ball") else null
+		
+	player_duo.add_to_group("players")
+
 	Global.checkpoint.connect(_on_checkpoint_reached)
 	#On spawn au premier checkpoint
-	indice_checkpoint = 0
+	indice_checkpoint = GameManager.save_data.get("checkpoint_id", 0)
 	_spawn_at_checkpoint()
-
 	
-	# Met le nombre d'étoiles total dans le global pour l'UI
 	Global.nb_stars_collected = 0
 	Global.current_lives = Global.max_lives
 	Global.lives_changed.emit()  #Pour actualiser l'affichage si l'UI est chargé avant
@@ -30,13 +36,10 @@ func _physics_process(_delta: float) -> void:
 		_spawn_at_checkpoint()
 
 func _spawn_at_checkpoint() -> void:
-
 	for cp in get_tree().get_nodes_in_group("checkpoints"):
 		if cp.checkpoint_id == indice_checkpoint:
-			ball.set_deferred("freeze", true)
 			player_duo.p1.input_enabled = false
 			player_duo.p2.input_enabled = false
-			# Pour les joueurs (qui sont des CharacterBody2D), ça marche normalement :
 			player_duo.p1.global_position = cp.global_position + Vector2(-200, 0)
 			player_duo.p2.global_position = cp.global_position + Vector2(200, 0)
 			player_duo.p1.velocity = Vector2.ZERO
@@ -44,17 +47,23 @@ func _spawn_at_checkpoint() -> void:
 			player_duo.p1.height = Global.DEFAULT_HEIGHT
 			player_duo.p2.height = Global.DEFAULT_HEIGHT
 
-			# POUR LA BALLE (RigidBody2D) : On doit utiliser set_deferred pour forcer la physique
-			var new_ball_pos = cp.global_position + Vector2(0, -180)
-			ball.set_deferred("global_position", new_ball_pos)
-			ball.set_deferred("linear_velocity", Vector2.ZERO)
-			ball.set_deferred("angular_velocity", 0.0)
-			
-			await get_tree().create_timer(1.0).timeout
-			ball.set_deferred("freeze", false)
+			if ball != null:
+				ball.set_deferred("freeze", true)
+				var new_ball_pos = cp.global_position + Vector2(0, -180)
+				ball.set_deferred("global_position", new_ball_pos)
+				ball.set_deferred("linear_velocity", Vector2.ZERO)
+				ball.set_deferred("angular_velocity", 0.0)
+				ball.set_deferred("freeze", false)
+
 			player_duo.p1.input_enabled = true
 			player_duo.p2.input_enabled = true
+
+			#await get_tree().create_timer(1.0).timeout
 			
+			if ball != null:
+				ball.set_deferred("freeze", false)
+			player_duo.p1.input_enabled = true
+			player_duo.p2.input_enabled = true
 	return
 
 

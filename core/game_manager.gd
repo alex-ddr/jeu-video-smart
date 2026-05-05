@@ -16,7 +16,7 @@ var save_data := {"unlocked_level": 0 }
 var level_index : int = 0
 
 func _ready() -> void:
-	save_data["unloked_level"] = 0
+	save_data["unlocked_level"] = 0
 
 func go_to_menu() -> void:
 	await IrisWipe.close_transition(0.2)
@@ -36,7 +36,7 @@ func load_next_level() -> void:
 	await IrisWipe.close_transition()
 	var next = level_index + 1
 	if next > save_data.get("unlocked_level", 0):
-		save_data["unlocked_level"] = next
+		var save_data := {"unlocked_level": 0, "checkpoint_id": 0}
 		save_game() # On sauvegarde la progression sur le disque dur
 	if next >= LEVELS.size():
 		go_to_menu()

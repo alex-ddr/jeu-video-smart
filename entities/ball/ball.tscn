@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bfnb0r7hwn7mb" path="res://assets/textures/entities/ball/bomb.png" id="1_61umk"]
 [ext_resource type="Script" uid="uid://csrhdsyte8ut0" path="res://entities/ball/ball.gd" id="1_jyt08"]
+[ext_resource type="Texture2D" uid="uid://by3b6jsmk88o5" path="res://assets/textures/sprites/Tiles/bomb_active.png" id="3_w5wpn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w5wpn"]
 radius = 21.023796
@@ -15,10 +16,16 @@ collision_layer = 8
 collision_mask = 55
 script = ExtResource("1_jyt08")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=803535598]
+[node name="SpriteDefault" type="Sprite2D" parent="." unique_id=803535598]
 position = Vector2(-3, -5)
 scale = Vector2(0.40624997, 0.4062499)
 texture = ExtResource("1_61umk")
+
+[node name="SpritePickup" type="Sprite2D" parent="." unique_id=505500238]
+visible = false
+position = Vector2(-3, -5)
+scale = Vector2(0.40624997, 0.4062499)
+texture = ExtResource("3_w5wpn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=762546199]
 shape = SubResource("CircleShape2D_w5wpn")

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dicj2aptak56v"]
+
+[ext_resource type="Script" uid="uid://slq80n67ayqo" path="res://ui/styles/key.gd" id="1_ke58n"]
+[ext_resource type="Texture2D" uid="uid://do8e5lgkkhxya" path="res://assets/input_keys/keyboard_z_outline.png" id="2_lovvu"]
+
+[node name="Key" type="Node2D" unique_id=1661999896]
+script = ExtResource("1_ke58n")
+white_height = null
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=980334441]
+offset_left = -43.0
+offset_top = -43.0
+offset_right = 44.0
+offset_bottom = 44.0
+
+[node name="Key" type="Sprite2D" parent="." unique_id=190074219]
+modulate = Color(0.20784314, 0.20784314, 0.25490198, 1)
+texture = ExtResource("2_lovvu")

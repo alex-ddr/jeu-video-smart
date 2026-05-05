@@ -31,12 +31,12 @@ const LAUNCH_RELEASE_DAMPING: float = 20.0
 @onready var MAX_HEIGHT: float = 200.0
 @onready var SIZE_SPEED: float = TILE_SIZE * 1.5
 @onready var MAX_LAUNCH_FORCE: float = TILE_SIZE * 13.33
-@onready var JUMP_VELOCITY: float = -TILE_SIZE * 11.0
+@onready var JUMP_VELOCITY: float = -TILE_SIZE * 12.0
 @onready var STOP_TOLERANCE: float = TILE_SIZE * 0.015
 
 const FALL_GRAVITY_MULTIPLIER: float = 1.8 # Le perso tombe presque 2x plus vite qu'il ne monte
-const JUMP_CUT_MULTIPLIER: float = 0.5     # Divise la vitesse par 2 si on lâche le bouton tôt
-const COYOTE_TIME: float = 0.1             # Temps de grâce en quittant un rebord (100ms)
+const JUMP_CUT_MULTIPLIER: float = 0.25     # Divise la vitesse par 2 si on lâche le bouton tôt
+const COYOTE_TIME: float = 0.2             # Temps de grâce en quittant un rebord (100ms)
 const JUMP_BUFFER_TIME: float = 0.1        # Mémorise l'appui sur saut avant de toucher le sol
 
 const BODY_HEIGHT_OFFSET: float = 86.0
