@@ -10,6 +10,7 @@ radius = 21.023796
 radius = 25.079872
 
 [node name="Ball" type="RigidBody2D" unique_id=1885945790]
+z_index = 1
 collision_layer = 8
 collision_mask = 23
 script = ExtResource("1_jyt08")

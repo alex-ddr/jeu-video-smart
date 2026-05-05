@@ -26,7 +26,6 @@ func lose_life() -> void:
 	else:
 		var level = get_tree().current_scene
 		
-		# 1. On bloque la balle temporairement
 		linear_velocity = Vector2.ZERO
 		angular_velocity = 0.0
 		is_invincible = true
