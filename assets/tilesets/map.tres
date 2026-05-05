@@ -9,8 +9,6 @@ tile_data = PackedInt32Array(0, 65536, 10, 1, 131072, 10, 2, 327680, 10)
 friction = 0.55
 bounce = 0.4
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_c1q8h"]
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wijl4"]
 texture = ExtResource("1_c1q8h")
 separation = Vector2i(1, 1)

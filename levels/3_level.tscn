@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://cea5c36bvgmga"]
+[gd_scene format=4 uid="uid://bxf72hpwt2fof"]
 
 [ext_resource type="Script" uid="uid://c7l0o0x8gmpyl" path="res://levels/base_level.gd" id="1_cc4f5"]
 [ext_resource type="PackedScene" uid="uid://tc1awydwhnex" path="res://assets/backgrounds/background_desert.tscn" id="2_pyoj2"]
@@ -44,7 +44,7 @@ position = Vector2(5488, -80)
 position = Vector2(224, -64)
 
 [node name="FinDeNveau" parent="ChekPoints" unique_id=2098824404 instance=ExtResource("8_e1r0y")]
-position = Vector2(2608, -192)
+position = Vector2(2602, -76)
 
 [node name="Label" type="Node" parent="." unique_id=989742107]
 
