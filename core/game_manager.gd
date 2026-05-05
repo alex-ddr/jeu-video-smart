@@ -24,7 +24,7 @@ func go_to_menu() -> void:
 	await IrisWipe.open_transition(0.2)
 
 
-func start_game(level_index_new: int = 0) -> void:
+func start_game(level_index_new: int = level_index) -> void:
 	level_index = level_index_new
 	var error :Error = get_tree().change_scene_to_file(LEVELS[level_index])
 	if (error != OK):

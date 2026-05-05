@@ -19,7 +19,7 @@ func toggle_pause() -> void:
 	
 func _on_button_restart_pressed() -> void:
 	get_tree().paused = false
-	GameManager.start_game(GameManager.save_data["level_index"])
+	GameManager.start_game()
 
 func _on_button_menu_pressed() -> void:
 	get_tree().paused = false
