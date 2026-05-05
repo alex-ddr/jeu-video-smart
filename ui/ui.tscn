@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cklhnwq6dfcv3" path="res://ui/hud/score.gd" id="1_wonny"]
 [ext_resource type="Script" uid="uid://d1fsslsh0w2uv" path="res://ui/hud/lives_container.gd" id="3_wl5ax"]
 [ext_resource type="Texture2D" uid="uid://cuiggptyw1j3q" path="res://assets/textures/sprites/Tiles/bomb.png" id="4_vkava"]
-[ext_resource type="Script" uid="uid://ccmsb5bibkbfy" path="res://ui/pause_menu.gd" id="5_tf0e0"]
+[ext_resource type="Script" uid="uid://ccmsb5bibkbfy" path="res://ui/menu/pause_menu.gd" id="5_tf0e0"]
 [ext_resource type="Theme" uid="uid://dqyhxma3gbwhm" path="res://assets/UI/button.tres" id="6_obcwv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_nllf8"]

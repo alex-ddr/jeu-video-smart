@@ -174,7 +174,7 @@ func lose_life() -> void:
 		
 		# On respawn au checkpoint
 		if level.has_method("_spawn_at_checkpoint"):
-			level._spawn_at_checkpoint(GameManager.save_data["checkpoint_id"])
+			level._spawn_at_checkpoint()
 		else:
 			print("pas de checkpoint")
 			

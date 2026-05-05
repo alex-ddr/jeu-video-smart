@@ -12,27 +12,29 @@ const LEVELS := [
 	"res://levels/level_robin.tscn",
 ]
 
-var save_data := { "level_index": 0}
+var save_data := {"unlocked_level": 0 }
+var level_index : int = 0
 
 func _ready() -> void:
-	save_data["level_index"] = 0
+	save_data["unloked_level"] = 0
 
 func go_to_menu() -> void:
 	get_tree().change_scene_to_file(MAIN_MENU)
 
-func start_game(level_index: int = 0) -> void:
-	save_data["level_index"] = level_index
+func start_game(level_index_new: int = 0) -> void:
+	level_index = level_index_new
 	var error :Error = get_tree().change_scene_to_file(LEVELS[level_index])
 	if (error != OK):
 		print("erreur au chargement du niveau d'index " + str(level_index))
 	await IrisWipe.open_transition()
 
 	
-	
-
 func load_next_level() -> void:
 	await IrisWipe.close_transition()
-	var next = save_data["level_index"] + 1
+	var next = level_index + 1
+	if next > save_data.get("unlocked_level", 0):
+		save_data["unlocked_level"] = next
+		save_game() # On sauvegarde la progression sur le disque dur
 	if next >= LEVELS.size():
 		go_to_menu()
 		return

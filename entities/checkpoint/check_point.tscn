@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c2m2iactmhj3j" path="res://assets/textures/sprites/Tiles/flag_blue_a.png" id="1_ub0nm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nvskt"]
-size = Vector2(67, 65)
+size = Vector2(128, 128)
 
 [node name="CheckPoint" type="Area2D" unique_id=351713259]
 collision_mask = 255
@@ -14,7 +14,6 @@ script = ExtResource("1_nvskt")
 texture = ExtResource("1_ub0nm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1272636705]
-position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_nvskt")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

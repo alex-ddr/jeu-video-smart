@@ -48,6 +48,10 @@ position = Vector2(5904, -80)
 [node name="CheckPoint" parent="ChekPoints" unique_id=351713259 instance=ExtResource("7_h3fq1")]
 position = Vector2(224, -64)
 
+[node name="CheckPoint2" parent="ChekPoints" unique_id=210756847 instance=ExtResource("7_h3fq1")]
+position = Vector2(2832, -64)
+checkpoint_id = 1
+
 [node name="FinDeNveau" parent="ChekPoints" unique_id=2098824404 instance=ExtResource("8_56c5k")]
 position = Vector2(3440, -80)
 
@@ -123,4 +127,4 @@ label_settings = SubResource("LabelSettings_0xaxn")
 script = ExtResource("9_uafxb")
 
 [node name="DeathZone" parent="." unique_id=150261952 instance=ExtResource("10_vxhlr")]
-position = Vector2(2224, 288)
+position = Vector2(2224, 864)
