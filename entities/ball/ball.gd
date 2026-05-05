@@ -33,10 +33,13 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	for i in state.get_contact_count():
 		var normal = state.get_contact_local_normal(i)
 		if normal.y < -0.7:
-			_on_ground = true
-			break
+			var collider_rid = state.get_contact_collider(i)
+			var layer = PhysicsServer2D.body_get_collision_layer(collider_rid)
+			print(layer)
+			if layer & 1:
+				_on_ground = true
+				break
 
-	# Friction horizontale au sol
 	if _on_ground:
 		state.linear_velocity.x *= GROUND_FRICTION
 
