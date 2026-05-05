@@ -6,7 +6,6 @@ var activated: bool = false
 
 func _ready() -> void:
 	add_to_group("checkpoints")
-	body_entered.connect(_on_body_entered)
 
 
 func _on_body_entered(body: Node) -> void:
@@ -17,9 +16,6 @@ func _on_body_entered(body: Node) -> void:
 		return
 
 	activated = true
-
-	GameManager.save_data["level"] = get_tree().current_scene.scene_file_path
-	GameManager.save_data["checkpoint_id"] = checkpoint_id
-	GameManager.save_game()
+	Global.checkpoint.emit(checkpoint_id)
 
 	print("Checkpoint activé : ", checkpoint_id)

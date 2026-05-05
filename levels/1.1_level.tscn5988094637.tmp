@@ -27,6 +27,8 @@ tile_set = ExtResource("3_bxcaf")
 
 [node name="PlayerBallCameraTrio" parent="." unique_id=1973325727 instance=ExtResource("4_nvp6o")]
 
+[node name="UI" parent="." unique_id=1452071461 instance=ExtResource("5_1701s")]
+
 [node name="Stars" type="Node" parent="." unique_id=1622551463]
 
 [node name="star" parent="Stars" unique_id=196880715 instance=ExtResource("6_8r6b2")]
@@ -39,6 +41,10 @@ position = Vector2(224, -64)
 
 [node name="FinDeNveau" parent="ChekPoints" unique_id=2098824404 instance=ExtResource("8_qd84c")]
 position = Vector2(2586, -77)
+
+[node name="CheckPoint2" parent="ChekPoints" unique_id=362839699 instance=ExtResource("7_182b8")]
+position = Vector2(2016, -64)
+checkpoint_id = 1
 
 [node name="Label" type="Node" parent="." unique_id=2140957593]
 
@@ -85,7 +91,5 @@ script = ExtResource("9_te0f4")
 
 [node name="DeathZone" parent="." unique_id=150261952 instance=ExtResource("10_dp023")]
 position = Vector2(3280, 304)
-
-[node name="UI" parent="." unique_id=1452071461 instance=ExtResource("5_1701s")]
 
 [connection signal="body_exited" from="DeathZone" to="." method="_on_death_zone_body_exited"]

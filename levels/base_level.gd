@@ -3,15 +3,20 @@ extends Node2D
 @onready var player_duo = $PlayerBallCameraTrio/PlayerDuo
 @onready var ball: RigidBody2D = $PlayerBallCameraTrio/Ball
 
+var indice_checkpoint : int = 0
+
 func _ready() -> void:
 	print("Niveau chargé !")
-	#Pas utile pour l'instant on lance le niveau à la main, pas de sauvegarde
-	#GameManager.load_game()
-	_spawn_at_checkpoint(GameManager.save_data["checkpoint_id"])
+	Global.checkpoint.connect(_on_checkpoint_reached)
+	#On spawn au premier checkpoint
+	indice_checkpoint = 0
+	_spawn_at_checkpoint()
+
 	
 	# Met le nombre d'étoiles total dans le global pour l'UI
 	Global.nb_stars_collected = 0
 	Global.current_lives = Global.max_lives
+	Global.lives_changed.emit()  #Pour actualiser l'affichage si l'UI est chargé avant
 	var stars = find_child("Stars", true, false)
 	if stars != null:
 		Global.nb_stars_tot = stars.get_child_count()
@@ -22,12 +27,12 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("respawn"):
-		_spawn_at_checkpoint(GameManager.save_data["checkpoint_id"])
+		_spawn_at_checkpoint()
 
-func _spawn_at_checkpoint(id: int) -> void:
+func _spawn_at_checkpoint() -> void:
 
 	for cp in get_tree().get_nodes_in_group("checkpoints"):
-		if cp.checkpoint_id == id:
+		if cp.checkpoint_id == indice_checkpoint:
 			ball.set_deferred("freeze", true)
 			player_duo.p1.input_enabled = false
 			player_duo.p2.input_enabled = false
@@ -51,3 +56,8 @@ func _spawn_at_checkpoint(id: int) -> void:
 			player_duo.p2.input_enabled = true
 			
 	return
+
+
+func _on_checkpoint_reached(id: int) -> void:
+	if (id>indice_checkpoint):
+		indice_checkpoint = id

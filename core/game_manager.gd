@@ -11,18 +11,16 @@ const LEVELS := [
 	"res://levels/level_03.tscn",
 ]
 
-var save_data := { "level_index": 0, "checkpoint_id": 0 }
+var save_data := { "level_index": 0}
 
 func _ready() -> void:
 	save_data["level_index"] = 0
-	save_data["checkpoint_id"] = 0
 
 func go_to_menu() -> void:
 	get_tree().change_scene_to_file(MAIN_MENU)
 
 func start_game(level_index: int = 0) -> void:
 	save_data["level_index"] = level_index
-	save_data["checkpoint_id"] = 0
 	var error :Error = get_tree().change_scene_to_file(LEVELS[level_index])
 	if (error != OK):
 		print("erreur au chargement du niveau d'index " + str(level_index))

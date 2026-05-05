@@ -64,7 +64,7 @@ func lose_life() -> void:
 		is_invincible = true
 		var level = get_tree().current_scene
 		if level.has_method("_spawn_at_checkpoint"):
-			level._spawn_at_checkpoint(GameManager.save_data["checkpoint_id"])
+			level._spawn_at_checkpoint()
 		else:
 			print("pas de checkpoint")
 		is_invincible = false
