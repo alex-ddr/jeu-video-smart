@@ -16,7 +16,7 @@ var last_dir2 = 1.0
 @export var min_zoom : float = 0.2
 @export var max_zoom : float = 0.5
 @export var margin : float = 150.0
-@export var ball_max_dist : float = 1500.0
+@export var ball_max_dist : float = 3000.0
 @export var vertical_offset: float = 100.0
 
 func _ready() -> void:

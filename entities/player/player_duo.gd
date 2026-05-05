@@ -9,6 +9,8 @@ const FRICTION: float = TILE_SIZE * 12.5
 const WEIGHT_CURVE: float = 2.0
 const VELOCITY_THRESHOLD: float = 0.001
 const ROPE_PULL_STRENGTH: float = TILE_SIZE * 37.5
+const ICE_FRICTION: float = TILE_SIZE * 1.5
+const ICE_ACCELERATION: float = TILE_SIZE * 3.0
 
 # --------------------------- Onready ---------------------------
 @onready var p1: CharacterBody2D = $Player1
@@ -30,12 +32,32 @@ func _get_player_speed(player) -> float:
 	return lerp(MAX_SPEED, MIN_SPEED, penalty)
 
 
+
 func _apply_horizontal(delta: float) -> void:
 	var speed_p1 = _get_player_speed(p1)
 	var speed_p2 = _get_player_speed(p2)
 	
 	_move_player(p1, p2, speed_p1, is_p1_hanging, delta)
 	_move_player(p2, p1, speed_p2, is_p2_hanging, delta)
+	
+	_apply_player_push()
+
+func _apply_player_push() -> void:
+	var dist = abs(p1.global_position.x - p2.global_position.x)
+	var min_dist = 65.0
+
+	if dist < min_dist:
+		var dir = sign(p2.global_position.x - p1.global_position.x)
+		if dir == 0:
+			dir = 1.0
+		
+		var push_force = 300.0
+		
+		if p1.is_on_ice:
+			p1.velocity.x -= dir * push_force
+		if p2.is_on_ice:
+			p2.velocity.x += dir * push_force
+
 	
 func _move_player(player: CharacterBody2D, other_player: CharacterBody2D, speed: float, hanging: bool, delta: float) -> void:
 	if hanging:
@@ -53,10 +75,13 @@ func _move_player(player: CharacterBody2D, other_player: CharacterBody2D, speed:
 			player.velocity.x += player.desired_direction * ACCELERATION * 0.4 * delta
 	else:
 		var target = player.desired_direction * speed
+		var accel = ICE_ACCELERATION if player.is_on_ice else ACCELERATION
+		var friction = ICE_FRICTION if player.is_on_ice else FRICTION
+
 		if abs(target) > VELOCITY_THRESHOLD:
-			player.velocity.x = move_toward(player.velocity.x, target, ACCELERATION * delta)
+			player.velocity.x = move_toward(player.velocity.x, target, accel * delta)
 		else:
-			player.velocity.x = move_toward(player.velocity.x, 0.0, FRICTION * delta)
+			player.velocity.x = move_toward(player.velocity.x, 0.0, friction * delta)
 
 # --------------------------- Rope constraint ---------------------------
 var is_p1_hanging := false

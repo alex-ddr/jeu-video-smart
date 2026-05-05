@@ -4,10 +4,12 @@ var is_invincible = false
 var action_ball_jump: String = "ball_jump"
 var _on_ground := false
 var _can_jump_since: float = -1.0
+var is_on_ice: float = false
 
-const IDLE_VEL_THRESHOLD = 20.0
+const IDLE_VEL_THRESHOLD = 50.0
 const JUMP_FORCE = 800.0
 const GROUND_FRICTION = 0.88  # multiplicateur par frame (plus bas = freine plus vite)
+const ICE_FRICTION = 0.995
 const BLINK_SPEED = 7.0  # oscillations par seconde
 
 @onready var sprite_default: Sprite2D = $SpriteDefault
@@ -49,12 +51,18 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 		if normal.y < -0.7:
 			var collider_rid = state.get_contact_collider(i)
 			var layer = PhysicsServer2D.body_get_collision_layer(collider_rid)
-			if layer & 1:
+			if layer & 1 or layer & 32:
 				_on_ground = true
+				is_on_ice = layer & 32 != 0
 				break
 
+	physics_material_override.friction = 0.0 if is_on_ice else 1.0
+
 	if _on_ground:
-		state.linear_velocity.x *= GROUND_FRICTION
+		if is_on_ice:
+			state.linear_velocity.x *= ICE_FRICTION
+		else:
+			state.linear_velocity.x *= GROUND_FRICTION
 
 func _on_ground_detector_body_entered(body: Node) -> void:
 	if is_invincible == false and _on_ground:

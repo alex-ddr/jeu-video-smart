@@ -73,6 +73,7 @@ var release_target_height: float = 0.0
 
 var god_mode: bool = false
 var _saved_collision_mask: int = 0
+var is_on_ice: bool = false
 
 func _ready() -> void:
 	collision.shape = collision.shape.duplicate()
@@ -100,6 +101,7 @@ func _physics_process(delta: float) -> void:
 	_sync_collision()
 	_update_animation()
 	move_and_slide()
+	_detect_ice()
 
 
 func _process(delta: float) -> void:
@@ -286,3 +288,15 @@ func _update_animation() -> void:
 		feet.play("walk")
 	else:
 		feet.play("idle")
+		
+func _detect_ice() -> void:
+	is_on_ice = false
+	for i in get_slide_collision_count():
+		var col = get_slide_collision(i)
+		if col == null:
+			continue
+		var rid = col.get_collider_rid()
+		var layer = PhysicsServer2D.body_get_collision_layer(rid)
+		if layer & 32:
+			is_on_ice = true
+			break
