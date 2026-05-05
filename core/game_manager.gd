@@ -5,6 +5,7 @@ const MAIN_MENU := "res://ui/menu/menu.tscn"
 const LEVELS := [
 	"res://levels/level_01.tscn",
 	"res://levels/level_02.tscn",
+	"res://levels/1_level.tscn",
 ]
 
 var save_data := { "level_index": 0, "checkpoint_id": 0 }

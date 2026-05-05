@@ -1,46 +1,65 @@
 extends RigidBody2D
 
-# On ajoute un délai de sécurité où la balle ne peut pas perdre de vie
 var is_invincible = false
+var action_ball_jump: String = "ball_jump"
+var _on_ground := false
+
+const IDLE_VEL_THRESHOLD = 20.0
+const JUMP_FORCE = 800.0
+const GROUND_FRICTION = 0.88  # multiplicateur par frame (plus bas = freine plus vite)
+
+@onready var sprite: Sprite2D = $Sprite2D
 
 func _ready() -> void:
-	mass = 1.0
+	mass = 2.0
 	physics_material_override = PhysicsMaterial.new()
-	physics_material_override.bounce = 0.4
-	physics_material_override.friction = 0.3
+	physics_material_override.bounce = 0.075
+	physics_material_override.friction = 1
 	gravity_scale = 1.0
+	contact_monitor = true
+	max_contacts_reported = 4
 
-# Cette fonction est appelée quand on touche le sol
+func _physics_process(_delta: float) -> void:
+	var nearly_stopped = abs(linear_velocity.x) < IDLE_VEL_THRESHOLD
+	var can_jump = _on_ground and nearly_stopped
+
+	sprite.modulate = Color(0.18, 1.0, 0.18, 0.8) if can_jump else Color(1, 1, 1, 1)
+
+	if can_jump and Input.is_action_just_pressed(action_ball_jump):
+		apply_central_impulse(Vector2(0, -JUMP_FORCE * mass))
+
+func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
+	_on_ground = false
+	for i in state.get_contact_count():
+		var normal = state.get_contact_local_normal(i)
+		if normal.y < -0.7:
+			var collider_rid = state.get_contact_collider(i)
+			var layer = PhysicsServer2D.body_get_collision_layer(collider_rid)
+			print(layer)
+			if layer & 1:
+				_on_ground = true
+				break
+
+	if _on_ground:
+		state.linear_velocity.x *= GROUND_FRICTION
+
 func _on_ground_detector_body_entered(body: Node) -> void:
-	# On vérifie l'invincibilité ET si le body est bien le sol (Layer 1)
-	if is_invincible == false and (body is TileMap or body is TileMapLayer or body is StaticBody2D):
-		lose_life()
+	if is_invincible == false and _on_ground:
+		pass #lose_life() pour l'acide violet par exemple
 
 func lose_life() -> void:
 	Global.current_lives -= 1
 	Global.lives_changed.emit()
-	
 	if Global.current_lives <= 0:
 		Global.current_lives = Global.max_lives
 		GameManager.go_to_menu()
 	else:
-		var level = get_tree().current_scene
-		
-		# 1. On bloque la balle temporairement
 		linear_velocity = Vector2.ZERO
 		angular_velocity = 0.0
 		is_invincible = true
-		
-		# 2. On désactive temporairement la physique pour ne pas qu'elle rebondisse de partout
-		set_deferred("freeze", true)
-		
-		# 3. On replace tout le monde
+		var level = get_tree().current_scene
 		if level.has_method("_spawn_at_checkpoint"):
 			level._spawn_at_checkpoint(GameManager.save_data["checkpoint_id"])
-			
-		# 4. On crée un petit délai (timer d'1 sec) pour la remettre en jeu de façon "safe"
-		await get_tree().create_timer(1.0).timeout
-		
-		# 5. On remet la balle en mouvement
-		set_deferred("freeze", false)
+		else:
+			print("pas de checkpoint")
 		is_invincible = false
