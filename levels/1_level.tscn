@@ -9,10 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://bbl44w74iuc6f" path="res://entities/pickups/star.tscn" id="9_jv8fr"]
 [ext_resource type="PackedScene" uid="uid://ccaqsjdfwknlj" path="res://entities/end_level_sign/end_level_sign.tscn" id="10_8adi3"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_jv8fr"]
-font_size = 70
-font_color = Color(0, 0, 0, 1)
-
 [node name="1_level" type="Node2D" unique_id=1399086559]
 script = ExtResource("1_25w0k")
 
@@ -48,7 +44,6 @@ offset_top = -320.0
 offset_right = 904.0
 offset_bottom = -223.0
 text = "Press ← & →"
-label_settings = SubResource("LabelSettings_jv8fr")
 
 [node name="Label3" type="Label" parent="Label" unique_id=1898389844]
 offset_left = -208.0
@@ -56,7 +51,6 @@ offset_top = -320.0
 offset_right = 168.0
 offset_bottom = -223.0
 text = "Press q & d"
-label_settings = SubResource("LabelSettings_jv8fr")
 
 [node name="Label2" type="Label" parent="Label" unique_id=427649652]
 offset_left = -64.0
@@ -64,4 +58,3 @@ offset_top = -560.0
 offset_right = 680.0
 offset_bottom = -463.0
 text = "To move right and left"
-label_settings = SubResource("LabelSettings_jv8fr")

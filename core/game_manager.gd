@@ -18,17 +18,19 @@ func _ready() -> void:
 	save_data["checkpoint_id"] = 0
 
 func go_to_menu() -> void:
+	await IrisWipe.close_transition(0.2)
 	get_tree().change_scene_to_file(MAIN_MENU)
+	await IrisWipe.open_transition(0.2)
+
 
 func start_game(level_index: int = 0) -> void:
+	await IrisWipe.close_transition()
 	save_data["level_index"] = level_index
 	save_data["checkpoint_id"] = 0
-	get_tree().change_scene_to_file(LEVELS[level_index])
+	await get_tree().change_scene_to_file(LEVELS[level_index])
 	await IrisWipe.open_transition()
 
 	
-	
-
 func load_next_level() -> void:
 	await IrisWipe.close_transition()
 	var next = save_data["level_index"] + 1
