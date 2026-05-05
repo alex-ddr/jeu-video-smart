@@ -6,6 +6,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_w5wpn"]
 radius = 21.023796
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_jyt08"]
+radius = 25.079872
+
 [node name="Ball" type="RigidBody2D" unique_id=1885945790]
 collision_layer = 8
 collision_mask = 23
@@ -18,3 +21,10 @@ texture = ExtResource("1_61umk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=762546199]
 shape = SubResource("CircleShape2D_w5wpn")
+
+[node name="GroundDetector" type="Area2D" parent="." unique_id=418927877]
+
+[node name="CollisionShape" type="CollisionShape2D" parent="GroundDetector" unique_id=1706298878]
+shape = SubResource("CircleShape2D_jyt08")
+
+[connection signal="body_entered" from="GroundDetector" to="." method="_on_ground_detector_body_entered"]
