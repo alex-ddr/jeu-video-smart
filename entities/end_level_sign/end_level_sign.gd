@@ -1,16 +1,8 @@
 extends Area2D
 
-@export_file("*.tscn") var next_level_path: String
-
-func _ready() -> void:
-	body_entered.connect(_on_body_entered)
-
 
 func _on_body_entered(body: Node) -> void:
-	if body.name != "Player1" and body.name != "Player2":
+	if not body.is_in_group("player") or Global.nb_stars_tot != Global.nb_stars_collected:
 		return
 
-	print("Félicitations ! Niveau terminé.")
-
-	if next_level_path != "":
-		get_tree().change_scene_to_file(next_level_path)
+	GameManager.load_next_level()

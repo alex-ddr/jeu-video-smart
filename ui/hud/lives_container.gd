@@ -13,7 +13,6 @@ func update_lives_display() -> void:
 		child.queue_free()
 		
 	for i in range(Global.current_lives):
-		print("bonjour")
 		var texture_rect = TextureRect.new()
 		texture_rect.texture = ball_texture
 		texture_rect.custom_minimum_size = Vector2(32, 32) 
