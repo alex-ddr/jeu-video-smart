@@ -13,6 +13,7 @@ const CONSTRAIN: float = TILE_SIZE * 0.025
 const GRAVITY: Vector2 = Global.GRAVITY
 const DAMPENING: float = 0.98
 const ITERATIONS: int = 30
+const ELASTICITY: float = 0.5 # utilisé dans player_duo
 
 const SEGMENT_LAYER = 4 # bit 3 = layer 3
 const COLLIDER_RADIUS: float = TILE_SIZE * 0.0625
@@ -99,8 +100,8 @@ func _setup_colliders(num_segments: int) -> void:
 
 	for i in num_segments:
 		var body = AnimatableBody2D.new()
-		body.collision_layer = 4 # rope
-		body.collision_mask = 1 | 8 # world && ball
+		body.collision_layer = 4  # rope
+		body.collision_mask = 8   # ball uniquement
 		body.sync_to_physics = false
 		var shape = CollisionShape2D.new()
 		shape.shape = CircleShape2D.new()
@@ -113,17 +114,14 @@ func _update_collider_positions(points: Array) -> void:
 	var collider_idx = 0
 
 	for i in points.size():
-		# Collider sur le point
 		var delta = points[i] - _colliders[collider_idx].global_position
 		var collision = _colliders[collider_idx].move_and_collide(delta)
-		pos[i] = _colliders[collider_idx].global_position  # ← pos[] pas points[]
+		pos[i] = _colliders[collider_idx].global_position
 
 		if collision:
 			var hit = collision.get_collider()
 			if hit is RigidBody2D:
-				# Pousse la corde vers le bas selon la masse
 				pos[i].y += hit.mass * ROPE_YIELD_STRENGTH
-				# Réapplique immédiatement au collider
 				_colliders[collider_idx].global_position = pos[i]
 				hit.apply_central_impulse(collision.get_normal() * -hit.mass * 50.0)
 		collider_idx += 1
