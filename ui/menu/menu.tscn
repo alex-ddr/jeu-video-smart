@@ -8,7 +8,7 @@
 [sub_resource type="LabelSettings" id="LabelSettings_trkij"]
 font = ExtResource("2_w0ybq")
 font_size = 60
-font_color = Color(0.20784314, 0.20784314, 0.25490198, 1)
+font_color = Color(0.98039216, 0.7294118, 0.1764706, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77h3e"]
 bg_color = Color(0.75686276, 0.6862745, 0.9882353, 1)
