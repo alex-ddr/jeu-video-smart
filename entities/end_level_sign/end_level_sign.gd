@@ -17,8 +17,6 @@ func _on_body_entered(body: Node) -> void:
 			ball_in = false
 			player_in = false
 			GameManager.load_next_level()
-	print("player_in : ", player_in)
-	print("ball_in : ", ball_in)
 
 
 func _on_body_exited(body: Node2D) -> void:
