@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://c4fjta61p0old"]
+
+[ext_resource type="Texture2D" uid="uid://xlf5ctnyyg1m" path="res://assets/textures/sprites/Tiles/block_blue.png" id="1_s164s"]
+[ext_resource type="Script" uid="uid://crfexfrb7p3cl" path="res://entities/bloc/bouncer.gd" id="1_ynlr6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ynlr6"]
+size = Vector2(128, 128)
+
+[node name="Bouncer" type="RigidBody2D" unique_id=1885129447]
+collision_layer = 9
+collision_mask = 8
+gravity_scale = 0.0
+freeze = true
+freeze_mode = 1
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_ynlr6")
+bounce_force = 500.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=751460329]
+texture = ExtResource("1_s164s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1692496845]
+shape = SubResource("RectangleShape2D_ynlr6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -16,6 +16,8 @@ func start_game(level_index: int = 0) -> void:
 	save_data["level_index"] = level_index
 	save_data["checkpoint_id"] = 0
 	get_tree().change_scene_to_file(LEVELS[level_index])
+	
+	
 
 func load_next_level() -> void:
 	var next = save_data["level_index"] + 1

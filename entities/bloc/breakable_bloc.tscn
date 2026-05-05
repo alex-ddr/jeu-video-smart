@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cuqlc0p3y53dg"]
+
+[ext_resource type="Script" uid="uid://bub4i57f8yvei" path="res://entities/bloc/breakable_bloc.gd" id="1_du1fa"]
+[ext_resource type="Texture2D" uid="uid://br7i4p2kak7gf" path="res://assets/textures/sprites/Tiles/bricks_brown.png" id="1_h1f24"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_du1fa"]
+size = Vector2(128, 128)
+
+[node name="Breakable_bloc" type="RigidBody2D" unique_id=1883297004]
+collision_layer = 9
+collision_mask = 8
+gravity_scale = 0.0
+freeze = true
+freeze_mode = 1
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_du1fa")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=700676969]
+texture = ExtResource("1_h1f24")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1064513787]
+shape = SubResource("RectangleShape2D_du1fa")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

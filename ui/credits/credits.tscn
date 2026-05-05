@@ -84,4 +84,4 @@ z_index = -1
 position = Vector2(0, 250)
 scale = Vector2(0.5, 0.5)
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Retour" to="." method="_on_retour_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Retour" to="." method="_on_back_pressed"]
