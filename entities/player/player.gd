@@ -198,9 +198,17 @@ func _sync_visuals() -> void:
 	
 func _sync_collision() -> void:
 	var shape = collision.shape as RectangleShape2D
-	shape.size = Vector2(64.0, height+BODY_HEIGHT_OFFSET)
-	collision.position.y = -(height+BODY_HEIGHT_OFFSET) / 2.0
-	
+	var new_height = height + BODY_HEIGHT_OFFSET
+
+	shape.size = Vector2(64.0, new_height)
+	collision.position.y = -new_height / 2.0
+
+	if test_move(global_transform, Vector2.ZERO):
+		height = last_height
+		var old_height = last_height + BODY_HEIGHT_OFFSET
+		shape.size = Vector2(64.0, old_height)
+		collision.position.y = -old_height / 2.0
+
 	if desired_direction != 0:
 		var flipped = desired_direction < 0
 		body.flip_h = flipped
