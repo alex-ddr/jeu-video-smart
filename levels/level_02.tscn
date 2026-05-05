@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://c7l0o0x8gmpyl" path="res://levels/base_level.gd" id="1_xxuo2"]
 [ext_resource type="TileSet" uid="uid://d1y8h0rdrpg8g" path="res://assets/tilesets/map.tres" id="2_didps"]
 [ext_resource type="PackedScene" uid="uid://buk0b6k7thffd" path="res://entities/player/player_duo.tscn" id="3_cwmx8"]
-[ext_resource type="Script" path="res://levels/camera.gd" id="5_2owmk"]
+[ext_resource type="Script" uid="uid://bjj3lw7k04nbp" path="res://components/camera/camera.gd" id="5_2owmk"]
 [ext_resource type="PackedScene" uid="uid://d0rkeu0nf6ns6" path="res://ui/ui.tscn" id="5_xxuo2"]
 [ext_resource type="PackedScene" uid="uid://bykqjm2j5oxkr" path="res://entities/ball/ball.tscn" id="6_cwmx8"]
 [ext_resource type="PackedScene" uid="uid://mpu5pvoq06a4" path="res://entities/checkpoint/check_point.tscn" id="7_05651"]

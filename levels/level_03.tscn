@@ -4,9 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dpimmjxmkpn0m" path="res://assets/backgrounds/background_sky.tscn" id="2_0bj1y"]
 [ext_resource type="TileSet" uid="uid://d1y8h0rdrpg8g" path="res://assets/tilesets/map.tres" id="3_5pqto"]
 [ext_resource type="PackedScene" uid="uid://d0rkeu0nf6ns6" path="res://ui/ui.tscn" id="4_wrb7r"]
-[ext_resource type="PackedScene" uid="uid://buk0b6k7thffd" path="res://entities/player/player_duo.tscn" id="5_gj5ie"]
-[ext_resource type="Script" path="res://levels/camera.gd" id="6_xgj7h"]
-[ext_resource type="PackedScene" uid="uid://bykqjm2j5oxkr" path="res://entities/ball/ball.tscn" id="7_l32du"]
+[ext_resource type="PackedScene" uid="uid://cmtcqvk785ec6" path="res://components/player_ball_camera_node/player_ball_camera_trio.tscn" id="5_2wlag"]
 [ext_resource type="PackedScene" uid="uid://mpu5pvoq06a4" path="res://entities/checkpoint/check_point.tscn" id="8_lwtrp"]
 [ext_resource type="PackedScene" uid="uid://ccaqsjdfwknlj" path="res://entities/end_level_sign/end_level_sign.tscn" id="9_2la83"]
 [ext_resource type="PackedScene" uid="uid://bbl44w74iuc6f" path="res://entities/pickups/star.tscn" id="10_myllq"]
@@ -67,23 +65,7 @@ offset_top = -1392.0
 offset_right = -320.0
 offset_bottom = -1392.0
 
-[node name="Players" type="Node" parent="." unique_id=537406417]
-
-[node name="PlayerDuo" parent="Players" unique_id=1829453057 instance=ExtResource("5_gj5ie")]
-z_index = 6
-position = Vector2(77, -122)
-
-[node name="Camera2D" type="Camera2D" parent="Players" unique_id=228861231]
-position = Vector2(431.9999, -447.99997)
-rotation = -0.0022752464
-scale = Vector2(43.16716, -9.592959)
-skew = 0.00056779385
-zoom = Vector2(0.5, 0.5)
-position_smoothing_enabled = true
-script = ExtResource("6_xgj7h")
-
-[node name="Ball" parent="Players" unique_id=1885945790 instance=ExtResource("7_l32du")]
-position = Vector2(257, -339)
+[node name="PlayerBallCameraTrio" parent="." unique_id=1973325727 instance=ExtResource("5_2wlag")]
 
 [node name="CheckPoint" type="Node" parent="." unique_id=1338148881]
 
