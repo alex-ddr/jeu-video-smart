@@ -5,11 +5,13 @@ extends Node2D
 
 func _ready() -> void:
 	print("Niveau chargé !")
-	GameManager.load_game()
+	#Pas utile pour l'instant on lance le niveau à la main, pas de sauvegarde
+	#GameManager.load_game()
 	_spawn_at_checkpoint(GameManager.save_data["checkpoint_id"])
 	
 	# Met le nombre d'étoiles total dans le global pour l'UI
 	Global.nb_stars_collected = 0
+	Global.current_lives = Global.max_lives
 	var stars = find_child("Stars", true, false)
 	if stars != null:
 		Global.nb_stars_tot = stars.get_child_count()
@@ -27,6 +29,8 @@ func _spawn_at_checkpoint(id: int) -> void:
 	for cp in get_tree().get_nodes_in_group("checkpoints"):
 		if cp.checkpoint_id == id:
 			ball.set_deferred("freeze", true)
+			player_duo.p1.input_enabled = false
+			player_duo.p2.input_enabled = false
 			# Pour les joueurs (qui sont des CharacterBody2D), ça marche normalement :
 			player_duo.p1.global_position = cp.global_position + Vector2(-200, 0)
 			player_duo.p2.global_position = cp.global_position + Vector2(200, 0)
@@ -43,5 +47,7 @@ func _spawn_at_checkpoint(id: int) -> void:
 			
 			await get_tree().create_timer(1.0).timeout
 			ball.set_deferred("freeze", false)
+			player_duo.p1.input_enabled = true
+			player_duo.p2.input_enabled = true
 			
 	return

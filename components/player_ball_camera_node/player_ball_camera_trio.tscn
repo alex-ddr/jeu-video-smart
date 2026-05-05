@@ -6,10 +6,10 @@
 
 [node name="PlayerBallCameraTrio" type="Node2D" unique_id=1973325727]
 
+[node name="Ball" parent="." unique_id=1885945790 instance=ExtResource("3_him77")]
+position = Vector2(0, -222)
+
 [node name="PlayerDuo" parent="." unique_id=1829453057 instance=ExtResource("1_44p7r")]
 
 [node name="Camera" parent="." unique_id=395850129 instance=ExtResource("2_jawnj")]
 scale = Vector2(43.16716, -9.59296)
-
-[node name="Ball" parent="." unique_id=1885945790 instance=ExtResource("3_him77")]
-position = Vector2(0, -222)
