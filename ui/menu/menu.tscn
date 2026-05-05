@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://db77iuepeaitv" path="res://ui/menu/menu.gd" id="1_v6ljw"]
 [ext_resource type="PackedScene" uid="uid://dpimmjxmkpn0m" path="res://assets/backgrounds/background_sky.tscn" id="2_77h3e"]
-[ext_resource type="FontVariation" uid="uid://cr7kxmquknm1n" path="res://ui/fonts/Modak.tres" id="2_trkij"]
+[ext_resource type="FontVariation" uid="uid://cr7kxmquknm1n" path="res://assets/fonts/Modak.tres" id="2_trkij"]
+[ext_resource type="AudioStream" uid="uid://e8c6ejghsers" path="res://assets/musics/musique_jeu.mp3" id="4_trkij"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77h3e"]
 bg_color = Color(0.75686276, 0.6862745, 0.9882353, 1)
@@ -113,6 +114,10 @@ text = "Quitter"
 z_index = -1
 position = Vector2(0, 241)
 scale = Vector2(0.3, 0.3)
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1125566249]
+stream = ExtResource("4_trkij")
+autoplay = true
 
 [connection signal="pressed" from="+CenterContainer/VBoxContainer/Jouer" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="+CenterContainer/VBoxContainer/Niveaux" to="." method="_on_levels_pressed"]
