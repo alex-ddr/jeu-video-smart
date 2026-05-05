@@ -20,5 +20,5 @@ func _on_body_entered(body: Node2D) -> void:
 	
 	if ball_scene:
 		var ball = ball_scene.instantiate()
-		ball.global_position = global_position + Vector2(400, -300)
+		ball.global_position = global_position + Vector2(550, -300)
 		get_parent().add_child(ball)
