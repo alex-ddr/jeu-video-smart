@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dam88yl0quhv4"]
+
+[ext_resource type="Shader" uid="uid://b1dawfo10ty47" path="res://components/transitions/iris_wipe.gdshader" id="1_fvuwx"]
+[ext_resource type="Script" uid="uid://c22xyxvp3wv7k" path="res://components/transitions/iris_wipe.gd" id="2_qg7pt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qg7pt"]
+shader = ExtResource("1_fvuwx")
+shader_parameter/circle_size = 0.0
+shader_parameter/screen_ratio = 1.777
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/color = Color(0, 0, 0, 1)
+
+[node name="IrisWipeTransition" type="CanvasLayer" unique_id=989061323]
+layer = 1000
+script = ExtResource("2_qg7pt")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1321857646]
+material = SubResource("ShaderMaterial_qg7pt")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

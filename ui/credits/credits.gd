@@ -1,7 +1,7 @@
 extends Control
 
 const TEAM := [
-	"Raphael Letourneur", "Maxence Heurtault", "Alexandre Didier",
+	"Raphaël Letourneur", "Maxence Heurtault", "Alexandre Didier",
 	"Alois Pinto de Silva -- Winnefeld", "Hugo Marin", "Robin Renous"
 ]
 

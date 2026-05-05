@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bbl44w74iuc6f" path="res://entities/pickups/star.tscn" id="11_yk0xm"]
 [ext_resource type="PackedScene" uid="uid://b3842ao2s7q1a" path="res://entities/button/spawn_ball_button.tscn" id="12_bvuha"]
 [ext_resource type="PackedScene" uid="uid://ccaqsjdfwknlj" path="res://entities/end_level_sign/end_level_sign.tscn" id="13_xce4v"]
+[ext_resource type="PackedScene" uid="uid://d0rkeu0nf6ns6" path="res://ui/ui.tscn" id="14_pjb8y"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pbkyd"]
 font_size = 70
@@ -267,3 +268,5 @@ position = Vector2(13952, 0)
 
 [node name="FinDeNveau" parent="." unique_id=2098824404 instance=ExtResource("13_xce4v")]
 position = Vector2(20336, -333)
+
+[node name="UI" parent="." unique_id=1452071461 instance=ExtResource("14_pjb8y")]

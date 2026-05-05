@@ -58,21 +58,26 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 
 func _on_ground_detector_body_entered(body: Node) -> void:
 	if is_invincible == false and _on_ground:
-		pass #lose_life() pour l'acide violet par exemple
+		Global.ball_ground.emit(global_position)
+		if body.name == "Acide":
+			lose_life()
+		
+	
+
 
 func lose_life() -> void:
 	Global.current_lives -= 1
 	Global.lives_changed.emit()
 	if Global.current_lives <= 0:
 		Global.current_lives = Global.max_lives
-		GameManager.go_to_menu()
+		get_tree().call_deferred("reload_current_scene")
 	else:
 		linear_velocity = Vector2.ZERO
 		angular_velocity = 0.0
 		is_invincible = true
 		var level = get_tree().current_scene
 		if level.has_method("_spawn_at_checkpoint"):
-			level._spawn_at_checkpoint(GameManager.save_data["checkpoint_id"])
+			level._spawn_at_checkpoint()
 		else:
 			print("pas de checkpoint")
 		is_invincible = false

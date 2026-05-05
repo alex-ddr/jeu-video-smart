@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://bsgjsont5yngs"]
+
+[ext_resource type="FontVariation" uid="uid://cr7kxmquknm1n" path="res://assets/fonts/Modak.tres" id="1_1be6g"]
+
+[node name="GameTitle" type="Control" unique_id=1307507391]
+custom_minimum_size = Vector2(600, 180)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = 5.0
+offset_right = -40.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="RichTextLabel" parent="." unique_id=1668455519]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 0
+offset_left = 155.0
+offset_top = -5.0
+offset_right = 605.0
+offset_bottom = 213.0
+theme_override_colors/default_color = Color(0.98039216, 0.75686276, 0.25882354, 1)
+theme_override_colors/font_outline_color = Color(0.20784314, 0.20784314, 0.25490198, 1)
+theme_override_constants/line_separation = -50
+theme_override_constants/outline_size = 20
+theme_override_fonts/normal_font = ExtResource("1_1be6g")
+theme_override_font_sizes/normal_font_size = 75
+bbcode_enabled = true
+text = "[left][wave amp=52.0 freq=3.4 connected=0][color=fac142] Bound[/color][/wave]
+[wave amp=50.0 freq=3.7 connected=0][color=a591e9] Bounce[/color][/wave][/left]"
+fit_content = true
+shortcut_keys_enabled = false
+horizontal_alignment = 1
+
+[node name="Ampersand" type="RichTextLabel" parent="." unique_id=1597481919]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 0
+offset_left = -79.0
+offset_top = -5.0
+offset_right = 371.0
+offset_bottom = 213.0
+theme_override_colors/default_color = Color(0.98039216, 0.75686276, 0.25882354, 1)
+theme_override_colors/font_outline_color = Color(0.20784314, 0.20784314, 0.25490198, 1)
+theme_override_constants/line_separation = -50
+theme_override_constants/outline_size = 20
+theme_override_fonts/normal_font = ExtResource("1_1be6g")
+theme_override_font_sizes/normal_font_size = 130
+bbcode_enabled = true
+text = "[center][wave amp=50.0 freq=3.5 connected=0][color=#92a1ad]&[/color][/wave][/center]"
+fit_content = true
+shortcut_keys_enabled = false
+horizontal_alignment = 1

@@ -1,0 +1,7 @@
+[gd_resource type="FontVariation" format=3 uid="uid://cr7kxmquknm1n"]
+
+[ext_resource type="FontFile" uid="uid://dc2aqn8bynj37" path="res://assets/fonts/Modak-Regular.ttf" id="1_lia8q"]
+
+[resource]
+base_font = ExtResource("1_lia8q")
+spacing_bottom = 20
