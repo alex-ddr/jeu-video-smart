@@ -2,13 +2,15 @@
 
 [ext_resource type="Script" uid="uid://cg6etp1v76pj2" path="res://entities/checkpoint/check_point.gd" id="1_nvskt"]
 [ext_resource type="Texture2D" uid="uid://c2m2iactmhj3j" path="res://assets/textures/sprites/Tiles/flag_blue_a.png" id="1_ub0nm"]
+[ext_resource type="Texture2D" uid="uid://yfasjarv1pwd" path="res://assets/textures/sprites/Tiles/flag_red_b.png" id="2_linym"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nvskt"]
-size = Vector2(128, 128)
+size = Vector2(160, 160)
 
 [node name="CheckPoint" type="Area2D" unique_id=351713259]
 collision_mask = 255
 script = ExtResource("1_nvskt")
+activated_texture = ExtResource("2_linym")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=488428051]
 texture = ExtResource("1_ub0nm")
@@ -17,3 +19,4 @@ texture = ExtResource("1_ub0nm")
 shape = SubResource("RectangleShape2D_nvskt")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

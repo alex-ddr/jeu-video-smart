@@ -68,7 +68,7 @@ var release_target_height: float = 0.0
 @onready var head: Sprite2D = $Head_p1 if action_jump == "p1_jump" else $Head_p2
 @onready var feet: AnimatedSprite2D = $AnimatedFeet
 @onready var collision: CollisionShape2D = $CollisionShape2D
-
+@onready var bounce_sound : AudioStreamPlayer = $BounceSound
 
 
 var god_mode: bool = false
@@ -208,6 +208,7 @@ func _update_stretch(delta: float) -> void:
 	var target = _get_stretch_target()
 
 	if is_releasing_launch:
+		bounce_sound.play()
 		var spring_force = (target - height) * LAUNCH_RELEASE_STIFFNESS
 		height_velocity += (spring_force - height_velocity * LAUNCH_RELEASE_DAMPING) * delta
 		height += height_velocity * delta

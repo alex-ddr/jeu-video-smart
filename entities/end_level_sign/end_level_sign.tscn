@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://xwby58id7h8" path="res://entities/end_level_sign/end_level_sign.gd" id="1_i118u"]
 [ext_resource type="Texture2D" uid="uid://trm3hhsyj7in" path="res://assets/textures/sprites/Tiles/sign_exit.png" id="2_i118u"]
+[ext_resource type="AudioStream" uid="uid://blcdllmtaoqpi" path="res://assets/sounds/freesound_community-tadaa-47995.mp3" id="3_4nx4d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i118u"]
 size = Vector2(64, 58.666668)
@@ -18,6 +19,9 @@ texture = ExtResource("2_i118u")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1188009695]
 position = Vector2(9.536743e-07, -2.6666665)
 shape = SubResource("RectangleShape2D_i118u")
+
+[node name="Bravo" type="AudioStreamPlayer" parent="." unique_id=479593444]
+stream = ExtResource("3_4nx4d")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

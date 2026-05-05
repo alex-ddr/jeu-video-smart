@@ -3,6 +3,8 @@ extends Area2D
 var ball_in : bool = false
 var player_in : bool = false
 
+@onready var bravo_sound : AudioStreamPlayer = $Bravo
+
 func _ready() -> void:
 	ball_in = false
 	player_in = false
@@ -16,6 +18,7 @@ func _on_body_entered(body: Node) -> void:
 		if Global.nb_stars_tot == Global.nb_stars_collected:
 			ball_in = false
 			player_in = false
+			bravo_sound.play(2)
 			GameManager.load_next_level()
 
 

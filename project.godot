@@ -132,7 +132,9 @@ locale/line_breaking_strictness=1
 2d_physics/layer_4="ball"
 2d_physics/layer_5="bloc"
 2d_physics/layer_6="ice_ground"
+2d_physics/layer_7="kill"
 
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+textures/vram_compression/import_etc2_astc=true
