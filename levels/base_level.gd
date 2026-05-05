@@ -20,7 +20,7 @@ func _ready() -> void:
 	var stars = find_child("Stars", true, false)
 	if stars != null:
 		Global.nb_stars_tot = stars.get_child_count()
-		Global.stars_collected.emit()  # Pour actualiser l'affichage
+		Global.stars_collected.emit("update")  # Pour actualiser l'affichage
 		print("Étoiles trouvées : ", Global.nb_stars_tot)
 	else:
 		print("Aucun dossier d'étoiles trouvé dans ce niveau.")

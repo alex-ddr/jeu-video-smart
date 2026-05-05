@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bmo83gteu2wym" path="res://assets/textures/entities/players/player_top_1.png" id="3_fkugw"]
 [ext_resource type="Texture2D" uid="uid://dg1nblnyea17e" path="res://assets/textures/entities/players/player_middle.png" id="4_8fjmc"]
 [ext_resource type="Texture2D" uid="uid://ccqe6w425w6xy" path="res://assets/textures/entities/players/player_walkcycle.png" id="6_8fjmc"]
+[ext_resource type="AudioStream" uid="uid://c33xcq0db2ait" path="res://assets/sounds/humordome-boing-boing-bounce-454474.mp3" id="6_qiwj3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_symyc"]
 size = Vector2(64, 129)
@@ -122,3 +123,6 @@ sprite_frames = SubResource("SpriteFrames_afbqv")
 animation = &"jump"
 autoplay = "idle"
 offset = Vector2(0, -30)
+
+[node name="BounceSound" type="AudioStreamPlayer" parent="." unique_id=1199939303]
+stream = ExtResource("6_qiwj3")
