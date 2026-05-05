@@ -48,7 +48,6 @@ offset_top = -320.0
 offset_right = 904.0
 offset_bottom = -223.0
 text = "Press ← & →"
-label_settings = SubResource("LabelSettings_jv8fr")
 
 [node name="Label3" type="Label" parent="Label" unique_id=1898389844]
 offset_left = -208.0
@@ -56,7 +55,6 @@ offset_top = -320.0
 offset_right = 168.0
 offset_bottom = -223.0
 text = "Press q & d"
-label_settings = SubResource("LabelSettings_jv8fr")
 
 [node name="Label2" type="Label" parent="Label" unique_id=427649652]
 offset_left = -64.0

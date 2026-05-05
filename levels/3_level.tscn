@@ -10,10 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://ccaqsjdfwknlj" path="res://entities/end_level_sign/end_level_sign.tscn" id="8_e1r0y"]
 [ext_resource type="PackedScene" uid="uid://d16ikhrssu8rs" path="res://components/death_zone/death_zone.tscn" id="9_pyoj2"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_jv8fr"]
-font_size = 70
-font_color = Color(0, 0, 0, 1)
-
 [node name="3_level" type="Node2D" unique_id=978830671]
 script = ExtResource("1_cc4f5")
 
@@ -54,7 +50,6 @@ offset_top = -320.0
 offset_right = 1052.0
 offset_bottom = -223.0
 text = "Keep pressing maj"
-label_settings = SubResource("LabelSettings_jv8fr")
 
 [node name="Label3" type="Label" parent="Label" unique_id=1898389844]
 offset_left = -304.0
@@ -62,7 +57,6 @@ offset_top = -320.0
 offset_right = 222.0
 offset_bottom = -223.0
 text = "Keep pressing e"
-label_settings = SubResource("LabelSettings_jv8fr")
 
 [node name="Label2" type="Label" parent="Label" unique_id=427649652]
 offset_left = 3504.0
@@ -70,7 +64,6 @@ offset_top = -304.0
 offset_right = 4778.0
 offset_bottom = -207.0
 text = "The smaller you are, the faster you go"
-label_settings = SubResource("LabelSettings_jv8fr")
 
 [node name="Label6" type="Label" parent="Label" unique_id=1182949643]
 offset_left = 2416.0
@@ -78,7 +71,6 @@ offset_top = -496.0
 offset_right = 2849.0
 offset_bottom = -399.0
 text = "All the stars?"
-label_settings = SubResource("LabelSettings_jv8fr")
 
 [node name="Label5" type="Label" parent="Label" unique_id=461780585]
 offset_left = 32.0
@@ -86,7 +78,6 @@ offset_top = -544.0
 offset_right = 722.0
 offset_bottom = -447.0
 text = "Charge and realease"
-label_settings = SubResource("LabelSettings_jv8fr")
 
 [node name="DeathZone" parent="." unique_id=150261952 instance=ExtResource("9_pyoj2")]
 position = Vector2(6272, 48)
