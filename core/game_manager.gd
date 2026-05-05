@@ -6,9 +6,10 @@ const LEVELS := [
 	"res://levels/1.1_level.tscn",
 	"res://levels/1.2_level.tscn",
 	"res://levels/1.3_level.tscn",
-	"res://levels/level_01.tscn",
-	"res://levels/level_02.tscn",
-	"res://levels/level_03.tscn",
+	"res://levels/level_alex.tscn",
+	"res://levels/level_alois.tscn",
+	"res://levels/level_maxou.tscn",
+	"res://levels/level_robin.tscn",
 ]
 
 var save_data := { "level_index": 0, "checkpoint_id": 0 }
