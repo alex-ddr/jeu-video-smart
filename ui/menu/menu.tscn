@@ -2,6 +2,13 @@
 
 [ext_resource type="Script" uid="uid://db77iuepeaitv" path="res://ui/menu/menu.gd" id="1_v6ljw"]
 [ext_resource type="PackedScene" uid="uid://dpimmjxmkpn0m" path="res://assets/backgrounds/background_sky.tscn" id="2_77h3e"]
+[ext_resource type="FontFile" uid="uid://dc2aqn8bynj37" path="res://ui/fonts/Modak-Regular.ttf" id="2_w0ybq"]
+[ext_resource type="FontVariation" uid="uid://bxpx2s83m2206" path="res://ui/fonts/Nunito.tres" id="3_trkij"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_trkij"]
+font = ExtResource("2_w0ybq")
+font_size = 60
+font_color = Color(0.20784314, 0.20784314, 0.25490198, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77h3e"]
 bg_color = Color(0.75686276, 0.6862745, 0.9882353, 1)
@@ -44,6 +51,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.98039216, 0.7294118, 0.1764706, 1)
 theme_override_font_sizes/font_size = 60
 text = "Bound"
+label_settings = SubResource("LabelSettings_trkij")
 horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="+CenterContainer/VBoxContainer" unique_id=1062685597]
@@ -53,6 +61,7 @@ theme_override_constants/margin_top = 24
 [node name="Jouer" type="Button" parent="+CenterContainer/VBoxContainer" unique_id=399458218]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.20784314, 0.20784314, 0.25490198, 1)
+theme_override_fonts/font = ExtResource("3_trkij")
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_77h3e")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_77h3e")
