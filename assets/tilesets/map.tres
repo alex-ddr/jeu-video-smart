@@ -1,6 +1,7 @@
 [gd_resource type="TileSet" format=3 uid="uid://d1y8h0rdrpg8g"]
 
 [ext_resource type="Texture2D" uid="uid://b53pjk265parq" path="res://assets/textures/spritesheets/spritesheet-tiles-double.png" id="1_c1q8h"]
+[ext_resource type="PackedScene" uid="uid://bhaw62sywwf4m" path="res://assets/animated_tiles/torch/torch.tscn" id="2_i41kh"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_1q0me"]
 tile_data = PackedInt32Array(0, 65536, 10, 1, 131072, 10, 2, 327680, 10)
@@ -471,6 +472,10 @@ texture_region_size = Vector2i(128, 128)
 6:17/0 = 0
 7:17/0 = 0
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_c1q8h"]
+resource_name = "animated_sprites"
+scenes/1/scene = ExtResource("2_i41kh")
+
 [resource]
 tile_size = Vector2i(128, 128)
 physics_layer_0/collision_layer = 1
@@ -484,4 +489,5 @@ physics_layer_3/collision_mask = 32
 physics_layer_4/collision_layer = 128
 physics_layer_4/collision_mask = 128
 sources/0 = SubResource("TileSetAtlasSource_wijl4")
+sources/1 = SubResource("TileSetScenesCollectionSource_c1q8h")
 pattern_0 = SubResource("TileMapPattern_1q0me")
