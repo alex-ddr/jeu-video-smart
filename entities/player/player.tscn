@@ -10,6 +10,15 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_symyc"]
 size = Vector2(64, 129)
 
+[sub_resource type="Gradient" id="Gradient_8fjmc"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qiwj3"]
+gradient = SubResource("Gradient_8fjmc")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_fkugw"]
 atlas = ExtResource("6_8fjmc")
 region = Rect2(0, 0, 128, 128)
@@ -107,11 +116,22 @@ position = Vector2(0, -130)
 texture = ExtResource("2_fkugw")
 offset = Vector2(0, -24)
 
+[node name="PointLight2D2" type="PointLight2D" parent="Head_p2" unique_id=161753266]
+z_index = 10
+position = Vector2(0, -61)
+color = Color(0.6784314, 0.5882353, 0.92156863, 1)
+texture = SubResource("GradientTexture2D_qiwj3")
+
 [node name="Head_p1" type="Sprite2D" parent="." unique_id=1590564467]
 visible = false
 position = Vector2(0, -65)
 texture = ExtResource("3_fkugw")
 offset = Vector2(0, -24)
+
+[node name="PointLight2D" type="PointLight2D" parent="Head_p1" unique_id=1853762152]
+position = Vector2(0, -61)
+color = Color(0.98039216, 0.7294118, 0.1764706, 1)
+texture = SubResource("GradientTexture2D_qiwj3")
 
 [node name="Body" type="Sprite2D" parent="." unique_id=1050376457]
 position = Vector2(0, -50)
