@@ -67,10 +67,10 @@ func _apply_rope_constraint(delta: float) -> void:
 	var hook_p2 = p2.global_position + Vector2(0, -p2.height - p2.ROPE_HOOK_OFFSET)
 	var distance = hook_p1.distance_to(hook_p2)
 	
+	_update_players_hanging(distance)
+	
 	if distance <= rope.ROPE_MAX_LENGTH:
 		return
-
-	_update_players_hanging(distance)
 	
 	var dir = (hook_p2 - hook_p1).normalized()
 	var correction = distance - rope.ROPE_MAX_LENGTH
@@ -98,13 +98,31 @@ func _apply_rope_constraint(delta: float) -> void:
 			var impulse = dir * vel_along_p1 * 0.4
 			impulse.y = min(impulse.y, 0.0)
 			p2.velocity += impulse
+			
+		for i in p1.get_slide_collision_count():
+			var col = p1.get_slide_collision(i)
+			if col == null:
+				continue
+			var normal = col.get_normal()
+			if p2.desired_direction * normal.x < 0:
+				p1.velocity.y += -abs(p1.velocity.x)*0.5
+				pass
+				
 	if (is_p2_hanging):
 		if vel_along_p2 < 0:
 			p2.velocity += dir * vel_along_p2 * (1.0 + rope.ELASTICITY)
 			var impulse = -dir * vel_along_p2 * 0.4
 			impulse.y = min(impulse.y, 0.0)
 			p1.velocity += impulse
-	
+			
+		for i in p2.get_slide_collision_count():
+			var col = p2.get_slide_collision(i)
+			if col == null:
+				continue
+			var normal = col.get_normal()
+			if p1.desired_direction * normal.x < 0:
+				p2.velocity.y += -abs(p2.velocity.x)*0.5
+				pass
 
 func _update_players_hanging(distance: float):
 	var rope_taut = distance > rope.ROPE_MAX_LENGTH
