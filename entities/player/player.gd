@@ -31,7 +31,7 @@ const LAUNCH_RELEASE_DAMPING: float = 20.0
 @onready var MAX_HEIGHT: float = 200.0
 @onready var SIZE_SPEED: float = TILE_SIZE * 1.5
 @onready var MAX_LAUNCH_FORCE: float = TILE_SIZE * 13.33
-@onready var JUMP_VELOCITY: float = -TILE_SIZE * 10.0
+@onready var JUMP_VELOCITY: float = -TILE_SIZE * 11.0
 @onready var STOP_TOLERANCE: float = TILE_SIZE * 0.015
 
 const FALL_GRAVITY_MULTIPLIER: float = 1.8 # Le perso tombe presque 2x plus vite qu'il ne monte
@@ -207,9 +207,17 @@ func _sync_visuals() -> void:
 	
 func _sync_collision() -> void:
 	var shape = collision.shape as RectangleShape2D
-	shape.size = Vector2(64.0, height+BODY_HEIGHT_OFFSET)
-	collision.position.y = -(height+BODY_HEIGHT_OFFSET) / 2.0
-	
+	var new_height = height + BODY_HEIGHT_OFFSET
+
+	shape.size = Vector2(64.0, new_height)
+	collision.position.y = -new_height / 2.0
+
+	if test_move(global_transform, Vector2.ZERO):
+		height = last_height
+		var old_height = last_height + BODY_HEIGHT_OFFSET
+		shape.size = Vector2(64.0, old_height)
+		collision.position.y = -old_height / 2.0
+
 	if desired_direction != 0:
 		var flipped = desired_direction < 0
 		body.flip_h = flipped
