@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://by38ncjtf5cqc" path="res://assets/textures/sprites/Tiles/cactus.png" id="2_yofy3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pu6gw"]
-size = Vector2(108, 123)
+size = Vector2(85, 92)
 
 [node name="Cactus" type="Area2D" unique_id=208284507]
 collision_layer = 3
@@ -12,7 +12,7 @@ collision_mask = 3
 script = ExtResource("1_nfda0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1325247709]
-position = Vector2(0, 1.5)
+position = Vector2(1.5, 17)
 shape = SubResource("RectangleShape2D_pu6gw")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1838934505]

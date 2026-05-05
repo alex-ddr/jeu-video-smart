@@ -35,7 +35,7 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 		if normal.y < -0.7:
 			var collider_rid = state.get_contact_collider(i)
 			var layer = PhysicsServer2D.body_get_collision_layer(collider_rid)
-			print(layer)
+			#print(layer)
 			if layer & 1:
 				_on_ground = true
 				break
@@ -45,14 +45,18 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 
 func _on_ground_detector_body_entered(body: Node) -> void:
 	if is_invincible == false and _on_ground:
-		pass #lose_life() pour l'acide violet par exemple
+		return
+		
+	if body.name == "Acide":
+		lose_life()
+
 
 func lose_life() -> void:
 	Global.current_lives -= 1
 	Global.lives_changed.emit()
 	if Global.current_lives <= 0:
 		Global.current_lives = Global.max_lives
-		GameManager.go_to_menu()
+		get_tree().call_deferred("reload_current_scene")
 	else:
 		linear_velocity = Vector2.ZERO
 		angular_velocity = 0.0
