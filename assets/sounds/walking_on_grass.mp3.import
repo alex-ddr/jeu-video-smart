@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://bok08b2sfqnbu"
-path="res://.godot/imported/walking_on_grass.mp3-77e277879ae19c2be25e96daa2d1bab2.mp3str"
+path="res://.godot/imported/walking_on_grass.mp3-461c2065d1bb08e5d87a1dbced850b69.mp3str"
 
 [deps]
 
-source_file="res://assets/sounds/walking_on_grass.mp3"
-dest_files=["res://.godot/imported/walking_on_grass.mp3-77e277879ae19c2be25e96daa2d1bab2.mp3str"]
+source_file="res://assets/Sounds/walking_on_grass.mp3"
+dest_files=["res://.godot/imported/walking_on_grass.mp3-461c2065d1bb08e5d87a1dbced850b69.mp3str"]
 
 [params]
 
