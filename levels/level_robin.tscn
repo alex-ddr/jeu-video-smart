@@ -75,11 +75,8 @@ position = Vector2(-146, -59)
 
 [node name="Cactus" type="Node" parent="." unique_id=319294605]
 
-[node name="Cactus" parent="Cactus" unique_id=208284507 instance=ExtResource("8_np4pb")]
-position = Vector2(-2588, -73)
-
 [node name="Cactus2" parent="Cactus" unique_id=9808581 instance=ExtResource("8_np4pb")]
-position = Vector2(-2034, -69)
+position = Vector2(-2034, -60)
 
 [node name="CheckPoint" parent="." unique_id=351713259 instance=ExtResource("5_hemka")]
 position = Vector2(-3691, -64)

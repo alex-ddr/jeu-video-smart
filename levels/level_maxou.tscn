@@ -11,6 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://67667b2mo1rr" path="res://entities/cactus/cactus.tscn" id="8_o4bsb"]
 [ext_resource type="PackedScene" uid="uid://bbl44w74iuc6f" path="res://entities/pickups/star.tscn" id="8_yl1mi"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_pav55"]
+font_size = 70
+font_color = Color(0, 0, 0, 1)
+
 [node name="LevelMaxou" type="Node2D" unique_id=1801286688]
 script = ExtResource("1_4e7cb")
 
@@ -22,7 +26,7 @@ position = Vector2(8561, 457)
 [node name="Stars" type="Node" parent="." unique_id=858761261]
 
 [node name="star" parent="Stars" unique_id=196880715 instance=ExtResource("8_yl1mi")]
-position = Vector2(4356, -574)
+position = Vector2(3864, -574)
 scale = Vector2(1.5, 1.5)
 
 [node name="star2" parent="Stars" unique_id=1127546662 instance=ExtResource("8_yl1mi")]
@@ -83,3 +87,14 @@ position = Vector2(7481, 489)
 
 [node name="CheckPoint1" parent="CheckPoint" unique_id=351713259 instance=ExtResource("5_rffxt")]
 position = Vector2(117, 85)
+
+[node name="Label4" type="Label" parent="." unique_id=128416055]
+offset_left = 398.0
+offset_top = -235.0
+offset_right = 1066.0
+offset_bottom = -138.0
+text = "Be careful, a cacctus !"
+label_settings = SubResource("LabelSettings_pav55")
+
+[node name="CheckPoint2" parent="." unique_id=880782325 instance=ExtResource("5_rffxt")]
+position = Vector2(4253, -292)
