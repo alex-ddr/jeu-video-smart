@@ -2,7 +2,7 @@ extends Camera2D
 @onready var p1 = $"../PlayerDuo".p1
 @onready var p2 = $"../PlayerDuo".p2
 @onready var button = $"../Button"
-@onready var ball = $"../Ball"
+var ball = null
 var pos1 : Vector2
 var pos2 : Vector2
 var dir1 : float
@@ -21,7 +21,7 @@ var last_dir2 = 1.0
 @export var vertical_offset: float = 100.0
 
 func _ready() -> void:
-	pass
+	button.ball_instanciated.connect(_on_button_pressed)
 
 func _process(delta: float) -> void:
 	pos1 = p1.get_global_position()

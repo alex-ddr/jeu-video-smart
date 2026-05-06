@@ -5,6 +5,7 @@
 [ext_resource type="TileSet" uid="uid://d1y8h0rdrpg8g" path="res://assets/tilesets/map.tres" id="3_isi08"]
 [ext_resource type="PackedScene" uid="uid://buk0b6k7thffd" path="res://entities/player/player_duo.tscn" id="4_u6sk8"]
 [ext_resource type="PackedScene" uid="uid://dljijvpev1b30" path="res://components/camera/camera.tscn" id="5_m2x4y"]
+[ext_resource type="Script" uid="uid://bwt7n686a4348" path="res://components/camera/camera-tuto.gd" id="6_4tf0p"]
 [ext_resource type="PackedScene" uid="uid://mpu5pvoq06a4" path="res://entities/checkpoint/check_point.tscn" id="6_m2x4y"]
 [ext_resource type="PackedScene" uid="uid://p6m8xluee2n8" path="res://ui/styles/default_panel.tscn" id="7_ba534"]
 [ext_resource type="PackedScene" uid="uid://dicj2aptak56v" path="res://ui/styles/key.tscn" id="8_8juk4"]
@@ -34,6 +35,7 @@ position = Vector2(-1200, 0)
 
 [node name="Camera" parent="." unique_id=395850129 instance=ExtResource("5_m2x4y")]
 position = Vector2(-1207.9999, -31.999998)
+script = ExtResource("6_4tf0p")
 
 [node name="CheckPoint" parent="." unique_id=351713259 instance=ExtResource("6_m2x4y")]
 position = Vector2(-1168, -64)
