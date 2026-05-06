@@ -85,8 +85,7 @@ position = Vector2(3184, 64)
 checkpoint_id = 1
 
 [node name="FinDeNveau" parent="CheckPoint" unique_id=2098824404 instance=ExtResource("7_e6mn4")]
-position = Vector2(8509, 1378)
-scale = Vector2(1.2, 1.2)
+position = Vector2(8496, 1328)
 
 [node name="Stars" type="Node" parent="." unique_id=2094192798]
 
