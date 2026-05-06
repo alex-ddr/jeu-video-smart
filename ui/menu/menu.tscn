@@ -51,7 +51,7 @@ theme_override_constants/margin_top = 16
 [node name="Niveaux" type="Button" parent="CenterContainer/VBoxContainer" unique_id=64015457]
 layout_mode = 2
 theme = ExtResource("4_1brpx")
-text = "Level"
+text = "Levels"
 script = ExtResource("5_vlit4")
 
 [node name="MarginContainer3" type="MarginContainer" parent="CenterContainer/VBoxContainer" unique_id=1239721981]

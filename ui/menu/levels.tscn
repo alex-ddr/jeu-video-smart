@@ -36,7 +36,7 @@ scale = Vector2(0.5, 0.5)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.20784314, 0.20784314, 0.25490198, 1)
 theme_override_font_sizes/font_size = 37
-text = "Select the Level"
+text = "Select Level"
 horizontal_alignment = 1
 
 [node name="MarginContainer2" type="MarginContainer" parent="CenterContainer/VBoxContainer" unique_id=11419199]
@@ -44,61 +44,78 @@ layout_mode = 2
 theme_override_constants/margin_top = 120
 theme_override_constants/margin_right = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=1172350659]
+[node name="HFlowContainer" type="HFlowContainer" parent="CenterContainer/VBoxContainer" unique_id=1944981554]
 layout_mode = 2
+alignment = 1
 
-[node name="level_1" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=539774036]
+[node name="level_1" type="Button" parent="CenterContainer/VBoxContainer/HFlowContainer" unique_id=539774036]
 layout_mode = 2
 theme = ExtResource("4_3ebmn")
 text = "Level 1"
 script = ExtResource("4_bmnjo")
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=540849964]
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/HFlowContainer" unique_id=540849964]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 0
 
-[node name="level_2" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=2101577680]
+[node name="level_2" type="Button" parent="CenterContainer/VBoxContainer/HFlowContainer" unique_id=2101577680]
 layout_mode = 2
 theme = ExtResource("4_3ebmn")
 text = "Level 2"
 script = ExtResource("4_bmnjo")
 
-[node name="MarginContainer2" type="MarginContainer" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1090674792]
+[node name="MarginContainer2" type="MarginContainer" parent="CenterContainer/VBoxContainer/HFlowContainer" unique_id=1090674792]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 0
 
-[node name="level_3" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1850042797]
+[node name="level_3" type="Button" parent="CenterContainer/VBoxContainer/HFlowContainer" unique_id=1850042797]
 layout_mode = 2
 theme = ExtResource("4_3ebmn")
 text = "Level 3"
 script = ExtResource("4_bmnjo")
 
-[node name="MarginContainer3" type="MarginContainer" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=2028440201]
+[node name="MarginContainer3" type="MarginContainer" parent="CenterContainer/VBoxContainer/HFlowContainer" unique_id=2028440201]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 0
 
-[node name="level_4" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=380272193]
+[node name="level_4" type="Button" parent="CenterContainer/VBoxContainer/HFlowContainer" unique_id=380272193]
 layout_mode = 2
 theme = ExtResource("4_3ebmn")
 text = "Level 4"
 script = ExtResource("4_bmnjo")
 
-[node name="MarginContainer4" type="MarginContainer" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=227786109]
+[node name="MarginContainer4" type="MarginContainer" parent="CenterContainer/VBoxContainer/HFlowContainer" unique_id=227786109]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 0
 
-[node name="level_5" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1017557342]
+[node name="level_5" type="Button" parent="CenterContainer/VBoxContainer/HFlowContainer" unique_id=1017557342]
 layout_mode = 2
 theme = ExtResource("4_3ebmn")
 text = "Level 5"
+
+[node name="MarginContainer5" type="MarginContainer" parent="CenterContainer/VBoxContainer/HFlowContainer" unique_id=428113245]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+
+[node name="level_6" type="Button" parent="CenterContainer/VBoxContainer/HFlowContainer" unique_id=220067960]
+layout_mode = 2
+theme = ExtResource("4_3ebmn")
+text = "Level 6"
 script = ExtResource("4_bmnjo")
 
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer" unique_id=521351512]
@@ -117,9 +134,10 @@ theme = ExtResource("4_3ebmn")
 text = "Back"
 script = ExtResource("4_bmnjo")
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/level_1" to="." method="_on_level_pressed" binds= [0]]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/level_2" to="." method="_on_level_pressed" binds= [1]]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/level_3" to="." method="_on_level_pressed" binds= [2]]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/level_4" to="." method="_on_level_pressed" binds= [3]]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/level_5" to="." method="_on_level_pressed" binds= [4]]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HFlowContainer/level_1" to="." method="_on_level_pressed" binds= [0]]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HFlowContainer/level_2" to="." method="_on_level_pressed" binds= [1]]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HFlowContainer/level_3" to="." method="_on_level_pressed" binds= [2]]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HFlowContainer/level_4" to="." method="_on_level_pressed" binds= [3]]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HFlowContainer/level_5" to="." method="_on_level_pressed" binds= [4]]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HFlowContainer/level_6" to="." method="_on_level_pressed" binds= [5]]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer2/Retour" to="." method="_on_back_pressed"]
