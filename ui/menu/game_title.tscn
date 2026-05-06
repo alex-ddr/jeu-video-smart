@@ -17,11 +17,11 @@ texture = ExtResource("2_eu02b")
 offset = Vector2(-13, -40)
 
 [node name="TitleBounce" type="Sprite2D" parent="." unique_id=1538819560]
-position = Vector2(166, 277)
+position = Vector2(166, 397)
 texture = ExtResource("3_a6jfw")
 offset = Vector2(-51, -141)
 
 [node name="TitleBound" type="Sprite2D" parent="." unique_id=1468389052]
-position = Vector2(166, 277)
+position = Vector2(166, 155)
 texture = ExtResource("4_hictj")
 offset = Vector2(-23, 122)
