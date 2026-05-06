@@ -16,8 +16,8 @@ func _ready() -> void:
 func _process(_delta):
 	secondary_light.energy = light_intensity * randf_range(0.8, 1.2)
 
-	var tremblement_taille = randf_range(0.95, 1.05)
-	secondary_light.scale = scale_base * tremblement_taille
+	#var tremblement_taille = randf_range(0.95, 1.05)
+	#secondary_light.scale = scale_base * tremblement_taille
 	
 func _on_ambiance_changed(type: String, data: Dictionary) -> void:
 	print(data.light_intensity)

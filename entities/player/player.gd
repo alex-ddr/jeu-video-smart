@@ -74,7 +74,6 @@ var is_on_ice: bool = false
 
 # --------------------------- Footsteps ---------------------------
 @export var footstep_path: String = "res://assets/sounds/footstep0%s.ogg"
-@export var footstep_volume: float = -15.0
 @export var footstep_interval_normal: float = 0.1
 @export var footstep_interval_start: float = 0.3
 
@@ -91,6 +90,9 @@ func _ready() -> void:
 	_saved_collision_mask = collision_mask
 	for i in range(10):
 		_footstep_sounds.append(load(footstep_path % str(i)))
+	
+	jump_sound.volume_db = -15
+	footstep_player.volume_db = -30
 
 
 # --------------------------- God Mode ---------------------------
@@ -247,13 +249,19 @@ func _update_stretch(delta: float) -> void:
 
 # --------------------------- Sons ---------------------------
 func _play_bounce_sound() -> void:
-	bounce_sound.pitch_scale = lerp(0.7, 1.6, _launch_charge_ratio)
+	var actual_compression = clamp(
+		inverse_lerp(launch_charge_start_height, MIN_HEIGHT, height),
+		0.0, 1.0
+	)
+	bounce_sound.pitch_scale = lerp(1.6, 0.7, actual_compression)
 	bounce_sound.play(0.4)
 
 func _update_stretch_sound() -> void:
 	if Input.is_action_pressed(action_launch) and is_on_floor() and not is_releasing_launch:
 		if not stretch_sound.playing:
-			stretch_sound.play_random()
+			stretch_sound.play_random(1.0)
+		if height <= MIN_HEIGHT + 0.5:
+			stretch_sound.stop()
 	else:
 		stretch_sound.stop()
 
@@ -367,6 +375,5 @@ func _update_footsteps(delta: float) -> void:
 	if _footstep_timer <= 0.0:
 		_footstep_timer = interval
 		footstep_player.stream = _footstep_sounds[randi() % _footstep_sounds.size()]
-		footstep_player.volume_db = footstep_volume
 		footstep_player.pitch_scale = randf_range(0.9, 1.1)
-		footstep_player.play()
+		footstep_player.play_random()

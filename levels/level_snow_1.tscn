@@ -13,7 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://d16ikhrssu8rs" path="res://components/death_zone/death_zone.tscn" id="10_fmixv"]
 [ext_resource type="PackedScene" uid="uid://p6m8xluee2n8" path="res://ui/styles/default_panel.tscn" id="11_oweqb"]
 [ext_resource type="Script" uid="uid://c3wf78d55sfol" path="res://levels/ambiances/ice_ambiance.gd" id="12_n7pyx"]
-[ext_resource type="PackedScene" uid="uid://bhaw62sywwf4m" path="res://assets/animated_tiles/torch/torch.tscn" id="14_soc3v"]
+[ext_resource type="PackedScene" uid="uid://bhaw62sywwf4m" path="res://assets/animated_tiles/torch/torch.tscn" id="15_soc3w"]
+[ext_resource type="PackedScene" uid="uid://cppax03yetbki" path="res://components/musics/level_music.tscn" id="13_ga6q7"]
+[ext_resource type="AudioStream" uid="uid://by6ngvf5t244" path="res://assets/musics/snow_music.mp3" id="14_soc3v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0bj1y"]
 size = Vector2(797, 128)
@@ -61,7 +63,7 @@ _data = {
 font_size = 70
 font_color = Color(0.20784314, 0.20784314, 0.25490198, 1)
 
-[node name="LevelAlois" type="Node2D" unique_id=1589479972]
+[node name="LevelSnow1" type="Node2D" unique_id=1589479972]
 script = ExtResource("1_oqf58")
 
 [node name="BackgroundSky" parent="." unique_id=1567205257 instance=ExtResource("2_10pg0")]
@@ -173,6 +175,8 @@ horizontal_alignment = 1
 color = Color(0.8627451, 0.9137255, 1, 1)
 script = ExtResource("12_n7pyx")
 
-[node name="Torch" parent="." unique_id=281699009 instance=ExtResource("14_soc3v")]
+[node name="Torch" parent="." unique_id=281699009 instance=ExtResource("15_soc3")]
 position = Vector2(5066, -192)
 rotation = 3.1415927
+[node name="Music" parent="." unique_id=1510945142 instance=ExtResource("13_ga6q7")]
+stream = ExtResource("14_soc3v")

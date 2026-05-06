@@ -168,4 +168,4 @@ stream = ExtResource("7_qiwj3")
 [node name="JumpSound" parent="." unique_id=1008020106 instance=ExtResource("6_26q78")]
 stream = ExtResource("8_26q78")
 
-[node name="FootstepPlayer" type="AudioStreamPlayer" parent="." unique_id=524528016]
+[node name="FootstepPlayer" parent="." unique_id=1932882139 instance=ExtResource("6_26q78")]

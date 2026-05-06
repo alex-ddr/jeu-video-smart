@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://k6qtb0erkgrj" path="res://ui/menu/levels.gd" id="1_8mavb"]
 [ext_resource type="PackedScene" uid="uid://tc1awydwhnex" path="res://assets/backgrounds/background_desert.tscn" id="2_h7ntp"]
 [ext_resource type="Theme" uid="uid://dccgwd38wtghj" path="res://ui/theme/main_theme.tres" id="4_3ebmn"]
+[ext_resource type="Script" uid="uid://3b1dovjn5a7o" path="res://ui/menu/button_audio.gd" id="4_bmnjo"]
 
 [node name="Levels" type="Control" unique_id=1867424599]
 layout_mode = 3
@@ -28,7 +29,7 @@ layout_mode = 2
 alignment = 1
 
 [node name="Node2D" parent="CenterContainer/VBoxContainer" unique_id=247614796 instance=ExtResource("2_h7ntp")]
-position = Vector2(0, 200)
+position = Vector2(0, 240)
 scale = Vector2(0.5, 0.5)
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=560376642]
@@ -40,7 +41,7 @@ horizontal_alignment = 1
 
 [node name="MarginContainer2" type="MarginContainer" parent="CenterContainer/VBoxContainer" unique_id=11419199]
 layout_mode = 2
-theme_override_constants/margin_top = 50
+theme_override_constants/margin_top = 120
 theme_override_constants/margin_right = 0
 
 [node name="HFlowContainer" type="HFlowContainer" parent="CenterContainer/VBoxContainer" unique_id=1944981554]
@@ -51,6 +52,7 @@ alignment = 1
 layout_mode = 2
 theme = ExtResource("4_3ebmn")
 text = "Level 1"
+script = ExtResource("4_bmnjo")
 
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/HFlowContainer" unique_id=540849964]
 visible = false
@@ -63,6 +65,7 @@ theme_override_constants/margin_right = 0
 layout_mode = 2
 theme = ExtResource("4_3ebmn")
 text = "Level 2"
+script = ExtResource("4_bmnjo")
 
 [node name="MarginContainer2" type="MarginContainer" parent="CenterContainer/VBoxContainer/HFlowContainer" unique_id=1090674792]
 visible = false
@@ -75,6 +78,7 @@ theme_override_constants/margin_right = 0
 layout_mode = 2
 theme = ExtResource("4_3ebmn")
 text = "Level 3"
+script = ExtResource("4_bmnjo")
 
 [node name="MarginContainer3" type="MarginContainer" parent="CenterContainer/VBoxContainer/HFlowContainer" unique_id=2028440201]
 visible = false
@@ -87,6 +91,7 @@ theme_override_constants/margin_right = 0
 layout_mode = 2
 theme = ExtResource("4_3ebmn")
 text = "Level 4"
+script = ExtResource("4_bmnjo")
 
 [node name="MarginContainer4" type="MarginContainer" parent="CenterContainer/VBoxContainer/HFlowContainer" unique_id=227786109]
 visible = false
@@ -111,6 +116,7 @@ theme_override_constants/margin_right = 0
 layout_mode = 2
 theme = ExtResource("4_3ebmn")
 text = "Level 6"
+script = ExtResource("4_bmnjo")
 
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer" unique_id=521351512]
 layout_mode = 2
@@ -126,6 +132,7 @@ custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
 theme = ExtResource("4_3ebmn")
 text = "Back"
+script = ExtResource("4_bmnjo")
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HFlowContainer/level_1" to="." method="_on_level_pressed" binds= [0]]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HFlowContainer/level_2" to="." method="_on_level_pressed" binds= [1]]

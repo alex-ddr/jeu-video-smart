@@ -10,17 +10,17 @@ func _on_play_pressed() -> void:
 
 
 func _on_levels_pressed() -> void:
-	await IrisWipe.close_transition(0.2)
+	await IrisWipe.close_transition(0.5)
 	get_tree().change_scene_to_file("res://ui/menu/levels.tscn")
-	await IrisWipe.open_transition(0.2)
+	await IrisWipe.open_transition(0.5)
 
 func _on_credits_pressed() -> void:
-	await IrisWipe.close_transition(0.2)
+	await IrisWipe.close_transition(0.5)
 	get_tree().change_scene_to_file("res://ui/credits/credits.tscn")
-	await IrisWipe.open_transition(0.2)
+	await IrisWipe.open_transition(0.5)
 
 
 func _on_quit_pressed() -> void:
-	await IrisWipe.close_transition(0.2)
+	await IrisWipe.close_transition(0.5)
 	get_tree().quit()
-	await IrisWipe.open_transition(0.2)
+	await IrisWipe.open_transition(0.5)

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dpimmjxmkpn0m" path="res://assets/backgrounds/background_sky.tscn" id="2_sky"]
 [ext_resource type="PackedScene" uid="uid://bsgjsont5yngs" path="res://ui/menu/game_title.tscn" id="3_title"]
 [ext_resource type="Theme" uid="uid://dccgwd38wtghj" path="res://ui/theme/main_theme.tres" id="4_1brpx"]
-[ext_resource type="AudioStream" uid="uid://e8c6ejghsers" path="res://assets/musics/musique_jeu.mp3" id="6_music"]
+[ext_resource type="Script" uid="uid://3b1dovjn5a7o" path="res://ui/menu/button_audio.gd" id="5_vlit4"]
 
 [node name="Menu" type="Control" unique_id=1988223885]
 layout_mode = 3
@@ -17,7 +17,7 @@ script = ExtResource("1_v6ljw")
 
 [node name="background" parent="." unique_id=576205186 instance=ExtResource("2_sky")]
 z_index = -1
-position = Vector2(576, 324)
+position = Vector2(576, 400)
 scale = Vector2(0.3, 0.3)
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=774515369]
@@ -42,6 +42,7 @@ theme_override_constants/margin_top = 280
 layout_mode = 2
 theme = ExtResource("4_1brpx")
 text = "Play"
+script = ExtResource("5_vlit4")
 
 [node name="MarginContainer2" type="MarginContainer" parent="CenterContainer/VBoxContainer" unique_id=642936491]
 layout_mode = 2
@@ -51,6 +52,7 @@ theme_override_constants/margin_top = 16
 layout_mode = 2
 theme = ExtResource("4_1brpx")
 text = "Levels"
+script = ExtResource("5_vlit4")
 
 [node name="MarginContainer3" type="MarginContainer" parent="CenterContainer/VBoxContainer" unique_id=1239721981]
 layout_mode = 2
@@ -60,6 +62,7 @@ theme_override_constants/margin_top = 16
 layout_mode = 2
 theme = ExtResource("4_1brpx")
 text = "Credits"
+script = ExtResource("5_vlit4")
 
 [node name="MarginContainer4" type="MarginContainer" parent="CenterContainer/VBoxContainer" unique_id=2006665840]
 layout_mode = 2
@@ -68,15 +71,14 @@ theme_override_constants/margin_top = 16
 [node name="Quitter" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1515461436]
 layout_mode = 2
 theme = ExtResource("4_1brpx")
-text = "Exit"
+text = "Quit"
+script = ExtResource("5_vlit4")
 
 [node name="MarginContainer5" type="MarginContainer" parent="CenterContainer/VBoxContainer" unique_id=2050036243]
 layout_mode = 2
 theme_override_constants/margin_bottom = 139
 
-[node name="Music" type="AudioStreamPlayer" parent="." unique_id=730261878]
-stream = ExtResource("6_music")
-autoplay = true
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1026650019]
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Jouer" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Niveaux" to="." method="_on_levels_pressed"]
