@@ -1,6 +1,7 @@
 extends Camera2D
 @onready var p1 = $"../PlayerDuo".p1
 @onready var p2 = $"../PlayerDuo".p2
+@onready var button = $"../Button"
 var ball = null
 var pos1 : Vector2
 var pos2 : Vector2
@@ -20,8 +21,7 @@ var last_dir2 = 1.0
 @export var vertical_offset: float = 100.0
 
 func _ready() -> void:
-	if has_node("../Ball"):
-		ball = $"../Ball"
+	button.ball_instanciated.connect(_on_button_pressed)
 
 func _process(delta: float) -> void:
 	pos1 = p1.get_global_position()
@@ -50,7 +50,6 @@ func _process(delta: float) -> void:
 
 func _update_camera_zoom(vp_size: Vector2) -> void:
 	var players_center = Vector2((pos1.x + pos2.x) / 2, (pos1.y + pos2.y) / 2)
-
 	if ball == null:
 		zoom = zoom.lerp(Vector2(max_zoom, max_zoom), 0.01)
 		set_global_position(Vector2(get_global_position().x, players_center.y - vertical_offset))
@@ -76,3 +75,7 @@ func _update_camera_zoom(vp_size: Vector2) -> void:
 
 	zoom = zoom.lerp(Vector2(target_zoom, target_zoom), 0.07)
 	set_global_position(Vector2(get_global_position().x, min(get_global_position().y - dist_y / 3, get_global_position().y)))
+
+func _on_button_pressed(instanciated_ball : Node) -> void:
+	ball = instanciated_ball
+	
