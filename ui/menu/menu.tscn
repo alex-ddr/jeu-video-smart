@@ -36,7 +36,7 @@ layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer" unique_id=339801943]
 layout_mode = 2
-theme_override_constants/margin_top = 24
+theme_override_constants/margin_top = 280
 
 [node name="Jouer" type="Button" parent="CenterContainer/VBoxContainer" unique_id=715509164]
 layout_mode = 2
@@ -69,6 +69,10 @@ theme_override_constants/margin_top = 16
 layout_mode = 2
 theme = ExtResource("4_1brpx")
 text = "Quitter"
+
+[node name="MarginContainer5" type="MarginContainer" parent="CenterContainer/VBoxContainer" unique_id=2050036243]
+layout_mode = 2
+theme_override_constants/margin_bottom = 139
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=730261878]
 stream = ExtResource("6_music")

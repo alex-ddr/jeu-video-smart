@@ -10,6 +10,15 @@ radius = 21.023796
 [sub_resource type="CircleShape2D" id="CircleShape2D_jyt08"]
 radius = 25.079872
 
+[sub_resource type="Gradient" id="Gradient_w5wpn"]
+colors = PackedColorArray(1, 1, 1, 0.89411765, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_we1t7"]
+gradient = SubResource("Gradient_w5wpn")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.46723646, 0)
+
 [node name="Ball" type="RigidBody2D" unique_id=1885945790]
 z_index = 1
 collision_layer = 8
@@ -35,5 +44,12 @@ collision_mask = 17
 
 [node name="CollisionShape" type="CollisionShape2D" parent="GroundDetector" unique_id=1706298878]
 shape = SubResource("CircleShape2D_jyt08")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=686974068]
+position = Vector2(-23, -19)
+color = Color(0.92474425, 0.3571481, 0, 1)
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_we1t7")
+texture_scale = 0.5
 
 [connection signal="body_entered" from="GroundDetector" to="." method="_on_ground_detector_body_entered"]

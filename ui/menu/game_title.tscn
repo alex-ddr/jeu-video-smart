@@ -1,55 +1,27 @@
 [gd_scene format=3 uid="uid://bsgjsont5yngs"]
 
-[ext_resource type="FontVariation" uid="uid://cr7kxmquknm1n" path="res://assets/fonts/Modak.tres" id="1_1be6g"]
+[ext_resource type="Script" uid="uid://bxjhc2bnig0x7" path="res://ui/menu/game_title.gd" id="1_3a1fe"]
+[ext_resource type="Texture2D" uid="uid://n1ygdjl83xek" path="res://assets/title/title_&.png" id="2_eu02b"]
+[ext_resource type="Texture2D" uid="uid://xfqyluba776j" path="res://assets/title/title_bounce.png" id="3_a6jfw"]
+[ext_resource type="Texture2D" uid="uid://co0gxdivmyl64" path="res://assets/title/title_bound.png" id="4_hictj"]
 
-[node name="GameTitle" type="Control" unique_id=1307507391]
-custom_minimum_size = Vector2(600, 180)
+[node name="GameTitle" type="Control" unique_id=1137182338]
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = 5.0
-offset_right = -40.0
-offset_bottom = 5.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+script = ExtResource("1_3a1fe")
 
-[node name="Title" type="RichTextLabel" parent="." unique_id=1668455519]
-custom_minimum_size = Vector2(450, 0)
-layout_mode = 0
-offset_left = 155.0
-offset_top = -5.0
-offset_right = 605.0
-offset_bottom = 213.0
-theme_override_colors/default_color = Color(0.98039216, 0.75686276, 0.25882354, 1)
-theme_override_colors/font_outline_color = Color(0.20784314, 0.20784314, 0.25490198, 1)
-theme_override_constants/line_separation = -50
-theme_override_constants/outline_size = 20
-theme_override_fonts/normal_font = ExtResource("1_1be6g")
-theme_override_font_sizes/normal_font_size = 75
-bbcode_enabled = true
-text = "[left][wave amp=52.0 freq=3.4 connected=0][color=fac142] Bound[/color][/wave]
-[wave amp=50.0 freq=3.7 connected=0][color=a591e9] Bounce[/color][/wave][/left]"
-fit_content = true
-shortcut_keys_enabled = false
-horizontal_alignment = 1
+[node name="Title&" type="Sprite2D" parent="." unique_id=831681551]
+position = Vector2(166, 277)
+texture = ExtResource("2_eu02b")
+offset = Vector2(-13, -40)
 
-[node name="Ampersand" type="RichTextLabel" parent="." unique_id=1597481919]
-custom_minimum_size = Vector2(450, 0)
-layout_mode = 0
-offset_left = -79.0
-offset_top = -5.0
-offset_right = 371.0
-offset_bottom = 213.0
-theme_override_colors/default_color = Color(0.98039216, 0.75686276, 0.25882354, 1)
-theme_override_colors/font_outline_color = Color(0.20784314, 0.20784314, 0.25490198, 1)
-theme_override_constants/line_separation = -50
-theme_override_constants/outline_size = 20
-theme_override_fonts/normal_font = ExtResource("1_1be6g")
-theme_override_font_sizes/normal_font_size = 130
-bbcode_enabled = true
-text = "[center][wave amp=50.0 freq=3.5 connected=0][color=#92a1ad]&[/color][/wave][/center]"
-fit_content = true
-shortcut_keys_enabled = false
-horizontal_alignment = 1
+[node name="TitleBounce" type="Sprite2D" parent="." unique_id=1538819560]
+position = Vector2(166, 277)
+texture = ExtResource("3_a6jfw")
+offset = Vector2(-51, -141)
+
+[node name="TitleBound" type="Sprite2D" parent="." unique_id=1468389052]
+position = Vector2(166, 277)
+texture = ExtResource("4_hictj")
+offset = Vector2(-23, 122)

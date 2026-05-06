@@ -6,6 +6,7 @@ var ball: RigidBody2D
 var indice_checkpoint : int = 0
 
 func _ready() -> void:
+	
 	if has_node("PlayerBallCameraTrio/PlayerDuo"):
 		player_duo = $PlayerBallCameraTrio/PlayerDuo
 		ball = $PlayerBallCameraTrio/Ball if has_node("PlayerBallCameraTrio/Ball") else null
@@ -30,6 +31,12 @@ func _ready() -> void:
 		print("Étoiles trouvées : ", Global.nb_stars_tot)
 	else:
 		print("Aucun dossier d'étoiles trouvé dans ce niveau.")
+	
+	if ball != null:
+		ball.contact_monitor = true
+		ball.max_contacts_reported = 4
+		ball.body_shape_entered.connect(_on_ball_body_shape_entered)
+
 
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("respawn"):
@@ -64,7 +71,12 @@ func _spawn_at_checkpoint() -> void:
 			player_duo.p2.input_enabled = true
 	return
 
-
 func _on_checkpoint_reached(id: int) -> void:
 	if (id>indice_checkpoint):
 		indice_checkpoint = id
+		
+func _on_ball_body_shape_entered(body_rid: RID, _body: Node, _body_shape_index: int, _local_shape_index: int) -> void:
+	var layer = PhysicsServer2D.body_get_collision_layer(body_rid)
+	if layer & 64:  # layer 7 = acid_ground
+		player_duo.p1.lose_life()
+		print("hey")

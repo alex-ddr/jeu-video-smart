@@ -5,10 +5,26 @@
 [ext_resource type="Texture2D" uid="uid://bmo83gteu2wym" path="res://assets/textures/entities/players/player_top_1.png" id="3_fkugw"]
 [ext_resource type="Texture2D" uid="uid://dg1nblnyea17e" path="res://assets/textures/entities/players/player_middle.png" id="4_8fjmc"]
 [ext_resource type="Texture2D" uid="uid://ccqe6w425w6xy" path="res://assets/textures/entities/players/player_walkcycle.png" id="6_8fjmc"]
-[ext_resource type="AudioStream" uid="uid://c33xcq0db2ait" path="res://assets/sounds/humordome-boing-boing-bounce-454474.mp3" id="6_qiwj3"]
+[ext_resource type="PackedScene" uid="uid://d0dw2t4yav5c2" path="res://components/random_pitch/sfx.tscn" id="6_26q78"]
+[ext_resource type="AudioStream" uid="uid://b6i0mdoyj8hn7" path="res://assets/sounds/bounce_sound.wav" id="7_bectd"]
+[ext_resource type="AudioStream" uid="uid://7dgsgifqnln1" path="res://assets/sounds/stretch.mp3" id="7_qiwj3"]
+[ext_resource type="AudioStream" uid="uid://bkyptoj24oio6" path="res://assets/sounds/swoosh.mp3" id="8_26q78"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_8fjmc"]
+cull_mode = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_symyc"]
 size = Vector2(64, 129)
+
+[sub_resource type="Gradient" id="Gradient_8fjmc"]
+offsets = PackedFloat32Array(0.28115016, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qiwj3"]
+gradient = SubResource("Gradient_8fjmc")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fkugw"]
 atlas = ExtResource("6_8fjmc")
@@ -97,6 +113,10 @@ collision_layer = 2
 collision_mask = 51
 script = ExtResource("1_symyc")
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1001244081]
+occluder = SubResource("OccluderPolygon2D_8fjmc")
+occluder_light_mask = 2
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=54016776]
 position = Vector2(0, -64.5)
 shape = SubResource("RectangleShape2D_symyc")
@@ -107,11 +127,26 @@ position = Vector2(0, -130)
 texture = ExtResource("2_fkugw")
 offset = Vector2(0, -24)
 
+[node name="PointLight2D2" type="PointLight2D" parent="Head_p2" unique_id=161753266]
+z_index = 10
+position = Vector2(0, -61)
+color = Color(0.6784314, 0.5882353, 0.92156863, 1)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_qiwj3")
+texture_scale = 0.75
+
 [node name="Head_p1" type="Sprite2D" parent="." unique_id=1590564467]
 visible = false
 position = Vector2(0, -65)
 texture = ExtResource("3_fkugw")
 offset = Vector2(0, -24)
+
+[node name="PointLight2D" type="PointLight2D" parent="Head_p1" unique_id=1853762152]
+position = Vector2(0, -61)
+color = Color(0.98039216, 0.7294118, 0.1764706, 1)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_qiwj3")
+texture_scale = 0.75
 
 [node name="Body" type="Sprite2D" parent="." unique_id=1050376457]
 position = Vector2(0, -50)
@@ -124,5 +159,13 @@ animation = &"jump"
 autoplay = "idle"
 offset = Vector2(0, -30)
 
-[node name="BounceSound" type="AudioStreamPlayer" parent="." unique_id=1199939303]
-stream = ExtResource("6_qiwj3")
+[node name="BounceSound" parent="." unique_id=1343175760 instance=ExtResource("6_26q78")]
+stream = ExtResource("7_bectd")
+
+[node name="StretchSound" parent="." unique_id=128283154 instance=ExtResource("6_26q78")]
+stream = ExtResource("7_qiwj3")
+
+[node name="JumpSound" parent="." unique_id=1008020106 instance=ExtResource("6_26q78")]
+stream = ExtResource("8_26q78")
+
+[node name="FootstepPlayer" type="AudioStreamPlayer" parent="." unique_id=524528016]

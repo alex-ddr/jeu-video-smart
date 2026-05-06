@@ -4,49 +4,58 @@
 [ext_resource type="FontFile" uid="uid://dc2aqn8bynj37" path="res://assets/fonts/Modak-Regular.ttf" id="2_6dn1j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77h3e"]
+content_margin_left = 100.0
+content_margin_top = 20.0
+content_margin_right = 100.0
+content_margin_bottom = 20.0
 bg_color = Color(0.57254905, 0.6313726, 0.6784314, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
 border_color = Color(0.20784314, 0.20784314, 0.25490198, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
+corner_radius_top_left = 13
+corner_radius_top_right = 13
+corner_radius_bottom_right = 13
+corner_radius_bottom_left = 13
 corner_detail = 12
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dlchh"]
-bg_color = Color(0.7987955, 0.4876879, 0.8262787, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
+bg_color = Color(0.64705884, 0.5686275, 0.9137255, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
 border_color = Color(0.20784314, 0.20784314, 0.25490198, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
-corner_detail = 12
-shadow_color = Color(0.20784314, 0.20784314, 0.25490198, 1)
-shadow_size = 2
-shadow_offset = Vector2(2, 2)
+corner_radius_top_left = 13
+corner_radius_top_right = 13
+corner_radius_bottom_right = 13
+corner_radius_bottom_left = 13
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l6euo"]
-bg_color = Color(0.57254905, 0.6313726, 0.6784314, 1)
-border_width_left = 6
-border_width_top = 6
-border_width_right = 4
-border_width_bottom = 4
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_muu7h"]
+bg_color = Color(0.69803923, 0.73333335, 0.76862746, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
 border_color = Color(0.20784314, 0.20784314, 0.25490198, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
+corner_radius_top_left = 13
+corner_radius_top_right = 13
+corner_radius_bottom_right = 13
+corner_radius_bottom_left = 13
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6dn1j"]
+bg_color = Color(0.57254905, 0.6313726, 0.6784314, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.20784314, 0.20784314, 0.25490198, 1)
+corner_radius_top_left = 13
+corner_radius_top_right = 13
+corner_radius_bottom_right = 13
+corner_radius_bottom_left = 13
 corner_detail = 12
-shadow_color = Color(0.20784314, 0.20784314, 0.25490198, 1)
-shadow_size = 1
-shadow_offset = Vector2(1, 1)
 
 [sub_resource type="FontVariation" id="FontVariation_b85mk"]
 base_font = ExtResource("2_6dn1j")
@@ -54,15 +63,14 @@ base_font = ExtResource("2_6dn1j")
 [resource]
 Button/colors/font_color = Color(1, 1, 1, 1)
 Button/colors/font_outline_color = Color(0.20784314, 0.20784314, 0.25490198, 1)
-Button/constants/outline_size = 4
+Button/constants/outline_size = 8
 Button/font_sizes/font_size = 24
 Button/fonts/font = ExtResource("1_muu7h")
 Button/styles/disabled = SubResource("StyleBoxFlat_77h3e")
 Button/styles/focus = SubResource("StyleBoxFlat_dlchh")
-Button/styles/hover = SubResource("StyleBoxFlat_dlchh")
+Button/styles/hover = SubResource("StyleBoxFlat_muu7h")
 Button/styles/normal = SubResource("StyleBoxFlat_77h3e")
-Button/styles/pressed = SubResource("StyleBoxFlat_l6euo")
-Label/colors/font_color = Color(0.20784314, 0.20784314, 0.25490198, 1)
+Button/styles/pressed = SubResource("StyleBoxFlat_6dn1j")
 Label/font_sizes/font_size = 70
 Label/fonts/font = ExtResource("1_muu7h")
 RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
