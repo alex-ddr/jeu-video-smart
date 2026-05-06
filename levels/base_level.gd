@@ -33,7 +33,8 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("respawn"):
-		_spawn_at_checkpoint()
+		player_duo.p1.lose_life()
+		
 
 func _spawn_at_checkpoint() -> void:
 	for cp in get_tree().get_nodes_in_group("checkpoints"):
@@ -48,7 +49,6 @@ func _spawn_at_checkpoint() -> void:
 			player_duo.p2.height = Global.DEFAULT_HEIGHT
 
 			if ball != null:
-				print("bonjour")
 				ball.set_deferred("freeze", true)
 				var new_ball_pos = cp.global_position + Vector2(0, -180)
 				ball.set_deferred("global_position", new_ball_pos)
@@ -57,9 +57,7 @@ func _spawn_at_checkpoint() -> void:
 
 			player_duo.p1.input_enabled = true
 			player_duo.p2.input_enabled = true
-			print("avant")
 			await get_tree().create_timer(1.0).timeout
-			print("apres")
 			if ball != null:
 				ball.set_deferred("freeze", false)
 			player_duo.p1.input_enabled = true

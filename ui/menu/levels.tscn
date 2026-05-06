@@ -2,32 +2,7 @@
 
 [ext_resource type="Script" uid="uid://k6qtb0erkgrj" path="res://ui/menu/levels.gd" id="1_8mavb"]
 [ext_resource type="PackedScene" uid="uid://tc1awydwhnex" path="res://assets/backgrounds/background_desert.tscn" id="2_h7ntp"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ei4gx"]
-bg_color = Color(0.75686276, 0.6862745, 0.9882353, 1)
-border_width_left = 8
-border_width_top = 8
-border_width_right = 8
-border_width_bottom = 8
-border_color = Color(0.20784314, 0.20784314, 0.25490198, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
-corner_detail = 12
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77h3e"]
-bg_color = Color(0.75686276, 0.6862745, 0.9882353, 1)
-border_width_left = 8
-border_width_top = 8
-border_width_right = 8
-border_width_bottom = 8
-border_color = Color(0.20784314, 0.20784314, 0.25490198, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
-corner_detail = 12
+[ext_resource type="Theme" uid="uid://dccgwd38wtghj" path="res://ui/theme/main_theme.tres" id="4_3ebmn"]
 
 [node name="Levels" type="Control" unique_id=1867424599]
 layout_mode = 3
@@ -72,12 +47,7 @@ layout_mode = 2
 
 [node name="niv1" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=539774036]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_ei4gx")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_77h3e")
-theme_override_styles/hover = SubResource("StyleBoxFlat_77h3e")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_77h3e")
-theme_override_styles/focus = SubResource("StyleBoxFlat_77h3e")
+theme = ExtResource("4_3ebmn")
 text = "Niveau 1"
 
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=540849964]
@@ -88,12 +58,7 @@ theme_override_constants/margin_right = 0
 
 [node name="niv2" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=2101577680]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_77h3e")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_77h3e")
-theme_override_styles/hover = SubResource("StyleBoxFlat_77h3e")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_77h3e")
-theme_override_styles/focus = SubResource("StyleBoxFlat_77h3e")
+theme = ExtResource("4_3ebmn")
 text = "Niveau 2"
 
 [node name="MarginContainer2" type="MarginContainer" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1090674792]
@@ -104,12 +69,7 @@ theme_override_constants/margin_right = 0
 
 [node name="niv3" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1850042797]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_77h3e")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_77h3e")
-theme_override_styles/hover = SubResource("StyleBoxFlat_77h3e")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_77h3e")
-theme_override_styles/focus = SubResource("StyleBoxFlat_77h3e")
+theme = ExtResource("4_3ebmn")
 text = "Niveau 3"
 
 [node name="MarginContainer3" type="MarginContainer" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=2028440201]
@@ -120,12 +80,7 @@ theme_override_constants/margin_right = 0
 
 [node name="niv4" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=380272193]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_77h3e")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_77h3e")
-theme_override_styles/hover = SubResource("StyleBoxFlat_77h3e")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_77h3e")
-theme_override_styles/focus = SubResource("StyleBoxFlat_77h3e")
+theme = ExtResource("4_3ebmn")
 text = "Niveau 4"
 
 [node name="MarginContainer4" type="MarginContainer" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=227786109]
@@ -136,12 +91,7 @@ theme_override_constants/margin_right = 0
 
 [node name="niv5" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1017557342]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_77h3e")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_77h3e")
-theme_override_styles/hover = SubResource("StyleBoxFlat_77h3e")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_77h3e")
-theme_override_styles/focus = SubResource("StyleBoxFlat_77h3e")
+theme = ExtResource("4_3ebmn")
 text = "Niveau 5"
 
 [node name="MarginContainer5" type="MarginContainer" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=282209909]
@@ -152,12 +102,7 @@ theme_override_constants/margin_right = 0
 
 [node name="niv6" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=906795126]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_77h3e")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_77h3e")
-theme_override_styles/hover = SubResource("StyleBoxFlat_77h3e")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_77h3e")
-theme_override_styles/focus = SubResource("StyleBoxFlat_77h3e")
+theme = ExtResource("4_3ebmn")
 text = "Niveau 6"
 
 [node name="MarginContainer6" type="MarginContainer" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1555553652]
@@ -168,12 +113,7 @@ theme_override_constants/margin_right = 0
 
 [node name="niv7" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1132089660]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_77h3e")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_77h3e")
-theme_override_styles/hover = SubResource("StyleBoxFlat_77h3e")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_77h3e")
-theme_override_styles/focus = SubResource("StyleBoxFlat_77h3e")
+theme = ExtResource("4_3ebmn")
 text = "Niveau 7"
 
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer" unique_id=521351512]
@@ -184,12 +124,7 @@ theme_override_constants/margin_right = 0
 [node name="Retour" type="Button" parent="CenterContainer/VBoxContainer" unique_id=180910235]
 custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_77h3e")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_77h3e")
-theme_override_styles/hover = SubResource("StyleBoxFlat_77h3e")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_77h3e")
-theme_override_styles/focus = SubResource("StyleBoxFlat_77h3e")
+theme = ExtResource("4_3ebmn")
 text = "Retour"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/niv1" to="." method="_on_level_pressed" binds= [0]]
