@@ -57,7 +57,7 @@ position = Vector2(-350, 140)
 position = Vector2(3515, -282)
 
 [node name="Cactus2" parent="Cactus" unique_id=331298154 instance=ExtResource("8_o4bsb")]
-position = Vector2(5152, 102)
+position = Vector2(5262, 102)
 
 [node name="Cactus3" parent="Cactus" unique_id=841561996 instance=ExtResource("8_o4bsb")]
 position = Vector2(686, 105)
@@ -74,19 +74,17 @@ position = Vector2(7148, 487)
 [node name="Cactus7" parent="Cactus" unique_id=1926143008 instance=ExtResource("8_o4bsb")]
 position = Vector2(7258, 487)
 
-[node name="Cactus8" parent="Cactus" unique_id=230085195 instance=ExtResource("8_o4bsb")]
-position = Vector2(7363, 487)
-
 [node name="Cactus9" parent="Cactus" unique_id=956692368 instance=ExtResource("8_o4bsb")]
 position = Vector2(6846, 487)
-
-[node name="Cactus10" parent="Cactus" unique_id=1485200620 instance=ExtResource("8_o4bsb")]
-position = Vector2(7481, 489)
 
 [node name="CheckPoint" type="Node" parent="." unique_id=1339471151]
 
 [node name="CheckPoint1" parent="CheckPoint" unique_id=351713259 instance=ExtResource("5_rffxt")]
 position = Vector2(117, 85)
+
+[node name="CheckPoint2" parent="CheckPoint" unique_id=880782325 instance=ExtResource("5_rffxt")]
+position = Vector2(4253, -292)
+checkpoint_id = 1
 
 [node name="Label4" type="Label" parent="." unique_id=128416055]
 offset_left = 398.0
@@ -95,6 +93,3 @@ offset_right = 1066.0
 offset_bottom = -138.0
 text = "Be careful, a cacctus !"
 label_settings = SubResource("LabelSettings_pav55")
-
-[node name="CheckPoint2" parent="." unique_id=880782325 instance=ExtResource("5_rffxt")]
-position = Vector2(4253, -292)
