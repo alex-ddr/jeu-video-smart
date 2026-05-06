@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://bhaw62sywwf4m"]
+
+[ext_resource type="Script" uid="uid://br3nd7i2yg65t" path="res://assets/animated_tiles/torch/torch.gd" id="1_snqo5"]
+[ext_resource type="Texture2D" uid="uid://2th2h2wqpvfx" path="res://assets/textures/sprites/Tiles/torch_on_a.png" id="2_igety"]
+[ext_resource type="Texture2D" uid="uid://4i2o4evqux" path="res://assets/textures/sprites/Tiles/torch_on_b.png" id="3_k3o7t"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0kc6o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_igety")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_k3o7t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_vkmmf"]
+colors = PackedColorArray(1, 1, 1, 0.7058824, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ynion"]
+gradient = SubResource("Gradient_vkmmf")
+width = 200
+height = 200
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[node name="Torch" type="Node2D" unique_id=281699009]
+script = ExtResource("1_snqo5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1851758940]
+sprite_frames = SubResource("SpriteFrames_0kc6o")
+autoplay = "default"
+frame = 1
+frame_progress = 0.28754276
+
+[node name="secondary_light" type="PointLight2D" parent="AnimatedSprite2D" unique_id=618398842]
+position = Vector2(8, -47.5)
+color = Color(0.96862745, 0.7019608, 0.29411766, 1)
+range_item_cull_mask = 3
+shadow_enabled = true
+shadow_filter_smooth = 15.0
+texture = SubResource("GradientTexture2D_ynion")
+texture_scale = 4.0
+
+[node name="main_light" type="PointLight2D" parent="AnimatedSprite2D" unique_id=1835326527]
+position = Vector2(4, -19)
+scale = Vector2(1, 1.5)
+color = Color(0.96862745, 0.7019608, 0.29411766, 1)
+energy = 0.1
+range_item_cull_mask = 3
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 15.0
+shadow_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_ynion")
+texture_scale = 3.0
