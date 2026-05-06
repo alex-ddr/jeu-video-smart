@@ -28,7 +28,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_colors/font_color = Color(0.20784314, 0.20784314, 0.25490198, 1)
 theme_override_font_sizes/font_size = 44
-text = "Crédits"
+text = "Credits"
 horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer" unique_id=549628662]
@@ -47,7 +47,7 @@ theme_override_constants/margin_top = 40
 custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
 theme = ExtResource("2_nnsry")
-text = "Retour"
+text = "Back"
 
 [node name="background" parent="CenterContainer/VBoxContainer" unique_id=247614796 instance=ExtResource("2_uud1o")]
 z_index = -1

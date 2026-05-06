@@ -27,7 +27,7 @@ energy = 0.5
 shadow_enabled = true
 
 [node name="BreakingBadFilter" type="CanvasModulate" parent="." unique_id=1212774791]
-color = Color(0.9999997, 0.88425314, 0.6495047, 1)
+color = Color(0.9882353, 0.94509804, 0.85490197, 1)
 script = ExtResource("2_bxcaf")
 
 [node name="BackgroundDesert" parent="." unique_id=247614796 instance=ExtResource("2_dp023")]
@@ -89,7 +89,7 @@ offset_left = 1056.0
 offset_top = -784.0
 offset_right = 1803.0
 offset_bottom = -687.0
-text = "Press h if you lost the ball"
+text = "Press h if you drop the ball"
 label_settings = SubResource("LabelSettings_jv8fr")
 script = ExtResource("9_te0f4")
 

@@ -41,7 +41,7 @@ theme_override_constants/margin_top = 280
 [node name="Jouer" type="Button" parent="CenterContainer/VBoxContainer" unique_id=715509164]
 layout_mode = 2
 theme = ExtResource("4_1brpx")
-text = "Jouer"
+text = "Play"
 
 [node name="MarginContainer2" type="MarginContainer" parent="CenterContainer/VBoxContainer" unique_id=642936491]
 layout_mode = 2
@@ -50,7 +50,7 @@ theme_override_constants/margin_top = 16
 [node name="Niveaux" type="Button" parent="CenterContainer/VBoxContainer" unique_id=64015457]
 layout_mode = 2
 theme = ExtResource("4_1brpx")
-text = "Niveau"
+text = "Levels"
 
 [node name="MarginContainer3" type="MarginContainer" parent="CenterContainer/VBoxContainer" unique_id=1239721981]
 layout_mode = 2
@@ -59,7 +59,7 @@ theme_override_constants/margin_top = 16
 [node name="Credits" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1590653019]
 layout_mode = 2
 theme = ExtResource("4_1brpx")
-text = "Crédits"
+text = "Credits"
 
 [node name="MarginContainer4" type="MarginContainer" parent="CenterContainer/VBoxContainer" unique_id=2006665840]
 layout_mode = 2
@@ -68,7 +68,7 @@ theme_override_constants/margin_top = 16
 [node name="Quitter" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1515461436]
 layout_mode = 2
 theme = ExtResource("4_1brpx")
-text = "Quitter"
+text = "Exit"
 
 [node name="MarginContainer5" type="MarginContainer" parent="CenterContainer/VBoxContainer" unique_id=2050036243]
 layout_mode = 2
