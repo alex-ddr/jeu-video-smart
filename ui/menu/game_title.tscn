@@ -5,17 +5,23 @@
 [ext_resource type="Texture2D" uid="uid://xfqyluba776j" path="res://assets/title/title_bounce.png" id="3_a6jfw"]
 [ext_resource type="Texture2D" uid="uid://co0gxdivmyl64" path="res://assets/title/title_bound.png" id="4_hictj"]
 
-[node name="GameTitle" type="Node2D" unique_id=766906421]
+[node name="GameTitle" type="Control" unique_id=1137182338]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_3a1fe")
 
 [node name="Title&" type="Sprite2D" parent="." unique_id=831681551]
-position = Vector2(628, 295)
+position = Vector2(166, 277)
 texture = ExtResource("2_eu02b")
+offset = Vector2(-13, -40)
 
 [node name="TitleBounce" type="Sprite2D" parent="." unique_id=1538819560]
-position = Vector2(590, 195)
+position = Vector2(166, 277)
 texture = ExtResource("3_a6jfw")
+offset = Vector2(-51, -141)
 
 [node name="TitleBound" type="Sprite2D" parent="." unique_id=1468389052]
-position = Vector2(618, 457)
+position = Vector2(166, 277)
 texture = ExtResource("4_hictj")
+offset = Vector2(-23, 122)

@@ -58,7 +58,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.5019608)
+color = Color(0.14405432, 0.14404303, 0.17891562, 0.53333336)
 script = ExtResource("5_tf0e0")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PauseMenu" unique_id=2121639135]
@@ -81,10 +81,18 @@ layout_mode = 2
 theme = ExtResource("6_bo1jx")
 text = "RESUME"
 
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PauseMenu/VBoxContainer" unique_id=1499328513]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
 [node name="ButtonRestart" type="Button" parent="CanvasLayer/PauseMenu/VBoxContainer" unique_id=1035677648]
 layout_mode = 2
 theme = ExtResource("6_bo1jx")
 text = "RESTART"
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/PauseMenu/VBoxContainer" unique_id=1908240437]
+layout_mode = 2
+theme_override_constants/margin_top = 10
 
 [node name="ButtonMenu" type="Button" parent="CanvasLayer/PauseMenu/VBoxContainer" unique_id=432517804]
 layout_mode = 2
