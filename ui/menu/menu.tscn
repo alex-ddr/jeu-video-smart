@@ -78,6 +78,8 @@ script = ExtResource("5_vlit4")
 layout_mode = 2
 theme_override_constants/margin_bottom = 139
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1026650019]
+
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Jouer" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Niveaux" to="." method="_on_levels_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]

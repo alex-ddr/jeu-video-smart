@@ -12,12 +12,14 @@
 [ext_resource type="PackedScene" uid="uid://bbl44w74iuc6f" path="res://entities/pickups/star.tscn" id="8_yl1mi"]
 [ext_resource type="Script" uid="uid://vrbv37dksf5g" path="res://levels/ambiances/desert_ambiance.gd" id="11_cv3ny"]
 [ext_resource type="PackedScene" uid="uid://p6m8xluee2n8" path="res://ui/styles/default_panel.tscn" id="12_3ikky"]
+[ext_resource type="PackedScene" uid="uid://cppax03yetbki" path="res://components/musics/level_music.tscn" id="13_6whv2"]
+[ext_resource type="AudioStream" uid="uid://53y15otw4iws" path="res://assets/musics/desert_music.mp3" id="14_quhwx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jtsug"]
 font_size = 70
 font_color = Color(0.20784314, 0.20784314, 0.25490198, 1)
 
-[node name="LevelMaxou" type="Node2D" unique_id=1801286688]
+[node name="LevelDesert1" type="Node2D" unique_id=1801286688]
 script = ExtResource("1_4e7cb")
 
 [node name="FinDeNveau" parent="." unique_id=2098824404 instance=ExtResource("6_jtcbo")]
@@ -108,3 +110,6 @@ text = "Be careful, a cactus !
 Do not touch it, even with the ball."
 label_settings = SubResource("LabelSettings_jtsug")
 horizontal_alignment = 1
+
+[node name="Music" parent="." unique_id=1510945142 instance=ExtResource("13_6whv2")]
+stream = ExtResource("14_quhwx")

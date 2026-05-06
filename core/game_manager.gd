@@ -48,14 +48,17 @@ func _play_intro_sound(nb_intros: int):
 
 func _play_music() -> void:
 	music_player = AudioStreamPlayer.new()
-	music_player.stream = load("res://assets/musics/musique_jeu.mp3")
+	var stream = load("res://assets/musics/musique_jeu.mp3") as AudioStreamMP3
+	stream.loop = true
+	music_player.stream = stream
 	music_player.volume_db = -3.0
 	add_child(music_player)
 
-	var scene_path = get_tree().current_scene.scene_file_path
-	if scene_path == MAIN_MENU:
+	if intro_player :
 		var intro_duration = intro_player.stream.get_length()
 		await get_tree().create_timer(max(intro_duration - 0.5, 0.0)).timeout
+	var scene_path = get_tree().current_scene.scene_file_path
+	if scene_path == MAIN_MENU:
 		music_player.play()
 
 

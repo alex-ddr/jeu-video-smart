@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://d16ikhrssu8rs" path="res://components/death_zone/death_zone.tscn" id="12_6wx8s"]
 [ext_resource type="Script" uid="uid://r2rwt4x0qdf3" path="res://levels/ambiances/night_ambiance.gd" id="12_srovw"]
 [ext_resource type="PackedScene" uid="uid://p6m8xluee2n8" path="res://ui/styles/default_panel.tscn" id="14_po5qr"]
+[ext_resource type="PackedScene" uid="uid://cppax03yetbki" path="res://components/musics/level_music.tscn" id="15_txyxr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_txyxr"]
 font_size = 70
@@ -91,7 +92,7 @@ position = Vector2(-1206, 180)
 checkpoint_id = 1
 
 [node name="NightFilter" type="CanvasModulate" parent="." unique_id=725745904]
-color = Color(0.101960786, 0.101960786, 0.18039216, 1)
+color = Color(0.7058824, 0.6862745, 1, 1)
 script = ExtResource("12_srovw")
 
 [node name="DeathZone" parent="." unique_id=150261952 instance=ExtResource("12_6wx8s")]
@@ -113,4 +114,5 @@ text = "Ground is toxic innit ?"
 label_settings = SubResource("LabelSettings_txyxr")
 horizontal_alignment = 1
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=333250]
+[node name="Music" parent="." unique_id=1510945142 instance=ExtResource("15_txyxr")]
+volume_db = 0.0

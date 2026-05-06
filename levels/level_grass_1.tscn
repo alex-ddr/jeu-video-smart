@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://cuqlc0p3y53dg" path="res://entities/bloc/breakable_bloc.tscn" id="9_fku4g"]
 [ext_resource type="PackedScene" uid="uid://d16ikhrssu8rs" path="res://components/death_zone/death_zone.tscn" id="10_rfxrs"]
 [ext_resource type="Script" uid="uid://vrbv37dksf5g" path="res://levels/ambiances/desert_ambiance.gd" id="11_gh7wj"]
+[ext_resource type="PackedScene" uid="uid://cppax03yetbki" path="res://components/musics/level_music.tscn" id="12_gupvj"]
+[ext_resource type="AudioStream" uid="uid://dam8weixcqpd2" path="res://assets/musics/grass_music.mp3" id="13_0j2i5"]
 
 [node name="LevelAlex" type="Node2D" unique_id=1801286688]
 script = ExtResource("1_yudgs")
@@ -65,5 +67,8 @@ position = Vector2(2207, 576)
 checkpoint_id = 1
 
 [node name="SunFilter" type="CanvasModulate" parent="." unique_id=1340432584]
-color = Color(0.9867721, 0.9436496, 0.8555064, 1)
+color = Color(0.9882353, 0.94509804, 0.85490197, 1)
 script = ExtResource("11_gh7wj")
+
+[node name="Music" parent="." unique_id=1510945142 instance=ExtResource("12_gupvj")]
+stream = ExtResource("13_0j2i5")
