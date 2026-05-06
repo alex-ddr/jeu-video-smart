@@ -24,6 +24,10 @@ GameManager="*uid://dbahd52g1x7dn"
 Global="*uid://cruhk2ovyqgfd"
 IrisWipe="*uid://dam88yl0quhv4"
 
+[display]
+
+window/size/mode=3
+
 [dotnet]
 
 project/assembly_name="Jeu Video Spikeball"
