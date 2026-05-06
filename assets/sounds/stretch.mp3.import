@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://7dgsgifqnln1"
-path="res://.godot/imported/stretch.mp3-f0ae30bed083332626a47cf55bbb2844.mp3str"
+path="res://.godot/imported/stretch.mp3-184a1dce578539abe92c9b0ed9951288.mp3str"
 
 [deps]
 
-source_file="res://assets/Sounds/stretch.mp3"
-dest_files=["res://.godot/imported/stretch.mp3-f0ae30bed083332626a47cf55bbb2844.mp3str"]
+source_file="res://assets/sounds/stretch.mp3"
+dest_files=["res://.godot/imported/stretch.mp3-184a1dce578539abe92c9b0ed9951288.mp3str"]
 
 [params]
 

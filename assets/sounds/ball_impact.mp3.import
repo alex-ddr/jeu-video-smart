@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://cfmt15vxo263u"
-path="res://.godot/imported/ball_impact.mp3-d6419d67a03877479a88351eaf0a0b3d.mp3str"
+path="res://.godot/imported/ball_impact.mp3-a3fc1c185b08997d0f9aa3b3327de0ed.mp3str"
 
 [deps]
 
-source_file="res://assets/Sounds/ball_impact.mp3"
-dest_files=["res://.godot/imported/ball_impact.mp3-d6419d67a03877479a88351eaf0a0b3d.mp3str"]
+source_file="res://assets/sounds/ball_impact.mp3"
+dest_files=["res://.godot/imported/ball_impact.mp3-a3fc1c185b08997d0f9aa3b3327de0ed.mp3str"]
 
 [params]
 

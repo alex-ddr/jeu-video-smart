@@ -1,6 +1,13 @@
 @tool
 extends CanvasModulate
 
+@export_enum("desert", "night", "forest", "ice") var ambiance_type: String = "night"
+
 func _ready() -> void:
-	Global.set_torch_intensity_night()
-	color = Color("b7c7ffff")
+	var data = Global.AMBIANCES[ambiance_type]
+	color = data.color
+	
+	Global.current_ambiance_type = ambiance_type
+	Global.current_ambiance_data = data
+	
+	Global.ambiance_changed.emit.call_deferred(ambiance_type, data)
