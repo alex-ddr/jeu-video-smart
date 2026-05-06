@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://db77iuepeaitv" path="res://ui/menu/menu.gd" id="1_v6ljw"]
 [ext_resource type="PackedScene" uid="uid://dpimmjxmkpn0m" path="res://assets/backgrounds/background_sky.tscn" id="2_sky"]
 [ext_resource type="PackedScene" uid="uid://bsgjsont5yngs" path="res://ui/menu/game_title.tscn" id="3_title"]
+[ext_resource type="Theme" uid="uid://dccgwd38wtghj" path="res://ui/theme/main_theme.tres" id="4_1brpx"]
 [ext_resource type="AudioStream" uid="uid://e8c6ejghsers" path="res://assets/musics/musique_jeu.mp3" id="6_music"]
 
 [node name="Menu" type="Control" unique_id=1988223885]
@@ -31,7 +32,7 @@ grow_vertical = 2
 layout_mode = 2
 
 [node name="GameTitle" parent="CenterContainer/VBoxContainer" unique_id=1684002282 instance=ExtResource("3_title")]
-layout_mode = 2
+position = Vector2(-553, -438)
 
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer" unique_id=339801943]
 layout_mode = 2
@@ -39,6 +40,7 @@ theme_override_constants/margin_top = 24
 
 [node name="Jouer" type="Button" parent="CenterContainer/VBoxContainer" unique_id=715509164]
 layout_mode = 2
+theme = ExtResource("4_1brpx")
 text = "Jouer"
 
 [node name="MarginContainer2" type="MarginContainer" parent="CenterContainer/VBoxContainer" unique_id=642936491]
@@ -47,6 +49,7 @@ theme_override_constants/margin_top = 16
 
 [node name="Niveaux" type="Button" parent="CenterContainer/VBoxContainer" unique_id=64015457]
 layout_mode = 2
+theme = ExtResource("4_1brpx")
 text = "Niveau"
 
 [node name="MarginContainer3" type="MarginContainer" parent="CenterContainer/VBoxContainer" unique_id=1239721981]
@@ -55,6 +58,7 @@ theme_override_constants/margin_top = 16
 
 [node name="Credits" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1590653019]
 layout_mode = 2
+theme = ExtResource("4_1brpx")
 text = "Crédits"
 
 [node name="MarginContainer4" type="MarginContainer" parent="CenterContainer/VBoxContainer" unique_id=2006665840]
@@ -63,6 +67,7 @@ theme_override_constants/margin_top = 16
 
 [node name="Quitter" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1515461436]
 layout_mode = 2
+theme = ExtResource("4_1brpx")
 text = "Quitter"
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=730261878]

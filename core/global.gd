@@ -10,8 +10,8 @@ var nb_stars_collected: int = 0
 #Life
 signal lives_changed()
 
-var max_lives: int = 3
-var current_lives: int = 3
+var max_lives: int = 5
+var current_lives: int = 5
 
 signal ball_ground(ball_pos: Vector2)
 signal checkpoint(id: int)
@@ -29,3 +29,9 @@ func set_torch_intensity_desert():
 	torch_intensity = 0.2
 func set_torch_intensity_snow():
 	torch_intensity = 0.3
+#checkpoint 
+var current_checkpoint_id: int = 0 # Par défaut à 0 au début du niveau
+
+func _ready():
+	# On connecte le signal pour mettre à jour l'ID dès qu'un checkpoint est touché
+	checkpoint.connect(func(id: int): current_checkpoint_id = id)

@@ -6,17 +6,23 @@ const LEVELS := [
 	"res://levels/1.1_level.tscn",
 	"res://levels/1.2_level.tscn",
 	"res://levels/1.3_level.tscn",
-	"res://levels/level_alex.tscn",
-	"res://levels/level_alois.tscn",
-	"res://levels/level_maxou.tscn",
-	"res://levels/level_robin.tscn",
+	"res://levels/level_grass_1.tscn",
+	"res://levels/level_snow_1.tscn",
+	"res://levels/level_desert_1.tscn",
+	"res://levels/level_space_1.tscn",
 ]
 
-var save_data := {"unlocked_level": 0 }
+var save_data := {"unlocked_level" : 0}
 var level_index : int = 0
 
 func _ready() -> void:
-	save_data["unlocked_level"] = 0
+	level_index = 0
+	load_game()
+	
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("fullscreen_toggle"):
+		fullscreen_toggle()
+
 
 func go_to_menu() -> void:
 	await IrisWipe.close_transition(0.2)
@@ -25,6 +31,7 @@ func go_to_menu() -> void:
 
 
 func start_game(level_index_new: int = level_index) -> void:
+	Global.current_checkpoint_id = 0
 	level_index = level_index_new
 	var error :Error = get_tree().change_scene_to_file(LEVELS[level_index])
 	if (error != OK):
@@ -35,8 +42,9 @@ func start_game(level_index_new: int = level_index) -> void:
 func load_next_level() -> void:
 	await IrisWipe.close_transition()
 	var next = level_index + 1
+	print("unlocked_level :",save_data.get("unlocked_level", 0))
 	if next > save_data.get("unlocked_level", 0):
-		var save_data := {"unlocked_level": 0, "checkpoint_id": 0}
+		save_data["unlocked_level"] = next
 		save_game() # On sauvegarde la progression sur le disque dur
 	if next >= LEVELS.size():
 		go_to_menu()
@@ -56,3 +64,9 @@ func load_game() -> void:
 	file.close()
 	if result is Dictionary:
 		save_data = result
+		
+func fullscreen_toggle() -> void:
+	if (DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN):
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)

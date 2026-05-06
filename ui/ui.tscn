@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://d1fsslsh0w2uv" path="res://ui/hud/lives_container.gd" id="3_wl5ax"]
 [ext_resource type="Texture2D" uid="uid://cuiggptyw1j3q" path="res://assets/textures/sprites/Tiles/bomb.png" id="4_vkava"]
 [ext_resource type="Script" uid="uid://ccmsb5bibkbfy" path="res://ui/menu/pause_menu.gd" id="5_tf0e0"]
-[ext_resource type="Theme" uid="uid://dqyhxma3gbwhm" path="res://assets/UI/button.tres" id="6_obcwv"]
+[ext_resource type="Theme" uid="uid://dccgwd38wtghj" path="res://ui/theme/main_theme.tres" id="6_bo1jx"]
 [ext_resource type="AudioStream" uid="uid://d03h5asi6olgp" path="res://assets/sounds/benkirb-shine-11-268907.mp3" id="7_bo1jx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_nllf8"]
@@ -78,17 +78,17 @@ alignment = 1
 
 [node name="ButtonResume" type="Button" parent="CanvasLayer/PauseMenu/VBoxContainer" unique_id=1007613376]
 layout_mode = 2
-theme = ExtResource("6_obcwv")
+theme = ExtResource("6_bo1jx")
 text = "RESUME"
 
 [node name="ButtonRestart" type="Button" parent="CanvasLayer/PauseMenu/VBoxContainer" unique_id=1035677648]
 layout_mode = 2
-theme = ExtResource("6_obcwv")
+theme = ExtResource("6_bo1jx")
 text = "RESTART"
 
 [node name="ButtonMenu" type="Button" parent="CanvasLayer/PauseMenu/VBoxContainer" unique_id=432517804]
 layout_mode = 2
-theme = ExtResource("6_obcwv")
+theme = ExtResource("6_bo1jx")
 text = "MENU"
 
 [node name="StarSound" type="AudioStreamPlayer" parent="." unique_id=98403052]

@@ -14,9 +14,9 @@ func _ready() -> void:
 	player_in = false
 	add_to_group("checkpoints")
 	#On peut ajouter ca si on veut que le checkpoint de départ soit directement activé
-	#if(checkpoint_id==0):
-	#	activated = true
-	#	_set_visual_activated()
+	if(checkpoint_id==0):
+		activated = true
+		_set_visual_activated()
 
 
 func _on_body_entered(body: Node) -> void:

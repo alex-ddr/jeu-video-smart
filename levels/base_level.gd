@@ -34,7 +34,8 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("respawn"):
-		_spawn_at_checkpoint()
+		player_duo.p1.lose_life()
+		
 
 func _spawn_at_checkpoint() -> void:
 	for cp in get_tree().get_nodes_in_group("checkpoints"):
@@ -54,13 +55,10 @@ func _spawn_at_checkpoint() -> void:
 				ball.set_deferred("global_position", new_ball_pos)
 				ball.set_deferred("linear_velocity", Vector2.ZERO)
 				ball.set_deferred("angular_velocity", 0.0)
-				ball.set_deferred("freeze", false)
 
 			player_duo.p1.input_enabled = true
 			player_duo.p2.input_enabled = true
-
-			#await get_tree().create_timer(1.0).timeout
-			
+			await get_tree().create_timer(1.0).timeout
 			if ball != null:
 				ball.set_deferred("freeze", false)
 			player_duo.p1.input_enabled = true
