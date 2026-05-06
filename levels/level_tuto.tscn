@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://b03txbedgs6uf"]
+[gd_scene format=4 uid="uid://816rjy2vbeg1"]
 
 [ext_resource type="Script" uid="uid://c7l0o0x8gmpyl" path="res://levels/base_level.gd" id="1_hucgk"]
 [ext_resource type="PackedScene" uid="uid://dpimmjxmkpn0m" path="res://assets/backgrounds/background_sky.tscn" id="2_6vvj7"]
