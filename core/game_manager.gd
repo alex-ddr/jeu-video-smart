@@ -18,6 +18,7 @@ var save_data := {"unlocked_level" : 0}
 var level_index : int = 0
 
 func _ready() -> void:
+	fullscreen_toggle()
 	add_world_environment()
 	await get_tree().process_frame
 	_play_intro_sound(8)
@@ -130,7 +131,7 @@ func add_world_environment() -> void:
 	env.set_glow_level(1, 0.8)
 	env.set_glow_level(2, 0.5)
 	env.set_glow_level(3, 0.2)
-	env.glow_intensity = 0.6
+	env.glow_intensity = 0.8
 	env.glow_strength = 0.5
 	env.glow_bloom = 0.8
 	env.glow_hdr_threshold = 1.2

@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://by3b6jsmk88o5" path="res://assets/textures/sprites/Tiles/bomb_active.png" id="3_w5wpn"]
 [ext_resource type="PackedScene" uid="uid://d0dw2t4yav5c2" path="res://components/random_pitch/sfx.tscn" id="4_6mrx1"]
 [ext_resource type="AudioStream" uid="uid://bkyptoj24oio6" path="res://assets/sounds/swoosh.mp3" id="5_thfbu"]
+[ext_resource type="AudioStream" uid="uid://cfmt15vxo263u" path="res://assets/sounds/ball_impact.mp3" id="6_thfbu"]
+[ext_resource type="AudioStream" uid="uid://dr5viy4g3whuf" path="res://assets/sounds/ball_wind.mp3" id="7_jci73"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w5wpn"]
 radius = 21.023796
@@ -56,5 +58,13 @@ texture_scale = 0.5
 
 [node name="Swoosh" parent="." unique_id=128283154 instance=ExtResource("4_6mrx1")]
 stream = ExtResource("5_thfbu")
+volume_db = -10.0
+
+[node name="BallImpact" parent="." unique_id=974027489 instance=ExtResource("4_6mrx1")]
+stream = ExtResource("6_thfbu")
+
+[node name="BallWind" parent="." unique_id=51640360 instance=ExtResource("4_6mrx1")]
+stream = ExtResource("7_jci73")
+volume_db = -5.0
 
 [connection signal="body_entered" from="GroundDetector" to="." method="_on_ground_detector_body_entered"]

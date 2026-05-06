@@ -14,6 +14,8 @@ func _ready() -> void:
 		ball = $Ball if has_node("Ball") else null
 		
 	player_duo.add_to_group("players")
+	player_duo.p1.add_to_group("players")
+	player_duo.p2.add_to_group("players")
 
 	Global.checkpoint.connect(_on_checkpoint_reached)
 	#On spawn au premier checkpoint

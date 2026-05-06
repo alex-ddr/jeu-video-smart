@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://bre5lt8a1i4nv" path="res://assets/textures/sprites/Tiles/star.png" id="1_dlwui"]
 [ext_resource type="Script" uid="uid://chn5fn6yvlpux" path="res://entities/pickups/star.gd" id="1_hc71p"]
+[ext_resource type="PackedScene" uid="uid://d0dw2t4yav5c2" path="res://components/random_pitch/sfx.tscn" id="3_7evuu"]
+[ext_resource type="AudioStream" uid="uid://d03h5asi6olgp" path="res://assets/sounds/benkirb-shine-11-268907.mp3" id="4_5w4ph"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dlwui"]
 
@@ -16,5 +18,9 @@ texture = ExtResource("1_dlwui")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=954581019]
 scale = Vector2(3.1275406, 3.6497602)
 shape = SubResource("CircleShape2D_dlwui")
+
+[node name="Sfx" parent="." unique_id=128283154 instance=ExtResource("3_7evuu")]
+stream = ExtResource("4_5w4ph")
+volume_db = -10.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

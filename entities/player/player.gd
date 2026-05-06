@@ -39,6 +39,7 @@ const JUMP_BUFFER_TIME: float = 0.1
 const BODY_HEIGHT_OFFSET: float = 86.0
 const BODY_HEIGHT_DEFAULT: float = 42.0
 const ROPE_HOOK_OFFSET: float = 60.0
+const PUSH_FORCE: float = 900.0
 
 # --------------------------- State Variables ---------------------------
 var desired_direction: float = 0.0
@@ -98,7 +99,7 @@ func _ready() -> void:
 
 # --------------------------- God Mode ---------------------------
 func _input(event: InputEvent) -> void:
-	if event is InputEventKey and event.keycode == KEY_Y and event.pressed and not event.echo:
+	if  (event is InputEventKey and event.keycode == KEY_Y and event.pressed and not event.echo):
 		god_mode = !god_mode
 		if god_mode:
 			_saved_collision_mask = collision_mask
@@ -116,6 +117,7 @@ func _physics_process(delta: float) -> void:
 	_sync_collision()
 	_update_animation()
 	move_and_slide()
+	_push_rigidbodies()
 	_detect_ice()
 
 
@@ -378,3 +380,15 @@ func _update_footsteps(delta: float) -> void:
 		footstep_player.stream = _footstep_sounds[randi() % _footstep_sounds.size()]
 		footstep_player.pitch_scale = randf_range(0.9, 1.1)
 		footstep_player.play_random()
+
+func _push_rigidbodies() -> void:
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var body = collision.get_collider()
+
+		if body is RigidBody2D:
+			var n: Vector2 = collision.get_normal()
+
+			# Seulement collisions latérales
+			if absf(n.x) > 0.7:
+				body.apply_central_force(Vector2(-n.x * PUSH_FORCE, 0.0))

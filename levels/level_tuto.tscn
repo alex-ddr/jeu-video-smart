@@ -5,7 +5,7 @@
 [ext_resource type="TileSet" uid="uid://d1y8h0rdrpg8g" path="res://assets/tilesets/map.tres" id="3_5ddvy"]
 [ext_resource type="PackedScene" uid="uid://buk0b6k7thffd" path="res://entities/player/player_duo.tscn" id="4_g80ey"]
 [ext_resource type="PackedScene" uid="uid://dljijvpev1b30" path="res://components/camera/camera.tscn" id="5_yfwfw"]
-[ext_resource type="Script" uid="uid://bwt7n686a4348" path="res://components/camera/camera-tuto.gd" id="6_4tf0p"]
+[ext_resource type="Script" path="res://components/camera/camera-tuto.gd" id="6_4tf0p"]
 [ext_resource type="PackedScene" uid="uid://mpu5pvoq06a4" path="res://entities/checkpoint/check_point.tscn" id="6_g8n1r"]
 [ext_resource type="PackedScene" uid="uid://p6m8xluee2n8" path="res://ui/styles/default_panel.tscn" id="7_puwvh"]
 [ext_resource type="Texture2D" uid="uid://bmo83gteu2wym" path="res://assets/textures/entities/players/player_top_1.png" id="8_l1d8s"]
@@ -15,10 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://b3842ao2s7q1a" path="res://entities/button/spawn_ball_button.tscn" id="12_80j1l"]
 [ext_resource type="PackedScene" uid="uid://ccaqsjdfwknlj" path="res://entities/end_level_sign/end_level_sign.tscn" id="13_oqv65"]
 [ext_resource type="PackedScene" uid="uid://d0rkeu0nf6ns6" path="res://ui/ui.tscn" id="14_jkvda"]
-[ext_resource type="PackedScene" uid="uid://d16ikhrssu8rs" path="res://components/death_zone/death_zone.tscn" id="17_5ddvz"]
-[ext_resource type="Script" uid="uid://bsvxq1mgknshd" path="res://levels/ambiances/neutral_ambiance.gd" id="15_6vvj7"]
 [ext_resource type="Script" path="res://levels/ambiances/neutral_ambiance.gd" id="15_6vvj7"]
 [ext_resource type="AudioStream" uid="uid://d28pikj8mwv4w" path="res://assets/musics/tuto_music.mp3" id="16_5ddvy"]
+[ext_resource type="PackedScene" uid="uid://d16ikhrssu8rs" path="res://components/death_zone/death_zone.tscn" id="17_5ddvz"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pbkyd"]
 font_size = 70
@@ -85,31 +84,31 @@ texture = ExtResource("10_75lo3")
 [node name="q" parent="Labels/Panel/Player2" unique_id=1251163672 instance=ExtResource("9_ae85m")]
 position = Vector2(552, 216)
 white_height = 87.0
-key = "k"
+key = "arrow_left"
 
 [node name="z" parent="Labels/Panel/Player2" unique_id=901061068 instance=ExtResource("9_ae85m")]
 position = Vector2(664, 104)
 white_height = 87.0
-key = "o"
+key = "arrow_up"
 
 [node name="s" parent="Labels/Panel/Player2" unique_id=1605719629 instance=ExtResource("9_ae85m")]
 position = Vector2(664, 216)
 white_height = 87.0
-key = "l"
+key = "arrow_down"
 
 [node name="d" parent="Labels/Panel/Player2" unique_id=626969154 instance=ExtResource("9_ae85m")]
 position = Vector2(776, 216)
 white_height = 87.0
-key = "m"
+key = "arrow_right"
 
 [node name="Panel2" parent="Labels" unique_id=809686705 instance=ExtResource("7_puwvh")]
 offset_left = 4136.0
-offset_top = -600.0
+offset_top = -558.0
 offset_right = 4568.0
 offset_bottom = -360.0
 
 [node name="Player1" type="Node2D" parent="Labels/Panel2" unique_id=591195334]
-position = Vector2(-112, -109)
+position = Vector2(-112, -151)
 
 [node name="PlayerTop1" type="Sprite2D" parent="Labels/Panel2/Player1" unique_id=1547097247]
 position = Vector2(215, 366)
@@ -121,16 +120,16 @@ white_height = 44.185
 key = "space"
 
 [node name="Player2" type="Node2D" parent="Labels/Panel2" unique_id=2034921015]
-position = Vector2(-336, -109)
+position = Vector2(-336, -151)
 
 [node name="PlayerTop2" type="Sprite2D" parent="Labels/Panel2/Player2" unique_id=965912666]
 position = Vector2(662, 366)
 texture = ExtResource("10_75lo3")
 
 [node name="p" parent="Labels/Panel2/Player2" unique_id=909840438 instance=ExtResource("9_ae85m")]
-position = Vector2(664, 216)
-white_height = 87.0
-key = "p"
+position = Vector2(664, 231)
+white_height = 60.0
+key = "capslock_icon"
 
 [node name="Panel3" parent="Labels" unique_id=1376336782 instance=ExtResource("7_puwvh")]
 offset_left = 7048.0
@@ -243,9 +242,9 @@ position = Vector2(662, 366)
 texture = ExtResource("10_75lo3")
 
 [node name="p" parent="Labels/Panel9/Player2" unique_id=1714220075 instance=ExtResource("9_ae85m")]
-position = Vector2(664, 216)
-white_height = 87.0
-key = "caret"
+position = Vector2(664, 228)
+white_height = 64.0
+key = "ctrl"
 
 [node name="Panel10" parent="Labels" unique_id=1345270067 instance=ExtResource("7_puwvh")]
 offset_left = 19808.0
@@ -266,10 +265,10 @@ label_settings = SubResource("LabelSettings_pbkyd")
 horizontal_alignment = 1
 
 [node name="Panel8" parent="Labels" unique_id=1826453285 instance=ExtResource("7_puwvh")]
-offset_left = 14328.0
-offset_top = -504.0
-offset_right = 15232.0
-offset_bottom = -296.0
+offset_left = 13792.0
+offset_top = -480.0
+offset_right = 15120.0
+offset_bottom = -272.0
 pivot_offset = Vector2(5712, -416)
 
 [node name="Label2" type="Label" parent="Labels/Panel8" unique_id=526461873]
@@ -279,7 +278,7 @@ offset_top = 56.0
 offset_right = 706.0
 offset_bottom = 153.0
 pivot_offset = Vector2(-1776, -317)
-text = "to catch the ball."
+text = "to lift the ball off the ground"
 label_settings = SubResource("LabelSettings_pbkyd")
 
 [node name="q" parent="Labels/Panel8" unique_id=1023866713 instance=ExtResource("9_ae85m")]
@@ -296,7 +295,7 @@ position = Vector2(11568, -544)
 position = Vector2(16820, -1689)
 
 [node name="Button" parent="." unique_id=1907211927 instance=ExtResource("12_80j1l")]
-position = Vector2(13952, 0)
+position = Vector2(13551, 0)
 
 [node name="FinDeNveau" parent="." unique_id=2098824404 instance=ExtResource("13_oqv65")]
 position = Vector2(20336, -333)
