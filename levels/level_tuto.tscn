@@ -129,7 +129,7 @@ key = "p"
 [node name="Panel3" parent="Labels" unique_id=1376336782 instance=ExtResource("7_puwvh")]
 offset_left = 7048.0
 offset_top = -232.0
-offset_right = 7601.0
+offset_right = 7654.0
 offset_bottom = -64.0
 
 [node name="Label2" type="Label" parent="Labels/Panel3" unique_id=1427403795]
@@ -144,7 +144,7 @@ label_settings = SubResource("LabelSettings_pbkyd")
 [node name="Panel4" parent="Labels" unique_id=987955335 instance=ExtResource("7_puwvh")]
 offset_left = -3552.0
 offset_top = -400.0
-offset_right = -3078.0
+offset_right = -3036.0
 offset_bottom = -232.0
 
 [node name="Label3" type="Label" parent="Labels/Panel4" unique_id=1537664764]
@@ -159,15 +159,15 @@ label_settings = SubResource("LabelSettings_pbkyd")
 [node name="Panel6" parent="Labels" unique_id=268254713 instance=ExtResource("7_puwvh")]
 offset_left = 1016.0
 offset_top = -552.0
-offset_right = 1931.0
+offset_right = 2012.0
 offset_bottom = -274.0
 
 [node name="Label3" type="Label" parent="Labels/Panel6" unique_id=249866036]
 layout_mode = 0
 offset_left = 64.0
-offset_top = 40.0
-offset_right = 401.0
-offset_bottom = 137.0
+offset_top = 43.0
+offset_right = 931.0
+offset_bottom = 226.0
 text = "The smaller, the faster.
 The bigger, the heavier "
 label_settings = SubResource("LabelSettings_pbkyd")
@@ -175,7 +175,7 @@ label_settings = SubResource("LabelSettings_pbkyd")
 [node name="Panel5" parent="Labels" unique_id=1273473010 instance=ExtResource("7_puwvh")]
 offset_left = 8483.0
 offset_top = -559.0
-offset_right = 9073.0
+offset_right = 9121.0
 offset_bottom = -391.0
 
 [node name="Label2" type="Label" parent="Labels/Panel5" unique_id=482114414]
@@ -190,7 +190,7 @@ label_settings = SubResource("LabelSettings_pbkyd")
 [node name="Panel7" parent="Labels" unique_id=2115812430 instance=ExtResource("7_puwvh")]
 offset_left = 11312.0
 offset_top = -928.0
-offset_right = 11931.0
+offset_right = 11989.0
 offset_bottom = -760.0
 
 [node name="Label2" type="Label" parent="Labels/Panel7" unique_id=458777060]
@@ -205,7 +205,7 @@ label_settings = SubResource("LabelSettings_pbkyd")
 [node name="Panel9" parent="Labels" unique_id=111896192 instance=ExtResource("7_puwvh")]
 offset_left = 16376.0
 offset_top = -1107.0
-offset_right = 17334.0
+offset_right = 17397.0
 offset_bottom = -720.0
 
 [node name="Label2" type="Label" parent="Labels/Panel9" unique_id=1694962699]
@@ -244,7 +244,7 @@ key = "caret"
 [node name="Panel10" parent="Labels" unique_id=1345270067 instance=ExtResource("7_puwvh")]
 offset_left = 19808.0
 offset_top = -1062.0
-offset_right = 20903.0
+offset_right = 21014.0
 offset_bottom = -688.0
 
 [node name="Label2" type="Label" parent="Labels/Panel10" unique_id=1031490424]
@@ -262,7 +262,7 @@ horizontal_alignment = 1
 [node name="Panel8" parent="Labels" unique_id=1826453285 instance=ExtResource("7_puwvh")]
 offset_left = 14328.0
 offset_top = -504.0
-offset_right = 15166.0
+offset_right = 15232.0
 offset_bottom = -296.0
 pivot_offset = Vector2(5712, -416)
 
