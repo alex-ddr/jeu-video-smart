@@ -1,5 +1,10 @@
 extends Control
 
+@onready var play_button = $CenterContainer/VBoxContainer/Jouer
+
+func _ready() -> void:
+	play_button.grab_focus()
+
 func _on_play_pressed() -> void:
 	GameManager.start_game(0)
 
