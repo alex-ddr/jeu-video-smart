@@ -1,21 +1,21 @@
 [gd_scene format=4 uid="uid://816rjy2vbeg1"]
 
-[ext_resource type="Script" uid="uid://c7l0o0x8gmpyl" path="res://levels/base_level.gd" id="1_pb5ki"]
-[ext_resource type="PackedScene" uid="uid://dpimmjxmkpn0m" path="res://assets/backgrounds/background_sky.tscn" id="2_u6sk8"]
-[ext_resource type="TileSet" uid="uid://d1y8h0rdrpg8g" path="res://assets/tilesets/map.tres" id="3_isi08"]
-[ext_resource type="PackedScene" uid="uid://buk0b6k7thffd" path="res://entities/player/player_duo.tscn" id="4_u6sk8"]
-[ext_resource type="PackedScene" uid="uid://dljijvpev1b30" path="res://components/camera/camera.tscn" id="5_m2x4y"]
+[ext_resource type="Script" uid="uid://c7l0o0x8gmpyl" path="res://levels/base_level.gd" id="1_hucgk"]
+[ext_resource type="PackedScene" uid="uid://dpimmjxmkpn0m" path="res://assets/backgrounds/background_sky.tscn" id="2_6vvj7"]
+[ext_resource type="TileSet" uid="uid://d1y8h0rdrpg8g" path="res://assets/tilesets/map.tres" id="3_5ddvy"]
+[ext_resource type="PackedScene" uid="uid://buk0b6k7thffd" path="res://entities/player/player_duo.tscn" id="4_g80ey"]
+[ext_resource type="PackedScene" uid="uid://dljijvpev1b30" path="res://components/camera/camera.tscn" id="5_yfwfw"]
 [ext_resource type="Script" uid="uid://bwt7n686a4348" path="res://components/camera/camera-tuto.gd" id="6_4tf0p"]
-[ext_resource type="PackedScene" uid="uid://mpu5pvoq06a4" path="res://entities/checkpoint/check_point.tscn" id="6_m2x4y"]
-[ext_resource type="PackedScene" uid="uid://p6m8xluee2n8" path="res://ui/styles/default_panel.tscn" id="7_ba534"]
-[ext_resource type="PackedScene" uid="uid://dicj2aptak56v" path="res://ui/styles/key.tscn" id="8_8juk4"]
-[ext_resource type="Texture2D" uid="uid://bmo83gteu2wym" path="res://assets/textures/entities/players/player_top_1.png" id="8_68huq"]
-[ext_resource type="Texture2D" uid="uid://djivl625mq7j" path="res://assets/textures/entities/players/player_top_2.png" id="10_yk0xm"]
-[ext_resource type="PackedScene" uid="uid://bbl44w74iuc6f" path="res://entities/pickups/star.tscn" id="11_yk0xm"]
-[ext_resource type="PackedScene" uid="uid://b3842ao2s7q1a" path="res://entities/button/spawn_ball_button.tscn" id="12_bvuha"]
-[ext_resource type="PackedScene" uid="uid://ccaqsjdfwknlj" path="res://entities/end_level_sign/end_level_sign.tscn" id="13_xce4v"]
-[ext_resource type="PackedScene" uid="uid://d0rkeu0nf6ns6" path="res://ui/ui.tscn" id="14_pjb8y"]
-[ext_resource type="Script" uid="uid://r2rwt4x0qdf3" path="res://levels/ambiances/night_ambiance.gd" id="15_0oygx"]
+[ext_resource type="PackedScene" uid="uid://mpu5pvoq06a4" path="res://entities/checkpoint/check_point.tscn" id="6_g8n1r"]
+[ext_resource type="PackedScene" uid="uid://p6m8xluee2n8" path="res://ui/styles/default_panel.tscn" id="7_puwvh"]
+[ext_resource type="Texture2D" uid="uid://bmo83gteu2wym" path="res://assets/textures/entities/players/player_top_1.png" id="8_l1d8s"]
+[ext_resource type="PackedScene" uid="uid://dicj2aptak56v" path="res://ui/styles/key.tscn" id="9_ae85m"]
+[ext_resource type="Texture2D" uid="uid://djivl625mq7j" path="res://assets/textures/entities/players/player_top_2.png" id="10_75lo3"]
+[ext_resource type="PackedScene" uid="uid://bbl44w74iuc6f" path="res://entities/pickups/star.tscn" id="11_2oy0l"]
+[ext_resource type="PackedScene" uid="uid://b3842ao2s7q1a" path="res://entities/button/spawn_ball_button.tscn" id="12_80j1l"]
+[ext_resource type="PackedScene" uid="uid://ccaqsjdfwknlj" path="res://entities/end_level_sign/end_level_sign.tscn" id="13_oqv65"]
+[ext_resource type="PackedScene" uid="uid://d0rkeu0nf6ns6" path="res://ui/ui.tscn" id="14_jkvda"]
+[ext_resource type="PackedScene" uid="uid://d16ikhrssu8rs" path="res://components/death_zone/death_zone.tscn" id="16_5ddvy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pbkyd"]
 font_size = 70
@@ -299,3 +299,6 @@ position = Vector2(13952, 0)
 position = Vector2(20336, -333)
 
 [node name="UI" parent="." unique_id=1452071461 instance=ExtResource("14_jkvda")]
+
+[node name="DeathZone" parent="." unique_id=150261952 instance=ExtResource("16_5ddvy")]
+position = Vector2(6493, 570)

@@ -7,7 +7,7 @@ z_index = -2
 
 [node name="espace" type="Parallax2D" parent="." unique_id=2008332492]
 repeat_size = Vector2(4096, 0)
-repeat_times = 6
+repeat_times = 11
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="espace" unique_id=1068164517]
 show_behind_parent = true
@@ -17,7 +17,7 @@ tile_set = ExtResource("1_qjbks")
 [node name="collines" type="Parallax2D" parent="." unique_id=66010330]
 repeat_size = Vector2(4096, 0)
 autoscroll = Vector2(40, 0)
-repeat_times = 6
+repeat_times = 11
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="collines" unique_id=905033877]
 tile_map_data = PackedByteArray("AAD/////AAAAAAIAAAD+////AAADAAEAAAD9////AAACAAEAAAD8////AAABAAEAAAAAAP//AAABAAEAAAABAP//AAACAAEAAAACAP//AAADAAEAAAADAP//AAAAAAIAAAA=")
@@ -25,7 +25,7 @@ tile_set = ExtResource("1_qjbks")
 
 [node name="ciel" type="Parallax2D" parent="." unique_id=1166780106]
 repeat_size = Vector2(4096, 0)
-repeat_times = 6
+repeat_times = 11
 
 [node name="TileMapLayer" type="TileMapLayer" parent="ciel" unique_id=1394628462]
 tile_map_data = PackedByteArray("AAD9//7/AAABAAIAAAAAAP7/AAABAAIAAAABAP7/AAABAAIAAAACAP7/AAABAAIAAAD8//7/AAABAAIAAAD///7/AAABAAIAAAD+//7/AAABAAIAAAADAP7/AAABAAIAAAA=")
@@ -34,7 +34,7 @@ tile_set = ExtResource("1_qjbks")
 [node name="nuages" type="Parallax2D" parent="." unique_id=889811870]
 repeat_size = Vector2(4096, 0)
 autoscroll = Vector2(20, 0)
-repeat_times = 6
+repeat_times = 11
 
 [node name="TileMapLayer" type="TileMapLayer" parent="nuages" unique_id=850613241]
 tile_map_data = PackedByteArray("AAD+//3/AAAAAAAAAAD///3/AAAAAAAAAAAAAP3/AAAAAAAAAAD8//3/AAAAAAAAAAD9//3/AAAAAAAAAAACAP3/AAAAAAAAAAABAP3/AAAAAAAAAAADAP3/AAAAAAAAAAA=")
@@ -42,7 +42,7 @@ tile_set = ExtResource("1_qjbks")
 
 [node name="sol" type="Parallax2D" parent="." unique_id=397577943]
 repeat_size = Vector2(4096, 0)
-repeat_times = 6
+repeat_times = 11
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="sol" unique_id=741733091]
 show_behind_parent = true
