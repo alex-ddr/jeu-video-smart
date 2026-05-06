@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://dr5viy4g3whuf"
-path="res://.godot/imported/ball_wind.mp3-d65dabc057516e304614ead3ac44804f.mp3str"
+path="res://.godot/imported/ball_wind.mp3-b7ea7c16f6808ea3bcdd354a36b29889.mp3str"
 
 [deps]
 
-source_file="res://assets/Sounds/ball_wind.mp3"
-dest_files=["res://.godot/imported/ball_wind.mp3-d65dabc057516e304614ead3ac44804f.mp3str"]
+source_file="res://assets/sounds/ball_wind.mp3"
+dest_files=["res://.godot/imported/ball_wind.mp3-b7ea7c16f6808ea3bcdd354a36b29889.mp3str"]
 
 [params]
 

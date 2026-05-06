@@ -1,7 +1,7 @@
 @tool
 extends CanvasModulate
 
-@export_enum("desert", "night", "forest", "ice") var ambiance_type: String = "ice"
+@export_enum("desert", "night", "forest", "ice") var ambiance_type: String = "neutral"
 
 func _ready() -> void:
 	var data = Global.AMBIANCES[ambiance_type]
