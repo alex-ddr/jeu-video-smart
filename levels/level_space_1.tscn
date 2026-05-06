@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://67667b2mo1rr" path="res://entities/cactus/cactus.tscn" id="8_np4pb"]
 [ext_resource type="PackedScene" uid="uid://bbl44w74iuc6f" path="res://entities/pickups/star.tscn" id="8_qnhld"]
 [ext_resource type="PackedScene" uid="uid://cuqlc0p3y53dg" path="res://entities/bloc/breakable_bloc.tscn" id="9_ou88s"]
+[ext_resource type="PackedScene" uid="uid://d16ikhrssu8rs" path="res://components/death_zone/death_zone.tscn" id="12_6wx8s"]
 
 [node name="LevelAlex" type="Node2D" unique_id=1801286688]
 script = ExtResource("1_igs2j")
@@ -87,3 +88,6 @@ position = Vector2(1259, -87)
 [node name="CheckPoint2" parent="." unique_id=1087839577 instance=ExtResource("5_hemka")]
 position = Vector2(-1206, 188)
 checkpoint_id = 1
+
+[node name="DeathZone" parent="." unique_id=150261952 instance=ExtResource("12_6wx8s")]
+position = Vector2(-4000, 544)
