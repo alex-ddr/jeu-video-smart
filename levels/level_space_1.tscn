@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cuqlc0p3y53dg" path="res://entities/bloc/breakable_bloc.tscn" id="9_ou88s"]
 [ext_resource type="PackedScene" uid="uid://d16ikhrssu8rs" path="res://components/death_zone/death_zone.tscn" id="12_6wx8s"]
 
-[node name="LevelAlex" type="Node2D" unique_id=1801286688]
+[node name="LevelSpace1" type="Node2D" unique_id=1801286688]
 script = ExtResource("1_igs2j")
 
 [node name="BackgroundNight" parent="." unique_id=1567205257 instance=ExtResource("7_q1c4o")]
