@@ -6,6 +6,7 @@ var ball: RigidBody2D
 var indice_checkpoint : int = 0
 
 func _ready() -> void:
+	
 	if has_node("PlayerBallCameraTrio/PlayerDuo"):
 		player_duo = $PlayerBallCameraTrio/PlayerDuo
 		ball = $PlayerBallCameraTrio/Ball if has_node("PlayerBallCameraTrio/Ball") else null

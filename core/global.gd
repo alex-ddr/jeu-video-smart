@@ -20,3 +20,12 @@ const TILE_SIZE: int = 128
 const GRAVITY: Vector2 = Vector2(0, TILE_SIZE * 25.0)
 
 const DEFAULT_HEIGHT: float = 70.0
+
+#Lights
+var torch_intensity = 1
+func set_torch_intensity_night():
+	torch_intensity = 1
+func set_torch_intensity_desert():
+	torch_intensity = 0.2
+func set_torch_intensity_snow():
+	torch_intensity = 0.3

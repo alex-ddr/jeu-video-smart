@@ -69,6 +69,9 @@ var release_target_height: float = 0.0
 @onready var feet: AnimatedSprite2D = $AnimatedFeet
 @onready var collision: CollisionShape2D = $CollisionShape2D
 @onready var bounce_sound : AudioStreamPlayer = $BounceSound
+@onready var light_occluder_2d: LightOccluder2D = $LightOccluder2D
+@onready var polygon_2d: Polygon2D = $Polygon2D
+
 
 
 var god_mode: bool = false
@@ -271,6 +274,7 @@ func _sync_collision() -> void:
 		var old_height = last_height + BODY_HEIGHT_OFFSET
 		shape.size = Vector2(64.0, old_height)
 		collision.position.y = -old_height / 2.0
+	_update_occluder(shape)
 
 	if desired_direction != 0:
 		var flipped = desired_direction < 0
@@ -300,3 +304,19 @@ func _detect_ice() -> void:
 		if layer & 32:
 			is_on_ice = true
 			break
+			
+func _update_occluder(shape : RectangleShape2D):
+	
+	if light_occluder_2d.occluder != null:
+		# On calcule les demi-mesures pour dessiner depuis le centre
+		var w = shape.size.x / 2.0
+		var h = shape.size.y / 2.0
+		
+		# On crée les 4 coins du rectangle pour correspondre à la collision
+		light_occluder_2d.occluder.polygon = PackedVector2Array([
+			Vector2(-w, -h), # Haut-gauche
+			Vector2(w, -h),  # Haut-droit
+			Vector2(w, h),   # Bas-droit
+			Vector2(-w, h)   # Bas-gauche
+			])
+		light_occluder_2d.position.y = collision.position.y

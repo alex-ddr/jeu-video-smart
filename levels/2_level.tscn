@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://u1jkcdbmbwyn"]
+[gd_scene format=4 uid="uid://b5pevusc3q7dn"]
 
 [ext_resource type="PackedScene" uid="uid://tc1awydwhnex" path="res://assets/backgrounds/background_desert.tscn" id="1_0s5gn"]
 [ext_resource type="Script" uid="uid://c7l0o0x8gmpyl" path="res://levels/base_level.gd" id="1_vnlb4"]
@@ -59,3 +59,6 @@ offset_top = -560.0
 offset_right = 682.0
 offset_bottom = -463.0
 text = "To move up and down"
+
+[node name="BreakingBadFilter" type="CanvasModulate" parent="." unique_id=201592999]
+color = Color(0.9999997, 0.88425314, 0.6495047, 1)

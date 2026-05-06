@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://dvhm0vti0yj0v"]
+[gd_scene format=4 uid="uid://dsxyfgbufeit7"]
 
 [ext_resource type="Script" uid="uid://c7l0o0x8gmpyl" path="res://levels/base_level.gd" id="1_i0h1l"]
 [ext_resource type="PackedScene" uid="uid://tc1awydwhnex" path="res://assets/backgrounds/background_desert.tscn" id="2_lc2et"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cmtcqvk785ec6" path="res://components/player_ball_camera_node/player_ball_camera_trio.tscn" id="4_lc2et"]
 [ext_resource type="PackedScene" uid="uid://67667b2mo1rr" path="res://entities/cactus/cactus.tscn" id="4_lq477"]
 [ext_resource type="PackedScene" uid="uid://mpu5pvoq06a4" path="res://entities/checkpoint/check_point.tscn" id="5_ibddb"]
+[ext_resource type="Script" uid="uid://vrbv37dksf5g" path="res://levels/ambiances/desert_ambiance.gd" id="7_lq477"]
 
 [node name="LevelAlex2" type="Node2D" unique_id=1343623861]
 script = ExtResource("1_i0h1l")
@@ -24,3 +25,7 @@ position = Vector2(-811, -64)
 
 [node name="Cactus" parent="." unique_id=208284507 instance=ExtResource("4_lq477")]
 position = Vector2(1823, 192)
+
+[node name="BreakingBadFilter" type="CanvasModulate" parent="." unique_id=1736690278]
+color = Color(0.9999997, 0.88425314, 0.6495047, 1)
+script = ExtResource("7_lq477")

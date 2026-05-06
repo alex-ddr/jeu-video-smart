@@ -19,7 +19,7 @@ animations = [{
 }]
 
 [sub_resource type="Gradient" id="Gradient_vkmmf"]
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+colors = PackedColorArray(1, 1, 1, 0.7058824, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ynion"]
 gradient = SubResource("Gradient_vkmmf")
@@ -38,9 +38,24 @@ autoplay = "default"
 frame = 1
 frame_progress = 0.28754276
 
-[node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D" unique_id=1835326527]
-position = Vector2(-1, -17)
+[node name="secondary_light" type="PointLight2D" parent="AnimatedSprite2D" unique_id=618398842]
+position = Vector2(8, -47.5)
+color = Color(0.96862745, 0.7019608, 0.29411766, 1)
+range_item_cull_mask = 3
+shadow_enabled = true
+shadow_filter_smooth = 15.0
+texture = SubResource("GradientTexture2D_ynion")
+texture_scale = 4.0
+
+[node name="main_light" type="PointLight2D" parent="AnimatedSprite2D" unique_id=1835326527]
+position = Vector2(4, -19)
 scale = Vector2(1, 1.5)
 color = Color(0.96862745, 0.7019608, 0.29411766, 1)
-energy = 0.8
+energy = 0.1
+range_item_cull_mask = 3
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 15.0
+shadow_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_ynion")
+texture_scale = 3.0
