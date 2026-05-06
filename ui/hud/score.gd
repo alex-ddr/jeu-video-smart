@@ -5,6 +5,7 @@ extends Label
 func _ready() -> void:
 	Global.stars_collected.connect(actu_score)
 	actu_score("update")
+	star_sound.volume_db = -20
 	
 func actu_score(state : String):
 	if (state == "collected"):

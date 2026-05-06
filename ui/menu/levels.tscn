@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://k6qtb0erkgrj" path="res://ui/menu/levels.gd" id="1_8mavb"]
 [ext_resource type="PackedScene" uid="uid://tc1awydwhnex" path="res://assets/backgrounds/background_desert.tscn" id="2_h7ntp"]
 [ext_resource type="Theme" uid="uid://dccgwd38wtghj" path="res://ui/theme/main_theme.tres" id="4_3ebmn"]
+[ext_resource type="Script" uid="uid://3b1dovjn5a7o" path="res://ui/menu/button_audio.gd" id="4_bmnjo"]
 
 [node name="Levels" type="Control" unique_id=1867424599]
 layout_mode = 3
@@ -28,19 +29,19 @@ layout_mode = 2
 alignment = 1
 
 [node name="Node2D" parent="CenterContainer/VBoxContainer" unique_id=247614796 instance=ExtResource("2_h7ntp")]
-position = Vector2(0, 200)
+position = Vector2(0, 240)
 scale = Vector2(0.5, 0.5)
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=560376642]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.20784314, 0.20784314, 0.25490198, 1)
 theme_override_font_sizes/font_size = 37
-text = "Sélection du niveau"
+text = "Select the Level"
 horizontal_alignment = 1
 
 [node name="MarginContainer2" type="MarginContainer" parent="CenterContainer/VBoxContainer" unique_id=11419199]
 layout_mode = 2
-theme_override_constants/margin_top = 50
+theme_override_constants/margin_top = 120
 theme_override_constants/margin_right = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=1172350659]
@@ -50,6 +51,7 @@ layout_mode = 2
 layout_mode = 2
 theme = ExtResource("4_3ebmn")
 text = "Level 1"
+script = ExtResource("4_bmnjo")
 
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=540849964]
 layout_mode = 2
@@ -60,7 +62,8 @@ theme_override_constants/margin_right = 0
 [node name="level_2" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=2101577680]
 layout_mode = 2
 theme = ExtResource("4_3ebmn")
-text = "Niveau 2"
+text = "Level 2"
+script = ExtResource("4_bmnjo")
 
 [node name="MarginContainer2" type="MarginContainer" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1090674792]
 layout_mode = 2
@@ -71,7 +74,8 @@ theme_override_constants/margin_right = 0
 [node name="level_3" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1850042797]
 layout_mode = 2
 theme = ExtResource("4_3ebmn")
-text = "Niveau 3"
+text = "Level 3"
+script = ExtResource("4_bmnjo")
 
 [node name="MarginContainer3" type="MarginContainer" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=2028440201]
 layout_mode = 2
@@ -82,7 +86,8 @@ theme_override_constants/margin_right = 0
 [node name="level_4" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=380272193]
 layout_mode = 2
 theme = ExtResource("4_3ebmn")
-text = "Niveau 4"
+text = "Level 4"
+script = ExtResource("4_bmnjo")
 
 [node name="MarginContainer4" type="MarginContainer" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=227786109]
 layout_mode = 2
@@ -93,7 +98,8 @@ theme_override_constants/margin_right = 0
 [node name="level_5" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1017557342]
 layout_mode = 2
 theme = ExtResource("4_3ebmn")
-text = "Niveau 5"
+text = "Level 5"
+script = ExtResource("4_bmnjo")
 
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer" unique_id=521351512]
 layout_mode = 2
@@ -108,7 +114,8 @@ alignment = 1
 custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
 theme = ExtResource("4_3ebmn")
-text = "Retour"
+text = "Back"
+script = ExtResource("4_bmnjo")
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/level_1" to="." method="_on_level_pressed" binds= [0]]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/level_2" to="." method="_on_level_pressed" binds= [1]]

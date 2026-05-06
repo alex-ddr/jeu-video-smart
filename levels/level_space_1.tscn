@@ -112,3 +112,5 @@ offset_bottom = 335.0
 text = "Ground is toxic innit ?"
 label_settings = SubResource("LabelSettings_txyxr")
 horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=333250]

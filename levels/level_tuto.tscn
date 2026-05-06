@@ -160,31 +160,31 @@ label_settings = SubResource("LabelSettings_pbkyd")
 offset_left = 1016.0
 offset_top = -552.0
 offset_right = 2012.0
-offset_bottom = -274.0
+offset_bottom = -374.0
 
 [node name="Label3" type="Label" parent="Labels/Panel6" unique_id=249866036]
 layout_mode = 0
 offset_left = 64.0
-offset_top = 43.0
+offset_top = 48.0
 offset_right = 931.0
-offset_bottom = 226.0
-text = "The smaller, the faster.
-The bigger, the heavier "
+offset_bottom = 231.0
+text = "The smaller, the faster."
 label_settings = SubResource("LabelSettings_pbkyd")
 
-[node name="Panel5" parent="Labels" unique_id=1273473010 instance=ExtResource("7_puwvh")]
-offset_left = 8483.0
-offset_top = -559.0
-offset_right = 9121.0
-offset_bottom = -391.0
-
-[node name="Label2" type="Label" parent="Labels/Panel5" unique_id=482114414]
+[node name="Panel6" parent="Labels/Panel6" unique_id=1010734259 instance=ExtResource("7_puwvh")]
 layout_mode = 0
-offset_left = 56.0
-offset_top = 37.0
-offset_right = 456.0
-offset_bottom = 134.0
-text = "Get over here."
+offset_left = 7373.0
+offset_top = -68.0
+offset_right = 8369.0
+offset_bottom = 110.0
+
+[node name="Label3" type="Label" parent="Labels/Panel6/Panel6" unique_id=148149498]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 48.0
+offset_right = 931.0
+offset_bottom = 231.0
+text = "The taller, the stronger."
 label_settings = SubResource("LabelSettings_pbkyd")
 
 [node name="Panel7" parent="Labels" unique_id=2115812430 instance=ExtResource("7_puwvh")]

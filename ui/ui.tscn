@@ -3,9 +3,11 @@
 [ext_resource type="Script" uid="uid://bj8w4n3fc3ovr" path="res://ui/hud/fps_counter.gd" id="1_ul028"]
 [ext_resource type="Script" uid="uid://cklhnwq6dfcv3" path="res://ui/hud/score.gd" id="1_wonny"]
 [ext_resource type="Script" uid="uid://d1fsslsh0w2uv" path="res://ui/hud/lives_container.gd" id="3_wl5ax"]
-[ext_resource type="Texture2D" uid="uid://cuiggptyw1j3q" path="res://assets/textures/sprites/Tiles/bomb.png" id="4_vkava"]
+[ext_resource type="Texture2D" uid="uid://pmy4e4uou718" path="res://assets/textures/sprites/Tiles/bomb_outline.png" id="4_bo1jx"]
+[ext_resource type="Script" uid="uid://bq2w874ojqxxa" path="res://ui/stars_container.gd" id="5_gycre"]
 [ext_resource type="Script" uid="uid://ccmsb5bibkbfy" path="res://ui/menu/pause_menu.gd" id="5_tf0e0"]
 [ext_resource type="Theme" uid="uid://dccgwd38wtghj" path="res://ui/theme/main_theme.tres" id="6_bo1jx"]
+[ext_resource type="Texture2D" uid="uid://cd0weiokwxtm7" path="res://assets/textures/sprites/Tiles/star_outline.png" id="6_pa1oa"]
 [ext_resource type="AudioStream" uid="uid://d03h5asi6olgp" path="res://assets/sounds/benkirb-shine-11-268907.mp3" id="7_bo1jx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_nllf8"]
@@ -45,11 +47,32 @@ grow_horizontal = 2
 label_settings = SubResource("LabelSettings_27fn8")
 script = ExtResource("1_wonny")
 
-[node name="Lives_Container" type="HBoxContainer" parent="CanvasLayer" unique_id=1151643089]
-offset_right = 80.0
-offset_bottom = 32.0
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=1216528598]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Lives_Container" type="HBoxContainer" parent="CanvasLayer/MarginContainer" unique_id=1151643089]
+layout_mode = 2
 script = ExtResource("3_wl5ax")
-ball_texture = ExtResource("4_vkava")
+ball_texture = ExtResource("4_bo1jx")
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer" unique_id=1465971959]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Stars_Container" type="HBoxContainer" parent="CanvasLayer/MarginContainer2" unique_id=642129803]
+layout_mode = 2
+theme_override_constants/separation = -10
+script = ExtResource("5_gycre")
+star_texture = ExtResource("6_pa1oa")
 
 [node name="PauseMenu" type="ColorRect" parent="CanvasLayer" unique_id=393835365]
 process_mode = 3

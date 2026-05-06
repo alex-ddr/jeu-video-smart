@@ -3,8 +3,12 @@ extends Control
 @onready var retour_button = $CenterContainer/VBoxContainer/Retour
 
 const TEAM := [
-	"Raphaël Letourneur", "Maxence Heurtault", "Alexandre Didier",
-	"Alois Pinto de Silva -- Winnefeld", "Hugo Marin", "Robin Renous"
+	"Hugo MARIN",
+	"Robin RENOUS",
+	"Alexandre DIDIER",
+	"Maxence HEURTAULT",
+	"Raphaël LETOURNEUR", 
+	"Alois PINTO DE SILVA -- WINNEFIELD",
 ]
 
 func _ready() -> void:
