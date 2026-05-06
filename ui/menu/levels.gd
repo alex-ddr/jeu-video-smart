@@ -1,6 +1,6 @@
 extends Control
 
-@onready var level1_button = $CenterContainer/VBoxContainer/HBoxContainer/niv1
+@onready var level1_button = $CenterContainer/VBoxContainer/HBoxContainer/level_1
 
 func _ready() -> void:
 	GameManager.load_game()
@@ -9,19 +9,13 @@ func _ready() -> void:
 
 	var buttons_container = $CenterContainer/VBoxContainer/HBoxContainer
 
-	# Variable pour savoir quel index correspond à quel bouton
-	var level_idx = 0
 	for child in buttons_container.get_children():
 		if child is Button:
-			if level_idx > max_unlocked:
-				child.disabled = true
-			else:
-				child.disabled = false
-			level_idx += 1
+			var level_num = child.name.lstrip("level_").to_int()
+			child.disabled = level_num - 1 > max_unlocked
 
 func _on_level_pressed(index: int) -> void:
 	GameManager.start_game(index)
-
 
 func _on_back_pressed() -> void:
 	GameManager.go_to_menu()

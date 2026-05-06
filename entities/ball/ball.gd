@@ -70,9 +70,6 @@ func _on_ground_detector_body_entered(body: Node) -> void:
 		if body.name == "Acide":
 			lose_life()
 		
-	
-
-
 func lose_life() -> void:
 	Global.current_lives -= 1
 	Global.lives_changed.emit()

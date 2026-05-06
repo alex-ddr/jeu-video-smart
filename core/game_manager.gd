@@ -3,9 +3,7 @@ extends Node
 const SAVE_PATH := "user://save.json"
 const MAIN_MENU := "res://ui/menu/menu.tscn"
 const LEVELS := [
-	"res://levels/1.1_level.tscn",
-	"res://levels/1.2_level.tscn",
-	"res://levels/1.3_level.tscn",
+	"res://levels/level_tuto.tscn",
 	"res://levels/level_grass_1.tscn",
 	"res://levels/level_snow_1.tscn",
 	"res://levels/level_desert_1.tscn",

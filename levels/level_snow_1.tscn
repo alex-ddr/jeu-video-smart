@@ -55,6 +55,10 @@ _data = {
 &"animation": SubResource("Animation_6181x")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_2a4yi"]
+font_size = 70
+font_color = Color(0.20784314, 0.20784314, 0.25490198, 1)
+
 [node name="LevelAlois" type="Node2D" unique_id=1589479972]
 script = ExtResource("1_oqf58")
 
@@ -130,32 +134,34 @@ position = Vector2(4191, 1663)
 [node name="Panel" parent="." unique_id=144814975 instance=ExtResource("11_oweqb")]
 offset_left = 9982.0
 offset_top = 1035.0
-offset_right = 10567.0
+offset_right = 10623.0
 offset_bottom = 1301.0
 
-[node name="Label" type="Label" parent="Panel" unique_id=760414982]
+[node name="Label2" type="Label" parent="Panel" unique_id=1649420439]
 layout_mode = 0
-offset_left = 61.0
-offset_top = 44.0
-offset_right = 525.0
-offset_bottom = 227.0
+offset_left = -65.0
+offset_top = 37.0
+offset_right = 712.0
+offset_bottom = 220.0
 text = "Did you get
 all the stars ?"
+label_settings = SubResource("LabelSettings_2a4yi")
 horizontal_alignment = 1
 
 [node name="Panel2" parent="." unique_id=1844730220 instance=ExtResource("11_oweqb")]
 offset_left = 11062.0
 offset_top = -500.0
-offset_right = 11689.0
+offset_right = 11747.0
 offset_bottom = -234.0
 
-[node name="Label" type="Label" parent="Panel2" unique_id=520858254]
+[node name="Label2" type="Label" parent="Panel2" unique_id=1543134526]
 layout_mode = 0
-offset_left = 66.0
-offset_top = 83.0
-offset_right = 560.0
-offset_bottom = 266.0
+offset_left = -42.0
+offset_top = 88.0
+offset_right = 735.0
+offset_bottom = 197.0
 text = "Nothing here..."
+label_settings = SubResource("LabelSettings_2a4yi")
 horizontal_alignment = 1
 
 [node name="IceFilter" type="CanvasModulate" parent="." unique_id=392065174]

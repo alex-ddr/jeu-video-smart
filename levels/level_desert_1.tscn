@@ -11,10 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://67667b2mo1rr" path="res://entities/cactus/cactus.tscn" id="8_o4bsb"]
 [ext_resource type="PackedScene" uid="uid://bbl44w74iuc6f" path="res://entities/pickups/star.tscn" id="8_yl1mi"]
 [ext_resource type="Script" uid="uid://vrbv37dksf5g" path="res://levels/ambiances/desert_ambiance.gd" id="11_cv3ny"]
+[ext_resource type="PackedScene" uid="uid://p6m8xluee2n8" path="res://ui/styles/default_panel.tscn" id="12_3ikky"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_pav55"]
+[sub_resource type="LabelSettings" id="LabelSettings_jtsug"]
 font_size = 70
-font_color = Color(0, 0, 0, 1)
+font_color = Color(0.20784314, 0.20784314, 0.25490198, 1)
 
 [node name="LevelMaxou" type="Node2D" unique_id=1801286688]
 script = ExtResource("1_4e7cb")
@@ -27,7 +28,7 @@ position = Vector2(8561, 457)
 [node name="Stars" type="Node" parent="." unique_id=858761261]
 
 [node name="star" parent="Stars" unique_id=196880715 instance=ExtResource("8_yl1mi")]
-position = Vector2(3864, -574)
+position = Vector2(3885, -1092)
 scale = Vector2(1.5, 1.5)
 
 [node name="star2" parent="Stars" unique_id=1127546662 instance=ExtResource("8_yl1mi")]
@@ -83,17 +84,27 @@ position = Vector2(6846, 487)
 [node name="CheckPoint1" parent="CheckPoint" unique_id=351713259 instance=ExtResource("5_rffxt")]
 position = Vector2(117, 85)
 
-[node name="BreakingBadFilter" type="CanvasModulate" parent="." unique_id=196558466]
-color = Color(0.9999997, 0.88425314, 0.6495047, 1)
-script = ExtResource("11_cv3ny")
 [node name="CheckPoint2" parent="CheckPoint" unique_id=880782325 instance=ExtResource("5_rffxt")]
 position = Vector2(4253, -292)
 checkpoint_id = 1
 
-[node name="Label4" type="Label" parent="." unique_id=128416055]
-offset_left = 398.0
-offset_top = -235.0
-offset_right = 1066.0
-offset_bottom = -138.0
-text = "Be careful, a cacctus !"
-label_settings = SubResource("LabelSettings_pav55")
+[node name="BreakingBadFilter" type="CanvasModulate" parent="." unique_id=196558466]
+color = Color(0.9999997, 0.88425314, 0.6495047, 1)
+script = ExtResource("11_cv3ny")
+
+[node name="Panel" parent="." unique_id=144814975 instance=ExtResource("12_3ikky")]
+offset_left = -5.0
+offset_top = -507.0
+offset_right = 1451.0
+offset_bottom = -249.0
+
+[node name="Label2" type="Label" parent="Panel" unique_id=697754183]
+layout_mode = 0
+offset_left = 79.0
+offset_top = 34.0
+offset_right = 856.0
+offset_bottom = 143.0
+text = "Be careful, a cactus !
+Do not touch it, even with the ball."
+label_settings = SubResource("LabelSettings_jtsug")
+horizontal_alignment = 1

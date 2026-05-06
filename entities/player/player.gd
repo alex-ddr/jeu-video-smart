@@ -181,7 +181,7 @@ func lose_life() -> void:
 	if Global.current_lives <= 0:
 		Global.current_lives = Global.max_lives
 		Global.current_checkpoint_id = 0 # Sécurité : reset en cas de retour forcé au menu
-		GameManager.go_to_menu()
+		GameManager.start_game()
 	else:
 		# Procédure de respawn classique
 		velocity = Vector2.ZERO
