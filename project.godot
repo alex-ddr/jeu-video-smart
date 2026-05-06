@@ -20,9 +20,16 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 
 [autoload]
 
-Global="*uid://cruhk2ovyqgfd"
 GameManager="*uid://dbahd52g1x7dn"
+Global="*uid://cruhk2ovyqgfd"
 IrisWipe="*uid://dam88yl0quhv4"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
+window/stretch/aspect="expand"
 
 [dotnet]
 

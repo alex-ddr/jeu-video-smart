@@ -21,7 +21,7 @@ func _ready() -> void:
 	fullscreen_toggle()
 	add_world_environment()
 	await get_tree().process_frame
-	_play_intro_sound(8)
+	_play_intro_sound(7)
 	_play_music()
 	await IrisWipe.open_transition(3)
 	level_index = 0

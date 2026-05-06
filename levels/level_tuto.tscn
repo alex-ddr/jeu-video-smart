@@ -15,9 +15,10 @@
 [ext_resource type="PackedScene" uid="uid://b3842ao2s7q1a" path="res://entities/button/spawn_ball_button.tscn" id="12_80j1l"]
 [ext_resource type="PackedScene" uid="uid://ccaqsjdfwknlj" path="res://entities/end_level_sign/end_level_sign.tscn" id="13_oqv65"]
 [ext_resource type="PackedScene" uid="uid://d0rkeu0nf6ns6" path="res://ui/ui.tscn" id="14_jkvda"]
-[ext_resource type="Script" path="res://levels/ambiances/neutral_ambiance.gd" id="15_6vvj7"]
+[ext_resource type="Script" uid="uid://bsvxq1mgknshd" path="res://levels/ambiances/neutral_ambiance.gd" id="15_6vvj7"]
 [ext_resource type="AudioStream" uid="uid://d28pikj8mwv4w" path="res://assets/musics/tuto_music.mp3" id="16_5ddvy"]
 [ext_resource type="PackedScene" uid="uid://d16ikhrssu8rs" path="res://components/death_zone/death_zone.tscn" id="17_5ddvz"]
+[ext_resource type="PackedScene" uid="uid://cppax03yetbki" path="res://components/musics/level_music.tscn" id="18_g8n1r"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pbkyd"]
 font_size = 70
@@ -308,7 +309,5 @@ position = Vector2(6493, 570)
 [node name="PlainFilter" type="CanvasModulate" parent="." unique_id=29708761]
 script = ExtResource("15_6vvj7")
 
-[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1878972094]
+[node name="Music" parent="." unique_id=1510945142 instance=ExtResource("18_g8n1r")]
 stream = ExtResource("16_5ddvy")
-autoplay = true
-parameters/looping = true

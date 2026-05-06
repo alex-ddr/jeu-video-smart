@@ -144,7 +144,7 @@ func _play_ball_impact_sound(state: PhysicsDirectBodyState2D):
 
 	if _on_ground and not _was_on_ground and impact_speed > BOUNCE_MIN_IMPACT:
 		var t = clamp(inverse_lerp(BOUNCE_MIN_IMPACT, BOUNCE_MAX_IMPACT, impact_speed), 0.0, 1.0)
-		ball_sound.volume_db = lerp(-2, 10, t)
+		ball_sound.volume_db = lerp(-4, 5, t)
 		ball_sound.play_random()
 		_stop_wind_sound()
 		
