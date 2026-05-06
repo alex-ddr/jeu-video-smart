@@ -61,3 +61,4 @@ position = Vector2(2186, 874)
 
 [node name="CheckPoint2" parent="." unique_id=933353953 instance=ExtResource("5_jr0i3")]
 position = Vector2(2207, 576)
+checkpoint_id = 1
