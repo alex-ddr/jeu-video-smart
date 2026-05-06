@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://cea5c36bvgmga"]
+[gd_scene format=4 uid="uid://kcweo4flvmki"]
 
 [ext_resource type="Script" uid="uid://c7l0o0x8gmpyl" path="res://levels/base_level.gd" id="1_cc4f5"]
 [ext_resource type="PackedScene" uid="uid://tc1awydwhnex" path="res://assets/backgrounds/background_desert.tscn" id="2_pyoj2"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://mpu5pvoq06a4" path="res://entities/checkpoint/check_point.tscn" id="7_76iil"]
 [ext_resource type="PackedScene" uid="uid://ccaqsjdfwknlj" path="res://entities/end_level_sign/end_level_sign.tscn" id="8_e1r0y"]
 [ext_resource type="PackedScene" uid="uid://d16ikhrssu8rs" path="res://components/death_zone/death_zone.tscn" id="9_pyoj2"]
+[ext_resource type="Script" uid="uid://vrbv37dksf5g" path="res://levels/ambiances/desert_ambiance.gd" id="10_jgh5a"]
 
 [node name="3_level" type="Node2D" unique_id=978830671]
 script = ExtResource("1_cc4f5")
@@ -81,3 +82,7 @@ text = "Charge and realease"
 
 [node name="DeathZone" parent="." unique_id=150261952 instance=ExtResource("9_pyoj2")]
 position = Vector2(6272, 48)
+
+[node name="BreakingBadFilter" type="CanvasModulate" parent="." unique_id=41947141]
+color = Color(0.9999997, 0.88425314, 0.6495047, 1)
+script = ExtResource("10_jgh5a")

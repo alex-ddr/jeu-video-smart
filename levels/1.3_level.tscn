@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://bxf72hpwt2fof"]
+[gd_scene format=4 uid="uid://cl47n3qqfflfp"]
 
 [ext_resource type="Script" uid="uid://c7l0o0x8gmpyl" path="res://levels/base_level.gd" id="1_s3j6v"]
 [ext_resource type="PackedScene" uid="uid://tc1awydwhnex" path="res://assets/backgrounds/background_desert.tscn" id="2_t1jly"]
@@ -8,10 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://bbl44w74iuc6f" path="res://entities/pickups/star.tscn" id="6_ik08e"]
 [ext_resource type="PackedScene" uid="uid://mpu5pvoq06a4" path="res://entities/checkpoint/check_point.tscn" id="7_h3fq1"]
 [ext_resource type="PackedScene" uid="uid://ccaqsjdfwknlj" path="res://entities/end_level_sign/end_level_sign.tscn" id="8_56c5k"]
-[ext_resource type="Script" uid="uid://dj3ndk5f74w6y" path="res://ui/hud/label_indication_h.gd" id="9_uafxb"]
+[ext_resource type="Script" path="res://ui/hud/label_indication_h.gd" id="9_uafxb"]
 [ext_resource type="PackedScene" uid="uid://d16ikhrssu8rs" path="res://components/death_zone/death_zone.tscn" id="10_vxhlr"]
+[ext_resource type="Script" uid="uid://vrbv37dksf5g" path="res://levels/ambiances/desert_ambiance.gd" id="11_3yrki"]
 [ext_resource type="PackedScene" uid="uid://cuqlc0p3y53dg" path="res://entities/bloc/breakable_bloc.tscn" id="11_t1jly"]
-[ext_resource type="PackedScene" uid="uid://cmcqyf8075rkl" path="res://entities/pickups/life.tscn" id="12_oy52y"]
+[ext_resource type="PackedScene" path="res://entities/pickups/life.tscn" id="12_oy52y"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jv8fr"]
 font_size = 70
@@ -139,3 +140,7 @@ z_index = 1
 position = Vector2(3968, -64)
 collision_layer = 2
 collision_mask = 2
+
+[node name="BreakingBadFilter" type="CanvasModulate" parent="." unique_id=1180928001]
+color = Color(0.9999997, 0.88425314, 0.6495047, 1)
+script = ExtResource("11_3yrki")

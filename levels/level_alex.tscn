@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://dxycy3eamfrxx"]
+[gd_scene format=4 uid="uid://ba6ih0fk6gkg"]
 
 [ext_resource type="Script" uid="uid://c7l0o0x8gmpyl" path="res://levels/base_level.gd" id="1_yudgs"]
 [ext_resource type="PackedScene" uid="uid://c43c1w7mg51ro" path="res://assets/backgrounds/background_plains.tscn" id="2_rfxrs"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bbl44w74iuc6f" path="res://entities/pickups/star.tscn" id="8_oa5iq"]
 [ext_resource type="PackedScene" uid="uid://cuqlc0p3y53dg" path="res://entities/bloc/breakable_bloc.tscn" id="9_fku4g"]
 [ext_resource type="PackedScene" uid="uid://d16ikhrssu8rs" path="res://components/death_zone/death_zone.tscn" id="10_rfxrs"]
+[ext_resource type="Script" uid="uid://vrbv37dksf5g" path="res://levels/ambiances/desert_ambiance.gd" id="11_gh7wj"]
 
 [node name="LevelAlex" type="Node2D" unique_id=1801286688]
 script = ExtResource("1_yudgs")
@@ -57,8 +58,11 @@ position = Vector2(89, -1025)
 position = Vector2(217, -1025)
 
 [node name="DeathZone" parent="." unique_id=150261952 instance=ExtResource("10_rfxrs")]
-position = Vector2(2224, 1616)
+position = Vector2(2186, 874)
 
 [node name="CheckPoint2" parent="." unique_id=933353953 instance=ExtResource("5_jr0i3")]
 position = Vector2(2207, 576)
-checkpoint_id = 1
+
+[node name="SunFilter" type="CanvasModulate" parent="." unique_id=1340432584]
+color = Color(0.9867721, 0.9436496, 0.8555064, 1)
+script = ExtResource("11_gh7wj")

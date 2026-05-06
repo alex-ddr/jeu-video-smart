@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://c4rp1dt3s4pc3"]
+[gd_scene format=4 uid="uid://bsv85xjlu3nvr"]
 
 [ext_resource type="Script" uid="uid://c7l0o0x8gmpyl" path="res://levels/base_level.gd" id="1_4e7cb"]
 [ext_resource type="TileSet" uid="uid://d1y8h0rdrpg8g" path="res://assets/tilesets/map.tres" id="3_cv3ny"]
@@ -10,10 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://d0rkeu0nf6ns6" path="res://ui/ui.tscn" id="7_w58vb"]
 [ext_resource type="PackedScene" uid="uid://67667b2mo1rr" path="res://entities/cactus/cactus.tscn" id="8_o4bsb"]
 [ext_resource type="PackedScene" uid="uid://bbl44w74iuc6f" path="res://entities/pickups/star.tscn" id="8_yl1mi"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_pav55"]
-font_size = 70
-font_color = Color(0, 0, 0, 1)
+[ext_resource type="Script" uid="uid://vrbv37dksf5g" path="res://levels/ambiances/desert_ambiance.gd" id="11_cv3ny"]
 
 [node name="LevelMaxou" type="Node2D" unique_id=1801286688]
 script = ExtResource("1_4e7cb")
@@ -26,7 +23,7 @@ position = Vector2(8561, 457)
 [node name="Stars" type="Node" parent="." unique_id=858761261]
 
 [node name="star" parent="Stars" unique_id=196880715 instance=ExtResource("8_yl1mi")]
-position = Vector2(3864, -574)
+position = Vector2(4356, -574)
 scale = Vector2(1.5, 1.5)
 
 [node name="star2" parent="Stars" unique_id=1127546662 instance=ExtResource("8_yl1mi")]
@@ -57,7 +54,7 @@ position = Vector2(-350, 140)
 position = Vector2(3515, -282)
 
 [node name="Cactus2" parent="Cactus" unique_id=331298154 instance=ExtResource("8_o4bsb")]
-position = Vector2(5262, 102)
+position = Vector2(5152, 102)
 
 [node name="Cactus3" parent="Cactus" unique_id=841561996 instance=ExtResource("8_o4bsb")]
 position = Vector2(686, 105)
@@ -74,22 +71,20 @@ position = Vector2(7148, 487)
 [node name="Cactus7" parent="Cactus" unique_id=1926143008 instance=ExtResource("8_o4bsb")]
 position = Vector2(7258, 487)
 
+[node name="Cactus8" parent="Cactus" unique_id=230085195 instance=ExtResource("8_o4bsb")]
+position = Vector2(7363, 487)
+
 [node name="Cactus9" parent="Cactus" unique_id=956692368 instance=ExtResource("8_o4bsb")]
 position = Vector2(6846, 487)
+
+[node name="Cactus10" parent="Cactus" unique_id=1485200620 instance=ExtResource("8_o4bsb")]
+position = Vector2(7481, 489)
 
 [node name="CheckPoint" type="Node" parent="." unique_id=1339471151]
 
 [node name="CheckPoint1" parent="CheckPoint" unique_id=351713259 instance=ExtResource("5_rffxt")]
 position = Vector2(117, 85)
 
-[node name="CheckPoint2" parent="CheckPoint" unique_id=880782325 instance=ExtResource("5_rffxt")]
-position = Vector2(4253, -292)
-checkpoint_id = 1
-
-[node name="Label4" type="Label" parent="." unique_id=128416055]
-offset_left = 398.0
-offset_top = -235.0
-offset_right = 1066.0
-offset_bottom = -138.0
-text = "Be careful, a cacctus !"
-label_settings = SubResource("LabelSettings_pav55")
+[node name="BreakingBadFilter" type="CanvasModulate" parent="." unique_id=196558466]
+color = Color(0.9999997, 0.88425314, 0.6495047, 1)
+script = ExtResource("11_cv3ny")

@@ -18,15 +18,12 @@ signal launch_released(force: float)
 const TILE_SIZE = Global.TILE_SIZE
 const GRAVITY = Global.GRAVITY
 
-# Spring: Launch charge (Hard)
 const LAUNCH_CHARGE_STIFFNESS: float = 15.0
 const LAUNCH_CHARGE_DAMPING: float = 10.0
-
-# Spring: Launch release (Fast)
 const LAUNCH_RELEASE_STIFFNESS: float = 700.0
 const LAUNCH_RELEASE_DAMPING: float = 20.0
 
-# --------------------------- Parameters (Onready Config) -------
+# --------------------------- Parameters ---------------------------
 @onready var MIN_HEIGHT: float = 16.0
 @onready var MAX_HEIGHT: float = 200.0
 @onready var SIZE_SPEED: float = TILE_SIZE * 1.5
@@ -34,51 +31,66 @@ const LAUNCH_RELEASE_DAMPING: float = 20.0
 @onready var JUMP_VELOCITY: float = -TILE_SIZE * 12.0
 @onready var STOP_TOLERANCE: float = TILE_SIZE * 0.015
 
-const FALL_GRAVITY_MULTIPLIER: float = 1.8 # Le perso tombe presque 2x plus vite qu'il ne monte
-const JUMP_CUT_MULTIPLIER: float = 0.25     # Divise la vitesse par 2 si on lâche le bouton tôt
-const COYOTE_TIME: float = 0.2             # Temps de grâce en quittant un rebord (100ms)
-const JUMP_BUFFER_TIME: float = 0.1        # Mémorise l'appui sur saut avant de toucher le sol
+const FALL_GRAVITY_MULTIPLIER: float = 1.8
+const JUMP_CUT_MULTIPLIER: float = 0.25
+const COYOTE_TIME: float = 0.2
+const JUMP_BUFFER_TIME: float = 0.1
 
 const BODY_HEIGHT_OFFSET: float = 86.0
 const BODY_HEIGHT_DEFAULT: float = 42.0
 const ROPE_HOOK_OFFSET: float = 60.0
-# --------------------------- State Variables ---------------------
-# Movement
+
+# --------------------------- State Variables ---------------------------
 var desired_direction: float = 0.0
 var coyote_timer: float = 0.0
 var jump_buffer_timer: float = 0.0
-
 var is_invincible: bool = false
 
-
-# Height / Stretch
 @onready var height: float = Global.DEFAULT_HEIGHT
 @onready var last_height: float = height
 var height_velocity: float = 0.0
 
-
-# Launch
 var launch_charge_start_height: float = 0.0
 var pending_launch_force: float = 0.0
 var is_releasing_launch: bool = false
 var release_target_height: float = 0.0
+var _launch_charge_ratio: float = 0.0
 
-# --------------------------- Nodes -------------------------------
+# --------------------------- Nodes ---------------------------
 @onready var body: Sprite2D = $Body
 @onready var head: Sprite2D = $Head_p1 if action_jump == "p1_jump" else $Head_p2
 @onready var feet: AnimatedSprite2D = $AnimatedFeet
 @onready var collision: CollisionShape2D = $CollisionShape2D
 @onready var bounce_sound : AudioStreamPlayer = $BounceSound
+@onready var light_occluder_2d: LightOccluder2D = $LightOccluder2D
+@onready var polygon_2d: Polygon2D = $Polygon2D
 
+@onready var stretch_sound: AudioStreamPlayer = $StretchSound
+@onready var jump_sound: AudioStreamPlayer = $JumpSound
 
 var god_mode: bool = false
 var _saved_collision_mask: int = 0
 var is_on_ice: bool = false
 
+# --------------------------- Footsteps ---------------------------
+@export var footstep_path: String = "res://assets/sounds/footstep0%s.ogg"
+@export var footstep_volume: float = -15.0
+@export var footstep_interval_normal: float = 0.1
+@export var footstep_interval_start: float = 0.3
+
+var _footstep_timer: float = 0.0
+var _walk_time: float = 0.0
+var _footstep_sounds: Array = []
+
+@onready var footstep_player: AudioStreamPlayer = $FootstepPlayer
+
+
 func _ready() -> void:
 	collision.shape = collision.shape.duplicate()
 	head.visible = true
-	_saved_collision_mask = collision_mask  # sauvegarder au ready
+	_saved_collision_mask = collision_mask
+	for i in range(10):
+		_footstep_sounds.append(load(footstep_path % str(i)))
 
 
 # --------------------------- God Mode ---------------------------
@@ -90,13 +102,13 @@ func _input(event: InputEvent) -> void:
 			collision_mask = 0
 		else:
 			collision_mask = _saved_collision_mask
-	
+
+
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("ui_accept") or OS.get_keycode_string(KEY_Y) == "Y":
-		pass  # handled in _input
 	_apply_gravity(delta)
 	_read_input(delta)
 	_update_stretch(delta)
+	_update_stretch_sound()
 	_compute_launch()
 	_sync_collision()
 	_update_animation()
@@ -106,15 +118,15 @@ func _physics_process(delta: float) -> void:
 
 func _process(delta: float) -> void:
 	_sync_visuals()
+	_update_footsteps(delta)
+
 
 # --------------------------- Physics ---------------------------
 func _apply_gravity(delta: float) -> void:
 	if god_mode:
-		# Vol libre avec haut/bas
 		velocity.y = Input.get_axis(action_up, action_down) * TILE_SIZE * 8.0
 		velocity.x = desired_direction * TILE_SIZE * 8.0
 		return
-
 	if not is_on_floor():
 		var current_gravity = GRAVITY
 		if velocity.y > 0:
@@ -125,34 +137,32 @@ func _apply_gravity(delta: float) -> void:
 # --------------------------- Inputs ---------------------------
 func _read_input(delta: float) -> void:
 	if not input_enabled:
-		desired_direction = 0.0 # Arrête d'avancer
-		# Vous pouvez aussi forcer l'arrêt complet de la vélocité horizontale ici si besoin :
+		desired_direction = 0.0
 		velocity.x = move_toward(velocity.x, 0, TILE_SIZE * 40 * delta)
-		return # Empêche de lire la suite de la fonction
-	
+		return
+
 	desired_direction = Input.get_axis(action_left, action_right)
-	
-	# 1. Gestion des Timers (Coyote & Buffer)
+
 	if is_on_floor():
 		coyote_timer = COYOTE_TIME
 	else:
 		coyote_timer -= delta
-		
+
 	if Input.is_action_just_pressed(action_jump):
 		jump_buffer_timer = JUMP_BUFFER_TIME
 	else:
 		jump_buffer_timer -= delta
 
-	# 2. Exécution du Saut
 	if jump_buffer_timer > 0.0 and coyote_timer > 0.0:
 		var height_ratio = inverse_lerp(MIN_HEIGHT, MAX_HEIGHT, height)
 		velocity.y = lerp(JUMP_VELOCITY, JUMP_VELOCITY * 0.4, height_ratio)
-		jump_buffer_timer = 0.0 # Reset pour éviter le double-saut
-		coyote_timer = 0.0      # Reset pour éviter un autre saut en l'air
+		jump_buffer_timer = 0.0
+		coyote_timer = 0.0
+		jump_sound.play_random(0.1)
 
-	# 3. Hauteur de saut variable (Si le joueur lâche le bouton pendant l'ascension)
 	if Input.is_action_just_released(action_jump) and velocity.y < 0:
 		velocity.y *= JUMP_CUT_MULTIPLIER
+
 
 # --------------------------- Health & Death ---------------------------
 func lose_life() -> void:
@@ -177,9 +187,8 @@ func lose_life() -> void:
 		velocity = Vector2.ZERO
 		height_velocity = 0.0
 		is_invincible = true
-		
+
 		var level = get_tree().current_scene
-		
 		if level.has_method("_spawn_at_checkpoint"):
 			level._spawn_at_checkpoint()
 		else:
@@ -188,6 +197,7 @@ func lose_life() -> void:
 		# Petit délai d'invincibilité (1 seconde) pour éviter de mourir en boucle au respawn
 		await get_tree().create_timer(1.0).timeout
 		is_invincible = false
+
 
 # --------------------------- Stretch ---------------------------
 func _get_size_target() -> float:
@@ -202,7 +212,6 @@ func _get_launch_charge_target() -> float:
 		launch_charge_start_height = height
 	return MIN_HEIGHT
 
-# ça évite de pouvoir faire les deux stretch en même temps
 func _get_stretch_target() -> float:
 	if is_releasing_launch:
 		return release_target_height
@@ -215,12 +224,11 @@ func _update_stretch(delta: float) -> void:
 	var target = _get_stretch_target()
 
 	if is_releasing_launch:
-		bounce_sound.play()
+		if not bounce_sound.playing:
+			_play_bounce_sound()
 		var spring_force = (target - height) * LAUNCH_RELEASE_STIFFNESS
 		height_velocity += (spring_force - height_velocity * LAUNCH_RELEASE_DAMPING) * delta
 		height += height_velocity * delta
-		# Pas de clamp ici — on laisse dépasser pour le rebond
-		# On clamp seulement en dessous (le piston ne peut pas disparaître)
 		height = max(height, MIN_HEIGHT)
 
 	elif Input.is_action_pressed(action_launch) and is_on_floor():
@@ -237,6 +245,19 @@ func _update_stretch(delta: float) -> void:
 		height = clamp(height, MIN_HEIGHT, MAX_HEIGHT)
 
 
+# --------------------------- Sons ---------------------------
+func _play_bounce_sound() -> void:
+	bounce_sound.pitch_scale = lerp(0.7, 1.6, _launch_charge_ratio)
+	bounce_sound.play(0.4)
+
+func _update_stretch_sound() -> void:
+	if Input.is_action_pressed(action_launch) and is_on_floor() and not is_releasing_launch:
+		if not stretch_sound.playing:
+			stretch_sound.play_random()
+	else:
+		stretch_sound.stop()
+
+
 # --------------------------- Launch ---------------------------
 func _compute_launch() -> void:
 	if Input.is_action_just_released(action_launch) and is_on_floor():
@@ -246,7 +267,10 @@ func _compute_launch() -> void:
 			0.0, 1.0
 		)
 		pending_launch_force = retraction_ratio * MAX_LAUNCH_FORCE
-
+		_launch_charge_ratio = clamp(
+			inverse_lerp(MIN_HEIGHT, launch_charge_start_height, height),
+			0.0, 1.0
+		)
 		is_releasing_launch = true
 		release_target_height = launch_charge_start_height
 		emit_signal("launch_released", pending_launch_force)
@@ -259,11 +283,13 @@ func _compute_launch() -> void:
 		height_velocity = 0.0
 		is_releasing_launch = false
 
+
 func _sync_visuals() -> void:
 	body.scale.y = height / BODY_HEIGHT_DEFAULT
 	head.position.y = -height
 	last_height = height
-	
+
+
 func _sync_collision() -> void:
 	var shape = collision.shape as RectangleShape2D
 	var new_height = height + BODY_HEIGHT_OFFSET
@@ -276,24 +302,25 @@ func _sync_collision() -> void:
 		var old_height = last_height + BODY_HEIGHT_OFFSET
 		shape.size = Vector2(64.0, old_height)
 		collision.position.y = -old_height / 2.0
+	_update_occluder(shape)
 
 	if desired_direction != 0:
 		var flipped = desired_direction < 0
 		body.flip_h = flipped
 		head.flip_h = flipped
 		feet.flip_h = flipped
-		
+
+
 func _update_animation() -> void:
 	if not is_on_floor():
 		if feet.animation != "jump":
 			feet.play("jump")
-		elif not feet.is_playing():
-			pass
 	elif abs(desired_direction) > 0.01:
 		feet.play("walk")
 	else:
 		feet.play("idle")
-		
+
+
 func _detect_ice() -> void:
 	is_on_ice = false
 	for i in get_slide_collision_count():
@@ -305,3 +332,41 @@ func _detect_ice() -> void:
 		if layer & 32:
 			is_on_ice = true
 			break
+			
+func _update_occluder(shape : RectangleShape2D):
+	
+	if light_occluder_2d.occluder != null:
+		# On calcule les demi-mesures pour dessiner depuis le centre
+		var w = shape.size.x / 2.0
+		var h = shape.size.y / 2.0
+		
+		# On crée les 4 coins du rectangle pour correspondre à la collision
+		light_occluder_2d.occluder.polygon = PackedVector2Array([
+			Vector2(-w, -h), # Haut-gauche
+			Vector2(w, -h),  # Haut-droit
+			Vector2(w, h),   # Bas-droit
+			Vector2(-w, h)   # Bas-gauche
+			])
+		light_occluder_2d.position.y = collision.position.y
+
+
+# --------------------------- Footsteps ---------------------------
+func _update_footsteps(delta: float) -> void:
+	var is_walking = is_on_floor() and abs(desired_direction) > 0.01
+
+	if not is_walking:
+		_walk_time = 0.0
+		_footstep_timer = 0.0
+		return
+
+	_walk_time += delta
+	_footstep_timer -= delta
+
+	var interval = lerp(footstep_interval_start, footstep_interval_normal, min(_walk_time, 1.0))
+
+	if _footstep_timer <= 0.0:
+		_footstep_timer = interval
+		footstep_player.stream = _footstep_sounds[randi() % _footstep_sounds.size()]
+		footstep_player.volume_db = footstep_volume
+		footstep_player.pitch_scale = randf_range(0.9, 1.1)
+		footstep_player.play()

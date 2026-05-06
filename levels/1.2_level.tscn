@@ -1,14 +1,15 @@
-[gd_scene format=4 uid="uid://cnmtruer6vubd"]
+[gd_scene format=4 uid="uid://nkidlch3t62x"]
 
 [ext_resource type="Script" uid="uid://c7l0o0x8gmpyl" path="res://levels/base_level.gd" id="1_a8mpb"]
 [ext_resource type="PackedScene" uid="uid://tc1awydwhnex" path="res://assets/backgrounds/background_desert.tscn" id="2_6ejeg"]
+[ext_resource type="Script" uid="uid://vrbv37dksf5g" path="res://levels/ambiances/desert_ambiance.gd" id="2_d6rgx"]
 [ext_resource type="TileSet" uid="uid://d1y8h0rdrpg8g" path="res://assets/tilesets/map.tres" id="3_d6rgx"]
 [ext_resource type="PackedScene" uid="uid://cmtcqvk785ec6" path="res://components/player_ball_camera_node/player_ball_camera_trio.tscn" id="4_72paq"]
 [ext_resource type="PackedScene" uid="uid://d0rkeu0nf6ns6" path="res://ui/ui.tscn" id="5_ddw8t"]
 [ext_resource type="PackedScene" uid="uid://bbl44w74iuc6f" path="res://entities/pickups/star.tscn" id="6_6ht77"]
 [ext_resource type="PackedScene" uid="uid://mpu5pvoq06a4" path="res://entities/checkpoint/check_point.tscn" id="7_nybg0"]
 [ext_resource type="PackedScene" uid="uid://ccaqsjdfwknlj" path="res://entities/end_level_sign/end_level_sign.tscn" id="8_nbb08"]
-[ext_resource type="Script" uid="uid://dj3ndk5f74w6y" path="res://ui/hud/label_indication_h.gd" id="9_2jaxy"]
+[ext_resource type="Script" path="res://ui/hud/label_indication_h.gd" id="9_2jaxy"]
 [ext_resource type="PackedScene" uid="uid://d16ikhrssu8rs" path="res://components/death_zone/death_zone.tscn" id="10_6ejeg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jv8fr"]
@@ -21,6 +22,11 @@ font_color = Color(0, 0, 0, 1)
 
 [node name="1_2_level" type="Node2D" unique_id=829930370]
 script = ExtResource("1_a8mpb")
+
+[node name="BreakingBadFilter" type="CanvasModulate" parent="." unique_id=617175652]
+position = Vector2(-192, 32)
+color = Color(0.9999997, 0.88425314, 0.6495047, 1)
+script = ExtResource("2_d6rgx")
 
 [node name="BackgroundDesert" parent="." unique_id=247614796 instance=ExtResource("2_6ejeg")]
 position = Vector2(-192, 32)
