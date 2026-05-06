@@ -14,7 +14,7 @@ offset_bottom = 803.0
 
 [node name="Label" type="Label" parent="Window/VBoxContainer" unique_id=1110358998]
 layout_mode = 2
-text = "Felicitation tu as terminé le niveau"
+text = "Congrats! You finished the level"
 
 [node name="MarginContainer" type="MarginContainer" parent="Window/VBoxContainer" unique_id=1469116387]
 layout_mode = 2

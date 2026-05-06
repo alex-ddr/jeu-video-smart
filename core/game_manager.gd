@@ -10,6 +10,7 @@ const LEVELS := [
 	"res://levels/level_grass_1.tscn",
 	"res://levels/level_snow_1.tscn",
 	"res://levels/level_desert_1.tscn",
+	"res://levels/level_desert_2.tscn",
 	"res://levels/level_space_1.tscn",
 ]
 

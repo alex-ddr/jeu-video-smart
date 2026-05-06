@@ -1,13 +1,13 @@
 extends Control
 
-@onready var level1_button = $CenterContainer/VBoxContainer/HBoxContainer/level_1
+@onready var level1_button = $CenterContainer/VBoxContainer/HFlowContainer/level_1
 
 func _ready() -> void:
 	GameManager.load_game()
 	var max_unlocked = GameManager.save_data.get("unlocked_level", 0)
 	level1_button.grab_focus()
 
-	var buttons_container = $CenterContainer/VBoxContainer/HBoxContainer
+	var buttons_container = $CenterContainer/VBoxContainer/HFlowContainer
 
 	for child in buttons_container.get_children():
 		if child is Button:
