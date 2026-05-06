@@ -156,29 +156,34 @@ func _read_input(delta: float) -> void:
 
 # --------------------------- Health & Death ---------------------------
 func lose_life() -> void:
-	# Si on vient juste de mourir, on ignore les autres dégâts
 	if is_invincible:
 		return
 		
-	Global.current_lives -= 1
-	Global.lives_changed.emit()
+	# On ne retire une vie QUE si on a dépassé le checkpoint de départ (ID 0)
+	if Global.current_checkpoint_id > 0:
+		Global.current_lives -= 1
+		Global.lives_changed.emit()
+		print("Vie perdue ! Nouveau total : ", Global.current_lives)
+	else:
+		print("Respawn au checkpoint 0 : aucune vie perdue.")
 	
+	# Vérification du Game Over
 	if Global.current_lives <= 0:
 		Global.current_lives = Global.max_lives
+		Global.current_checkpoint_id = 0 # Sécurité : reset en cas de retour forcé au menu
 		GameManager.go_to_menu()
 	else:
-		# On arrête le mouvement du joueur (CharacterBody2D utilise 'velocity')
+		# Procédure de respawn classique
 		velocity = Vector2.ZERO
 		height_velocity = 0.0
 		is_invincible = true
 		
 		var level = get_tree().current_scene
 		
-		# On respawn au checkpoint
 		if level.has_method("_spawn_at_checkpoint"):
 			level._spawn_at_checkpoint()
 		else:
-			print("pas de checkpoint")
+			print("Attention: La scène actuelle n'a pas de méthode '_spawn_at_checkpoint'")
 			
 		# Petit délai d'invincibilité (1 seconde) pour éviter de mourir en boucle au respawn
 		await get_tree().create_timer(1.0).timeout

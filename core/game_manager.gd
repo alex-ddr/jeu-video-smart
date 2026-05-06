@@ -31,6 +31,7 @@ func go_to_menu() -> void:
 
 
 func start_game(level_index_new: int = level_index) -> void:
+	Global.current_checkpoint_id = 0
 	level_index = level_index_new
 	var error :Error = get_tree().change_scene_to_file(LEVELS[level_index])
 	if (error != OK):

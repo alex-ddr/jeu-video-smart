@@ -33,7 +33,8 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("respawn"):
-		_spawn_at_checkpoint()
+		player_duo.p1.lose_life()
+		
 
 func _spawn_at_checkpoint() -> void:
 	for cp in get_tree().get_nodes_in_group("checkpoints"):
