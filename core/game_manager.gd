@@ -12,11 +12,12 @@ const LEVELS := [
 	"res://levels/level_robin.tscn",
 ]
 
-var save_data := {"unlocked_level": 0 }
+var save_data := {"unlocked_level" : 0}
 var level_index : int = 0
 
 func _ready() -> void:
-	save_data["unlocked_level"] = 0
+	level_index = 0
+	load_game()
 
 func go_to_menu() -> void:
 	await IrisWipe.close_transition(0.2)
@@ -35,8 +36,9 @@ func start_game(level_index_new: int = level_index) -> void:
 func load_next_level() -> void:
 	await IrisWipe.close_transition()
 	var next = level_index + 1
+	print("unlocked_level :",save_data.get("unlocked_level", 0))
 	if next > save_data.get("unlocked_level", 0):
-		var save_data := {"unlocked_level": 0, "checkpoint_id": 0}
+		save_data["unlocked_level"] = next
 		save_game() # On sauvegarde la progression sur le disque dur
 	if next >= LEVELS.size():
 		go_to_menu()
