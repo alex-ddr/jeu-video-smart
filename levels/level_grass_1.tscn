@@ -62,8 +62,8 @@ position = Vector2(2224, 1616)
 
 [node name="CheckPoint2" parent="." unique_id=933353953 instance=ExtResource("5_jr0i3")]
 position = Vector2(2207, 576)
+checkpoint_id = 1
 
 [node name="SunFilter" type="CanvasModulate" parent="." unique_id=1340432584]
 color = Color(0.9867721, 0.9436496, 0.8555064, 1)
 script = ExtResource("11_gh7wj")
-checkpoint_id = 1
