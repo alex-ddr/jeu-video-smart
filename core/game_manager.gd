@@ -18,6 +18,11 @@ var level_index : int = 0
 func _ready() -> void:
 	level_index = 0
 	load_game()
+	
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("fullscreen_toggle"):
+		fullscreen_toggle()
+
 
 func go_to_menu() -> void:
 	await IrisWipe.close_transition(0.2)
@@ -58,3 +63,9 @@ func load_game() -> void:
 	file.close()
 	if result is Dictionary:
 		save_data = result
+		
+func fullscreen_toggle() -> void:
+	if (DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN):
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
