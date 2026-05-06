@@ -2,7 +2,46 @@
 
 [ext_resource type="FontVariation" uid="uid://bxpx2s83m2206" path="res://assets/fonts/MainFont.tres" id="1_4t23j"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sykwg"]
+bg_color = Color(0.75686276, 0.6862745, 0.9882353, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.20784314, 0.20784314, 0.25490198, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+corner_detail = 12
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77h3e"]
+bg_color = Color(0.9416434, 0.5913725, 0.9493249, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.20784314, 0.20784314, 0.25490198, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+corner_detail = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8a8uf"]
+bg_color = Color(0.75686276, 0.6862745, 0.9882353, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.20784314, 0.20784314, 0.25490198, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+corner_detail = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wfcwi"]
 bg_color = Color(0.75686276, 0.6862745, 0.9882353, 1)
 border_width_left = 8
 border_width_top = 8
@@ -35,8 +74,8 @@ Button/constants/icon_max_width = 0
 Button/constants/outline_size = 0
 Button/font_sizes/font_size = 24
 Button/fonts/font = ExtResource("1_4t23j")
-Button/styles/disabled = SubResource("StyleBoxFlat_77h3e")
+Button/styles/disabled = SubResource("StyleBoxFlat_sykwg")
 Button/styles/focus = SubResource("StyleBoxFlat_77h3e")
 Button/styles/hover = SubResource("StyleBoxFlat_77h3e")
-Button/styles/normal = SubResource("StyleBoxFlat_77h3e")
-Button/styles/pressed = SubResource("StyleBoxFlat_77h3e")
+Button/styles/normal = SubResource("StyleBoxFlat_8a8uf")
+Button/styles/pressed = SubResource("StyleBoxFlat_wfcwi")
