@@ -10,6 +10,7 @@ func _process(delta: float) -> void:
 	global_position.y += sin(_time * 5.0)
 
 func _on_body_entered(body: Node2D) -> void:
-	Global.nb_stars_collected += 1;
-	Global.stars_collected.emit("collected")
+	if (Global.current_lives < Global.max_lives):
+		Global.current_lives += 1
+		Global.lives_changed.emit()
 	queue_free()

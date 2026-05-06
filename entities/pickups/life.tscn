@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cmcqyf8075rkl"]
+
+[ext_resource type="Script" uid="uid://cht3f6ty4sbfu" path="res://entities/pickups/life.gd" id="1_731p4"]
+[ext_resource type="Texture2D" uid="uid://by3b6jsmk88o5" path="res://assets/textures/sprites/Tiles/bomb_active.png" id="2_tmdti"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_731p4"]
+radius = 48.0
+
+[node name="Life" type="Area2D" unique_id=281008476]
+script = ExtResource("1_731p4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=747791751]
+modulate = Color(1, 1, 1, 0.78431374)
+position = Vector2(-1.1368684e-13, 1.1368684e-13)
+scale = Vector2(0.625, 0.625)
+texture = ExtResource("2_tmdti")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2002535582]
+shape = SubResource("CircleShape2D_731p4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
