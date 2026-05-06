@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://dj3ndk5f74w6y" path="res://ui/hud/label_indication_h.gd" id="9_uafxb"]
 [ext_resource type="PackedScene" uid="uid://d16ikhrssu8rs" path="res://components/death_zone/death_zone.tscn" id="10_vxhlr"]
 [ext_resource type="PackedScene" uid="uid://cuqlc0p3y53dg" path="res://entities/bloc/breakable_bloc.tscn" id="11_t1jly"]
+[ext_resource type="PackedScene" uid="uid://cmcqyf8075rkl" path="res://entities/pickups/life.tscn" id="12_oy52y"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jv8fr"]
 font_size = 70
@@ -132,3 +133,9 @@ position = Vector2(2224, 864)
 
 [node name="Breakable_bloc" parent="." unique_id=1883297004 instance=ExtResource("11_t1jly")]
 position = Vector2(224, -784)
+
+[node name="Life" parent="." unique_id=281008476 instance=ExtResource("12_oy52y")]
+z_index = 1
+position = Vector2(3968, -64)
+collision_layer = 2
+collision_mask = 2
