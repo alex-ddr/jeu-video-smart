@@ -5,6 +5,7 @@
 [ext_resource type="TileSet" uid="uid://d1y8h0rdrpg8g" path="res://assets/tilesets/map.tres" id="3_fmixv"]
 [ext_resource type="PackedScene" uid="uid://d0rkeu0nf6ns6" path="res://ui/ui.tscn" id="4_oweqb"]
 [ext_resource type="PackedScene" uid="uid://cmtcqvk785ec6" path="res://components/player_ball_camera_node/player_ball_camera_trio.tscn" id="5_n7pyx"]
+[ext_resource type="PackedScene" uid="uid://cmcqyf8075rkl" path="res://entities/pickups/life.tscn" id="6_ga6q7"]
 [ext_resource type="PackedScene" uid="uid://mpu5pvoq06a4" path="res://entities/checkpoint/check_point.tscn" id="6_l187v"]
 [ext_resource type="PackedScene" uid="uid://ccaqsjdfwknlj" path="res://entities/end_level_sign/end_level_sign.tscn" id="7_e6mn4"]
 [ext_resource type="PackedScene" uid="uid://bbl44w74iuc6f" path="res://entities/pickups/star.tscn" id="8_rtan6"]
@@ -12,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://d16ikhrssu8rs" path="res://components/death_zone/death_zone.tscn" id="10_fmixv"]
 [ext_resource type="PackedScene" uid="uid://p6m8xluee2n8" path="res://ui/styles/default_panel.tscn" id="11_oweqb"]
 [ext_resource type="Script" uid="uid://c3wf78d55sfol" path="res://levels/ambiances/ice_ambiance.gd" id="12_n7pyx"]
+[ext_resource type="PackedScene" uid="uid://bhaw62sywwf4m" path="res://assets/animated_tiles/torch/torch.tscn" id="14_soc3v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0bj1y"]
 size = Vector2(797, 128)
@@ -75,6 +77,9 @@ offset_right = -320.0
 offset_bottom = -1392.0
 
 [node name="PlayerBallCameraTrio" parent="." unique_id=1973325727 instance=ExtResource("5_n7pyx")]
+
+[node name="Life" parent="." unique_id=281008476 instance=ExtResource("6_ga6q7")]
+position = Vector2(4843, -952)
 
 [node name="CheckPoint" type="Node" parent="." unique_id=1338148881]
 
@@ -165,5 +170,9 @@ label_settings = SubResource("LabelSettings_2a4yi")
 horizontal_alignment = 1
 
 [node name="IceFilter" type="CanvasModulate" parent="." unique_id=392065174]
-color = Color(0.8902605, 0.9999761, 0.9999996, 1)
+color = Color(0.8627451, 0.9137255, 1, 1)
 script = ExtResource("12_n7pyx")
+
+[node name="Torch" parent="." unique_id=281699009 instance=ExtResource("14_soc3v")]
+position = Vector2(5066, -192)
+rotation = 3.1415927
