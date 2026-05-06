@@ -81,7 +81,7 @@ offset_bottom = -1392.0
 [node name="CheckPoint" type="Node" parent="." unique_id=1338148881]
 
 [node name="CheckPoint" parent="CheckPoint" unique_id=351713259 instance=ExtResource("6_l187v")]
-position = Vector2(297, -57)
+position = Vector2(297, -64)
 
 [node name="CheckPoint3" parent="CheckPoint" unique_id=1873711796 instance=ExtResource("6_l187v")]
 position = Vector2(6525, -64)

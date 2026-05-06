@@ -130,10 +130,10 @@ offset = Vector2(0, -24)
 [node name="PointLight2D2" type="PointLight2D" parent="Head_p2" unique_id=161753266]
 z_index = 10
 position = Vector2(0, -61)
-color = Color(0.6784314, 0.5882353, 0.92156863, 1)
-shadow_enabled = true
+color = Color(0.7529412, 0.30980393, 1, 1)
+energy = 0.2
 texture = SubResource("GradientTexture2D_qiwj3")
-texture_scale = 0.75
+texture_scale = 2.0
 
 [node name="Head_p1" type="Sprite2D" parent="." unique_id=1590564467]
 visible = false
@@ -143,10 +143,10 @@ offset = Vector2(0, -24)
 
 [node name="PointLight2D" type="PointLight2D" parent="Head_p1" unique_id=1853762152]
 position = Vector2(0, -61)
-color = Color(0.98039216, 0.7294118, 0.1764706, 1)
-shadow_enabled = true
+color = Color(0.98039216, 0.827451, 0.1764706, 1)
+energy = 0.2
 texture = SubResource("GradientTexture2D_qiwj3")
-texture_scale = 0.75
+texture_scale = 2.0
 
 [node name="Body" type="Sprite2D" parent="." unique_id=1050376457]
 position = Vector2(0, -50)

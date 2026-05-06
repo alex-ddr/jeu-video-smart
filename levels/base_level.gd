@@ -6,7 +6,6 @@ var ball: RigidBody2D
 var indice_checkpoint : int = 0
 
 func _ready() -> void:
-	
 	if has_node("PlayerBallCameraTrio/PlayerDuo"):
 		player_duo = $PlayerBallCameraTrio/PlayerDuo
 		ball = $PlayerBallCameraTrio/Ball if has_node("PlayerBallCameraTrio/Ball") else null
@@ -79,4 +78,3 @@ func _on_ball_body_shape_entered(body_rid: RID, _body: Node, _body_shape_index: 
 	var layer = PhysicsServer2D.body_get_collision_layer(body_rid)
 	if layer & 64:  # layer 7 = acid_ground
 		player_duo.p1.lose_life()
-		print("hey")

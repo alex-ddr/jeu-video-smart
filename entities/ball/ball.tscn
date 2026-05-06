@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://bfnb0r7hwn7mb" path="res://assets/textures/entities/ball/bomb.png" id="1_61umk"]
 [ext_resource type="Script" uid="uid://csrhdsyte8ut0" path="res://entities/ball/ball.gd" id="1_jyt08"]
 [ext_resource type="Texture2D" uid="uid://by3b6jsmk88o5" path="res://assets/textures/sprites/Tiles/bomb_active.png" id="3_w5wpn"]
+[ext_resource type="PackedScene" uid="uid://d0dw2t4yav5c2" path="res://components/random_pitch/sfx.tscn" id="4_6mrx1"]
+[ext_resource type="AudioStream" uid="uid://bkyptoj24oio6" path="res://assets/sounds/swoosh.mp3" id="5_thfbu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w5wpn"]
 radius = 21.023796
@@ -51,5 +53,8 @@ color = Color(0.92474425, 0.3571481, 0, 1)
 range_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_we1t7")
 texture_scale = 0.5
+
+[node name="Swoosh" parent="." unique_id=128283154 instance=ExtResource("4_6mrx1")]
+stream = ExtResource("5_thfbu")
 
 [connection signal="body_entered" from="GroundDetector" to="." method="_on_ground_detector_body_entered"]

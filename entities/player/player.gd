@@ -91,9 +91,10 @@ func _ready() -> void:
 	for i in range(10):
 		_footstep_sounds.append(load(footstep_path % str(i)))
 	
-	jump_sound.volume_db = -15
-	footstep_player.volume_db = -30
-
+	jump_sound.volume_db = -10
+	footstep_player.volume_db = -20
+	stretch_sound.volume_db = 0
+	bounce_sound.volume_db = 0
 
 # --------------------------- God Mode ---------------------------
 func _input(event: InputEvent) -> void:

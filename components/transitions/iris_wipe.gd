@@ -6,6 +6,7 @@ const CIRCLE_OPEN_SIZE = 1.05
 const CIRCLE_CLOSED_SIZE = 0.0
 
 func _ready():
+	color_rect.material.set_shader_parameter("circle_size", CIRCLE_CLOSED_SIZE)
 	# On s'assure que le ColorRect prend bien toute la taille de l'écran par sécurité
 	color_rect.set_anchors_preset(Control.PRESET_FULL_RECT)
 	

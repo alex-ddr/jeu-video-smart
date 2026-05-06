@@ -9,10 +9,12 @@ func _ready() -> void:
 	hover_player = SoundPlayerScene.instantiate()
 	hover_player.stream = load("res://assets/sounds/hover.ogg")
 	add_child(hover_player)
+	hover_player.volume_db = -10
 
 	click_player = SoundPlayerScene.instantiate()
 	click_player.stream = load("res://assets/sounds/click.ogg")
 	add_child(click_player)
+	click_player.volume_db = -10
 
 	mouse_entered.connect(func(): hover_player.play_random())
 	pressed.connect(func(): click_player.play_random())

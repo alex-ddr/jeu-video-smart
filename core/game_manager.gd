@@ -17,10 +17,11 @@ var save_data := {"unlocked_level" : 0}
 var level_index : int = 0
 
 func _ready() -> void:
+	add_world_environment()
 	await get_tree().process_frame
 	_play_intro_sound(8)
 	_play_music()
-	await IrisWipe.open_transition(4)
+	await IrisWipe.open_transition(3)
 	level_index = 0
 	load_game()
 
@@ -32,9 +33,13 @@ func _unhandled_input(event: InputEvent) -> void:
 func go_to_menu() -> void:
 	await IrisWipe.close_transition(0.5)
 	get_tree().change_scene_to_file(MAIN_MENU)
+	await get_tree().process_frame
+	await get_tree().process_frame
+	await add_world_environment()
 	await IrisWipe.open_transition(0.5)
 	if not music_player.playing:
 		music_player.play()
+
 
 func _play_intro_sound(nb_intros: int):
 	var scene_path = get_tree().current_scene.scene_file_path
@@ -63,12 +68,16 @@ func _play_music() -> void:
 
 
 func start_game(level_index_new: int = level_index) -> void:
+	await IrisWipe.close_transition(0.5)          # 1. ferme → écran noir
 	Global.current_checkpoint_id = 0
 	level_index = level_index_new
-	var error :Error = get_tree().change_scene_to_file(LEVELS[level_index])
-	if (error != OK):
+	var error := get_tree().change_scene_to_file(LEVELS[level_index])
+	if error != OK:
 		print("erreur au chargement du niveau d'index " + str(level_index))
-	await IrisWipe.open_transition(0.5)
+	await get_tree().process_frame
+	await get_tree().process_frame                 # 2. scène chargée
+	await add_world_environment()                  # 3. env ajouté pendant l'écran noir
+	await IrisWipe.open_transition(0.5)            # 4. ouvre → joueur voit la scène propre
 	
 	if music_player.playing:
 		var tween = create_tween()
@@ -79,16 +88,14 @@ func start_game(level_index_new: int = level_index) -> void:
 
 	
 func load_next_level() -> void:
-	await IrisWipe.close_transition(0.5)
 	var next = level_index + 1
-	print("unlocked_level :",save_data.get("unlocked_level", 0))
 	if next > save_data.get("unlocked_level", 0):
 		save_data["unlocked_level"] = next
-		save_game() # On sauvegarde la progression sur le disque dur
+		save_game()
 	if next >= LEVELS.size():
-		go_to_menu()
+		await go_to_menu()
 		return
-	start_game(next)
+	await start_game(next)
 
 func save_game() -> void:
 	var file := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
@@ -109,3 +116,29 @@ func fullscreen_toggle() -> void:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+
+func add_world_environment() -> void:
+	await get_tree().process_frame
+	await get_tree().process_frame
+	var env_node = WorldEnvironment.new()
+	var env = Environment.new()
+	
+	env.background_mode = Environment.BG_CANVAS
+	
+	env.glow_enabled = true
+	env.set_glow_level(1, 0.8)
+	env.set_glow_level(2, 0.5)
+	env.set_glow_level(3, 0.2)
+	env.glow_intensity = 0.6
+	env.glow_strength = 0.5
+	env.glow_bloom = 0.8
+	env.glow_hdr_threshold = 1.2
+	env.glow_blend_mode = Environment.GLOW_BLEND_MODE_ADDITIVE
+	
+	env.adjustment_enabled = true
+	env.adjustment_brightness = 0.9
+	env.adjustment_contrast = 1.2
+	env.adjustment_saturation = 1.2
+
+	env_node.environment = env
+	get_tree().current_scene.add_child(env_node)

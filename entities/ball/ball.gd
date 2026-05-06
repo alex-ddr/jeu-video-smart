@@ -15,6 +15,8 @@ const BLINK_SPEED = 7.0  # oscillations par seconde
 @onready var sprite_default: Sprite2D = $SpriteDefault
 @onready var sprite_pickup: Sprite2D = $SpritePickup
 
+@onready var swoosh: AudioStreamPlayer = $Swoosh
+
 func _ready() -> void:
 	sprite_pickup.visible = false
 	mass = 2.0
@@ -42,6 +44,8 @@ func _physics_process(_delta: float) -> void:
 		sprite_pickup.modulate.a = 1.0
 
 	if can_jump and Input.is_action_just_pressed(action_ball_jump):
+		swoosh.pitch_scale = 1.5
+		swoosh.play()
 		apply_central_impulse(Vector2(0, -JUMP_FORCE * mass))
 
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
