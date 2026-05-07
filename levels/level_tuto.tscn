@@ -5,7 +5,7 @@
 [ext_resource type="TileSet" uid="uid://d1y8h0rdrpg8g" path="res://assets/tilesets/map.tres" id="3_5ddvy"]
 [ext_resource type="PackedScene" uid="uid://buk0b6k7thffd" path="res://entities/player/player_duo.tscn" id="4_g80ey"]
 [ext_resource type="PackedScene" uid="uid://dljijvpev1b30" path="res://components/camera/camera.tscn" id="5_yfwfw"]
-[ext_resource type="Script" path="res://components/camera/camera-tuto.gd" id="6_4tf0p"]
+[ext_resource type="Script" uid="uid://bwt7n686a4348" path="res://components/camera/camera-tuto.gd" id="6_4tf0p"]
 [ext_resource type="PackedScene" uid="uid://mpu5pvoq06a4" path="res://entities/checkpoint/check_point.tscn" id="6_g8n1r"]
 [ext_resource type="PackedScene" uid="uid://p6m8xluee2n8" path="res://ui/styles/default_panel.tscn" id="7_puwvh"]
 [ext_resource type="Texture2D" uid="uid://bmo83gteu2wym" path="res://assets/textures/entities/players/player_top_1.png" id="8_l1d8s"]
@@ -304,7 +304,7 @@ position = Vector2(20336, -333)
 [node name="UI" parent="." unique_id=1452071461 instance=ExtResource("14_jkvda")]
 
 [node name="DeathZone" parent="." unique_id=150261952 instance=ExtResource("17_5ddvz")]
-position = Vector2(6493, 570)
+position = Vector2(6498, 1072)
 
 [node name="PlainFilter" type="CanvasModulate" parent="." unique_id=29708761]
 script = ExtResource("15_6vvj7")

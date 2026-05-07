@@ -136,7 +136,7 @@ position = Vector2(5575, -66)
 position = Vector2(2368, -320)
 
 [node name="DeathZone" parent="." unique_id=150261952 instance=ExtResource("10_fmixv")]
-position = Vector2(4191, 1663)
+position = Vector2(10565, 2296)
 
 [node name="Panel" parent="." unique_id=144814975 instance=ExtResource("11_oweqb")]
 offset_left = 9982.0

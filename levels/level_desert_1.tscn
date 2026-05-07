@@ -45,7 +45,7 @@ position = Vector2(6449, 483)
 position = Vector2(500, 278)
 
 [node name="DeathZone" parent="." unique_id=150261952 instance=ExtResource("7_ck2x3")]
-position = Vector2(1716, 849)
+position = Vector2(9192, 1282)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1606330044]
 position = Vector2(500, 278)

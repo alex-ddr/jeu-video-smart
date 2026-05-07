@@ -14,9 +14,10 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="Jeu Video Spikeball"
+config/name="Bound&Bounce"
 run/main_scene="uid://c51die6cbbg07"
 config/features=PackedStringArray("4.6", "Forward Plus")
+config/icon="uid://b84g6bckbuhng"
 
 [autoload]
 
