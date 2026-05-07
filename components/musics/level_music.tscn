@@ -6,4 +6,5 @@
 stream = ExtResource("1_081vt")
 volume_db = -5.0
 autoplay = true
+bus = &"Music"
 parameters/looping = true

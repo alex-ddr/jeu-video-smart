@@ -47,6 +47,7 @@ func _play_intro_sound(nb_intros: int):
 	var scene_path = get_tree().current_scene.scene_file_path
 	if scene_path == MAIN_MENU:
 		intro_player = AudioStreamPlayer.new()
+		intro_player.bus = &"Music"
 		var intro_path = "res://assets/sounds/intro" + str(randi() % nb_intros + 1) + ".wav"
 		intro_player.stream = load(intro_path)
 		intro_player.volume_db = -3.0
@@ -55,6 +56,8 @@ func _play_intro_sound(nb_intros: int):
 
 func _play_music() -> void:
 	music_player = AudioStreamPlayer.new()
+	music_player.bus = &"Music"
+
 	var stream = load("res://assets/musics/musique_jeu.mp3") as AudioStreamMP3
 	stream.loop = true
 	music_player.stream = stream

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://ccx8k8dd48fi0"]
+
+[ext_resource type="Script" uid="uid://7f8b5wocq6ts" path="res://ui/menu/settings/volume_slider.gd" id="1_5v53r"]
+
+[node name="VolumeSettingContainer" type="HBoxContainer" unique_id=815961934]
+alignment = 1
+script = ExtResource("1_5v53r")
+
+[node name="VolumeSlider" type="HSlider" parent="." unique_id=459256186]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.01
+value = 0.5
+
+[node name="Value" type="Label" parent="." unique_id=1922544496]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.20784314, 0.20784314, 0.25490198, 1)
+theme_override_font_sizes/font_size = 30
+text = "0.5"

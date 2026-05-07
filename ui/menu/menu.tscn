@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://db77iuepeaitv" path="res://ui/menu/menu.gd" id="1_v6ljw"]
 [ext_resource type="PackedScene" uid="uid://dpimmjxmkpn0m" path="res://assets/backgrounds/background_sky.tscn" id="2_sky"]
-[ext_resource type="PackedScene" uid="uid://bsgjsont5yngs" path="res://ui/menu/game_title.tscn" id="3_title"]
+[ext_resource type="PackedScene" path="res://ui/menu/game_title.tscn" id="3_title"]
 [ext_resource type="Theme" uid="uid://dccgwd38wtghj" path="res://ui/theme/main_theme.tres" id="4_1brpx"]
-[ext_resource type="Script" uid="uid://3b1dovjn5a7o" path="res://ui/menu/button_audio.gd" id="5_vlit4"]
+[ext_resource type="Script" path="res://ui/menu/button_audio.gd" id="5_vlit4"]
 
 [node name="Menu" type="Control" unique_id=1988223885]
 layout_mode = 3
@@ -68,6 +68,16 @@ script = ExtResource("5_vlit4")
 layout_mode = 2
 theme_override_constants/margin_top = 16
 
+[node name="Settings" type="Button" parent="CenterContainer/VBoxContainer" unique_id=780959659]
+layout_mode = 2
+theme = ExtResource("4_1brpx")
+text = "CREDITS"
+script = ExtResource("5_vlit4")
+
+[node name="MarginContainer6" type="MarginContainer" parent="CenterContainer/VBoxContainer" unique_id=549444104]
+layout_mode = 2
+theme_override_constants/margin_top = 16
+
 [node name="Quitter" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1515461436]
 layout_mode = 2
 theme = ExtResource("4_1brpx")
@@ -83,4 +93,5 @@ theme_override_constants/margin_bottom = 139
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Jouer" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Niveaux" to="." method="_on_levels_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Quitter" to="." method="_on_quit_pressed"]

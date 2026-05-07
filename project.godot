@@ -19,11 +19,16 @@ run/main_scene="uid://c51die6cbbg07"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="uid://b84g6bckbuhng"
 
+[audio]
+
+buses/default_bus_layout="uid://bcipsdgfyqt0h"
+
 [autoload]
 
 GameManager="*uid://dbahd52g1x7dn"
 Global="*uid://cruhk2ovyqgfd"
 IrisWipe="*uid://dam88yl0quhv4"
+ConfigManager="*uid://diw5tolpgeu8i"
 
 [display]
 

@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://c1gfg4yov4kcq"]
+
+[ext_resource type="Script" uid="uid://b0017p68tqpqm" path="res://ui/menu/settings/settings.gd" id="1_5p7rl"]
+[ext_resource type="PackedScene" uid="uid://tc1awydwhnex" path="res://assets/backgrounds/background_desert.tscn" id="2_en0n6"]
+[ext_resource type="Theme" uid="uid://dccgwd38wtghj" path="res://ui/theme/main_theme.tres" id="3_eng4x"]
+[ext_resource type="Script" path="res://ui/menu/button_audio.gd" id="4_apoxa"]
+
+[node name="Settings" type="Control" unique_id=1867424599]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5p7rl")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=294826528]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 7.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=2109466064]
+layout_mode = 2
+alignment = 1
+
+[node name="Node2D" parent="CenterContainer/VBoxContainer" unique_id=247614796 instance=ExtResource("2_en0n6")]
+position = Vector2(0, 240)
+scale = Vector2(0.5, 0.5)
+
+[node name="Settings" type="Label" parent="CenterContainer/VBoxContainer" unique_id=560376642]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.20784314, 0.20784314, 0.25490198, 1)
+theme_override_font_sizes/font_size = 37
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer" unique_id=521351512]
+layout_mode = 2
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 0
+
+[node name="Master" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1170427521]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.20784314, 0.20784314, 0.25490198, 1)
+theme_override_font_sizes/font_size = 30
+text = "Master volume"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=1283920546]
+layout_mode = 2
+alignment = 1
+
+[node name="MasterVolumeSlider" type="HSlider" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=57184591]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+value = 1.0
+
+[node name="Value" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=649854232]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.20784314, 0.20784314, 0.25490198, 1)
+theme_override_font_sizes/font_size = 30
+text = "0.5"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=1800657609]
+layout_mode = 2
+alignment = 1
+
+[node name="Retour" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer2" unique_id=180910235]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme = ExtResource("3_eng4x")
+text = "BACK"
+script = ExtResource("4_apoxa")
+
+[connection signal="value_changed" from="CenterContainer/VBoxContainer/HBoxContainer/MasterVolumeSlider" to="." method="_on_master_volume_slider_value_changed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer2/Retour" to="." method="_on_back_pressed"]

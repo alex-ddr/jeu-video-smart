@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://k6qtb0erkgrj" path="res://ui/menu/levels.gd" id="1_8mavb"]
 [ext_resource type="PackedScene" uid="uid://tc1awydwhnex" path="res://assets/backgrounds/background_desert.tscn" id="2_h7ntp"]
 [ext_resource type="Theme" uid="uid://dccgwd38wtghj" path="res://ui/theme/main_theme.tres" id="4_3ebmn"]
-[ext_resource type="Script" uid="uid://3b1dovjn5a7o" path="res://ui/menu/button_audio.gd" id="4_bmnjo"]
+[ext_resource type="Script" path="res://ui/menu/button_audio.gd" id="4_bmnjo"]
 
 [node name="Levels" type="Control" unique_id=1867424599]
 layout_mode = 3

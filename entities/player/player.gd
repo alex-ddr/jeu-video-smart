@@ -83,7 +83,16 @@ var _walk_time: float = 0.0
 var _footstep_sounds: Array = []
 
 @onready var footstep_player: AudioStreamPlayer = $FootstepPlayer
-
+func _init_sounds() : 
+	var sounds_bus = "SFX"
+	jump_sound.volume_db = -10
+	jump_sound.bus = sounds_bus
+	footstep_player.volume_db = -20
+	footstep_player.bus = sounds_bus
+	stretch_sound.volume_db = 0
+	stretch_sound.bus = sounds_bus
+	bounce_sound.volume_db = 0
+	bounce_sound.bus = sounds_bus
 
 func _ready() -> void:
 	collision.shape = collision.shape.duplicate()
