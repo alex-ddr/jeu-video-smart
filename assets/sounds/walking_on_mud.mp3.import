@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://calvt8lf36nwg"
-path="res://.godot/imported/walking_on_mud.mp3-084d3985966f2c8b74f854dd40449d6a.mp3str"
+path="res://.godot/imported/walking_on_mud.mp3-45cb637bdbcbcf8fe3d34caf2c72a1b5.mp3str"
 
 [deps]
 
-source_file="res://assets/sounds/walking_on_mud.mp3"
-dest_files=["res://.godot/imported/walking_on_mud.mp3-084d3985966f2c8b74f854dd40449d6a.mp3str"]
+source_file="res://assets/Sounds/walking_on_mud.mp3"
+dest_files=["res://.godot/imported/walking_on_mud.mp3-45cb637bdbcbcf8fe3d34caf2c72a1b5.mp3str"]
 
 [params]
 

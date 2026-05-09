@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://d03h5asi6olgp"
-path="res://.godot/imported/benkirb-shine-11-268907.mp3-4133a8cda3f0880c4208978df28d84b3.mp3str"
+path="res://.godot/imported/benkirb-shine-11-268907.mp3-e86c264e7d97c8c11eedcebceeac3a81.mp3str"
 
 [deps]
 
-source_file="res://assets/sounds/benkirb-shine-11-268907.mp3"
-dest_files=["res://.godot/imported/benkirb-shine-11-268907.mp3-4133a8cda3f0880c4208978df28d84b3.mp3str"]
+source_file="res://assets/Sounds/benkirb-shine-11-268907.mp3"
+dest_files=["res://.godot/imported/benkirb-shine-11-268907.mp3-e86c264e7d97c8c11eedcebceeac3a81.mp3str"]
 
 [params]
 

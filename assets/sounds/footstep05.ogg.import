@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://dnllh5cus0ne7"
-path="res://.godot/imported/footstep05.ogg-feb72e42f4e4418cd955d427fd87fe1f.oggvorbisstr"
+path="res://.godot/imported/footstep05.ogg-6fd3eb14d963635ff2f473f45c6f2314.oggvorbisstr"
 
 [deps]
 
-source_file="res://assets/sounds/footstep05.ogg"
-dest_files=["res://.godot/imported/footstep05.ogg-feb72e42f4e4418cd955d427fd87fe1f.oggvorbisstr"]
+source_file="res://assets/Sounds/footstep05.ogg"
+dest_files=["res://.godot/imported/footstep05.ogg-6fd3eb14d963635ff2f473f45c6f2314.oggvorbisstr"]
 
 [params]
 
