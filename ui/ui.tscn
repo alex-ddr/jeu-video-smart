@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://ccmsb5bibkbfy" path="res://ui/menu/pause_menu.gd" id="5_tf0e0"]
 [ext_resource type="Theme" uid="uid://dccgwd38wtghj" path="res://ui/theme/main_theme.tres" id="6_bo1jx"]
 [ext_resource type="Texture2D" uid="uid://cd0weiokwxtm7" path="res://assets/textures/sprites/Tiles/star_outline.png" id="6_pa1oa"]
-[ext_resource type="AudioStream" uid="uid://d03h5asi6olgp" path="res://assets/sounds/benkirb-shine-11-268907.mp3" id="7_bo1jx"]
+[ext_resource type="AudioStream" uid="uid://d03h5asi6olgp" path="res://assets/Sounds/benkirb-shine-11-268907.mp3" id="7_bo1jx"]
 
 [node name="UI" type="Control" unique_id=1452071461]
 layout_mode = 3

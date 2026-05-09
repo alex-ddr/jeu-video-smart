@@ -293,7 +293,7 @@ key = "h"
 position = Vector2(11568, -544)
 
 [node name="star2" parent="Stars" unique_id=2103412004 instance=ExtResource("11_2oy0l")]
-position = Vector2(16820, -1689)
+position = Vector2(16874, -1150)
 
 [node name="Button" parent="." unique_id=1907211927 instance=ExtResource("12_80j1l")]
 position = Vector2(13551, 0)
