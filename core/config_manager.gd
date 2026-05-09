@@ -22,7 +22,5 @@ func get_volume(bus_index:int) -> float :
 func set_volume(bus_index: int, linear_value: float):
 	
 	var db_value = (linear_to_db(linear_value * VOLUME_RATIO))
-	print("volume set at" + str(db_value))
-
 	AudioServer.set_bus_volume_db(bus_index, db_value)
 	AudioServer.set_bus_mute(bus_index, linear_value < 0.01)

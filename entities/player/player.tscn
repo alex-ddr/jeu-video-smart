@@ -161,11 +161,15 @@ offset = Vector2(0, -30)
 
 [node name="BounceSound" parent="." unique_id=1343175760 instance=ExtResource("6_26q78")]
 stream = ExtResource("7_bectd")
+bus = &"SFX"
 
 [node name="StretchSound" parent="." unique_id=128283154 instance=ExtResource("6_26q78")]
 stream = ExtResource("7_qiwj3")
+bus = &"SFX"
 
 [node name="JumpSound" parent="." unique_id=1008020106 instance=ExtResource("6_26q78")]
 stream = ExtResource("8_26q78")
+bus = &"SFX"
 
 [node name="FootstepPlayer" parent="." unique_id=1932882139 instance=ExtResource("6_26q78")]
+bus = &"SFX"
