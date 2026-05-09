@@ -2,7 +2,7 @@ extends CanvasLayer
 
 # On récupère le nœud enfant ColorRect dès le chargement
 @onready var color_rect: ColorRect = $ColorRect
-const CIRCLE_OPEN_SIZE = 1.05
+const CIRCLE_OPEN_SIZE = 1.3
 const CIRCLE_CLOSED_SIZE = 0.0
 
 func _ready():

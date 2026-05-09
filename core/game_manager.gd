@@ -121,26 +121,28 @@ func fullscreen_toggle() -> void:
 
 func add_world_environment() -> void:
 	await get_tree().process_frame
-	await get_tree().process_frame
-	var env_node = WorldEnvironment.new()
-	var env = Environment.new()
 	
-	env.background_mode = Environment.BG_CANVAS
-	
-	env.glow_enabled = true
-	env.set_glow_level(1, 0.8)
-	env.set_glow_level(2, 0.5)
-	env.set_glow_level(3, 0.2)
-	env.glow_intensity = 0.8
-	env.glow_strength = 0.5
-	env.glow_bloom = 0.8
-	env.glow_hdr_threshold = 1.2
-	env.glow_blend_mode = Environment.GLOW_BLEND_MODE_ADDITIVE
-	
-	env.adjustment_enabled = true
-	env.adjustment_brightness = 0.9
-	env.adjustment_contrast = 1.2
-	env.adjustment_saturation = 1.2
+	if (OS.get_name() == "Windows"):
+		await get_tree().process_frame
+		var env_node = WorldEnvironment.new()
+		var env = Environment.new()
+		
+		env.background_mode = Environment.BG_CANVAS
+		
+		env.glow_enabled = true
+		env.set_glow_level(1, 0.8)
+		env.set_glow_level(2, 0.5)
+		env.set_glow_level(3, 0.2)
+		env.glow_intensity = 0.8
+		env.glow_strength = 0.5
+		env.glow_bloom = 0.8
+		env.glow_hdr_threshold = 1.2
+		env.glow_blend_mode = Environment.GLOW_BLEND_MODE_ADDITIVE
+		
+		env.adjustment_enabled = true
+		env.adjustment_brightness = 0.9
+		env.adjustment_contrast = 1.2
+		env.adjustment_saturation = 1.2
 
-	env_node.environment = env
-	get_tree().current_scene.add_child(env_node)
+		env_node.environment = env
+		get_tree().current_scene.add_child(env_node)
