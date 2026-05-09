@@ -17,6 +17,9 @@ const LEVELS := [
 var save_data := {"unlocked_level" : 0}
 var level_index : int = 0
 
+# --- AJOUT DU VERROU DE TRANSITION ---
+var is_transitioning: bool = false 
+
 func _ready() -> void:
 	fullscreen_toggle()
 	add_world_environment()
@@ -33,6 +36,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		fullscreen_toggle()
 
 func go_to_menu() -> void:
+	# Sécurité
+	if is_transitioning:
+		return
+	is_transitioning = true
+	
 	await IrisWipe.close_transition(0.5)
 	get_tree().change_scene_to_file(MAIN_MENU)
 	await get_tree().process_frame
@@ -41,6 +49,8 @@ func go_to_menu() -> void:
 	await IrisWipe.open_transition(0.5)
 	if not music_player.playing:
 		music_player.play()
+		
+	is_transitioning = false # Fin de la transition
 
 
 func _play_intro_sound(nb_intros: int):
@@ -70,16 +80,21 @@ func _play_music() -> void:
 
 
 func start_game(level_index_new: int = level_index) -> void:
-	await IrisWipe.close_transition(0.5)          # 1. ferme → écran noir
+	# Sécurité
+	if is_transitioning: 
+		return 
+	is_transitioning = true
+	
+	await IrisWipe.close_transition(0.5)
 	Global.current_checkpoint_id = 0
 	level_index = level_index_new
 	var error := get_tree().change_scene_to_file(LEVELS[level_index])
 	if error != OK:
 		print("erreur au chargement du niveau d'index " + str(level_index))
 	await get_tree().process_frame
-	await get_tree().process_frame                 # 2. scène chargée
-	await add_world_environment()                  # 3. env ajouté pendant l'écran noir
-	await IrisWipe.open_transition(0.5)            # 4. ouvre → joueur voit la scène propre
+	await get_tree().process_frame
+	await add_world_environment()
+	await IrisWipe.open_transition(0.5)
 	
 	if music_player.playing:
 		var tween = create_tween()
@@ -88,8 +103,14 @@ func start_game(level_index_new: int = level_index) -> void:
 		music_player.stop()
 		music_player.volume_db = -3.0
 
+	is_transitioning = false # Fin de la transition
+
 	
 func load_next_level() -> void:
+	# Sécurité indispensable ici
+	if is_transitioning: 
+		return 
+		
 	var next = level_index + 1
 	if next > save_data.get("unlocked_level", 0):
 		save_data["unlocked_level"] = next

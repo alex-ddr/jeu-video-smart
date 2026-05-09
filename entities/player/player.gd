@@ -57,6 +57,8 @@ var is_releasing_launch: bool = false
 var release_target_height: float = 0.0
 var _launch_charge_ratio: float = 0.0
 
+var god_mod_activated : bool = false
+
 # --------------------------- Nodes ---------------------------
 @onready var body: Sprite2D = $Body
 @onready var head: Sprite2D = $Head_p1 if action_jump == "p1_jump" else $Head_p2
@@ -99,7 +101,7 @@ func _ready() -> void:
 
 # --------------------------- God Mode ---------------------------
 func _input(event: InputEvent) -> void:
-	if  (event is InputEventKey and event.keycode == KEY_Y and event.pressed and not event.echo):
+	if  (event is InputEventKey and event.keycode == KEY_Y and event.pressed and not event.echo and god_mod_activated):
 		god_mode = !god_mode
 		if god_mode:
 			_saved_collision_mask = collision_mask
