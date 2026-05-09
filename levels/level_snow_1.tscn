@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cppax03yetbki" path="res://components/musics/level_music.tscn" id="13_ga6q7"]
 [ext_resource type="AudioStream" uid="uid://by6ngvf5t244" path="res://assets/musics/snow_music.mp3" id="14_soc3v"]
 [ext_resource type="PackedScene" uid="uid://bhaw62sywwf4m" path="res://assets/animated_tiles/torch/torch.tscn" id="15_soc3w"]
+[ext_resource type="Script" uid="uid://6mumfdelop52" path="res://components/death_zone/death_zone.gd" id="17_qvrm7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0bj1y"]
 size = Vector2(797, 128)
@@ -62,6 +63,9 @@ _data = {
 [sub_resource type="LabelSettings" id="LabelSettings_2a4yi"]
 font_size = 70
 font_color = Color(0.20784314, 0.20784314, 0.25490198, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ubx8j"]
+size = Vector2(73.66522, 69.35867)
 
 [node name="LevelSnow1" type="Node2D" unique_id=1589479972]
 script = ExtResource("1_oqf58")
@@ -181,3 +185,15 @@ rotation = 3.1415927
 
 [node name="Music" parent="." unique_id=1510945142 instance=ExtResource("13_ga6q7")]
 stream = ExtResource("14_soc3v")
+
+[node name="DeathZone2" type="Area2D" parent="." unique_id=1041800946]
+position = Vector2(4150, 1351)
+collision_mask = 14
+script = ExtResource("17_qvrm7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone2" unique_id=894874756]
+position = Vector2(10, 9)
+scale = Vector2(8.823701, 8.823701)
+shape = SubResource("RectangleShape2D_ubx8j")
+
+[connection signal="body_entered" from="DeathZone2" to="DeathZone2" method="_on_body_entered"]

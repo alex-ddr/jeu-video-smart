@@ -50,7 +50,20 @@ func _apply_player_push() -> void:
 		var dir = sign(p2.global_position.x - p1.global_position.x)
 		if dir == 0:
 			dir = 1.0
-		
+
+		var p1_bottom = p1.global_position.y
+		var p2_bottom = p2.global_position.y
+		var p1_top = p1_bottom - (p1.height + p1.BODY_HEIGHT_OFFSET)
+		var p2_top = p2_bottom - (p2.height + p2.BODY_HEIGHT_OFFSET)
+
+		var vertical_margin = 6.0
+
+		# Si un joueur est au dessus d'un autre -> pas de collision
+		if p1_bottom < p2_top + vertical_margin:
+			return
+		if p2_bottom < p1_top + vertical_margin:
+			return
+
 		var push_force = 300.0
 		
 		if p1.is_on_ice:
