@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://boqshpc0fb1lm"]
+
+[ext_resource type="Script" uid="uid://bgu1m7sm45t6y" path="res://ui/menu/settings/remap/remap_button.gd" id="1_34x0b"]
+
+[node name="RemapButton" type="Button" unique_id=1890094923]
+size_flags_horizontal = 3
+script = ExtResource("1_34x0b")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

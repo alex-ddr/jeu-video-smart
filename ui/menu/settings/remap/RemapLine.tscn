@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://bbi4eq7x48uke"]
+
+[ext_resource type="PackedScene" uid="uid://boqshpc0fb1lm" path="res://ui/menu/settings/remap/remap_button.tscn" id="1_6qdri"]
+
+[sub_resource type="GDScript" id="GDScript_6qdri"]
+script/source = "extends HFlowContainer
+@export var action_name : String
+@export var action : String #name in properties without prefix p{1,2}
+@onready var label: Label = $Label
+@onready var remap_button_p_1: Button = $HBoxContainer/HBoxContainer/RemapButtonP1
+@onready var remap_button_p_2: Button = $HBoxContainer/HBoxContainer/RemapButtonP2
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	label.text = action_name
+	remap_button_p_1.set_action( \"p1_\" + action)
+	remap_button_p_2.set_action( \"p2_\" + action)
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="RemapLine" type="HFlowContainer" unique_id=307491254]
+offset_right = 543.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = SubResource("GDScript_6qdri")
+
+[node name="Label" type="Label" parent="." unique_id=494597698]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "action"
+
+[node name="HBoxContainer" type="HFlowContainer" parent="." unique_id=1494441607]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer" unique_id=616550931]
+layout_mode = 2
+
+[node name="RemapButtonP1" parent="HBoxContainer/HBoxContainer" unique_id=1890094923 instance=ExtResource("1_6qdri")]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="RemapButtonP2" parent="HBoxContainer/HBoxContainer" unique_id=99430775 instance=ExtResource("1_6qdri")]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2

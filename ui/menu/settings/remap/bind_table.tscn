@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://chqshd3nvmp5b"]
+
+[ext_resource type="Script" uid="uid://d1w60685aycq3" path="res://ui/menu/settings/remap/bind_table.gd" id="1_bumhh"]
+
+[node name="BindTable" type="GridContainer" unique_id=659052795]
+theme_override_constants/h_separation = 20
+columns = 3
+script = ExtResource("1_bumhh")
+
+[node name="Empty" type="Label" parent="." unique_id=1784502561]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+
+[node name="Title" type="Label" parent="." unique_id=732047426]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.20784314, 0.20784314, 0.25490198, 1)
+theme_override_font_sizes/font_size = 25
+text = "player 1"
+
+[node name="Title2" type="Label" parent="." unique_id=2006651088]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.20784314, 0.20784314, 0.25490198, 1)
+theme_override_font_sizes/font_size = 25
+text = "player 2"
